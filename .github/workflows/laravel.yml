@@ -1,0 +1,19 @@
+name: GitHub Actions Deploy
+run-name: ${{ github.actor }} is has pushed and the repo will be deployed
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: make .ssh folder
+        run: mkdir ~/.ssh
+      - name: Add known hosts file
+        run: ssh-keyscan -H ${{ secrets.HOSTNAME }} >> ~/.ssh/known_hosts
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: ${{ secrets.HOST_KEY_FINGERPRINT }}
+      - name: remote execute deploylaravel script
+        run: ssh ${{ secrets.HOST_USER }}@${{ secrets.HOSTNAME }} 'deploylaravel https://${{ github.repository_owner }}:${{ secrets.GH_PWD }}@github.com/${{ github.repository }}.git'
+
