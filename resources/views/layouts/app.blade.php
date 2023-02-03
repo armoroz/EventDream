@@ -1,13 +1,19 @@
 <!DOCTYPE html>
     <head> 
         <meta charset="UTF-8"> 
-        <title>Title TennisClub</title> 
+        <title>EventDream</title> 
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'> 
         <!-- Bootstrap 3.3.7 --> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
-         
+    <style>
+		.btn-primary {
+		border-color: white;
+		background-color: #bcbcbc;
+		color: white;
+		}
+	</style>   
     </head> 
     <body > 
         <nav class="navbar navbar-default navbar-static-top"> 
