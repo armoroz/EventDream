@@ -2,29 +2,26 @@
 
 namespace App\Repositories;
 
-use App\Models\product;
+use App\Models\eventproductlog;
 use App\Repositories\BaseRepository;
 
 /**
- * Class productRepository
+ * Class eventproductlogRepository
  * @package App\Repositories
- * @version January 27, 2023, 4:57 pm UTC
+ * @version February 7, 2023, 8:11 pm UTC
 */
 
-class productRepository extends BaseRepository
+class eventproductlogRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'productname',
-        'producttype',
-        'productdesc',
-        'productcost',
-        'productlocation',
-        'productquantity',
-        'productimg',
-        'userid'
+		'eventdate',
+        'eventproductquantity',
+        'eventid',
+        'productid',
+        'totalcost'
     ];
 
     /**
@@ -42,6 +39,6 @@ class productRepository extends BaseRepository
      **/
     public function model()
     {
-        return product::class;
+        return eventproductlog::class;
     }
 }
