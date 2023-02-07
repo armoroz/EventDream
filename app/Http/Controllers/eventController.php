@@ -155,25 +155,6 @@ class eventController extends AppBaseController
         return redirect(route('events.index'));
     }
 	
-	public function placeorder(Request $request)
-	{
-		$thisOrder = new \App\Models\Event();
-		$thisOrder->orderdate = (new \DateTime())->format("Y-m-d H:i:s");
-		$thisOrder->save();
-		$eventID = $thisOrder->id;
-		$productids = $request->productid;
-		$quantities = $request->eventproductquantity;
-		for($i=0;$i<sizeof($productids);$i++) {
-			$thisOrderDetail = new \App\Models\Eventproductlog();
-			$thisOrderDetail->eventid = $eventID;
-			$thisOrderDetail->productid = $productids[$i];
-			$thisOrderDetail->eventproductquantity = $quantities[$i];
-			$thisOrderDetail->save();
-		}
-		Session::forget('cart');
-		Flash::success("Your Order has Been Placed");
-		return redirect(route('products.displaygrid'));
-	}
 	
 	public function checkout()
 	{
@@ -192,4 +173,25 @@ class eventController extends AppBaseController
 			return redirect(route('products.displaygrid'));
 		}
 	}
+	
+	public function placeorder(Request $request)
+	{
+		$thisOrder = new \App\Models\Event();
+		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
+		$thisOrder->save();
+		$eventID = $thisOrder->id;
+		$productids = $request->productid;
+		$quantities = $request->eventproductquantity;
+		for($i=0;$i<sizeof($productids);$i++) {
+			$thisOrderDetail = new \App\Models\Eventproductlog();
+			$thisOrderDetail->eventid = $eventID;
+			$thisOrderDetail->productid = $productids[$i];
+			$thisOrderDetail->eventproductquantity = $quantities[$i];
+			$thisOrderDetail->save();
+		}
+		Session::forget('cart');
+		Flash::success("Your Order has Been Placed");
+		return redirect(route('products.displaygrid'));
+	}	
+	
 }

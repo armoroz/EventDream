@@ -17,6 +17,7 @@ class eventproductlogRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
+		'eventdate',
         'eventproductquantity',
         'eventid',
         'productid',
