@@ -22,7 +22,7 @@ Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::resource('calendar/display', App\Http\Controllers\calendarController::class);
 
 Route::resource('products', App\Http\Controllers\productController::class);
-Route::resource('employees', App\Http\Controllers\employeeController::class);
+/*Route::resource('employees', App\Http\Controllers\employeeController::class);*/
 
 
 
