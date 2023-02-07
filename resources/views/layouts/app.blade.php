@@ -21,12 +21,18 @@
 				<a class="navbar-brand" style="font-size: 16pt" href="{{route('events.index') }}">EventDream</a>
 			</div>
             <ul class="nav navbar-nav"> 
+<<<<<<< HEAD
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
 			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
             </ul>
+=======
+                <li><a href="{{route('customers.create')}}">customers</a></li> 
+                <li><a href="{{route('products.index')}}">products</a></li> 
+            </ul> 
+>>>>>>> 8cada471b744e0b5c87a7b5f53d946544c47cc21
         </nav> 
         <div id="page-content-wrapper"> 
             <div class="container-fluid"> 
