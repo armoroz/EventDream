@@ -8,10 +8,7 @@
         <th>Productcost</th>
         <th>Productlocation</th>
         <th>Productquantity</th>
-        <th>Productimglink</th>
-        <th>Prodaddedon</th>
-        <th>Produpdatedon</th>
-        <th>Proddeletedon</th>
+        <th>Productimg</th>
         <th>Userid</th>
             <th colspan="3">Action</th>
         </tr>
@@ -25,10 +22,7 @@
             <td>{{ $product->productcost }}</td>
             <td>{{ $product->productlocation }}</td>
             <td>{{ $product->productquantity }}</td>
-            <td>{{ $product->productimglink }}</td>
-            <td>{{ $product->prodaddedon }}</td>
-            <td>{{ $product->produpdatedon }}</td>
-            <td>{{ $product->proddeletedon }}</td>
+            <td>{{ $product->productimg }}</td>
             <td>{{ $product->userid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}

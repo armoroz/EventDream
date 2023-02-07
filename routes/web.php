@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-require __DIR__.'/auth.php';
+
 Route::get('/', function () {
     return view('welcome');
 });
-
+//require __DIR__.'/auth.php';
 
 Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::resource('calendar/display', App\Http\Controllers\calendarController::class);
@@ -24,6 +24,7 @@ Route::resource('calendar/display', App\Http\Controllers\calendarController::cla
 //Route::resource('products', App\Http\Controllers\productController::class);
 
 Route::get('products/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
+Route::get('products', 'App\Http\Controllers\productController@index')->name('products.index');
 /*Route::resource('employees', App\Http\Controllers\employeeController::class);*/
 
 Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');

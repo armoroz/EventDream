@@ -23,10 +23,7 @@ class productRepository extends BaseRepository
         'productcost',
         'productlocation',
         'productquantity',
-        'productimglink',
-        'prodaddedon',
-        'produpdatedon',
-        'proddeletedon',
+        'productimg',
         'userid'
     ];
 
