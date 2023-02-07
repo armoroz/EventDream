@@ -25,4 +25,4 @@
      }); 
      calendar.render(); }); 
 </script> 
-@endsection 
+@endsection
