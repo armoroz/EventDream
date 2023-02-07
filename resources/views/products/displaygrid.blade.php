@@ -7,12 +7,21 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
 <div style="padding-top:7%" class="container-fluid"> 
     <nav class="navbar navbar-default navbar-fixed-top"> 
+			<div class="navbar-header">
+				<a class="navbar-brand" style="font-size: 16pt" href="{{route('events.index') }}">EventDream</a>
+			</div>
+            <ul class="nav navbar-nav"> 
+			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
+			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
+			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
+			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
+			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
         <ul class="list-inline nav navbar-nav navbar-right">
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block">Check Out</button></a></li> 
             <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
-            <li><span style="font-size:40px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
-            <div class="navbar-text" id="shoppingcart" style="font-size:16pt;margin-left:0px;margin-right:0px;">{{$totalItems}}</div>
-            <li><div class="navbar-text" style="font-size:16pt;margin-left:0px;">Item(s)</div></li> 
+            <li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
+            <div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;">{{$totalItems}}</div>
+            <li><div class="navbar-text" style="font-size:13pt;margin-left:0px;">Item(s)</div></li> 
         <ul> 
     </nav> 
 </div>
@@ -21,7 +30,7 @@
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4"> 
             <div class="panel panel-primary"> 
-            <div class="panel-heading">{{ $product->name }} {{ $product->description }}</div> 
+            <div class="panel-heading"style="background-color:grey;">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
             <div class="panel-body"><img style="width:80%;height:200px;" class="img-responsive center-block" src="{{ asset('/img/' . $product->productimg)}}"/></div> 
             <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div> 
         </div> 

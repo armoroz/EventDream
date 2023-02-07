@@ -39,3 +39,5 @@ Route::resource('events', App\Http\Controllers\eventController::class);
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 
 Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
+
+Route::resource('bookings', App\Http\Controllers\bookingController::class);
