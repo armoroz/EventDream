@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
+		<link rel="stylesheet" href="{{asset('css/app.css')}}">
     <style>
 		.btn-primary {
 		border-color: white;
@@ -26,10 +27,6 @@
 			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
-            </ul>
-                <li><a href="{{route('customers.create')}}">customers</a></li> 
-                <li><a href="{{route('products.index')}}">products</a></li> 
-            </ul> 
         </nav> 
         <div id="page-content-wrapper"> 
             <div class="container-fluid"> 

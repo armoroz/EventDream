@@ -2,9 +2,8 @@
 @section('content')
 @include('flash::message') 
 @php $j=0 @endphp 
-
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
+ 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <div style="padding-top:7%" class="container-fluid"> 
     <nav class="navbar navbar-default navbar-fixed-top"> 
 			<div class="navbar-header">
@@ -28,9 +27,9 @@
 
 @foreach($products as $product) 
     @if ($j==0) <div class='row'> @endif 
-        <div class="col-sm-4"> 
+        <div class="col-sm-4">
             <div class="panel panel-primary"> 
-            <div class="panel-heading"style="background-color:grey;">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
+            <div class="panel-heading" style="background-color:#2d3033;">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
             <div class="panel-body"><img style="width:80%;height:200px;" class="img-responsive center-block" src="{{ asset('/img/' . $product->productimg)}}"/></div> 
             <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div> 
         </div> 
