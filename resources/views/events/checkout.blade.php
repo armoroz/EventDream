@@ -23,7 +23,7 @@
                   <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
                   <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button> 
               </td>
-              @php $ttlQty = $ttlQty + $lineitem['qty']; $ttlCost = $ttlCost + ($product->price*$lineitem['qty']); 
+              @php $ttlQty = $ttlQty + $lineitem['qty']; $ttlCost = $ttlCost + ($product->productcost*$lineitem['qty']); 
               @endphp 
         </tr> 
     @endforeach
