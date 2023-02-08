@@ -55,3 +55,9 @@ Route::get('/logout','\App\Http\Controllers\Auth\AuthenticatedSessionController@
 Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@store');
 
 Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
+
+
+Route::resource('users', App\Http\Controllers\usersController::class);
+
+
+Route::resource('roles', App\Http\Controllers\rolesController::class);
