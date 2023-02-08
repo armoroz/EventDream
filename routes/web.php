@@ -70,3 +70,13 @@ Route::resource('permissions', App\Http\Controllers\permissionsController::class
 
 Route::get('/roles/assignpermissions/{id}', 'App\Http\Controllers\RolesController@assignPermissions')->name('roles.assignpermissions');
 Route::patch('/roles/updatepermissions/{id}', 'App\Http\Controllers\RolesController@updatePermissions')->name("roles.permissionsupdate");
+
+//Route::get('products', 'App\Http\Controllers\productController@index');
+
+Route::group(['middleware' => ['role:System Admin']], function () {                           
+Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')->middleware('permission:Create Product');
+Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')->middleware('permission:Delete Product');
+Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
+Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
+Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
+});

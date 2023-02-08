@@ -34,59 +34,11 @@
     {!! Form::number('productquantity', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Productimglink Field -->
+<!-- Productimg Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('productimglink', 'Productimglink:') !!}
-    {!! Form::text('productimglink', null, ['class' => 'form-control','maxlength' => 50,'maxlength' => 50]) !!}
+    {!! Form::label('productimg', 'Productimg:') !!}
+    {!! Form::text('productimg', null, ['class' => 'form-control','maxlength' => 50,'maxlength' => 50]) !!}
 </div>
-
-<!-- Prodaddedon Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('prodaddedon', 'Prodaddedon:') !!}
-    {!! Form::text('prodaddedon', null, ['class' => 'form-control','id'=>'prodaddedon']) !!}
-</div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#prodaddedon').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
-
-<!-- Produpdatedon Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('produpdatedon', 'Produpdatedon:') !!}
-    {!! Form::text('produpdatedon', null, ['class' => 'form-control','id'=>'produpdatedon']) !!}
-</div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#produpdatedon').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
-
-<!-- Proddeletedon Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('proddeletedon', 'Proddeletedon:') !!}
-    {!! Form::text('proddeletedon', null, ['class' => 'form-control','id'=>'proddeletedon']) !!}
-</div>
-
-@push('page_scripts')
-    <script type="text/javascript">
-        $('#proddeletedon').datetimepicker({
-            format: 'YYYY-MM-DD HH:mm:ss',
-            useCurrent: true,
-            sideBySide: true
-        })
-    </script>
-@endpush
 
 <!-- Userid Field -->
 <div class="form-group col-sm-6">

@@ -20,10 +20,7 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property number $productcost
  * @property string $productlocation
  * @property integer $productquantity
- * @property string $productimglink
- * @property string|\Carbon\Carbon $prodaddedon
- * @property string|\Carbon\Carbon $produpdatedon
- * @property string|\Carbon\Carbon $proddeletedon
+ * @property string $productimg
  * @property integer $userid
  */
 class product extends Model
@@ -45,10 +42,7 @@ class product extends Model
         'productcost',
         'productlocation',
         'productquantity',
-        'productimglink',
-        'prodaddedon',
-        'produpdatedon',
-        'proddeletedon',
+        'productimg',
         'userid'
     ];
 
@@ -65,10 +59,7 @@ class product extends Model
         'productcost' => 'decimal:2',
         'productlocation' => 'string',
         'productquantity' => 'integer',
-        'productimglink' => 'string',
-        'prodaddedon' => 'datetime',
-        'produpdatedon' => 'datetime',
-        'proddeletedon' => 'datetime',
+        'productimg' => 'string',
         'userid' => 'integer'
     ];
 
@@ -84,10 +75,7 @@ class product extends Model
         'productcost' => 'nullable|numeric',
         'productlocation' => 'nullable|string|max:30',
         'productquantity' => 'nullable|integer',
-        'productimglink' => 'nullable|string|max:50',
-        'prodaddedon' => 'nullable',
-        'produpdatedon' => 'nullable',
-        'proddeletedon' => 'nullable',
+        'productimg' => 'nullable|string|max:50',
         'userid' => 'nullable|integer'
     ];
 
