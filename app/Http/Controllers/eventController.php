@@ -155,7 +155,6 @@ class eventController extends AppBaseController
         return redirect(route('events.index'));
     }
 	
-	
 	public function checkout()
 	{
 		if (Session::has('cart')) {
@@ -180,8 +179,9 @@ class eventController extends AppBaseController
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
+		$eventID = 5;
 		$productids = $request->productid;
-		$quantities = $request->eventproductquantity;
+		$quantities = $request->quantity;
 		for($i=0;$i<sizeof($productids);$i++) {
 			$thisOrderDetail = new \App\Models\Eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
@@ -192,6 +192,6 @@ class eventController extends AppBaseController
 		Session::forget('cart');
 		Flash::success("Your Order has Been Placed");
 		return redirect(route('products.displaygrid'));
-	}	
-	
+	}
+
 }

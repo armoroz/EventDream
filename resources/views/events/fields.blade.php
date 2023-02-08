@@ -1,23 +1,85 @@
-<!-- Eventproductquantity Field -->
+<!-- Eventdate Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('eventproductquantity', 'Eventproductquantity:') !!}
-    {!! Form::number('eventproductquantity', null, ['class' => 'form-control']) !!}
+    {!! Form::label('eventdate', 'Eventdate:') !!}
+    {!! Form::text('eventdate', null, ['class' => 'form-control','id'=>'eventdate']) !!}
 </div>
 
-<!-- Eventid Field -->
+@push('page_scripts')
+    <script type="text/javascript">
+        $('#eventdate').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            useCurrent: true,
+            sideBySide: true
+        })
+    </script>
+@endpush
+
+<!-- Eventtime Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('eventid', 'Eventid:') !!}
-    {!! Form::number('eventid', null, ['class' => 'form-control']) !!}
+    {!! Form::label('eventtime', 'Eventtime:') !!}
+    {!! Form::text('eventtime', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Productid Field -->
+<!-- Orderplacedon Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('productid', 'Productid:') !!}
-    {!! Form::number('productid', null, ['class' => 'form-control']) !!}
+    {!! Form::label('orderplacedon', 'Orderplacedon:') !!}
+    {!! Form::text('orderplacedon', null, ['class' => 'form-control','id'=>'orderplacedon']) !!}
 </div>
 
-<!-- Totalcost Field -->
+@push('page_scripts')
+    <script type="text/javascript">
+        $('#orderplacedon').datetimepicker({
+            format: 'YYYY-MM-DD HH:mm:ss',
+            useCurrent: true,
+            sideBySide: true
+        })
+    </script>
+@endpush
+
+<!-- Eventordertotal Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('totalcost', 'Totalcost:') !!}
-    {!! Form::number('totalcost', null, ['class' => 'form-control']) !!}
+    {!! Form::label('eventordertotal', 'Eventordertotal:') !!}
+    {!! Form::number('eventordertotal', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Eventdiscount Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('eventdiscount', 'Eventdiscount:') !!}
+    {!! Form::number('eventdiscount', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Venueid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('venueid', 'Venueid:') !!}
+    {!! Form::number('venueid', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Customerid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('customerid', 'Customerid:') !!}
+    {!! Form::number('customerid', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Userid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('userid', 'Userid:') !!}
+    {!! Form::number('userid', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Standardmenuid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('standardmenuid', 'Standardmenuid:') !!}
+    {!! Form::number('standardmenuid', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Custommenuid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('custommenuid', 'Custommenuid:') !!}
+    {!! Form::number('custommenuid', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Deliveryid Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('deliveryid', 'Deliveryid:') !!}
+    {!! Form::number('deliveryid', null, ['class' => 'form-control']) !!}
 </div>

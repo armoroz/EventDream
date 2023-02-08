@@ -2,20 +2,34 @@
     <table class="table" id="events-table">
         <thead>
         <tr>
-            <th>Eventproductquantity</th>
-        <th>Eventid</th>
-        <th>Productid</th>
-        <th>Totalcost</th>
+            <th>Eventdate</th>
+        <th>Eventtime</th>
+        <th>Orderplacedon</th>
+        <th>Eventordertotal</th>
+        <th>Eventdiscount</th>
+        <th>Venueid</th>
+        <th>Customerid</th>
+        <th>Userid</th>
+        <th>Standardmenuid</th>
+        <th>Custommenuid</th>
+        <th>Deliveryid</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($events as $event)
             <tr>
-                <td>{{ $event->eventproductquantity }}</td>
-            <td>{{ $event->eventid }}</td>
-            <td>{{ $event->productid }}</td>
-            <td>{{ $event->totalcost }}</td>
+                <td>{{ $event->eventdate }}</td>
+            <td>{{ $event->eventtime }}</td>
+            <td>{{ $event->orderplacedon }}</td>
+            <td>{{ $event->eventordertotal }}</td>
+            <td>{{ $event->eventdiscount }}</td>
+            <td>{{ $event->venueid }}</td>
+            <td>{{ $event->customerid }}</td>
+            <td>{{ $event->userid }}</td>
+            <td>{{ $event->standardmenuid }}</td>
+            <td>{{ $event->custommenuid }}</td>
+            <td>{{ $event->deliveryid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['events.destroy', $event->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

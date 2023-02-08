@@ -9,20 +9,32 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class event
  * @package App\Models
- * @version February 7, 2023, 8:11 pm UTC
+ * @version February 8, 2023, 11:39 am UTC
  *
- * @property \App\Models\Event $eventid
- * @property \App\Models\Product $productid
- * @property integer $eventproductquantity
- * @property integer $eventid
- * @property integer $productid
- * @property number $totalcost
+ * @property \App\Models\Venue $venueid
+ * @property \App\Models\Customer $customerid
+ * @property \App\Models\User $userid
+ * @property \App\Models\Standardmenu $standardmenuid
+ * @property \App\Models\Custommenu $custommenuid
+ * @property \App\Models\Delivery $deliveryid
+ * @property \Illuminate\Database\Eloquent\Collection $eventproductlogs
+ * @property string $eventdate
+ * @property time $eventtime
+ * @property string|\Carbon\Carbon $orderplacedon
+ * @property number $eventordertotal
+ * @property integer $eventdiscount
+ * @property integer $venueid
+ * @property integer $customerid
+ * @property integer $userid
+ * @property integer $standardmenuid
+ * @property integer $custommenuid
+ * @property integer $deliveryid
  */
 class event extends Model
 {
 
 
-    public $table = 'eventproductlog';
+    public $table = 'event';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -31,10 +43,17 @@ class event extends Model
 
 
     public $fillable = [
-        'eventproductquantity',
-        'eventid',
-        'productid',
-        'totalcost'
+        'eventdate',
+        'eventtime',
+        'orderplacedon',
+        'eventordertotal',
+        'eventdiscount',
+        'venueid',
+        'customerid',
+        'userid',
+        'standardmenuid',
+        'custommenuid',
+        'deliveryid'
     ];
 
     /**
@@ -44,10 +63,16 @@ class event extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'eventproductquantity' => 'integer',
-        'eventid' => 'integer',
-        'productid' => 'integer',
-        'totalcost' => 'decimal:2'
+        'eventdate' => 'date',
+        'orderplacedon' => 'datetime',
+        'eventordertotal' => 'decimal:2',
+        'eventdiscount' => 'integer',
+        'venueid' => 'integer',
+        'customerid' => 'integer',
+        'userid' => 'integer',
+        'standardmenuid' => 'integer',
+        'custommenuid' => 'integer',
+        'deliveryid' => 'integer'
     ];
 
     /**
@@ -56,25 +81,72 @@ class event extends Model
      * @var array
      */
     public static $rules = [
-        'eventproductquantity' => 'nullable|integer',
-        'eventid' => 'nullable|integer',
-        'productid' => 'nullable|integer',
-        'totalcost' => 'nullable|numeric'
+        'eventdate' => 'nullable',
+        'eventtime' => 'nullable',
+        'orderplacedon' => 'nullable',
+        'eventordertotal' => 'nullable|numeric',
+        'eventdiscount' => 'nullable|integer',
+        'venueid' => 'nullable|integer',
+        'customerid' => 'nullable|integer',
+        'userid' => 'nullable|integer',
+        'standardmenuid' => 'nullable|integer',
+        'custommenuid' => 'nullable|integer',
+        'deliveryid' => 'nullable|integer'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function eventid()
+    public function venueid()
     {
-        return $this->belongsTo(\App\Models\Event::class, 'eventid');
+        return $this->belongsTo(\App\Models\Venue::class, 'venueid');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function productid()
+    public function customerid()
     {
-        return $this->belongsTo(\App\Models\Product::class, 'productid');
+        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function userid()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'userid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function standardmenuid()
+    {
+        return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function custommenuid()
+    {
+        return $this->belongsTo(\App\Models\Custommenu::class, 'custommenuid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function deliveryid()
+    {
+        return $this->belongsTo(\App\Models\Delivery::class, 'deliveryid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function eventproductlogs()
+    {
+        return $this->hasMany(\App\Models\Eventproductlog::class, 'eventid');
     }
 }

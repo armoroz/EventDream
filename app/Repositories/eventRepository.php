@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class eventRepository
  * @package App\Repositories
- * @version February 7, 2023, 8:11 pm UTC
+ * @version February 8, 2023, 11:39 am UTC
 */
 
 class eventRepository extends BaseRepository
@@ -17,10 +17,17 @@ class eventRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'eventproductquantity',
-        'eventid',
-        'productid',
-        'totalcost'
+        'eventdate',
+        'eventtime',
+        'orderplacedon',
+        'eventordertotal',
+        'eventdiscount',
+        'venueid',
+        'customerid',
+        'userid',
+        'standardmenuid',
+        'custommenuid',
+        'deliveryid'
     ];
 
     /**

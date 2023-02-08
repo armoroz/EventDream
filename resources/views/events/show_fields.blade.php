@@ -1,24 +1,66 @@
-<!-- Eventproductquantity Field -->
+<!-- Eventdate Field -->
 <div class="col-sm-12">
-    {!! Form::label('eventproductquantity', 'Eventproductquantity:') !!}
-    <p>{{ $event->eventproductquantity }}</p>
+    {!! Form::label('eventdate', 'Eventdate:') !!}
+    <p>{{ $event->eventdate }}</p>
 </div>
 
-<!-- Eventid Field -->
+<!-- Eventtime Field -->
 <div class="col-sm-12">
-    {!! Form::label('eventid', 'Eventid:') !!}
-    <p>{{ $event->eventid }}</p>
+    {!! Form::label('eventtime', 'Eventtime:') !!}
+    <p>{{ $event->eventtime }}</p>
 </div>
 
-<!-- Productid Field -->
+<!-- Orderplacedon Field -->
 <div class="col-sm-12">
-    {!! Form::label('productid', 'Productid:') !!}
-    <p>{{ $event->productid }}</p>
+    {!! Form::label('orderplacedon', 'Orderplacedon:') !!}
+    <p>{{ $event->orderplacedon }}</p>
 </div>
 
-<!-- Totalcost Field -->
+<!-- Eventordertotal Field -->
 <div class="col-sm-12">
-    {!! Form::label('totalcost', 'Totalcost:') !!}
-    <p>{{ $event->totalcost }}</p>
+    {!! Form::label('eventordertotal', 'Eventordertotal:') !!}
+    <p>{{ $event->eventordertotal }}</p>
+</div>
+
+<!-- Eventdiscount Field -->
+<div class="col-sm-12">
+    {!! Form::label('eventdiscount', 'Eventdiscount:') !!}
+    <p>{{ $event->eventdiscount }}</p>
+</div>
+
+<!-- Venueid Field -->
+<div class="col-sm-12">
+    {!! Form::label('venueid', 'Venueid:') !!}
+    <p>{{ $event->venueid }}</p>
+</div>
+
+<!-- Customerid Field -->
+<div class="col-sm-12">
+    {!! Form::label('customerid', 'Customerid:') !!}
+    <p>{{ $event->customerid }}</p>
+</div>
+
+<!-- Userid Field -->
+<div class="col-sm-12">
+    {!! Form::label('userid', 'Userid:') !!}
+    <p>{{ $event->userid }}</p>
+</div>
+
+<!-- Standardmenuid Field -->
+<div class="col-sm-12">
+    {!! Form::label('standardmenuid', 'Standardmenuid:') !!}
+    <p>{{ $event->standardmenuid }}</p>
+</div>
+
+<!-- Custommenuid Field -->
+<div class="col-sm-12">
+    {!! Form::label('custommenuid', 'Custommenuid:') !!}
+    <p>{{ $event->custommenuid }}</p>
+</div>
+
+<!-- Deliveryid Field -->
+<div class="col-sm-12">
+    {!! Form::label('deliveryid', 'Deliveryid:') !!}
+    <p>{{ $event->deliveryid }}</p>
 </div>
 
