@@ -9,6 +9,10 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+//use App\Models\Roles as Roles;
+use Spatie\Permission\Models\Role as SpRole;
+use App\Models\User as User;
+
 
 class usersController extends AppBaseController
 {
@@ -153,4 +157,28 @@ class usersController extends AppBaseController
 
         return redirect(route('users.index'));
     }
+	
+	public function assignRoles($id)
+	{
+		$user = User::findOrFail($id);
+		$roles = SpRole::all();
+		return view('users.assignroles')
+			->with('user', $user)->with('roles',$roles);        
+	}
+	
+	public function updateRoles($id, Request $request)
+	{
+		$user = User::findOrFail($id);;
+		$roles = SpRole::all();
+		foreach($roles as $role) {
+			if (isset($request->role[$role->id])) {
+				$user->assignRole($role);
+			}
+			else {
+				$user->removeRole($role);
+			}
+		}
+		Flash::success('Roles updated successfully.');
+		return redirect(route('roles.index'));
+	}
 }
