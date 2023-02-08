@@ -21,6 +21,7 @@
 			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
+			@include('layouts.navAuth')
         </nav> 
         <div id="page-content-wrapper"> 
             <div class="container-fluid"> 

@@ -112,4 +112,9 @@ class customer extends Model
     {
         return $this->hasMany(\App\Models\Event::class, 'customerid');
     }
+	
+	public function user()
+	{
+		return $this->belongsTo(\App\User::class,'userid','id');
+	}
 }

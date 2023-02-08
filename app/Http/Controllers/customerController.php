@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Illuminate\Support\Facades\Auth;
 
 class customerController extends AppBaseController
 {
@@ -153,4 +154,20 @@ class customerController extends AppBaseController
 
         return redirect(route('customers.index'));
     }
+	
+	public function getLoggedInCustomerDetails()
+	{
+
+		if (!Auth::guest()){
+			$user = Auth::user();
+			echo "UserID is " . $user->id;    
+			echo ", customer ID is " . $user->customer->id;
+			echo ". The customer's name is " . $user->customer->firstname . " ";
+			echo $user->customer->surname;
+			echo ". The customer is a " . $user->customer->customertype;
+		}
+		else {
+			echo "not logged in ";
+		}
+	}
 }

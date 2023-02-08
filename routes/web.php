@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//require __DIR__.'/auth.php';
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+//require __DIR__ ."/auth.php";
 
 Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::resource('calendar/display', App\Http\Controllers\calendarController::class);
@@ -35,9 +41,17 @@ Route::get('events/checkout', 'App\Http\Controllers\eventController@checkout')->
 
 Route::resource('events', App\Http\Controllers\eventController::class);
 
-
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 
 Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
 
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
+
+//Route::get('/home','App\Http\Controllers\customerController@index')->name('home');
+//Route::get('logout','App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+//Auth::routes();
+Route::get('/logout','\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
+
+Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@store');
+
+Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');

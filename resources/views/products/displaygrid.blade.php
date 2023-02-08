@@ -21,6 +21,7 @@
             <li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
             <div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;">{{$totalItems}}</div>
             <li><div class="navbar-text" style="font-size:13pt;margin-left:0px;">Item(s)</div></li> 
+			@include('layouts.navAuth')
         <ul> 
     </nav> 
 </div>
@@ -31,8 +32,8 @@
             <div class="panel panel-primary"> 
             <div class="panel-heading" style="background-color:#2d3033;">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
             <div class="panel-body"><img style="width:80%;height:200px;" class="img-responsive center-block" src="{{ asset('/img/' . $product->productimg)}}"/></div> 
-            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div> 
-        </div> 
+            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
+        </div>
     </div> 
     @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp </div> @endif 
