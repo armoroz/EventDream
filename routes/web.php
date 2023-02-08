@@ -89,3 +89,5 @@ Route::get('products/{product}/edit', 'App\Http\Controllers\productController@ed
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 });
+
+Route::resource('venues', App\Http\Controllers\venueController::class);
