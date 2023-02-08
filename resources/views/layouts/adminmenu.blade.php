@@ -11,5 +11,16 @@
         <li>
              <a href="{!! route('permissions.index') !!}">Permissions</a>
         </li>
+             <a href="{!! route('products.index') !!}">Products</a>
+        </li>
+        <li>
+             <a href="{!! route('customers.index') !!}">Customer List</a>
+        </li>
+		<li>
+             <a href="{!! route('events.index') !!}">Event List</a>
+        </li>
+		<li>
+             <a href="{!! route('eventproductlogs.index') !!}">Event Log</a>
+        </li>
     </ul>
 </li>

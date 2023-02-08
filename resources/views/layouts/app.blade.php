@@ -27,7 +27,10 @@
 				@if(Auth::check())
 					@if(Auth::user()->hasRole('System Admin'))
 						 @include('layouts.adminmenu')
-					@endif 
+					@elseif(Auth::user()->hasRole('Warehouse Worker'))
+					@include('layouts.stockmenu')
+					@endif
+					@include('layouts.profilemenu')
 					<li><a href="{!! route('logout') !!}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 				@else
 					<li><a href="{!! route('login') !!}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
