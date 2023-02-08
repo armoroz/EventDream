@@ -8,13 +8,7 @@
         <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
 		<link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <style>
-		.btn-primary {
-		border-color: white;
-		background-color: #bcbcbc;
-		color: white;
-		}
-	</style>   
+  
     </head> 
     <body>
         <nav class="navbar navbar-default navbar-static-top">		

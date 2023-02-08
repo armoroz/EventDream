@@ -5,3 +5,9 @@ body {
 .panel-heading {
 	background-color:grey;
 }
+
+.btn-primary {
+border-color: white;
+background-color: #bcbcbc;
+color: white;
+}
