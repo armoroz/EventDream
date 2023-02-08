@@ -15,6 +15,9 @@
                 <td width="120">
                     {!! Form::open(['route' => ['roles.destroy', $roles->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
+					    <a href="{{ route('roles.assignpermissions', [$roles->id]) }}" class='btn btn-default btn-xs'>
+                            <i class="fas fa-unlock-alt"></i>
+                        </a>
                         <a href="{{ route('roles.show', [$roles->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
