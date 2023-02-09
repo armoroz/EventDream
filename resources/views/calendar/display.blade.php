@@ -13,6 +13,12 @@
 <script src="{{ asset('list/main.js')}}"></script> 
 <div id="calendar"></div> 
 <script> 
+		$(function () {
+		$('body').on('click', '#submitButton', function (e) {
+        $(this.form).submit();
+        $('#fullCalModal').modal('hide');
+    });
+});
     document.addEventListener('DOMContentLoaded', function() { 
         var calendarEl = document.getElementById('calendar'); 
         var calendar = new FullCalendar.Calendar(calendarEl, { 
@@ -29,6 +35,9 @@
             $('#bookingDate').val(info.date.toISOString().substring(0,10));
             $('#fullCalModal').modal('show');
  }
+            
+ 
+ 
 	 }); 
      calendar.render(); }); 
 </script> 

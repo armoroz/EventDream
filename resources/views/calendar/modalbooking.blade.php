@@ -11,15 +11,12 @@
 <input type="text" class="form-control" id="memid" name="memberid"/> 
 </div> 
 <div class="form-group"> 
-<label for="bookingdate">Booking Date</label> 
+<label for="bookingdate">Booked Date</label> 
 <input type="text" class="form-control" id="bookingDate" name="bookingdate"/> 
 </div> 
 <div class="form-group"> 
-<label for="starttime">Start Time</label> 
+<label for="starttime">Booked Time</label> 
 <input type="text" class="form-control" id="starttime" name="starttime"/> </div> 
-<div class="form-group"> 
-<label for="endtime">Start Time</label> 
-<input type="text" class="form-control" id="endtime" name="endtime"/> </div> 
 <div class="form-group"> 
 <label for="courtid">VenueID</label> 
 <input type="text" class="form-control" id="courtid" name="courtid"/> </div> 
