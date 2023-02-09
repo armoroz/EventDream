@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Model as Model;
 /**
  * Class venue
  * @package App\Models
- * @version February 8, 2023, 11:22 pm UTC
+ * @version February 9, 2023, 11:16 pm UTC
  *
  * @property \App\Models\User $userid
  * @property \Illuminate\Database\Eloquent\Collection $bookings
  * @property \Illuminate\Database\Eloquent\Collection $events
+ * @property \Illuminate\Database\Eloquent\Collection $venueratings
  * @property string $venuename
  * @property string $addressline1
  * @property string $addressline2
@@ -101,5 +102,13 @@ class venue extends Model
     public function events()
     {
         return $this->hasMany(\App\Models\Event::class, 'venueid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function venueratings()
+    {
+        return $this->hasMany(\App\Models\Venuerating::class, 'venueid');
     }
 }

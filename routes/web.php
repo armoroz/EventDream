@@ -91,3 +91,6 @@ Route::post('products/{product}/update','App\Http\Controllers\productController@
 });
 
 Route::resource('venues', App\Http\Controllers\venueController::class);
+
+
+Route::resource('venueratings', App\Http\Controllers\venueratingController::class);

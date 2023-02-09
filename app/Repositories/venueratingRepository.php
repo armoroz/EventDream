@@ -2,29 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\venue;
+use App\Models\venuerating;
 use App\Repositories\BaseRepository;
 
 /**
- * Class venueRepository
+ * Class venueratingRepository
  * @package App\Repositories
- * @version February 9, 2023, 11:16 pm UTC
+ * @version February 9, 2023, 11:00 pm UTC
 */
 
-class venueRepository extends BaseRepository
+class venueratingRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'venuename',
-        'addressline1',
-        'addressline2',
-        'city',
-        'eircode',
-        'humancapacity',
-        'costtorent',
-        'userid'
+        'rating',
+        'comment',
+        'venueid'
     ];
 
     /**
@@ -42,6 +37,6 @@ class venueRepository extends BaseRepository
      **/
     public function model()
     {
-        return venue::class;
+        return venuerating::class;
     }
 }
