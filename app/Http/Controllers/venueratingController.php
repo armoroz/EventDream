@@ -19,6 +19,11 @@ class venueratingController extends AppBaseController
     {
         $this->venueratingRepository = $venueratingRepo;
     }
+	
+	public function ratevenue($venueid)
+	{
+		return view('venueratings.ratevenue')->with('venueid',$venueid);
+	}
 
     /**
      * Display a listing of the venuerating.
@@ -153,4 +158,5 @@ class venueratingController extends AppBaseController
 
         return redirect(route('venueratings.index'));
     }
+	
 }
