@@ -1,5 +1,7 @@
 @extends('layouts.app') 
 @section('content') 
+@include('calendar.assets')
+@include('calendar.modalbooking')
 <link href="{{ asset('core/main.css')}}" rel='stylesheet' /> 
 <link href="{{ asset('daygrid/main.css')}}" rel='stylesheet' />
 <link href="{{ asset('timegrid/main.css')}}" rel='stylesheet' /> 
@@ -21,8 +23,13 @@
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
           events: [ { title: 'All Day Event', start: '2019-08-01' }, 
-                    { title: 'Long Event', start: '2019-08-07', end: '2019-08-10' } ] 
-     }); 
+                    { title: 'Long Event', start: '2019-08-07', end: '2019-08-10' } ] ,
+		   dateClick: function(info) {
+            $('#starttime').val(info.date.toISOString().substring(11,16));
+            $('#bookingDate').val(info.date.toISOString().substring(0,10));
+            $('#fullCalModal').modal('show');
+ }
+	 }); 
      calendar.render(); }); 
 </script> 
 @endsection
