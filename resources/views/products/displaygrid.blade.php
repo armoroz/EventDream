@@ -11,6 +11,8 @@
 			</div>
             <ul class="nav navbar-nav"> 
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
+			<li><a href="{{route('venues.index')}}" style="font-size: 12pt" >Venues</a></li>
+			<li><a href="{{route('venueratings.index')}}" style="font-size: 12pt" >Venue Ratings</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
 			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>

@@ -19,6 +19,8 @@
 			</div>
             <ul class="nav navbar-nav"> 
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
+			<li><a href="{{route('venues.index')}}" style="font-size: 12pt" >Venues</a></li>
+			<li><a href="{{route('venueratings.index')}}" style="font-size: 12pt" >Venue Ratings</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
 			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
@@ -31,10 +33,10 @@
 					@include('layouts.stockmenu')
 					@endif
 					@include('layouts.profilemenu')
-					<li><a href="{!! route('logout') !!}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+					<li><a href="{!! route('logout') !!}"><span class="glyphicon glyphicon-log-out" style="font-size: 12pt"></span> Logout</a></li>
 				@else
-					<li><a href="{!! route('login') !!}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<li><a href="{!! route('register') !!}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+					<li><a href="{!! route('login') !!}"><span class="glyphicon glyphicon-log-in" style="font-size: 12pt"></span> Login</a></li>
+					<li><a href="{!! route('register') !!}"><span class="glyphicon glyphicon-user" style="font-size: 12pt"></span> Register</a></li>
 				@endif
 			</ul>
         </nav> 

@@ -1,7 +1,7 @@
 <!-- Venueid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('venueid', 'Venueid:') !!}
-    {!! Form::number('venueid', $venueid, ['class' => 'form-control', 'readOnly' => 'true']) !!}
+    {!! Form::number('venueid', $venueid, ['class' => 'form-control', 'readonly' => 'true']) !!}
 </div>
 
 <!-- Rating Field -->

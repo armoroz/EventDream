@@ -1,5 +1,5 @@
 <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Stock Menu
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 12pt">Stock Menu
     <span class="caret"></span></a>
     <ul class="dropdown-menu">
         <li>
