@@ -189,7 +189,7 @@ class eventController extends AppBaseController
 			$thisOrderDetail->save();
 		}
 		Session::forget('cart');
-		Flash::success("Your Order has Been Placed");
+		Flash::success("Your Event Order has been placed");
 		return redirect(route('products.displaygrid'));
 	}
 

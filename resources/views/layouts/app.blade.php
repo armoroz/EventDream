@@ -4,19 +4,19 @@
         <title>EventDream</title> 
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'> 
         <!-- Bootstrap 3.3.7 --> 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
         <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
 		<link rel="stylesheet" href="{{asset('css/app.css')}}">
-		
+		<script src="{{asset('js/app.js')}}"></script>
+
 		<!--<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
 		<link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="{{asset('css/app.css')}}"> 
-		<script src="{{asset('js/app.js')}}"></script>-->
+		<link rel="stylesheet" href="{{asset('css/app.css')}}">-->
+		
   
     </head> 
     <body>
@@ -33,7 +33,8 @@
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
-				@if(Auth::check())
+			@include('layouts.navAuth')
+				<!--@if(Auth::check())
 					@if(Auth::user()->hasRole('System Admin'))
 						 @include('layouts.adminmenu')
 					@elseif(Auth::user()->hasRole('Warehouse Worker'))
@@ -44,7 +45,7 @@
 				@else
 					<li><a href="{!! route('login') !!}"><span class="glyphicon glyphicon-log-in" style="font-size: 12pt"></span> Login</a></li>
 					<li><a href="{!! route('register') !!}"><span class="glyphicon glyphicon-user" style="font-size: 12pt"></span> Register</a></li>
-				@endif
+				@endif-->
 			</ul>
         </nav> 
         <div id="page-content-wrapper"> 

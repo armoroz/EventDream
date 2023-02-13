@@ -5,6 +5,21 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
+body {
+  background-color: #616b75;
+}
+
+.panel-heading {
+	background-color:grey;
+}
+
+.btn-primary {
+border-color: white;
+background-color: #bcbcbc;
+color: white;
+}
+
+
 *,
 ::before,
 ::after {
