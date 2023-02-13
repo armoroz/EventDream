@@ -179,7 +179,6 @@ class eventController extends AppBaseController
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
-		$eventID = 5;
 		$productids = $request->productid;
 		$quantities = $request->quantity;
 		for($i=0;$i<sizeof($productids);$i++) {

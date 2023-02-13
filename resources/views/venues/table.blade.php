@@ -37,7 +37,7 @@
                         </a>
 						<a href="{!! route('venueratings.ratevenue', [$venue->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="glyphicon glyphicon-ok"></i>
+						   <i class="glyphicon glyphicon-star"></i>
 						</a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
