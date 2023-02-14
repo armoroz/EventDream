@@ -24,7 +24,15 @@
             <td>{{ $venue->humancapacity }}</td>
             <td>{{ $venue->costtorent }}</td>
             <td>{{ $venue->userid }}</td>
-                <td width="120">
+                
+			<!--<td>{!! round($venue->venueratings->avg('rating'),2); !!}</td> 
+			<td><input id="fieldRating" name="rating" 
+			value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+			type="text" class="rating rating-loading" data-min=0 
+			data-max=5 data-step=1 data-size="sm" data-display-only="true">
+			</td>-->			
+			
+				<td width="120">
                     {!! Form::open(['route' => ['venues.destroy', $venue->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{{ route('venues.show', [$venue->id]) }}"
