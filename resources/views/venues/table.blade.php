@@ -10,6 +10,8 @@
         <th>Humancapacity</th>
         <th>Costtorent</th>
         <th>Userid</th>
+		<th>Average Rating</th>
+		<th>Stars</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -24,13 +26,12 @@
             <td>{{ $venue->humancapacity }}</td>
             <td>{{ $venue->costtorent }}</td>
             <td>{{ $venue->userid }}</td>
-                
-			<!--<td>{!! round($venue->venueratings->avg('rating'),2); !!}</td> 
+			<td>{!! round($venue->venueratings->avg('rating'),2); !!}</td> 
 			<td><input id="fieldRating" name="rating" 
-			value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-			type="text" class="rating rating-loading" data-min=0 
-			data-max=5 data-step=1 data-size="sm" data-display-only="true">
-			</td>-->			
+				value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+				type="text" class="rating rating-loading" data-min=0 
+				data-max=5 data-step=1 data-size="sm" data-display-only="true">
+			</td>			
 			
 				<td width="120">
                     {!! Form::open(['route' => ['venues.destroy', $venue->id], 'method' => 'delete']) !!}
