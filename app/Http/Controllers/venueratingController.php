@@ -87,6 +87,7 @@ class venueratingController extends AppBaseController
 
         return view('venueratings.show')->with('venuerating', $venuerating);
     }
+	
 
     /**
      * Show the form for editing the specified venuerating.
@@ -157,6 +158,13 @@ class venueratingController extends AppBaseController
         Flash::success('Venuerating deleted successfully.');
 
         return redirect(route('venueratings.index'));
+    }
+	
+	public function showcourtratings($courtid)
+    {
+        $venueratings = $this->venueratingRepository->all()->where('venueid',$venueid);
+        return view('venueratings.index')
+            ->with('venueratings', $venueratings);
     }
 	
 }

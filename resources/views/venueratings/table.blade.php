@@ -3,6 +3,7 @@
         <thead>
         <tr>
             <th>Rating</th>
+			<th>Star Rating</th>
         <th>Comment</th>
         <th>Venueid</th>
             <th colspan="3">Action</th>
@@ -12,6 +13,10 @@
         @foreach($venueratings as $venuerating)
             <tr>
                 <td>{{ $venuerating->rating }}</td>
+				<td><input id="fieldRating" name="rating" 
+				value="{!! $venuerating->rating !!}"
+				type="text" class="rating rating-loading" data-min=0 
+				data-max=5 data-step=1 data-size="sm" data-display-only="true"></td>	
             <td>{{ $venuerating->comment }}</td>
             <td>{{ $venuerating->venueid }}</td>
                 <td width="120">
