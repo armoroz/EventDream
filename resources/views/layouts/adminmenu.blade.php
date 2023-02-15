@@ -16,6 +16,9 @@
         <li>
              <a href="{!! route('customers.index') !!}">Customer List</a>
         </li>
+        <li>
+             <a href="{!! route('bookings.index') !!}">Bookings</a>
+        </li>
 		<li>
              <a href="{!! route('events.index') !!}">Event List</a>
         </li>
