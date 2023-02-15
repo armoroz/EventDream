@@ -5162,10 +5162,11 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
-__webpack_require__(/*! jquery/dist/jquery.js */ "./node_modules/jquery/dist/jquery.js");
-__webpack_require__(/*! bootstrap3/dist/js/bootstrap.js */ "./node_modules/bootstrap3/dist/js/bootstrap.js");
-__webpack_require__(/*! bootstrap-star-rating/js/star-rating.js */ "./node_modules/bootstrap-star-rating/js/star-rating.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+//require('bootstrap3/dist/js/bootstrap.js');
+__webpack_require__(/*! jquery/dist/jquery.js */ "./node_modules/jquery/dist/jquery.js");
+__webpack_require__(/*! bootstrap/dist/js/bootstrap.js */ "./node_modules/bootstrap/dist/js/bootstrap.js");
+__webpack_require__(/*! bootstrap-star-rating/js/star-rating.js */ "./node_modules/bootstrap-star-rating/js/star-rating.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -5215,73 +5216,62 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * bootstrap-star-rating v4.1.2
+ * bootstrap-star-rating v4.0.2
  * http://plugins.krajee.com/star-rating
  *
  * Author: Kartik Visweswaran
- * Copyright: 2013 - 2021, Kartik Visweswaran, Krajee.com
+ * Copyright: 2014 - 2016, Kartik Visweswaran, Krajee.com
  *
  * Licensed under the BSD 3-Clause
  * https://github.com/kartik-v/bootstrap-star-rating/blob/master/LICENSE.md
  */
 (function (factory) {
-    'use strict';
-    if (true) {
+    "use strict";
+    //noinspection JSUnresolvedVariable
+    if (true) { // jshint ignore:line
+        // AMD. Register as an anonymous module.
         !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); // jshint ignore:line
     } else {}
 }(function ($) {
-    'use strict';
+    "use strict";
 
     $.fn.ratingLocales = {};
     $.fn.ratingThemes = {};
 
-    var $h, Rating;
-
-    // Global helper methods and constants
-    $h = {
-        NAMESPACE: '.rating',
-        DEFAULT_MIN: 0,
-        DEFAULT_MAX: 5,
-        DEFAULT_STEP: 0.5,
-        isEmpty: function (value, trim) {
-            return value === null || value === undefined || value.length === 0 || (trim && $.trim(value) === '');
-        },
-        getCss: function (condition, css) {
-            return condition ? ' ' + css : '';
-        },
-        addCss: function ($el, css) {
-            $el.removeClass(css).addClass(css);
-        },
-        getDecimalPlaces: function (num) {
-            var m = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-            return !m ? 0 : Math.max(0, (m[1] ? m[1].length : 0) - (m[2] ? +m[2] : 0));
-        },
-        applyPrecision: function (val, precision) {
-            return parseFloat(val.toFixed(precision));
-        },
-        handler: function ($el, event, callback, skipOff, skipNS) {
-            var ev = skipNS ? event : event.split(' ').join($h.NAMESPACE + ' ') + $h.NAMESPACE;
-            if (!skipOff) {
-                $el.off(ev);
-            }
-            $el.on(ev, function (e) {
-                var cb = $.proxy(callback, self);
-                cb(e);
-            });
-        }
+    var NAMESPACE, DEFAULT_MIN, DEFAULT_MAX, DEFAULT_STEP, isEmpty, getCss, addCss, getDecimalPlaces, applyPrecision,
+        handler, Rating;
+    NAMESPACE = '.rating';
+    DEFAULT_MIN = 0;
+    DEFAULT_MAX = 5;
+    DEFAULT_STEP = 0.5;
+    isEmpty = function (value, trim) {
+        return value === null || value === undefined || value.length === 0 || (trim && $.trim(value) === '');
     };
-
-    // Rating constructor
+    getCss = function (condition, css) {
+        return condition ? ' ' + css : '';
+    };
+    addCss = function ($el, css) {
+        $el.removeClass(css).addClass(css);
+    };
+    getDecimalPlaces = function (num) {
+        var match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+        return !match ? 0 : Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
+    };
+    applyPrecision = function (val, precision) {
+        return parseFloat(val.toFixed(precision));
+    };
+    handler = function ($el, event, callback, skipNS) {
+        var ev = skipNS ? event : event.split(' ').join(NAMESPACE + ' ') + NAMESPACE;
+        $el.off(ev).on(ev, callback);
+    };
     Rating = function (element, options) {
         var self = this;
         self.$element = $(element);
         self._init(options);
     };
-
-    // Rating prototype
     Rating.prototype = {
         constructor: Rating,
         _parseAttr: function (vattr, options) {
@@ -5290,57 +5280,156 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 val = options[vattr] || $el.data(vattr) || $el.attr(vattr);
                 switch (vattr) {
                     case 'min':
-                        chk = $h.DEFAULT_MIN;
+                        chk = DEFAULT_MIN;
                         break;
                     case 'max':
-                        chk = $h.DEFAULT_MAX;
+                        chk = DEFAULT_MAX;
                         break;
                     default:
-                        chk = $h.DEFAULT_STEP;
+                        chk = DEFAULT_STEP;
                 }
-                finalVal = $h.isEmpty(val) ? chk : val;
+                finalVal = isEmpty(val) ? chk : val;
                 out = parseFloat(finalVal);
             } else {
                 out = parseFloat(options[vattr]);
             }
             return isNaN(out) ? chk : out;
         },
-        _parseValue: function (val) {
-            var self = this, v = parseFloat(val);
-            if (isNaN(v)) {
-                v = self.clearValue;
-            }
-            return (self.zeroAsNull && (v === 0 || v === '0') ? null : v);
-        },
         _setDefault: function (key, val) {
             var self = this;
-            if ($h.isEmpty(self[key])) {
+            if (isEmpty(self[key])) {
                 self[key] = val;
             }
         },
+        _listenClick: function (e, callback) {
+            e.stopPropagation();
+            e.preventDefault();
+            if (e.handled !== true) {
+                callback(e);
+                e.handled = true;
+            } else {
+                return false;
+            }
+        },
+        _starClick: function (e) {
+            var self = this, pos;
+            self._listenClick(e, function (ev) {
+                if (self.inactive) {
+                    return false;
+                }
+                pos = self._getTouchPosition(ev);
+                self._setStars(pos);
+                self.$element.trigger('change').trigger('rating.change', [self.$element.val(), self._getCaption()]);
+                self.starClicked = true;
+            });
+        },
+        _starMouseMove: function (e) {
+            var self = this, pos, out;
+            if (!self.hoverEnabled || self.inactive || (e && e.isDefaultPrevented())) {
+                return;
+            }
+            self.starClicked = false;
+            pos = self._getTouchPosition(e);
+            out = self.calculate(pos);
+            self._toggleHover(out);
+            self.$element.trigger('rating.hover', [out.val, out.caption, 'stars']);
+        },
+        _starMouseLeave: function (e) {
+            var self = this, out;
+            if (!self.hoverEnabled || self.inactive || self.starClicked || (e && e.isDefaultPrevented())) {
+                return;
+            }
+            out = self.cache;
+            self._toggleHover(out);
+            self.$element.trigger('rating.hoverleave', ['stars']);
+        },
+        _clearClick: function (e) {
+            var self = this;
+            self._listenClick(e, function () {
+                if (!self.inactive) {
+                    self.clear();
+                    self.clearClicked = true;
+                }
+            });
+        },
+        _clearMouseMove: function (e) {
+            var self = this, caption, val, width, out;
+            if (!self.hoverEnabled || self.inactive || !self.hoverOnClear || (e && e.isDefaultPrevented())) {
+                return;
+            }
+            self.clearClicked = false;
+            caption = '<span class="' + self.clearCaptionClass + '">' + self.clearCaption + '</span>';
+            val = self.clearValue;
+            width = self.getWidthFromValue(val) || 0;
+            out = {caption: caption, width: width, val: val};
+            self._toggleHover(out);
+            self.$element.trigger('rating.hover', [val, caption, 'clear']);
+        },
+        _clearMouseLeave: function (e) {
+            var self = this, out;
+            if (!self.hoverEnabled || self.inactive || self.clearClicked || !self.hoverOnClear || (e && e.isDefaultPrevented())) {
+                return;
+            }
+            out = self.cache;
+            self._toggleHover(out);
+            self.$element.trigger('rating.hoverleave', ['clear']);
+        },
+        _resetForm: function (e) {
+            var self = this;
+            if (e && e.isDefaultPrevented()) {
+                return;
+            }
+            if (!self.inactive) {
+                self.reset();
+            }
+        },
+        _setTouch: function (e, flag) {
+            //noinspection JSUnresolvedVariable
+            var self = this, ev, touches, pos, out, caption, w, width, isTouchCapable = 'ontouchstart' in window ||
+                (window.DocumentTouch && document instanceof window.DocumentTouch);
+            if (!isTouchCapable || self.inactive) {
+                return;
+            }
+            ev = e.originalEvent;
+            //noinspection JSUnresolvedVariable
+            touches = !isEmpty(ev.touches) ? ev.touches : ev.changedTouches;
+            pos = self._getTouchPosition(touches[0]);
+            if (flag) {
+                self._setStars(pos);
+                self.$element.trigger('change').trigger('rating.change', [self.$element.val(), self._getCaption()]);
+                self.starClicked = true;
+            } else {
+                out = self.calculate(pos);
+                caption = out.val <= self.clearValue ? self.fetchCaption(self.clearValue) : out.caption;
+                w = self.getWidthFromValue(self.clearValue);
+                width = out.val <= self.clearValue ? w + '%' : out.width;
+                self._setCaption(caption);
+                self.$filledStars.css('width', width);
+            }
+        },
+        _initTouch: function (e) {
+            var self = this, flag = (e.type === "touchend");
+            self._setTouch(e, flag);
+        },
         _initSlider: function (options) {
-            var self = this, v = self.$element.val();
-            self.initialValue = $h.isEmpty(v) ? 0 : v;
+            var self = this;
+            if (isEmpty(self.$element.val())) {
+                self.$element.val(0);
+            }
+            self.initialValue = self.$element.val();
             self._setDefault('min', self._parseAttr('min', options));
             self._setDefault('max', self._parseAttr('max', options));
             self._setDefault('step', self._parseAttr('step', options));
-            if (isNaN(self.min) || $h.isEmpty(self.min)) {
-                self.min = $h.DEFAULT_MIN;
+            if (isNaN(self.min) || isEmpty(self.min)) {
+                self.min = DEFAULT_MIN;
             }
-            if (isNaN(self.max) || $h.isEmpty(self.max)) {
-                self.max = $h.DEFAULT_MAX;
+            if (isNaN(self.max) || isEmpty(self.max)) {
+                self.max = DEFAULT_MAX;
             }
-            if (isNaN(self.step) || $h.isEmpty(self.step) || self.step === 0) {
-                self.step = $h.DEFAULT_STEP;
+            if (isNaN(self.step) || isEmpty(self.step) || self.step === 0) {
+                self.step = DEFAULT_STEP;
             }
             self.diff = self.max - self.min;
-            self._setDefault('minThreshold', self.min);
-            if (self.minThreshold < self.min) {
-                self.minThreshold = self.min;
-            }
-            if (self.minThreshold > self.max) {
-                self.minThreshold = self.max;
-            }
         },
         _initHighlight: function (v) {
             var self = this, w, cap = self._getCaption();
@@ -5354,14 +5443,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         _getContainerCss: function () {
             var self = this;
             return 'rating-container' +
-                $h.getCss(self.theme, 'theme-' + self.theme) +
-                $h.getCss(self.rtl, 'rating-rtl') +
-                $h.getCss(self.size, 'rating-' + self.size) +
-                $h.getCss(self.animate, 'rating-animate') +
-                $h.getCss(self.disabled || self.readonly, 'rating-disabled') +
-                $h.getCss(self.containerClass, self.containerClass) +
-                (self.displayOnly ? ' is-display-only' : '');
-
+                getCss(self.theme, 'theme-' + self.theme) +
+                getCss(self.rtl, 'rating-rtl') +
+                getCss(self.size, 'rating-' + self.size) +
+                getCss(self.animate, 'rating-animate') +
+                getCss(self.disabled || self.readonly, 'rating-disabled') +
+                getCss(self.containerClass, self.containerClass);
         },
         _checkDisabled: function () {
             var self = this, $el = self.$element, opts = self.options;
@@ -5380,25 +5467,20 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         },
         _generateRating: function () {
             var self = this, $el = self.$element, $rating, $container, w;
-            $container = self.$container = $(document.createElement('div')).insertBefore($el);
-            $h.addCss($container, self._getContainerCss());
-            self.$rating = $rating = $(document.createElement('div')).attr('class', 'rating-stars').appendTo($container)
+            $container = self.$container = $(document.createElement("div")).insertBefore($el);
+            addCss($container, self._getContainerCss());
+            self.$rating = $rating = $(document.createElement("div")).attr('class', 'rating').appendTo($container)
                 .append(self._getStars('empty')).append(self._getStars('filled'));
-            if (self.keyboardEnabled) {
-                self.$rating.attr('tabindex', self.tabindex);
-            }
             self.$emptyStars = $rating.find('.empty-stars');
             self.$filledStars = $rating.find('.filled-stars');
             self._renderCaption();
             self._renderClear();
             self._initHighlight();
-            self._initStarTitles();
-            var i = 1;
+            $container.append($el);
             if (self.rtl) {
                 w = Math.max(self.$emptyStars.outerWidth(), self.$filledStars.outerWidth());
                 self.$emptyStars.width(w);
             }
-            $container.insertBefore($el);
         },
         _getCaption: function () {
             var self = this;
@@ -5417,13 +5499,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             }
             html = self.fetchCaption(val);
             if ($cap && $cap.length) {
-                $h.addCss($cap, 'caption');
+                addCss($cap, 'caption');
                 $cap.html(html);
                 self.$caption = $cap;
                 return;
             }
             self._addContent('caption', '<div class="caption">' + html + '</div>');
-            self.$caption = self.$container.find('.caption');
+            self.$caption = self.$container.find(".caption");
         },
         _renderClear: function () {
             var self = this, css, $clr = self.clearElement ? $(self.clearElement) : '';
@@ -5432,8 +5514,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             }
             css = self._getClearClass();
             if ($clr.length) {
-                $h.addCss($clr, css);
-                $clr.attr({'title': self.clearButtonTitle}).html(self.clearButton);
+                addCss($clr, css);
+                $clr.attr({"title": self.clearButtonTitle}).html(self.clearButton);
                 self.$clear = $clr;
                 return;
             }
@@ -5442,8 +5524,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             self.$clear = self.$container.find('.' + self.clearButtonBaseClass);
         },
         _getClearClass: function () {
-            var self = this;
-            return self.clearButtonBaseClass + ' ' + (self.inactive ? '' : self.clearButtonActiveClass);
+            return this.clearButtonBaseClass + ' ' + ((this.inactive) ? '' : this.clearButtonActiveClass);
+        },
+        _getTouchPosition: function (e) {
+            var pageX = isEmpty(e.pageX) ? e.originalEvent.touches[0].pageX : e.pageX;
+            return pageX - this.$rating.offset().left;
         },
         _toggleHover: function (out) {
             var self = this, w, width, caption;
@@ -5463,8 +5548,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             }
         },
         _init: function (options) {
-            var self = this, $el = self.$element.attr('tabindex', -1).addClass('rating-input'), v,
-                m = self.minThreshold;
+            var self = this, $el = self.$element.addClass('hide');
             self.options = options;
             $.each(options, function (key, value) {
                 self[key] = value;
@@ -5480,206 +5564,27 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             if (self.displayOnly) {
                 self.inactive = true;
                 self.showClear = false;
-                self.hoverEnabled = false;
-                self.hoverChangeCaption = false;
-                self.hoverChangeStars = false;
+                self.showCaption = false;
             }
             self._generateRating();
-            self._initEvents();
             self._listen();
-            if (!$h.isEmpty(m) && ($h.isEmpty($el.val()) || $el.val() < m)) {
-                $el.val(m);
-            }
-            v = self._parseValue($el.val());
-            $el.val(v);
             return $el.removeClass('rating-loading');
-        },
-        _initCaptionTitle: function () {
-            var self = this, caption;
-            caption = self.fetchCaption(self.$element.val());
-            self.$rating.attr('title', $(caption).text());
-        },
-        _trigChange: function (params) {
-            var self = this;
-            self._initStarTitles();
-            self.$element.trigger('change').trigger('rating:change', params);
-        },
-        _initEvents: function () {
-            var self = this;
-            self.events = {
-                _getTouchPosition: function (e) {
-                    var pageX = $h.isEmpty(e.pageX) ? e.originalEvent.touches[0].pageX : e.pageX;
-                    return pageX - self.$rating.offset().left;
-                },
-                _listenClick: function (e, callback) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    if (e.handled !== true) {
-                        callback(e);
-                        e.handled = true;
-                    } else {
-                        return false;
-                    }
-                },
-                _noMouseAction: function (e) {
-                    return !self.mouseEnabled || !self.hoverEnabled || self.inactive || (e && e.isDefaultPrevented());
-                },
-                initTouch: function (e) {
-                    //noinspection JSUnresolvedVariable
-                    var ev, touches, pos, out, caption, w, width, params, clrVal = self.clearValue || 0,
-                        isTouchCapable = 'ontouchstart' in window ||
-                            (window.DocumentTouch && document instanceof window.DocumentTouch);
-                    if (!isTouchCapable || self.inactive) {
-                        return;
-                    }
-                    ev = e.originalEvent;
-                    //noinspection JSUnresolvedVariable
-                    touches = !$h.isEmpty(ev.touches) ? ev.touches : ev.changedTouches;
-                    pos = self.events._getTouchPosition(touches[0]);
-                    if (e.type === 'touchend') {
-                        self._setStars(pos);
-                        params = [self.$element.val(), self._getCaption()];
-                        self._trigChange(params);
-                        self.starClicked = true;
-                    } else {
-                        out = self.calculate(pos);
-                        caption = out.val <= clrVal ? self.fetchCaption(clrVal) : out.caption;
-                        w = self.getWidthFromValue(clrVal);
-                        width = out.val <= clrVal ? w + '%' : out.width;
-                        self._setCaption(caption);
-                        self.$filledStars.css('width', width);
-                    }
-                },
-                starClick: function (e) {
-                    var pos, params;
-                    self.events._listenClick(e, function (ev) {
-                        if (self.inactive) {
-                            return false;
-                        }
-                        pos = self.events._getTouchPosition(ev);
-                        self._setStars(pos);
-                        params = [self.$element.val(), self._getCaption()];
-                        self._trigChange(params);
-                        self.starClicked = true;
-                    });
-                },
-                clearClick: function (e) {
-                    self.events._listenClick(e, function () {
-                        if (!self.inactive) {
-                            self.clear();
-                            self.clearClicked = true;
-                        }
-                    });
-                },
-                starMouseMove: function (e) {
-                    var pos, out;
-                    if (self.events._noMouseAction(e)) {
-                        return;
-                    }
-                    self.starClicked = false;
-                    pos = self.events._getTouchPosition(e);
-                    out = self.calculate(pos);
-                    self._toggleHover(out);
-                    self.$element.trigger('rating:hover', [out.val, out.caption, 'stars']);
-                },
-                starMouseLeave: function (e) {
-                    var out;
-                    if (self.events._noMouseAction(e) || self.starClicked) {
-                        return;
-                    }
-                    out = self.cache;
-                    self._toggleHover(out);
-                    self.$element.trigger('rating:hoverleave', ['stars']);
-                },
-                clearMouseMove: function (e) {
-                    var caption, val, width, out;
-                    if (self.events._noMouseAction(e) || !self.hoverOnClear) {
-                        return;
-                    }
-                    self.clearClicked = false;
-                    caption = '<span class="' + self.clearCaptionClass + '">' + self.clearCaption + '</span>';
-                    val = self.clearValue;
-                    width = self.getWidthFromValue(val) || 0;
-                    out = {caption: caption, width: width, val: val};
-                    self._toggleHover(out);
-                    self.$element.trigger('rating:hover', [val, caption, 'clear']);
-                },
-                clearMouseLeave: function (e) {
-                    var out;
-                    if (self.events._noMouseAction(e) || self.clearClicked || !self.hoverOnClear) {
-                        return;
-                    }
-                    out = self.cache;
-                    self._toggleHover(out);
-                    self.$element.trigger('rating:hoverleave', ['clear']);
-                },
-                resetForm: function (e) {
-                    if (e && e.isDefaultPrevented()) {
-                        return;
-                    }
-                    if (!self.inactive) {
-                        self.reset();
-                    }
-                },
-                focus: function (e) {
-                    self.$rating.focus();
-                    self.$element.trigger('rating:focus');
-                },
-                blur: function (e) {
-                    self.$element.trigger('rating:blur');
-                },
-                keydown: function (e) {
-                    if (self.inactive || !self.keyboardEnabled) {
-                        return;
-                    }
-                    var $el = self.$element, v = $el.val(), isUpdated = false, step = parseFloat(self.step),
-                        precision = $h.getDecimalPlaces(step), upKey = self.rtl ? 37 : 39, dnKey = self.rtl ? 39 : 37,
-                        val = v ? parseFloat(v) : 0, key = parseInt(e.which || e.keyCode || 0, 10);
-                    if (key === upKey && val < self.max) { // key right (increase)
-                        val += step;
-                        isUpdated = true;
-                    }
-                    if (key === dnKey && val > self.minThreshold) { // key left (decrease)
-                        val -= step;
-                        isUpdated = true
-                    }
-                    if (isUpdated) {
-                        val = $h.applyPrecision(val, precision);
-                        $el.val(val);
-                        self._trigChange([val, self._getCaption()])
-                        self.showStars($el.val());
-                        self.$rating.focus();
-                    }
-                    if (key === 37 || key === 39) {
-                        $el.trigger('rating:keydown', [val, self._getCaption()]);
-                    }
-
-                }
-            };
         },
         _listen: function () {
             var self = this, $el = self.$element, $form = $el.closest('form'), $rating = self.$rating,
-                $clear = self.$clear, events = self.events, ns = $h.NAMESPACE,
-                mouseEvents = 'mouseenter' + ns + ' mouseleave' + ns, $stars = self.$rating.find('.star');
-            $h.handler($rating, 'touchstart touchmove touchend', events.initTouch);
-            $h.handler($rating, 'click touchstart', events.starClick);
-            $h.handler($rating, 'mousemove', events.starMouseMove);
-            $h.handler($rating, 'mouseleave', events.starMouseLeave);
-            $h.handler($rating, 'keydown', events.keydown);
-            $h.handler($rating, 'blur', events.blur);
+                $clear = self.$clear;
+            handler($rating, 'touchstart touchmove touchend', $.proxy(self._initTouch, self));
+            handler($rating, 'click touchstart', $.proxy(self._starClick, self));
+            handler($rating, 'mousemove', $.proxy(self._starMouseMove, self));
+            handler($rating, 'mouseleave', $.proxy(self._starMouseLeave, self));
             if (self.showClear && $clear.length) {
-                $h.handler($clear, 'click touchstart', events.clearClick);
-                $h.handler($clear, 'mousemove', events.clearMouseMove);
-                $h.handler($clear, 'mouseleave', events.clearMouseLeave);
+                handler($clear, 'click touchstart', $.proxy(self._clearClick, self));
+                handler($clear, 'mousemove', $.proxy(self._clearMouseMove, self));
+                handler($clear, 'mouseleave', $.proxy(self._clearMouseLeave, self));
             }
             if ($form.length) {
-                $h.handler($form, 'reset', events.resetForm, true);
+                handler($form, 'reset', $.proxy(self._resetForm, self));
             }
-            $stars.off(mouseEvents).on(mouseEvents, function (e) {
-                var $star = $(this), index = $star.index(), status = $star.parent().attr('class').slice(0, -1);
-                self.$element.trigger('rating:' + e.type, [index + 1, status, $star]);
-            });
-            $h.handler(self.$container, 'click', events.focus);
             return $el;
         },
         _getStars: function (type) {
@@ -5689,68 +5594,39 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             }
             return stars + '</span>';
         },
-        _initStarTitles: function (val) {
-            var self = this;
-            if (self.showCaptionAsTitle) {
-                self._initCaptionTitle();
-                return;
-            }
-            var starTitles = self.starTitles, setTitles;
-            setTitles = function ($stars) {
-                var i = 1, title;
-                $stars.each(function () {
-                    var $star = $(this), j, title;
-                    if (typeof starTitles === 'function') {
-                        j = i === Math.floor(val) ? val : i;
-                        title = starTitles(j);
-                    } else {
-                        title = starTitles[i];
-                    }
-                    if (title) {
-                        $star.attr({title: title});
-                    }
-                    i++;
-                });
-            };
-            setTitles(self.$emptyStars.find('.star'));
-            setTitles(self.$filledStars.find('.star'));
-        },
         _setStars: function (pos) {
-            var self = this, out = arguments.length ? self.calculate(pos) : self.calculate(), $el = self.$element,
-                v = self._parseValue(out.val);
-            $el.val(v);
+            var self = this, out = arguments.length ? self.calculate(pos) : self.calculate(), $el = self.$element;
+            $el.val(out.val);
             self.$filledStars.css('width', out.width);
             self._setCaption(out.caption);
             self.cache = out;
-            self._initStarTitles(v);
             return $el;
         },
         showStars: function (val) {
-            var self = this, v = self._parseValue(val);
-            self.$element.val(v);
+            var self = this, v = parseFloat(val);
+            self.$element.val(isNaN(v) ? self.clearValue : v);
             return self._setStars();
         },
         calculate: function (pos) {
-            var self = this, defaultVal = $h.isEmpty(self.$element.val()) ? 0 : self.$element.val(),
+            var self = this, defaultVal = isEmpty(self.$element.val()) ? 0 : self.$element.val(),
                 val = arguments.length ? self.getValueFromPosition(pos) : defaultVal,
                 caption = self.fetchCaption(val), width = self.getWidthFromValue(val);
             width += '%';
             return {caption: caption, width: width, val: val};
         },
         getValueFromPosition: function (pos) {
-            var self = this, precision = $h.getDecimalPlaces(self.step), val, factor, maxWidth = self.$rating.width();
+            var self = this, precision = getDecimalPlaces(self.step), val, factor, maxWidth = self.$rating.width();
             factor = (self.diff * pos) / (maxWidth * self.step);
             factor = self.rtl ? Math.floor(factor) : Math.ceil(factor);
-            val = $h.applyPrecision(parseFloat(self.min + factor * self.step), precision);
-            val = Math.max(Math.min(val, self.max), self.minThreshold);
+            val = applyPrecision(parseFloat(self.min + factor * self.step), precision);
+            val = Math.max(Math.min(val, self.max), self.min);
             return self.rtl ? (self.max - val) : val;
         },
         getWidthFromValue: function (val) {
             var self = this, min = self.min, max = self.max, factor, $r = self.$emptyStars, w;
-            if (!val || val <= self.min || min === max) {
+            if (!val || val <= min || min === max) {
                 return 0;
             }
-            val = Math.max(val, self.minThreshold);
             w = $r.outerWidth();
             factor = w ? $r.width() / w : 1;
             if (val >= max) {
@@ -5760,25 +5636,24 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         },
         fetchCaption: function (rating) {
             var self = this, val = parseFloat(rating) || self.clearValue, css, cap, capVal, cssVal, caption,
-                vCap = self.starCaptions, vCss = self.starCaptionClasses, width = self.getWidthFromValue(val);
+                vCap = self.starCaptions, vCss = self.starCaptionClasses;
             if (val && val !== self.clearValue) {
-                val = $h.applyPrecision(val, $h.getDecimalPlaces(self.step));
+                val = applyPrecision(val, getDecimalPlaces(self.step));
             }
-            cssVal = typeof vCss === 'function' ? vCss(val, width) : vCss[val];
-            capVal = typeof vCap === 'function' ? vCap(val, width) : vCap[val];
-
-            cap = $h.isEmpty(capVal) ? self.defaultCaption.replace(/\{rating}/g, val) : capVal;
-            css = $h.isEmpty(cssVal) ? self.clearCaptionClass : cssVal;
+            cssVal = typeof vCss === "function" ? vCss(val) : vCss[val];
+            capVal = typeof vCap === "function" ? vCap(val) : vCap[val];
+            cap = isEmpty(capVal) ? self.defaultCaption.replace(/\{rating}/g, val) : capVal;
+            css = isEmpty(cssVal) ? self.clearCaptionClass : cssVal;
             caption = (val === self.clearValue) ? self.clearCaption : cap;
             return '<span class="' + css + '">' + caption + '</span>';
         },
         destroy: function () {
             var self = this, $el = self.$element;
-            if (!$h.isEmpty(self.$container)) {
+            if (!isEmpty(self.$container)) {
                 self.$container.before($el).remove();
             }
             $.removeData($el.get(0));
-            return $el.off('rating').removeClass('rating rating-input');
+            return $el.off('rating').removeClass('hide');
         },
         create: function (options) {
             var self = this, opts = options || self.options || {};
@@ -5789,11 +5664,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             if (!self.inactive) {
                 self._setCaption(title);
             }
-            return self.showStars(self.clearValue).trigger('change').trigger('rating:clear');
+            return self.showStars(self.clearValue).trigger('change').trigger('rating.clear');
         },
         reset: function () {
             var self = this;
-            return self.showStars(self.initialValue).trigger('rating:reset');
+            return self.showStars(self.initialValue).trigger('rating.reset');
         },
         update: function (val) {
             var self = this;
@@ -5804,7 +5679,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             if (!options) {
                 return $el;
             }
-            return self.destroy().rating($.extend(true, self.options, options)).trigger('rating:refresh');
+            return self.destroy().rating($.extend(true, self.options, options)).trigger('rating.refresh');
         }
     };
 
@@ -5815,11 +5690,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             var self = $(this), data = self.data('rating'), options = typeof option === 'object' && option,
                 theme = options.theme || self.data('theme'), lang = options.language || self.data('language') || 'en',
                 thm = {}, loc = {}, opts;
+
             if (!data) {
                 if (theme) {
                     thm = $.fn.ratingThemes[theme] || {};
                 }
-                if (lang !== 'en' && !$h.isEmpty($.fn.ratingLocales[lang])) {
+                if (lang !== 'en' && !isEmpty($.fn.ratingLocales[lang])) {
                     loc = $.fn.ratingLocales[lang];
                 }
                 opts = $.extend(true, {}, $.fn.rating.defaults, thm, $.fn.ratingLocales.en, loc, options, self.data());
@@ -5842,12 +5718,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     };
 
     $.fn.rating.defaults = {
-        theme: 'krajee-svg',
+        theme: '',
         language: 'en',
         stars: 5,
-        tabindex: 0,
-        keyboardEnabled: true,
-        mouseEnabled: true,
+        filledStar: '<i class="glyphicon glyphicon-star"></i>',
+        emptyStar: '<i class="glyphicon glyphicon-star-empty"></i>',
         containerClass: '',
         size: 'md',
         animate: true,
@@ -5856,32 +5731,28 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         showClear: true,
         showCaption: true,
         starCaptionClasses: {
-            0.5: 'caption-badge caption-danger',
-            1: 'caption-badge caption-danger',
-            1.5: 'caption-badge caption-warning',
-            2: 'caption-badge caption-warning',
-            2.5: 'caption-badge caption-info',
-            3: 'caption-badge caption-info',
-            3.5: 'caption-badge caption-primary',
-            4: 'caption-badge caption-primary',
-            4.5: 'caption-badge caption-success',
-            5: 'caption-badge caption-success'
+            0.5: 'label label-danger',
+            1: 'label label-danger',
+            1.5: 'label label-warning',
+            2: 'label label-warning',
+            2.5: 'label label-info',
+            3: 'label label-info',
+            3.5: 'label label-primary',
+            4: 'label label-primary',
+            4.5: 'label label-success',
+            5: 'label label-success'
         },
-        filledStar: '<span class="krajee-icon krajee-icon-star"></span>', // krajee-svg theme
-        emptyStar: '<span class="krajee-icon krajee-icon-star"></span>',  // krajee-svg theme
-        clearButton: '<span class="krajee-icon-clear"></span>',           // krajee-svg theme
+        clearButton: '<i class="glyphicon glyphicon-minus-sign"></i>',
         clearButtonBaseClass: 'clear-rating',
         clearButtonActiveClass: 'clear-rating-active',
-        clearCaptionClass: 'caption-badge caption-secondary',
+        clearCaptionClass: 'label label-default',
         clearValue: null,
         captionElement: null,
         clearElement: null,
-        showCaptionAsTitle: false,
         hoverEnabled: true,
         hoverChangeCaption: true,
         hoverChangeStars: true,
-        hoverOnClear: true,
-        zeroAsNull: true
+        hoverOnClear: true
     };
 
     $.fn.ratingLocales.en = {
@@ -5896,13 +5767,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             3.5: 'Three & Half Stars',
             4: 'Four Stars',
             4.5: 'Four & Half Stars',
-            5: 'Five Stars'
-        },
-        starTitles: {
-            1: 'One Star',
-            2: 'Two Stars',
-            3: 'Three Stars',
-            4: 'Four Stars',
             5: 'Five Stars'
         },
         clearButtonTitle: 'Clear',
@@ -5922,18 +5786,18 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     });
 }));
 
-
 /***/ }),
 
-/***/ "./node_modules/bootstrap3/dist/js/bootstrap.js":
-/*!******************************************************!*\
-  !*** ./node_modules/bootstrap3/dist/js/bootstrap.js ***!
-  \******************************************************/
-/***/ (() => {
+/***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /*!
- * Bootstrap v3.3.5 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.4.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under the MIT license
  */
 
@@ -5944,16 +5808,16 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
   var version = $.fn.jquery.split(' ')[0].split('.')
-  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {
-    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher')
+  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] > 3)) {
+    throw new Error('Bootstrap\'s JavaScript requires jQuery version 1.9.1 or higher, but lower than version 4')
   }
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: transition.js v3.3.5
- * http://getbootstrap.com/javascript/#transitions
+ * Bootstrap: transition.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#transitions
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -5961,7 +5825,7 @@ if (typeof jQuery === 'undefined') {
 +function ($) {
   'use strict';
 
-  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // CSS TRANSITION SUPPORT (Shoutout: https://modernizr.com/)
   // ============================================================
 
   function transitionEnd() {
@@ -5983,7 +5847,7 @@ if (typeof jQuery === 'undefined') {
     return false // explicit for ie8 (  ._.)
   }
 
-  // http://blog.alexmaccaw.com/css-transitions
+  // https://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
     var called = false
     var $el = this
@@ -6010,10 +5874,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: alert.js v3.3.5
- * http://getbootstrap.com/javascript/#alerts
+ * Bootstrap: alert.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#alerts
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -6029,7 +5893,7 @@ if (typeof jQuery === 'undefined') {
     $(el).on('click', dismiss, this.close)
   }
 
-  Alert.VERSION = '3.3.5'
+  Alert.VERSION = '3.4.1'
 
   Alert.TRANSITION_DURATION = 150
 
@@ -6042,7 +5906,8 @@ if (typeof jQuery === 'undefined') {
       selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
-    var $parent = $(selector)
+    selector    = selector === '#' ? [] : selector
+    var $parent = $(document).find(selector)
 
     if (e) e.preventDefault()
 
@@ -6105,10 +5970,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: button.js v3.3.5
- * http://getbootstrap.com/javascript/#buttons
+ * Bootstrap: button.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#buttons
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -6125,7 +5990,7 @@ if (typeof jQuery === 'undefined') {
     this.isLoading = false
   }
 
-  Button.VERSION  = '3.3.5'
+  Button.VERSION  = '3.4.1'
 
   Button.DEFAULTS = {
     loadingText: 'loading...'
@@ -6147,10 +6012,10 @@ if (typeof jQuery === 'undefined') {
 
       if (state == 'loadingText') {
         this.isLoading = true
-        $el.addClass(d).attr(d, d)
+        $el.addClass(d).attr(d, d).prop(d, true)
       } else if (this.isLoading) {
         this.isLoading = false
-        $el.removeClass(d).removeAttr(d)
+        $el.removeClass(d).removeAttr(d).prop(d, false)
       }
     }, this), 0)
   }
@@ -6214,10 +6079,15 @@ if (typeof jQuery === 'undefined') {
 
   $(document)
     .on('click.bs.button.data-api', '[data-toggle^="button"]', function (e) {
-      var $btn = $(e.target)
-      if (!$btn.hasClass('btn')) $btn = $btn.closest('.btn')
+      var $btn = $(e.target).closest('.btn')
       Plugin.call($btn, 'toggle')
-      if (!($(e.target).is('input[type="radio"]') || $(e.target).is('input[type="checkbox"]'))) e.preventDefault()
+      if (!($(e.target).is('input[type="radio"], input[type="checkbox"]'))) {
+        // Prevent double click on radios, and the double selections (so cancellation) on checkboxes
+        e.preventDefault()
+        // The target component still receive the focus
+        if ($btn.is('input,button')) $btn.trigger('focus')
+        else $btn.find('input:visible,button:visible').first().trigger('focus')
+      }
     })
     .on('focus.bs.button.data-api blur.bs.button.data-api', '[data-toggle^="button"]', function (e) {
       $(e.target).closest('.btn').toggleClass('focus', /^focus(in)?$/.test(e.type))
@@ -6226,10 +6096,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: carousel.js v3.3.5
- * http://getbootstrap.com/javascript/#carousel
+ * Bootstrap: carousel.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#carousel
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -6257,7 +6127,7 @@ if (typeof jQuery === 'undefined') {
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.3.5'
+  Carousel.VERSION  = '3.4.1'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -6371,7 +6241,9 @@ if (typeof jQuery === 'undefined') {
     var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid"
     if ($.support.transition && this.$element.hasClass('slide')) {
       $next.addClass(type)
-      $next[0].offsetWidth // force reflow
+      if (typeof $next === 'object' && $next.length) {
+        $next[0].offsetWidth // force reflow
+      }
       $active.addClass(direction)
       $next.addClass(direction)
       $active
@@ -6433,10 +6305,17 @@ if (typeof jQuery === 'undefined') {
   // =================
 
   var clickHandler = function (e) {
-    var href
     var $this   = $(this)
-    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
+    var href    = $this.attr('href')
+    if (href) {
+      href = href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+    }
+
+    var target  = $this.attr('data-target') || href
+    var $target = $(document).find(target)
+
     if (!$target.hasClass('carousel')) return
+
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
     if (slideIndex) options.interval = false
@@ -6464,13 +6343,14 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.5
- * http://getbootstrap.com/javascript/#collapse
+ * Bootstrap: collapse.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#collapse
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
+/* jshint latedef: false */
 
 +function ($) {
   'use strict';
@@ -6494,7 +6374,7 @@ if (typeof jQuery === 'undefined') {
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.5'
+  Collapse.VERSION  = '3.4.1'
 
   Collapse.TRANSITION_DURATION = 350
 
@@ -6601,7 +6481,7 @@ if (typeof jQuery === 'undefined') {
   }
 
   Collapse.prototype.getParent = function () {
-    return $(this.options.parent)
+    return $(document).find(this.options.parent)
       .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
       .each($.proxy(function (i, element) {
         var $element = $(element)
@@ -6624,7 +6504,7 @@ if (typeof jQuery === 'undefined') {
     var target = $trigger.attr('data-target')
       || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
 
-    return $(target)
+    return $(document).find(target)
   }
 
 
@@ -6676,10 +6556,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.5
- * http://getbootstrap.com/javascript/#dropdowns
+ * Bootstrap: dropdown.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#dropdowns
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -6696,7 +6576,7 @@ if (typeof jQuery === 'undefined') {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.5'
+  Dropdown.VERSION = '3.4.1'
 
   function getParent($this) {
     var selector = $this.attr('data-target')
@@ -6706,7 +6586,7 @@ if (typeof jQuery === 'undefined') {
       selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
-    var $parent = selector && $(selector)
+    var $parent = selector !== '#' ? $(document).find(selector) : null
 
     return $parent && $parent.length ? $parent : $this.parent()
   }
@@ -6728,7 +6608,7 @@ if (typeof jQuery === 'undefined') {
       if (e.isDefaultPrevented()) return
 
       $this.attr('aria-expanded', 'false')
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
+      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
     })
   }
 
@@ -6762,7 +6642,7 @@ if (typeof jQuery === 'undefined') {
 
       $parent
         .toggleClass('open')
-        .trigger('shown.bs.dropdown', relatedTarget)
+        .trigger($.Event('shown.bs.dropdown', relatedTarget))
     }
 
     return false
@@ -6842,10 +6722,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: modal.js v3.3.5
- * http://getbootstrap.com/javascript/#modals
+ * Bootstrap: modal.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#modals
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -6857,15 +6737,16 @@ if (typeof jQuery === 'undefined') {
   // ======================
 
   var Modal = function (element, options) {
-    this.options             = options
-    this.$body               = $(document.body)
-    this.$element            = $(element)
-    this.$dialog             = this.$element.find('.modal-dialog')
-    this.$backdrop           = null
-    this.isShown             = null
-    this.originalBodyPad     = null
-    this.scrollbarWidth      = 0
+    this.options = options
+    this.$body = $(document.body)
+    this.$element = $(element)
+    this.$dialog = this.$element.find('.modal-dialog')
+    this.$backdrop = null
+    this.isShown = null
+    this.originalBodyPad = null
+    this.scrollbarWidth = 0
     this.ignoreBackdropClick = false
+    this.fixedContent = '.navbar-fixed-top, .navbar-fixed-bottom'
 
     if (this.options.remote) {
       this.$element
@@ -6876,7 +6757,7 @@ if (typeof jQuery === 'undefined') {
     }
   }
 
-  Modal.VERSION  = '3.3.5'
+  Modal.VERSION = '3.4.1'
 
   Modal.TRANSITION_DURATION = 300
   Modal.BACKDROP_TRANSITION_DURATION = 150
@@ -6893,7 +6774,7 @@ if (typeof jQuery === 'undefined') {
 
   Modal.prototype.show = function (_relatedTarget) {
     var that = this
-    var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
+    var e = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
 
     this.$element.trigger(e)
 
@@ -6983,7 +6864,9 @@ if (typeof jQuery === 'undefined') {
     $(document)
       .off('focusin.bs.modal') // guard against infinite focus loop
       .on('focusin.bs.modal', $.proxy(function (e) {
-        if (this.$element[0] !== e.target && !this.$element.has(e.target).length) {
+        if (document !== e.target &&
+          this.$element[0] !== e.target &&
+          !this.$element.has(e.target).length) {
           this.$element.trigger('focus')
         }
       }, this))
@@ -7085,7 +6968,7 @@ if (typeof jQuery === 'undefined') {
     var modalIsOverflowing = this.$element[0].scrollHeight > document.documentElement.clientHeight
 
     this.$element.css({
-      paddingLeft:  !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
+      paddingLeft: !this.bodyIsOverflowing && modalIsOverflowing ? this.scrollbarWidth : '',
       paddingRight: this.bodyIsOverflowing && !modalIsOverflowing ? this.scrollbarWidth : ''
     })
   }
@@ -7110,11 +6993,26 @@ if (typeof jQuery === 'undefined') {
   Modal.prototype.setScrollbar = function () {
     var bodyPad = parseInt((this.$body.css('padding-right') || 0), 10)
     this.originalBodyPad = document.body.style.paddingRight || ''
-    if (this.bodyIsOverflowing) this.$body.css('padding-right', bodyPad + this.scrollbarWidth)
+    var scrollbarWidth = this.scrollbarWidth
+    if (this.bodyIsOverflowing) {
+      this.$body.css('padding-right', bodyPad + scrollbarWidth)
+      $(this.fixedContent).each(function (index, element) {
+        var actualPadding = element.style.paddingRight
+        var calculatedPadding = $(element).css('padding-right')
+        $(element)
+          .data('padding-right', actualPadding)
+          .css('padding-right', parseFloat(calculatedPadding) + scrollbarWidth + 'px')
+      })
+    }
   }
 
   Modal.prototype.resetScrollbar = function () {
     this.$body.css('padding-right', this.originalBodyPad)
+    $(this.fixedContent).each(function (index, element) {
+      var padding = $(element).data('padding-right')
+      $(element).removeData('padding-right')
+      element.style.paddingRight = padding ? padding : ''
+    })
   }
 
   Modal.prototype.measureScrollbar = function () { // thx walsh
@@ -7132,8 +7030,8 @@ if (typeof jQuery === 'undefined') {
 
   function Plugin(option, _relatedTarget) {
     return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.modal')
+      var $this = $(this)
+      var data = $this.data('bs.modal')
       var options = $.extend({}, Modal.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
       if (!data) $this.data('bs.modal', (data = new Modal(this, options)))
@@ -7144,7 +7042,7 @@ if (typeof jQuery === 'undefined') {
 
   var old = $.fn.modal
 
-  $.fn.modal             = Plugin
+  $.fn.modal = Plugin
   $.fn.modal.Constructor = Modal
 
 
@@ -7161,10 +7059,13 @@ if (typeof jQuery === 'undefined') {
   // ==============
 
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
-    var $this   = $(this)
-    var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) // strip for ie7
-    var option  = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
+    var $this = $(this)
+    var href = $this.attr('href')
+    var target = $this.attr('data-target') ||
+      (href && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
+
+    var $target = $(document).find(target)
+    var option = $target.data('bs.modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
 
     if ($this.is('a')) e.preventDefault()
 
@@ -7180,17 +7081,147 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tooltip.js v3.3.5
- * http://getbootstrap.com/javascript/#tooltip
+ * Bootstrap: tooltip.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#tooltip
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
+
+  var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
+
+  var uriAttrs = [
+    'background',
+    'cite',
+    'href',
+    'itemtype',
+    'longdesc',
+    'poster',
+    'src',
+    'xlink:href'
+  ]
+
+  var ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i
+
+  var DefaultWhitelist = {
+    // Global attributes allowed on any supplied element below.
+    '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
+    a: ['target', 'href', 'title', 'rel'],
+    area: [],
+    b: [],
+    br: [],
+    col: [],
+    code: [],
+    div: [],
+    em: [],
+    hr: [],
+    h1: [],
+    h2: [],
+    h3: [],
+    h4: [],
+    h5: [],
+    h6: [],
+    i: [],
+    img: ['src', 'alt', 'title', 'width', 'height'],
+    li: [],
+    ol: [],
+    p: [],
+    pre: [],
+    s: [],
+    small: [],
+    span: [],
+    sub: [],
+    sup: [],
+    strong: [],
+    u: [],
+    ul: []
+  }
+
+  /**
+   * A pattern that recognizes a commonly useful subset of URLs that are safe.
+   *
+   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+   */
+  var SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^&:/?#]*(?:[/?#]|$))/gi
+
+  /**
+   * A pattern that matches safe data URLs. Only matches image, video and audio types.
+   *
+   * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
+   */
+  var DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[a-z0-9+/]+=*$/i
+
+  function allowedAttribute(attr, allowedAttributeList) {
+    var attrName = attr.nodeName.toLowerCase()
+
+    if ($.inArray(attrName, allowedAttributeList) !== -1) {
+      if ($.inArray(attrName, uriAttrs) !== -1) {
+        return Boolean(attr.nodeValue.match(SAFE_URL_PATTERN) || attr.nodeValue.match(DATA_URL_PATTERN))
+      }
+
+      return true
+    }
+
+    var regExp = $(allowedAttributeList).filter(function (index, value) {
+      return value instanceof RegExp
+    })
+
+    // Check if a regular expression validates the attribute.
+    for (var i = 0, l = regExp.length; i < l; i++) {
+      if (attrName.match(regExp[i])) {
+        return true
+      }
+    }
+
+    return false
+  }
+
+  function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
+    if (unsafeHtml.length === 0) {
+      return unsafeHtml
+    }
+
+    if (sanitizeFn && typeof sanitizeFn === 'function') {
+      return sanitizeFn(unsafeHtml)
+    }
+
+    // IE 8 and below don't support createHTMLDocument
+    if (!document.implementation || !document.implementation.createHTMLDocument) {
+      return unsafeHtml
+    }
+
+    var createdDocument = document.implementation.createHTMLDocument('sanitization')
+    createdDocument.body.innerHTML = unsafeHtml
+
+    var whitelistKeys = $.map(whiteList, function (el, i) { return i })
+    var elements = $(createdDocument.body).find('*')
+
+    for (var i = 0, len = elements.length; i < len; i++) {
+      var el = elements[i]
+      var elName = el.nodeName.toLowerCase()
+
+      if ($.inArray(elName, whitelistKeys) === -1) {
+        el.parentNode.removeChild(el)
+
+        continue
+      }
+
+      var attributeList = $.map(el.attributes, function (el) { return el })
+      var whitelistedAttributes = [].concat(whiteList['*'] || [], whiteList[elName] || [])
+
+      for (var j = 0, len2 = attributeList.length; j < len2; j++) {
+        if (!allowedAttribute(attributeList[j], whitelistedAttributes)) {
+          el.removeAttribute(attributeList[j].nodeName)
+        }
+      }
+    }
+
+    return createdDocument.body.innerHTML
+  }
 
   // TOOLTIP PUBLIC CLASS DEFINITION
   // ===============================
@@ -7207,7 +7238,7 @@ if (typeof jQuery === 'undefined') {
     this.init('tooltip', element, options)
   }
 
-  Tooltip.VERSION  = '3.3.5'
+  Tooltip.VERSION  = '3.4.1'
 
   Tooltip.TRANSITION_DURATION = 150
 
@@ -7224,7 +7255,10 @@ if (typeof jQuery === 'undefined') {
     viewport: {
       selector: 'body',
       padding: 0
-    }
+    },
+    sanitize : true,
+    sanitizeFn : null,
+    whiteList : DefaultWhitelist
   }
 
   Tooltip.prototype.init = function (type, element, options) {
@@ -7232,7 +7266,7 @@ if (typeof jQuery === 'undefined') {
     this.type      = type
     this.$element  = $(element)
     this.options   = this.getOptions(options)
-    this.$viewport = this.options.viewport && $($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
+    this.$viewport = this.options.viewport && $(document).find($.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : (this.options.viewport.selector || this.options.viewport))
     this.inState   = { click: false, hover: false, focus: false }
 
     if (this.$element[0] instanceof document.constructor && !this.options.selector) {
@@ -7265,13 +7299,25 @@ if (typeof jQuery === 'undefined') {
   }
 
   Tooltip.prototype.getOptions = function (options) {
-    options = $.extend({}, this.getDefaults(), this.$element.data(), options)
+    var dataAttributes = this.$element.data()
+
+    for (var dataAttr in dataAttributes) {
+      if (dataAttributes.hasOwnProperty(dataAttr) && $.inArray(dataAttr, DISALLOWED_ATTRIBUTES) !== -1) {
+        delete dataAttributes[dataAttr]
+      }
+    }
+
+    options = $.extend({}, this.getDefaults(), dataAttributes, options)
 
     if (options.delay && typeof options.delay == 'number') {
       options.delay = {
         show: options.delay,
         hide: options.delay
       }
+    }
+
+    if (options.sanitize) {
+      options.template = sanitizeHtml(options.template, options.whiteList, options.sanitizeFn)
     }
 
     return options
@@ -7385,7 +7431,7 @@ if (typeof jQuery === 'undefined') {
         .addClass(placement)
         .data('bs.' + this.type, this)
 
-      this.options.container ? $tip.appendTo(this.options.container) : $tip.insertAfter(this.$element)
+      this.options.container ? $tip.appendTo($(document).find(this.options.container)) : $tip.insertAfter(this.$element)
       this.$element.trigger('inserted.bs.' + this.type)
 
       var pos          = this.getPosition()
@@ -7487,7 +7533,16 @@ if (typeof jQuery === 'undefined') {
     var $tip  = this.tip()
     var title = this.getTitle()
 
-    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
+    if (this.options.html) {
+      if (this.options.sanitize) {
+        title = sanitizeHtml(title, this.options.whiteList, this.options.sanitizeFn)
+      }
+
+      $tip.find('.tooltip-inner').html(title)
+    } else {
+      $tip.find('.tooltip-inner').text(title)
+    }
+
     $tip.removeClass('fade in top bottom left right')
   }
 
@@ -7498,9 +7553,11 @@ if (typeof jQuery === 'undefined') {
 
     function complete() {
       if (that.hoverState != 'in') $tip.detach()
-      that.$element
-        .removeAttr('aria-describedby')
-        .trigger('hidden.bs.' + that.type)
+      if (that.$element) { // TODO: Check whether guarding this code with this `if` is really necessary.
+        that.$element
+          .removeAttr('aria-describedby')
+          .trigger('hidden.bs.' + that.type)
+      }
       callback && callback()
     }
 
@@ -7543,7 +7600,10 @@ if (typeof jQuery === 'undefined') {
       // width and height are missing in IE8, so compute them manually; see https://github.com/twbs/bootstrap/issues/14093
       elRect = $.extend({}, elRect, { width: elRect.right - elRect.left, height: elRect.bottom - elRect.top })
     }
-    var elOffset  = isBody ? { top: 0, left: 0 } : $element.offset()
+    var isSvg = window.SVGElement && el instanceof window.SVGElement
+    // Avoid using $.offset() on SVGs since it gives incorrect results in jQuery 3.
+    // See https://github.com/twbs/bootstrap/issues/20280
+    var elOffset  = isBody ? { top: 0, left: 0 } : (isSvg ? null : $element.offset())
     var scroll    = { scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $element.scrollTop() }
     var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null
 
@@ -7659,9 +7719,13 @@ if (typeof jQuery === 'undefined') {
       that.$tip = null
       that.$arrow = null
       that.$viewport = null
+      that.$element = null
     })
   }
 
+  Tooltip.prototype.sanitizeHtml = function (unsafeHtml) {
+    return sanitizeHtml(unsafeHtml, this.options.whiteList, this.options.sanitizeFn)
+  }
 
   // TOOLTIP PLUGIN DEFINITION
   // =========================
@@ -7695,10 +7759,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: popover.js v3.3.5
- * http://getbootstrap.com/javascript/#popovers
+ * Bootstrap: popover.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#popovers
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -7715,7 +7779,7 @@ if (typeof jQuery === 'undefined') {
 
   if (!$.fn.tooltip) throw new Error('Popover requires tooltip.js')
 
-  Popover.VERSION  = '3.3.5'
+  Popover.VERSION  = '3.4.1'
 
   Popover.DEFAULTS = $.extend({}, $.fn.tooltip.Constructor.DEFAULTS, {
     placement: 'right',
@@ -7741,10 +7805,25 @@ if (typeof jQuery === 'undefined') {
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
-      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
-    ](content)
+    if (this.options.html) {
+      var typeContent = typeof content
+
+      if (this.options.sanitize) {
+        title = this.sanitizeHtml(title)
+
+        if (typeContent === 'string') {
+          content = this.sanitizeHtml(content)
+        }
+      }
+
+      $tip.find('.popover-title').html(title)
+      $tip.find('.popover-content').children().detach().end()[
+        typeContent === 'string' ? 'html' : 'append'
+      ](content)
+    } else {
+      $tip.find('.popover-title').text(title)
+      $tip.find('.popover-content').children().detach().end().text(content)
+    }
 
     $tip.removeClass('fade top bottom left right in')
 
@@ -7763,8 +7842,8 @@ if (typeof jQuery === 'undefined') {
 
     return $e.attr('data-content')
       || (typeof o.content == 'function' ?
-            o.content.call($e[0]) :
-            o.content)
+        o.content.call($e[0]) :
+        o.content)
   }
 
   Popover.prototype.arrow = function () {
@@ -7804,10 +7883,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: scrollspy.js v3.3.5
- * http://getbootstrap.com/javascript/#scrollspy
+ * Bootstrap: scrollspy.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#scrollspy
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -7833,7 +7912,7 @@ if (typeof jQuery === 'undefined') {
     this.process()
   }
 
-  ScrollSpy.VERSION  = '3.3.5'
+  ScrollSpy.VERSION  = '3.4.1'
 
   ScrollSpy.DEFAULTS = {
     offset: 10
@@ -7977,10 +8056,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: tab.js v3.3.5
- * http://getbootstrap.com/javascript/#tabs
+ * Bootstrap: tab.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#tabs
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -7997,7 +8076,7 @@ if (typeof jQuery === 'undefined') {
     // jscs:enable requireDollarBeforejQueryAssignment
   }
 
-  Tab.VERSION = '3.3.5'
+  Tab.VERSION = '3.4.1'
 
   Tab.TRANSITION_DURATION = 150
 
@@ -8026,7 +8105,7 @@ if (typeof jQuery === 'undefined') {
 
     if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) return
 
-    var $target = $(selector)
+    var $target = $(document).find(selector)
 
     this.activate($this.closest('li'), $ul)
     this.activate($target, $target.parent(), function () {
@@ -8051,15 +8130,15 @@ if (typeof jQuery === 'undefined') {
       $active
         .removeClass('active')
         .find('> .dropdown-menu > .active')
-          .removeClass('active')
+        .removeClass('active')
         .end()
         .find('[data-toggle="tab"]')
-          .attr('aria-expanded', false)
+        .attr('aria-expanded', false)
 
       element
         .addClass('active')
         .find('[data-toggle="tab"]')
-          .attr('aria-expanded', true)
+        .attr('aria-expanded', true)
 
       if (transition) {
         element[0].offsetWidth // reflow for transition
@@ -8071,10 +8150,10 @@ if (typeof jQuery === 'undefined') {
       if (element.parent('.dropdown-menu').length) {
         element
           .closest('li.dropdown')
-            .addClass('active')
+          .addClass('active')
           .end()
           .find('[data-toggle="tab"]')
-            .attr('aria-expanded', true)
+          .attr('aria-expanded', true)
       }
 
       callback && callback()
@@ -8133,10 +8212,10 @@ if (typeof jQuery === 'undefined') {
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: affix.js v3.3.5
- * http://getbootstrap.com/javascript/#affix
+ * Bootstrap: affix.js v3.4.1
+ * https://getbootstrap.com/docs/3.4/javascript/#affix
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -8150,7 +8229,9 @@ if (typeof jQuery === 'undefined') {
   var Affix = function (element, options) {
     this.options = $.extend({}, Affix.DEFAULTS, options)
 
-    this.$target = $(this.options.target)
+    var target = this.options.target === Affix.DEFAULTS.target ? $(this.options.target) : $(document).find(this.options.target)
+
+    this.$target = target
       .on('scroll.bs.affix.data-api', $.proxy(this.checkPosition, this))
       .on('click.bs.affix.data-api',  $.proxy(this.checkPositionWithEventLoop, this))
 
@@ -8162,7 +8243,7 @@ if (typeof jQuery === 'undefined') {
     this.checkPosition()
   }
 
-  Affix.VERSION  = '3.3.5'
+  Affix.VERSION  = '3.4.1'
 
   Affix.RESET    = 'affix affix-top affix-bottom'
 
@@ -36514,6 +36595,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/app.css":
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
@@ -36906,6 +37000,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
