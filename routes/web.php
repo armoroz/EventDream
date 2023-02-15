@@ -97,5 +97,5 @@ Route::resource('venueratings', App\Http\Controllers\venueratingController::clas
 
 Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
 
-Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingControllervenueratingController@showvenueratings')->name('venueratings.showvenueratings');
+Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 
