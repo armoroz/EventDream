@@ -11,7 +11,8 @@
         <li>
              <a href="{!! route('permissions.index') !!}">Permissions</a>
         </li>
-             <a href="{!! route('products.index') !!}">Products</a>
+        <li>   
+			 <a href="{!! route('products.index') !!}">Products</a>
         </li>
         <li>
              <a href="{!! route('customers.index') !!}">Customer List</a>
