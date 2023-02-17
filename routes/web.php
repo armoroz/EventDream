@@ -55,23 +55,24 @@ Route::patch('/roles/updatepermissions/{id}', 'App\Http\Controllers\RolesControl
 
 /* System Admin Security */
 
-Route::group(['middleware' => ['role:System Admin']], function () {  
+//Route::group(['middleware' => ['role:System Admin']], function () {  
 //Route::resource('products', App\Http\Controllers\productController::class);
 //Route::get('products', 'App\Http\Controllers\productController@index');                     
-Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')->middleware('permission:Create Product');
-Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')->middleware('permission:Delete Product');
+Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')/*->middleware('permission:Create Product')*/;
+Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')/*->middleware('permission:Delete Product')*/;
 Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
-});
+Route::patch('products/{product}/update  ','App\Http\Controllers\productController@update')->name('products.update');
+//});
 
 /* Warehouse Worker Security */
 
-Route::group(['middleware' => ['role:Warehouse Worker']], function () { 
+//Route::group(['middleware' => ['role:Warehouse Worker']], function () { 
 Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')->middleware('permission:Create Product');
 Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')->middleware('permission:Delete Product');
 Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
-});
+//});

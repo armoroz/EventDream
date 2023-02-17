@@ -34,11 +34,11 @@
     <p>{{ $product->productquantity }}</p>
 </div>
 
-<!-- Productimglink Field -->
+<!-- Productimglink Field 
 <div class="col-sm-12">
-    {!! Form::label('productimglink', 'Productimglink:') !!}
-    <p>{{ $product->productimglink }}</p>
-</div>
+    {!! Form::label('productimg', 'Productimg:') !!}
+    <p>{{ $product->productimg }}</p>
+</div>-->
 
 <!-- Prodaddedon Field -->
 <div class="col-sm-12">

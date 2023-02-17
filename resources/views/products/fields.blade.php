@@ -34,14 +34,19 @@
     {!! Form::number('productquantity', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Productimg Field -->
+<!-- Productimg Field 
 <div class="form-group col-sm-6">
-    {!! Form::label('productimg', 'Productimg:') !!}
+    {!! Form::label('productimg', 'Product Image:') !!}
     {!! Form::text('productimg', null, ['class' => 'form-control','maxlength' => 50,'maxlength' => 50]) !!}
-</div>
+</div>-->
 
 <!-- Userid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('userid', 'Userid:') !!}
     {!! Form::number('userid', null, ['class' => 'form-control']) !!}
+</div>
+<!-- Image Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('productimg', 'Product Image:') !!}
+    {!! Form::file('productimg', null, ['class' => 'form-control']) !!}
 </div>

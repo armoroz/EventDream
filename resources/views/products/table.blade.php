@@ -22,8 +22,15 @@
             <td>{{ $product->productcost }}</td>
             <td>{{ $product->productlocation }}</td>
             <td>{{ $product->productquantity }}</td>
-            <td>{{ $product->productimg }}</td>
+            <!--<td>{{ $product->productimg }}</td>
+			<img class="img-responsive center-block" height="200" width="100" 
+                src="data:image/jpeg;base64,{{$product->productimg}}">
+			</td>-->
+			<td><img class="img-responsive center-block" 
+			    height="100" width="100%" src="{{ $product->productimg }}">
+			</td>
             <td>{{ $product->userid }}</td>
+			<td>
                 <td width="120">
                     {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
