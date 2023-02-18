@@ -60,7 +60,7 @@ class venueController extends AppBaseController
 
         Flash::success('Venue saved successfully.');
 
-        return redirect(route('venues.index'));
+        return redirect(route('venues.showmap'));
     }
 
     /**

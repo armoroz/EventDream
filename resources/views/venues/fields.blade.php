@@ -28,6 +28,15 @@
     {!! Form::text('eircode', null, ['class' => 'form-control','maxlength' => 7,'maxlength' => 7]) !!}
 </div>
 
+<!-- Indoor Field -->
+<div class="form-group col-sm-6">
+    <div class="form-check">
+        {!! Form::hidden('indoor', 0, ['class' => 'form-check-input']) !!}
+        {!! Form::checkbox('indoor', '1', null, ['class' => 'form-check-input']) !!}
+        {!! Form::label('indoor', 'Indoor', ['class' => 'form-check-label']) !!}
+    </div>
+</div>
+
 <!-- Humancapacity Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('humancapacity', 'Humancapacity:') !!}
@@ -45,3 +54,16 @@
     {!! Form::label('userid', 'Userid:') !!}
     {!! Form::number('userid', null, ['class' => 'form-control']) !!}
 </div>
+
+<!-- Lat Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('lat', 'Lat:') !!}
+    {!! Form::text('lat', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Lng Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('lng', 'Lng:') !!}
+    {!! Form::text('lng', null, ['class' => 'form-control']) !!}
+</div>
+
