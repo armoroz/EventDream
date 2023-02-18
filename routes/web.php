@@ -92,6 +92,4 @@ Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingCo
 Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 
 Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name(' venues.map.json ');
-=======
-//});
->>>>>>> a61c9a3fe44eb94397fa56a9567f1e9b8070aef5
+

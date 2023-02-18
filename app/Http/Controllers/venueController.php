@@ -158,5 +158,5 @@ class venueController extends AppBaseController
 	{
 		$venues = \App\Models\Venue::all();
 		return response()->json($venues);
-	}
+	} 
 }

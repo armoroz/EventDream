@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model as Model;
  */
 
 class venue extends Model
-{
+{ 
 	protected $appends = ['name'];
 
     public $table = 'venue';
@@ -118,5 +118,5 @@ class venue extends Model
 		$name = $this->venuename;
 		if ($this->indoor) $name .=" Indoor"; else $name .=" Outdoor";
 		return $name;
-	}
+	} 
 }
