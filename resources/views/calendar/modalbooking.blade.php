@@ -7,25 +7,27 @@
         <div class="container-fluid"> 
           <form action="{{route('bookings.store')}}" method="post">
             @csrf
-              <div class="form-group"> <label for="memerid">Customer ID</label> 
-<input type="text" class="form-control" id="memid" name="memberid"/> 
-</div> 
-<div class="form-group"> 
-<label for="bookingdate">Booked Date</label> 
-<input type="text" class="form-control" id="bookingDate" name="bookingdate"/> 
-</div> 
-<div class="form-group"> 
-<label for="starttime">Booked Time</label> 
-<input type="text" class="form-control" id="starttime" name="starttime"/> </div> 
-<div class="form-group"> 
-<label for="courtid">VenueID</label> 
-<input type="text" class="form-control" id="courtid" name="courtid"/> </div> 
-<div class="modal-footer"> 
-<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Create Appointment</button> 
-</div> 
-</form> 
-</div> 
-</div> 
-</div> 
-</div> 
+              <div class="form-group"> <label for="customerid">Customer ID</label> 
+				<input type="text" class="form-control" id="custid" name="customerid"/> 
+			  </div>
+			  <div class="form-group"> 
+				<label for="bookeddate">Booked Date</label> 
+				<input type="text" class="form-control" id="bookingDate" name="bookingdate"/> 
+			  </div> 
+			  <div class="form-group"> 
+				<label for="bookedtime">Booked Time</label> 
+				<input type="text" class="form-control" id="starttime" name="starttime"/> 
+			  </div> 
+			  <div class="form-group"> 
+				<label for="venueid">VenueID</label> 
+				<input type="text" class="form-control" id="venueid" name="venueid"/> 
+			  </div> 
+			  <div class="modal-footer"> 
+				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Create Appointment</button> 
+			  </div> 
+		  </form> 
+		</div> 
+	  </div> 
+	</div> 
+  </div> 
 </div>

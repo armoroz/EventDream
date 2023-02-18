@@ -7,6 +7,7 @@
         <th>Addressline2</th>
         <th>City</th>
         <th>Eircode</th>
+		<th>Indoor?</th>
         <th>Humancapacity</th>
         <th>Costtorent</th>
         <th>Userid</th>
@@ -23,6 +24,7 @@
             <td>{{ $venue->addressline2 }}</td>
             <td>{{ $venue->city }}</td>
             <td>{{ $venue->eircode }}</td>
+			<td>{{ $venue->indoor }}</td>
             <td>{{ $venue->humancapacity }}</td>
             <td>{{ $venue->costtorent }}</td>
             <td>{{ $venue->userid }}</td>

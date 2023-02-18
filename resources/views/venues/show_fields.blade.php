@@ -28,6 +28,12 @@
     <p>{{ $venue->eircode }}</p>
 </div>
 
+<!-- Indoor Field -->
+<div class="col-sm-12">
+    {!! Form::label('indoor', 'Indoor?:') !!}
+    <p>{{ $venue->indoor }}</p>
+</div>
+
 <!-- Humancapacity Field -->
 <div class="col-sm-12">
     {!! Form::label('humancapacity', 'Humancapacity:') !!}

@@ -48,7 +48,7 @@ class bookingController extends AppBaseController
      //Find all products from the DB and return as an array of Product.php objects
      $products = Product::all();
      //Find all venues from the DB and return as an array of Venue.php objects
-     $Venue = venue::all();
+     $venues = venue::all();
      //return the bookings.create view with $products and $venues as view variables
       return view('bookings.create')->with('products', $products)->with('venues', $venues);
 	 
