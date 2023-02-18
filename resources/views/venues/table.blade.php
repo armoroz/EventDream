@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive" style="width:110%">
     <table class="table" id="venues-table">
         <thead>
         <tr>

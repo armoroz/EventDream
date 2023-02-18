@@ -34,6 +34,7 @@
             $('#starttime').val(info.date.toISOString().substring(11,16));
             $('#bookingDate').val(info.date.toISOString().substring(0,10));
             $('#fullCalModal').modal('show');
+
  }
             
  

@@ -29,11 +29,15 @@
 <!-- Productid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('productid', 'Productid:') !!}
-    {!! Form::number('productid', null, ['class' => 'form-control']) !!}
+	@foreach ($products as $product)
+		<option value='{{$product->id}}'>{{$product}}</option>
+	@endforeach	
 </div>
 
 <!-- Venueid Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('venueid', 'Venueid:') !!}
-    {!! Form::number('venueid', null, ['class' => 'form-control']) !!}
+   @foreach ($venues as $venue)
+		<option value='{{$venue->id}}'>{{$venue}}</option>
+	@endforeach	
 </div>

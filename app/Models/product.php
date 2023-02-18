@@ -75,7 +75,7 @@ class product extends Model
         'productcost' => 'nullable|numeric',
         'productlocation' => 'nullable|string|max:30',
         'productquantity' => 'nullable|integer',
-        'productimg' => 'nullable|string|max:50',
+        'productimg' => 'nullable',
         'userid' => 'nullable|integer'
     ];
 

@@ -59,10 +59,18 @@ class productController extends AppBaseController
         $input = $request->all();
 
         $product = $this->productRepository->create($input);
+		
+		/*$product->productimg = base64_encode(file_get_contents($request->productimg));
+        $product->save();*/
+		
+		$file = $request->file('productimg');
+        $product->productimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
+        $product->save();
 
         Flash::success('Product saved successfully.');
 
         return redirect(route('products.index'));
+		
     }
 
     /**
@@ -124,6 +132,10 @@ class productController extends AppBaseController
         }
 
         $product = $this->productRepository->update($request->all(), $id);
+		
+		$file = $request->file('productimg');
+        $product->productimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
+        $product->save();
 
         Flash::success('Product updated successfully.');
 

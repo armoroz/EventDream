@@ -51,9 +51,8 @@
                     {{ __('Log in') }}
                 </x-button>
                 <x-button class="ml-3">
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900"href="{{ route('register') }}">
-						{{ __('Register Here') }}
-					</a>
+                    <a href="{{ route('register') }}"style="text-decoration: none; color: #353535;">Register Here</a>
+						<!--{{ __('Register Here') }}-->	
                 </x-button>								
             </div>
         </form>

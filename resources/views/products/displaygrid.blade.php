@@ -7,16 +7,16 @@
 <div style="padding-top:7%" class="container-fluid"> 
     <nav class="navbar navbar-default navbar-fixed-top"> 
 			<div class="navbar-header">
-				<a class="navbar-brand" style="font-size: 16pt" href="{{route('events.index') }}">EventDream</a>
+				<a class="navbar-brand" href="{{route('dashboard') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
             <ul class="nav navbar-nav"> 
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.index')}}" style="font-size: 12pt" >Venues</a></li>
-			<li><a href="{{route('venueratings.index')}}" style="font-size: 12pt" >Venue Ratings</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
 			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
+			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
         <ul class="list-inline nav navbar-nav navbar-right">
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block">Check Out</button></a></li> 
             <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
@@ -33,7 +33,7 @@
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
             <div class="panel-heading">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
-            <div class="panel-body"><img style="width:80%;height:200px;" class="img-responsive center-block" src="{{ asset('/img/' . $product->productimg)}}"/></div> 
+            <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $product->productimg }}"></div>
             <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
         </div>
     </div> 

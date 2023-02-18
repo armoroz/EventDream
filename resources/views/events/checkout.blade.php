@@ -12,7 +12,8 @@
     @foreach ($lineitems as $lineitem) 
         @php $product=$lineitem['product']; @endphp 
         <tr> 
-            <td><input size="3" style="border:none" type="text" name="productid[]" readonly value="{{ $product->id }}"></td> 
+            <td><div class="panel-body"><img style="width:80%;height:200px;" class="img-responsive center-block" src="{{ $product->productimg }}"/></div></td>
+			<td><input size="3" style="border:none" type="text" name="productid[]" readonly value="{{ $product->id }}"></td> 
               <td>{{ $product->productname }}</td> 
               <td>{{ $product->producttype }}</td>
               <td>{{ $product->productdesc }}</td>

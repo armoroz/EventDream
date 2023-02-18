@@ -7,6 +7,8 @@ use App\Http\Requests\UpdatebookingRequest;
 use App\Repositories\bookingRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Product as product;
+use App\Models\Venue as Venue;
 use Flash;
 use Response;
 
@@ -42,7 +44,14 @@ class bookingController extends AppBaseController
      */
     public function create()
     {
-        return view('bookings.create');
+        
+     //Find all products from the DB and return as an array of Product.php objects
+     $products = Product::all();
+     //Find all venues from the DB and return as an array of Venue.php objects
+     $Venue = venue::all();
+     //return the bookings.create view with $products and $venues as view variables
+      return view('bookings.create')->with('products', $products)->with('venues', $venues);
+	 
     }
 
     /**
