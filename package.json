@@ -25,6 +25,7 @@
     "dependencies": {
         "bootstrap": "^3.4.1",
         "bootstrap-star-rating": "^4.0.2",
-        "jquery": "^3.6.3"
+        "jquery": "^3.6.3",
+        "leaflet": "^1.9.3"
     }
 }

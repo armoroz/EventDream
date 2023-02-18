@@ -68,7 +68,7 @@ Route::patch('products/{product}/update  ','App\Http\Controllers\productControll
 
 use App\Http\Controllers\aboutusController;
 
-Route::get('/aboutus', [aboutusController::class, 'index']);
+Route::resource('aboutus', App\Http\Controllers\aboutusController::class);
 
 /* Warehouse Worker Security */
 
@@ -79,8 +79,8 @@ Route::get('products/{product}', 'App\Http\Controllers\productController@show')-
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
-<<<<<<< HEAD
-});
+//<<<<<<< HEAD
+//});
 
 Route::resource('venues', App\Http\Controllers\venueController::class);
 
@@ -92,4 +92,6 @@ Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingCo
 Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 
 Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name(' venues.map.json ');
+
+Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
 
