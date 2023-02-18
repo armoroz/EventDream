@@ -1,41 +1,14 @@
-@extends('layouts.app')
-
-@section('content')
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Products</h1>
-                </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('products.create') }}">
-                        Add New
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="content px-3">
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-
-        <div class="card">
-            <div class="card-body p-0">
-                @include('products.table')
-
-                <div class="card-footer clearfix">
-                    <div class="float-right">
-                        
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-@endsection
-
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>About Us</title>
+</head>
+<body>
+	<div class="container">
+		<h1>About Us</h1>
+		<p>Welcome to our company. We are a leading provider of products and services in our industry. Our team of experts is dedicated to providing our customers with the best possible experience.</p>
+		<p>Here is some more information about our company...</p>
+	</div>
+</body>
+</html>

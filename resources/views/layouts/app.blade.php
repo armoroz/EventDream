@@ -30,6 +30,7 @@
 				<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
 				<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 				<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
+				<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
 			@include('layouts.navAuth')

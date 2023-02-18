@@ -66,6 +66,10 @@ Route::post('products','App\Http\Controllers\productController@store')->name('pr
 Route::patch('products/{product}/update  ','App\Http\Controllers\productController@update')->name('products.update');
 //});
 
+use App\Http\Controllers\aboutusController;
+
+Route::get('/aboutus', [aboutusController::class, 'index']);
+
 /* Warehouse Worker Security */
 
 //Route::group(['middleware' => ['role:Warehouse Worker']], function () { 
