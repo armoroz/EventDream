@@ -14,5 +14,18 @@
          zoomOffset: -1,
      }).addTo(mymap);
  mymap.setView(new L.LatLng(53.4053, -6.3784), 13); 
+ 
+ $.getJSON({
+    url: '{{route('venues.map.json')}}'
+    }).done(function (venues) {
+        var bounds = [];
+        for ( var i=0; i < venues.length; ++i ) {
+           thisMarker = L.marker( [venues[i].lat, venues[i].lng] ,{icon : icon}).addTo( mymap ).bindPopup(venues[i].name);
+           bounds.push([venues[i].lat,venues[i].lng]);
+        }
+        mymap.fitBounds(bounds,{padding: [20,20]});
+    }).fail(function (xhr, status, error) {
+        alert("There is a problem with your route to your json data: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+});
  </script>
  @endsection
