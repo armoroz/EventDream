@@ -24,9 +24,10 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property number $costtorent
  * @property integer $userid
  */
+
 class venue extends Model
 {
-
+	protected $appends = ['name'];
 
     public $table = 'venue';
     
@@ -111,4 +112,11 @@ class venue extends Model
     {
         return $this->hasMany(\App\Models\Venuerating::class, 'venueid');
     }
+	
+	public function getNameAttribute()
+	{
+		$name = $this->venuename;
+		if ($this->indoor) $name .=" Indoor"; else $name .=" Outdoor";
+		return $name;
+	}
 }

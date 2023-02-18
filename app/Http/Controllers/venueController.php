@@ -153,4 +153,10 @@ class venueController extends AppBaseController
 
         return redirect(route('venues.index'));
     }
+	
+	public function json()
+	{
+		$venues = \App\Models\Venue::all();
+		return response()->json($venues);
+	}
 }
