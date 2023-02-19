@@ -1,7 +1,7 @@
 @extends('layouts.app')
  @csrf
  @section('content')
- <div id="mapid" class="center-block" style="width: 100%; height: 400px;"></div>
+ <div id="mapid" class="center-block" style="width: 100%; height: 600px;"></div>
  <script>
      var mymap = L.map('mapid');
      var icon = new L.Icon.Default();
