@@ -208,12 +208,25 @@ class productController extends AppBaseController
 	}
 	
      public function emptycart()
-     {
-         if (Session::has('cart')) {
-             Session::forget('cart');
-         }
-         return Response::json(['success'=>true],200);
-     }
+    {
+        if (Session::has('cart')) {
+            Session::forget('cart');
+        }
+        return Response::json(['success'=>true],200);
+    }
+	   
+    public function custshow($id)
+    {
+        $product = $this->productRepository->find($id);
+
+        if (empty($product)) {
+            Flash::error('Product not found');
+
+            return redirect(route('products.index'));
+        }
+
+        return view('products.custshow')->with('product', $product);
+    }
 	
 }
 

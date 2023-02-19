@@ -51,9 +51,9 @@
                     {{ __('Log in') }}
                 </x-button>
                 <x-button class="ml-3">
-                    <a href="{{ route('register') }}"style="text-decoration: none; color: #353535;">Register Here</a>
-						<!--{{ __('Register Here') }}-->	
-                </x-button>								
+                    <a href="{{ route('register') }}" style=" color: #333333;">Register Here</a>
+						<!--{{ __('Register Here') }} -->
+                </x-button>
             </div>
         </form>
     </x-auth-card>
