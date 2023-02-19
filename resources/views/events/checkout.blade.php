@@ -12,8 +12,8 @@
     @foreach ($lineitems as $lineitem) 
         @php $product=$lineitem['product']; @endphp 
         <tr> 
-            <td><div class="panel-body"><img style="width:80%;height:200px;" class="img-responsive center-block" src="{{ $product->productimg }}"/></div></td>
-			<td><input size="3" style="border:none" type="text" name="productid[]" readonly value="{{ $product->id }}"></td> 
+              <td><div class="panel-body"><img style="width:30%;height:30%;" class="img-responsive center-block" src="{{ $product->productimg }}"/></div></td>
+			  <td><input size="3" style="border:none" type="text" name="productid[]" readonly value="{{ $product->id }}"></td> 
               <td>{{ $product->productname }}</td> 
               <td>{{ $product->producttype }}</td>
               <td>{{ $product->productdesc }}</td>
@@ -22,7 +22,7 @@
               <td> 
                   <button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus"/></button> 
                   <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
-                  <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button> 
+                  <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>			  
               </td>
               @php $ttlQty = $ttlQty + $lineitem['qty']; $ttlCost = $ttlCost + ($product->productcost*$lineitem['qty']); 
               @endphp 
@@ -30,5 +30,6 @@
     @endforeach
     </tbody> 
 </table> 
+<p style="text-align:right; font-size:18px; padding:10px; border:solid white 1px;">Total: €<label>{{ $ttlCost }}</label></p>
 <button type="submit" class="btn btn-primary">Submit</button> {{ Form::close() }} 
 @endsection 

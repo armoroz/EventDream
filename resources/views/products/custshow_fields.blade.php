@@ -22,22 +22,10 @@
     <p>{{ $product->productcost }}</p>
 </div>
 
-<!-- Productlocation Field -->
-<div class="col-sm-12">
-    {!! Form::label('productlocation', 'Productlocation:') !!}
-    <p>{{ $product->productlocation }}</p>
-</div>
-
 <!-- Productquantity Field -->
 <div class="col-sm-12">
     {!! Form::label('productquantity', 'Productquantity:') !!}
     <p>{{ $product->productquantity }}</p>
-</div>
-
-<!-- Userid Field -->
-<div class="col-sm-12">
-    {!! Form::label('userid', 'Userid:') !!}
-    <p>{{ $product->userid }}</p>
 </div>
 
 <!-- Productimg Field -->

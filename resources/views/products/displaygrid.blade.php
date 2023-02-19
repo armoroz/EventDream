@@ -34,7 +34,13 @@
             <div class="panel panel-primary"> 
             <div class="panel-heading">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
             <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $product->productimg }}"></div>
+			<div class="panel-footer" style="text-align: center">€{{$product->productcost}}</div>
             <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
+            <div class="panel-footer" style="text-align:center">
+			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$product->id}}"/></button> 
+            <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
+            <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
+			</div>			
 			<div class="panel-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
         </div>
     </div> 
