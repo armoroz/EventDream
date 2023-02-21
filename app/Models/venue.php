@@ -119,4 +119,9 @@ class venue extends Model
 		if ($this->indoor) $name .=" Indoor"; else $name .=" Outdoor";
 		return $name;
 	} 
+	public function __toString()
+	{
+		return $this->venuename . " " . $this->city ;
+	}
+	
 }

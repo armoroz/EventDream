@@ -5,7 +5,7 @@
 <head>
   <title>About Us</title>
   <style>
-    /* CSS styles go here */
+    
   </style>
 </head>
 <body>
@@ -21,9 +21,9 @@
   <section>
     <h2>Our Team</h2>
     <ul>
-      <li>John Doe - CEO</li>
-      <li>Jane Smith - COO</li>
-      <li>Bob Johnson - CTO</li>
+      <li>Shalini - CEO</li>
+      <li>Endy  - CEO</li>
+      <li>Arina - CEO</li>
     </ul>
   </section>
 

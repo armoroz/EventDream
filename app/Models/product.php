@@ -102,4 +102,11 @@ class product extends Model
     {
         return $this->hasMany(\App\Models\Eventproductlog::class, 'productid');
     }
+	
+	public function __toString()
+	{
+		return $this->productname . " " . $this->productdesc ;
+	}
+	
 }
+
