@@ -43,6 +43,7 @@ Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorde
 Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
 Route::resource('calendar/display', App\Http\Controllers\calendarController::class);
+Route::get('/calendar/json','CalendarController@json')->name('calendar.json');
 Route::resource('venues', App\Http\Controllers\venueController::class);
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
 Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');

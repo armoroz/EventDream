@@ -12,16 +12,21 @@
 			  </div>
 			  <div class="form-group"> 
 				<label for="bookeddate">Booked Date</label> 
-				<input type="text" class="form-control" id="bookingDate" name="bookingdate"/> 
+				<input type="text" class="form-control" id="bookedDate" name="bookeddate"/> 
 			  </div> 
 			  <div class="form-group"> 
 				<label for="bookedtime">Booked Time</label> 
-				<input type="text" class="form-control" id="starttime" name="starttime"/> 
+				<input type="text" class="form-control" id="bookedtime" name="bookedtime"/> 
 			  </div> 
 			  <div class="form-group"> 
 				<label for="venueid">VenueID</label> 
 				<input type="text" class="form-control" id="venueid" name="venueid"/> 
-			  </div> 
+			  </div>
+              <div class="form-group"> 
+				<label for="productid">ProductID</label> 
+				<input type="text" class="form-control" id="productid" name="productid"/> 
+			  </div>			  
+			  
 			  <div class="modal-footer"> 
 				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Create Appointment</button> 
 			  </div> 
