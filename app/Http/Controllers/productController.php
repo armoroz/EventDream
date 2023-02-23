@@ -215,7 +215,7 @@ class productController extends AppBaseController
         return Response::json(['success'=>true],200);
     }
 	   
-    public function custshow($id)
+    public function custshow($id, Request $request)
     {
         $product = $this->productRepository->find($id);
 
@@ -225,8 +225,18 @@ class productController extends AppBaseController
             return redirect(route('products.index'));
         }
 
-        return view('products.custshow')->with('product', $product);
-    }
+		$products = \App\Models\Product::all();
+		$totalItems = 0;
+
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			foreach ($cart as $productId => $qty) {
+				$totalItems += $qty;
+			}
+		}
+
+		return view('products.custshow', ['product' => $product, 'totalItems' => $totalItems]);
+	}
 	
 }
 
