@@ -11,7 +11,7 @@
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.index')}}" style="font-size: 12pt" >Venues</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
-			<li><a href="{{route('display.index')}}" style="font-size: 12pt" >Calendar</a></li>
+			<li><a href="{{route('calendar.display')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
