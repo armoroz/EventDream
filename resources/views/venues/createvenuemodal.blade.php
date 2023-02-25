@@ -20,11 +20,18 @@
        </div>
      </div>
  </div>
- <script>
+ <!--<script>
      $('#submit').click( function(e) {
          $('#createVenueForm').submit(function(event){
              console.log("submit");
          });
          $('#createVenueModal').modal('hide');
      });
+ </script>-->
+ 
+  <script>
+ $('#submit').click( function(e) { 
+     $("#createVenueForm").submit();
+     $('#createVenueModal').modal('hide');
+ });
  </script>

@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property integer $humancapacity
  * @property number $costtorent
  * @property integer $userid
+  * @property integer $lat
+   * @property integer $lng
  */
 
 class venue extends Model
@@ -45,7 +47,9 @@ class venue extends Model
         'eircode',
         'humancapacity',
         'costtorent',
-        'userid'
+        'userid',
+		'lat',
+		'lng'
     ];
 
     /**
@@ -62,7 +66,9 @@ class venue extends Model
         'eircode' => 'string',
         'humancapacity' => 'integer',
         'costtorent' => 'decimal:2',
-        'userid' => 'integer'
+        'userid' => 'integer',
+		'lat' => 'double',
+		'lng' => 'double'
     ];
 
     /**
@@ -78,7 +84,9 @@ class venue extends Model
         'eircode' => 'nullable|string|max:7',
         'humancapacity' => 'nullable|integer',
         'costtorent' => 'nullable|numeric',
-        'userid' => 'nullable|integer'
+        'userid' => 'nullable|integer',
+		'lat' => 'nullable',
+		'lng' => 'nullable'
     ];
 
     /**

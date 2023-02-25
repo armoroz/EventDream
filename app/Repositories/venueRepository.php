@@ -24,7 +24,9 @@ class venueRepository extends BaseRepository
         'eircode',
         'humancapacity',
         'costtorent',
-        'userid'
+        'userid',
+		'lat',
+		'lng'
     ];
 
     /**

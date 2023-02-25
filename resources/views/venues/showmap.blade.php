@@ -4,8 +4,11 @@
  <div id="mapid" class="center-block" style="width: 100%; height: 600px;"></div>
  <script>
      var mymap = L.map('mapid');
-     var icon = new L.Icon.Default();
+     var icon = new L.Icon();
      icon.options.shadowSize = [0,0];
+     icon.options.iconSize = [20, 40];
+     icon.options.iconAnchor = [10, 70];
+     icon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/marker-icon.png')}}";
      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhbGluaWsiLCJhIjoiY2xlYTFwemV2MHBhdjNucXM1cHVlZDN3NiJ9.YyBcnu_XLr3krPvCZFy1RQ', {
          attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
          maxZoom: 18,
