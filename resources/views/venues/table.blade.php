@@ -52,6 +52,10 @@
 						   class='btn btn-default btn-xs'>
 						   <i class="glyphicon glyphicon-star"></i>
 						</a>
+						<a href="{!! route('venue.newimages', [$venue->id]) !!}" 
+						   class='btn btn-default btn-xs'>
+						   <i class="glyphicon glyphicon-picture"></i>
+						</a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

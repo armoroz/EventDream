@@ -4,12 +4,12 @@
 {{ Form::open(array('url' => 'events/placeorder', 'method' => 'post')) }} 
 @csrf <table class="table table-condensed table-bordered"> 
     <thead> 
-        <tr><th>Id</th><th>Name</th><th>Type</th><th>Description</th><th>Price</th><th>Quantity</th>
+        <tr><th>Image</th><th>Id</th><th>Name</th><th>Type</th><th>Description</th><th>Price</th><th>Quantity</th>
         </tr>
     </thead> 
     <tbody> 
     @php $ttlCost=0; $ttlQty=0;@endphp 
-    @foreach ($lineitems as $lineitem) 
+    @foreach ($lineitems as $lineitem)
         @php $product=$lineitem['product']; @endphp 
         <tr> 
               <td><div class="panel-body"><img style="width:30%;height:30%;" class="img-responsive center-block" src="{{ $product->productimg }}"/></div></td>
@@ -22,11 +22,11 @@
               <td> 
                   <button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus"/></button> 
                   <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
-                  <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>			  
+                  <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>			  
               </td>
               @php $ttlQty = $ttlQty + $lineitem['qty']; $ttlCost = $ttlCost + ($product->productcost*$lineitem['qty']); 
               @endphp 
-        </tr> 
+        </tr>
     @endforeach
 
     @foreach ($lineitems as $lineitem)

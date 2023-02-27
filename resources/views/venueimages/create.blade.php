@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Create Product</h1>
+                    <h1>Create Venueimages</h1>
                 </div>
             </div>
         </div>
@@ -17,19 +17,19 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'products.store']) !!}
+            {!! Form::open(['route' => 'venueimages.store', 'files' => 'true']) !!}
 
             <div class="card-body">
 
                 <div class="row">
-                    @include('products.fields')
+                    @include('venueimages.fields')
                 </div>
 
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('products.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('venueimages.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}

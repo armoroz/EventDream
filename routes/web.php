@@ -98,3 +98,6 @@ Route::get('products/{product}/edit', 'App\Http\Controllers\productController@ed
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
+
+Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
+Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
