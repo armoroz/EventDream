@@ -1,4 +1,4 @@
-<div class="table-responsive" style="width:110%">
+<div class="table-responsive">
     <table class="table" id="venues-table">
         <thead>
         <tr>
@@ -11,6 +11,7 @@
         <th>Humancapacity</th>
         <th>Costtorent</th>
         <th>Userid</th>
+		<th>Image</th>		
 		<th>Average Rating</th>
 		<th>Stars</th>
             <th colspan="3">Action</th>
@@ -28,6 +29,8 @@
             <td>{{ $venue->humancapacity }}</td>
             <td>{{ $venue->costtorent }}</td>
             <td>{{ $venue->userid }}</td>
+			<td>@foreach($venue->venueimages->take(1) as $venueimage)		
+            <img class="img-responsive center-block" height="100" width="100%" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">@endforeach</td>
 			<td>{!! round($venue->venueratings->avg('rating'),2); !!}</td> 
 			<td> <a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 

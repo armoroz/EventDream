@@ -27,6 +27,9 @@
              <a href="{!! route('venueratings.index') !!}">Venue Ratings</a>
         </li>
 		<li>
+             <a href="{!! route('venueimages.index') !!}">Venue Images</a>
+        </li>
+		<li>
              <a href="{!! route('events.index') !!}">Event List</a>
         </li>
 		<li>

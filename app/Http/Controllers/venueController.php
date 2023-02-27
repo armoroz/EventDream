@@ -133,6 +133,7 @@ class venueController extends AppBaseController
 	public function displayGrid(Request $request)
 	{
 		$venues=\App\Models\Venue::all();
+		$venueimages = \App\Models\VenueImages::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -146,7 +147,7 @@ class venueController extends AppBaseController
 			$totalItems=0;
 
 		}
-		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems);
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages);
 		
 	}
 
@@ -216,6 +217,7 @@ class venueController extends AppBaseController
     public function custshow($id, Request $request)
     {
         $venue = $this->venueRepository->find($id);
+		$venueimages = $venue->venueimages;
 
         if (empty($venue)) {
             Flash::error('Venue not found');
@@ -233,7 +235,7 @@ class venueController extends AppBaseController
 			}
 		}
 
-		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems]);
+		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems, 'venueimages' => $venueimages]);
 	}
 
 }

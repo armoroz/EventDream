@@ -63,6 +63,9 @@ Route::get('venues/{venue}', 'App\Http\Controllers\venueController@show')->name(
 Route::get('venues/{venue}/edit', 'App\Http\Controllers\venueController@edit')->name('venues.edit');
 Route::post('venues','App\Http\Controllers\venueController@store')->name('venues.store');
 Route::patch('venues/{venue}/update  ','App\Http\Controllers\venueController@update')->name('venues.update');
+Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
+Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
+Route::post('venues/{venue}/update','App\Http\Controllers\venueController@update')->name('venues.update');
 Route::get('venues/custshow/{venues}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
 
 Route::resource('users', App\Http\Controllers\usersController::class);
@@ -98,6 +101,3 @@ Route::get('products/{product}/edit', 'App\Http\Controllers\productController@ed
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
-
-Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
-Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');

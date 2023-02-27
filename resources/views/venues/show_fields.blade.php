@@ -30,7 +30,7 @@
 
 <!-- Indoor Field -->
 <div class="col-sm-12">
-    {!! Form::label('indoor', 'Indoor?:') !!}
+    {!! Form::label('indoor', 'Indoor:') !!}
     <p>{{ $venue->indoor }}</p>
 </div>
 
@@ -52,7 +52,8 @@
     <p>{{ $venue->userid }}</p>
 </div>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- Imagefile Field -->
+
 <div class="container-fluid">
     <div id="thisCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

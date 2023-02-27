@@ -32,4 +32,3 @@
 <div><td><img class="img-responsive left-block" 
 	height="200px" width="200px" src="{{ $product->productimg }}">
 </td></div>
-

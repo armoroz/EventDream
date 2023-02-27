@@ -205,13 +205,13 @@ class eventController extends AppBaseController
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid;
-		$venueids = $request->venueid;
+		/*$venueids = $request->venueid;*/
 		$quantities = $request->quantity;
 		for($i=0;$i<sizeof($productids);$i++) {
 			$thisOrderDetail = new \App\Models\Eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
 			$thisOrderDetail->productid = $productids[$i];
-			$thisOrderDetail->venueid = $venueids[$i];
+			/*$thisOrderDetail->venueid = $venueids[$i];*/
 			$thisOrderDetail->eventproductquantity = $quantities[$i];
 			$thisOrderDetail->save();
 		}

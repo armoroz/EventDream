@@ -33,7 +33,8 @@
 		@if (isset($lineitem['venue']))
         @php $venue=$lineitem['venue']; @endphp 
         <tr> 
-              <td><div class="panel-body"><img style="width:30%;height:30%;" class="img-responsive center-block" src="{{ $venue->venueimg }}"/></div></td>
+              <td>@foreach($venue->venueimages->take(1) as $venueimage)		
+            <div class="panel-body"><img class="img-responsive center-block" height="30%" width="30%" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"></div>@endforeach</td>
 			  <td><input size="3" style="border:none" type="text" name="venueid[]" readonly value="{{ $venue->id }}"></td> 
               <td>{{ $venue->venuename }}</td> 
               <td>{{ $venue->addressline1 }}</td>

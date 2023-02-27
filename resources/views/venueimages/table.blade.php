@@ -3,7 +3,7 @@
         <thead>
         <tr>
             <th>Venueid</th>
-			<th>Imagefile</th>
+			<th>Image file</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>

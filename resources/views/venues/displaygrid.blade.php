@@ -17,6 +17,7 @@
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
+			<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
         <ul class="list-inline nav navbar-nav navbar-right">
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block">Check Out</button></li> 
             <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
@@ -33,7 +34,8 @@
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
             <div class="panel-heading">{{ $venue->venuename }} {{ $venue->city }}</div> 
-            <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $venue->venueimg }}"></div>
+			@foreach($venue->venueimages->take(1) as $venueimage)		
+            <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"></div>@endforeach
 			<div class="panel-footer" style="text-align: center">€{{$venue->costtorent}}</div>
             <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$venue->id}}">Add To Cart</button></div>
             <div class="panel-footer" style="text-align:center">
