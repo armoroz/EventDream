@@ -19,7 +19,7 @@
             <ul class="nav navbar-nav"> 
 				
 				<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
-				<li><a href="{{route('venues.index')}}" style="font-size: 12pt" >Venues</a></li>
+				<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
 				<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
 				<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 				<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>

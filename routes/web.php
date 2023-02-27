@@ -46,12 +46,24 @@ Route::resource('calendar/display', App\Http\Controllers\calendarController::cla
 Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
 Route::get('/calendar/display','App\Http\Controllers\calendarController@index')->name('calendar.display'); 
 
-Route::resource('venues', App\Http\Controllers\venueController::class);
+//Route::resource('venues', App\Http\Controllers\venueController::class);
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
 Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
 Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name('venues.map.json');
 Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
+Route::get('venues/displaygrid', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
+Route::get('venues', 'App\Http\Controllers\venueController@index')->name('venues.index');
+Route::get('venues/additem/{id}', 'App\Http\Controllers\venueController@additem')->name('venues.additem');
+Route::get('venues/emptycart', 'App\Http\Controllers\venueController@emptycart')->name('venues.emptycart');
+
+Route::get('/venues/create', 'App\Http\Controllers\venueController@create')->name('venues.create');
+Route::delete('/venues/{venue}', 'App\Http\Controllers\venueController@destroy')->name('venues.destroy');
+Route::get('venues/{venue}', 'App\Http\Controllers\venueController@show')->name('venues.show');
+Route::get('venues/{venue}/edit', 'App\Http\Controllers\venueController@edit')->name('venues.edit');
+Route::post('venues','App\Http\Controllers\venueController@store')->name('venues.store');
+Route::patch('venues/{venue}/update  ','App\Http\Controllers\venueController@update')->name('venues.update');
+Route::get('venues/custshow/{venues}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
 
 Route::resource('users', App\Http\Controllers\usersController::class);
 Route::resource('roles', App\Http\Controllers\rolesController::class);

@@ -28,20 +28,20 @@
     </nav> 
 </div>
 
-@foreach($products as $product) 
+@foreach($venues as $venue) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
-            <div class="panel-heading">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
-            <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $product->productimg }}"></div>
-			<div class="panel-footer" style="text-align: center">€{{$product->productcost}}</div>
-            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
+            <div class="panel-heading">{{ $venue->venuename }} {{ $venue->city }}</div> 
+            <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $venue->venueimg }}"></div>
+			<div class="panel-footer" style="text-align: center">€{{$venue->costtorent}}</div>
+            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$venue->id}}">Add To Cart</button></div>
             <div class="panel-footer" style="text-align:center">
-			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$product->id}}"/></button> 
+			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$venue->id}}"/></button> 
             <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
             <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
+			<div class="panel-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
 			</div>			
-			<div class="panel-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
         </div>
     </div> 
     @php $j++ @endphp 
@@ -57,7 +57,7 @@ $(".bth,.addItem").click(function() {
     $('#shoppingcart').text(total);    
     $.ajax({
       type: "get",
-      url: "{{url('products/additem/')}}" + "/" + i,
+      url: "{{url('venues/additem/')}}" + "/" + i,
       type: "GET",
       success: function(response) {
           total=total+1;
@@ -70,7 +70,7 @@ $(".bth,.addItem").click(function() {
 });
 
 $("#emptycart").click(function() { $.ajax({ 
-    type: "get", url: "{{ url('products/emptycart')   }}",
+    type: "get", url: "{{ url('venues/emptycart')   }}",
     success: function() { 
         $('#shoppingcart').text(0); 
     }, 

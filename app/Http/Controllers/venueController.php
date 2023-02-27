@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Session;
 
 class venueController extends AppBaseController
 {
@@ -127,6 +128,26 @@ class venueController extends AppBaseController
 
         return redirect(route('venues.index'));
     }
+	
+	public function displayGrid(Request $request)
+	{
+		$venues=\App\Models\Venue::all();
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $venue => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+
+		}
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems);
+		
+	}
 
     /**
      * Remove the specified venue from storage.
@@ -154,6 +175,32 @@ class venueController extends AppBaseController
         return redirect(route('venues.index'));
     }
 	
+	public function additem($venueid)
+	{
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			if (isset($cart[$venueid])) {
+				$cart[$venueid]=$cart[$venueid]+1; //add one to venue in cart
+			}
+			else {
+				$cart[$venueid]=1; //new venue in cart
+			}
+		}
+		else {
+			$cart[$venueid]=1; //new cart
+		}
+		Session::put('cart', $cart);
+		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
+	}
+	
+     public function emptycart()
+    {
+        if (Session::has('cart')) {
+            Session::forget('cart');
+        }
+        return Response::json(['success'=>true],200);
+    }
+	
 	public function json()
 	{
 		$venues = \App\Models\Venue::all();
@@ -164,4 +211,28 @@ class venueController extends AppBaseController
 	{
 		return view('venues.showmap');
 	}
+	
+    public function custshow($id, Request $request)
+    {
+        $venue = $this->venueRepository->find($id);
+
+        if (empty($venue)) {
+            Flash::error('Venue not found');
+
+            return redirect(route('venues.index'));
+        }
+
+		$venues = \App\Models\Venue::all();
+		$totalItems = 0;
+
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			foreach ($cart as $venueId => $qty) {
+				$totalItems += $qty;
+			}
+		}
+
+		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems]);
+	}
+
 }

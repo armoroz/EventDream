@@ -155,7 +155,7 @@ class eventController extends AppBaseController
         return redirect(route('events.index'));
     }
 	
-	public function checkout()
+/*public function checkout()
 	{
 		if (Session::has('cart')) {
 			$cart = Session::get('cart');
@@ -171,6 +171,31 @@ class eventController extends AppBaseController
 			Flash::error("There are no items in your cart");
 			return redirect(route('products.displaygrid'));
 		}
+	}*/
+	
+	public function checkout()
+	{
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			$lineitems = array();
+			foreach ($cart as $productid => $qty) {
+				$lineitem['product'] = \App\Models\Product::find($productid);
+				$lineitem['qty'] = $qty;
+				$lineitems[] = $lineitem;
+			}
+			
+			foreach ($cart as $venueid => $qty) {
+				$lineitem['venue'] = \App\Models\Venue::find($venueid);
+				$lineitem['qty'] = $qty;
+				$lineitems[] = $lineitem;
+			}
+			// Pass venue and line items to the view
+			return view('events.checkout')->with('lineitems', $lineitems);
+		}
+		else {
+			Flash::error("There are no items in your cart");
+			return redirect(route('products.displaygrid'));
+		}
 	}
 	
 	public function placeorder(Request $request)
@@ -180,11 +205,13 @@ class eventController extends AppBaseController
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid;
+		$venueids = $request->venueid;
 		$quantities = $request->quantity;
 		for($i=0;$i<sizeof($productids);$i++) {
 			$thisOrderDetail = new \App\Models\Eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
 			$thisOrderDetail->productid = $productids[$i];
+			$thisOrderDetail->venueid = $venueids[$i];
 			$thisOrderDetail->eventproductquantity = $quantities[$i];
 			$thisOrderDetail->save();
 		}
