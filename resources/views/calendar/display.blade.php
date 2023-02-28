@@ -28,7 +28,7 @@
           defaultDate: '2023-02-01', 
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
-          events: [ { title: 'All Day Event', start: '2023-08-01' }, 
+          events: [ { title: 'All Day ', start: '2023-08-01' }, 
                     { title: 'Long Event', start: '2023-08-07', end: '2023-08-10' } ] ,
 		   dateClick: function(info) {
             $('#starttime').val(info.date.toISOString().substring(11,16));
