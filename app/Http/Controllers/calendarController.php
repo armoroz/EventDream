@@ -7,16 +7,30 @@ class CalendarController extends Controller
     public function index() 
     { 
         return view('calendar.display'); 
-    } 
+    }
+
+	
 	public function json()
 	{
-    //$this->view->disable();
-    $content = Appointment::all()->toJson();
-    //$content=$json_encode($events);
-    return response($content)->withHeaders([
-            'Content-Type' => 'application/json',
-            'charset' => 'UTF-8'
-        ]);
+		//$this->view->disable();
+		$content = Appointment::all()->toJson();
+		//$content=$json_encode($events);
+		return response($content)->withHeaders([
+				'Content-Type' => 'application/json',
+				'charset' => 'UTF-8'
+			]);
+	}
+	
+	
+	public function venuejson($venueid)
+	{
+		//$this->view->disable();
+		$content = \App\Models\venueevent::where('venueid',$venueid)->get()->toJson();
+		//$content=$json_encode($events);
+		return response($content)->withHeaders([
+				'Content-Type' => 'application/json',
+				'charset' => 'UTF-8'
+			]);
 	}
 } 
 

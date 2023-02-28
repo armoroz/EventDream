@@ -44,6 +44,8 @@ Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
 Route::resource('calendar/display', App\Http\Controllers\calendarController::class);
 Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
+Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson');
+
 Route::get('/calendar/display','App\Http\Controllers\calendarController@index')->name('calendar.display'); 
 
 //Route::resource('venues', App\Http\Controllers\venueController::class);
