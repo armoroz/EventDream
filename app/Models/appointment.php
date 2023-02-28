@@ -1,9 +1,10 @@
 <?php 
 namespace App\Models; 
 use Illuminate\Database\Eloquent\Model as Model; 
-class event extends Model 
+
+class Appointment extends Model 
 { 
-    public $table = 'appointment'; 
+    public $table = 'appointments'; 
     public $timestamps = false; 
     protected $casts = [ 
         'id' => 'integer', 
@@ -12,4 +13,5 @@ class event extends Model
         'end' => 'string', 
         'venue' => 'string' 
     ]; 
+	
 } 
