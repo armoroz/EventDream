@@ -25,11 +25,10 @@
           plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
           header: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek' }, 
           slotDuration: '00:10:00', 
-          defaultDate: '2023-02-01', 
+          defaultDate: '2023-03-01', 
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
-          events: [ { title: 'All Day ', start: '2023-08-01' }, 
-                    { title: 'Long Event', start: '2023-08-07', end: '2023-08-10' } ] ,
+          events: '{{ route('calendar.json') }}',
 		   dateClick: function(info) {
             $('#starttime').val(info.date.toISOString().substring(11,16));
             $('#bookingDate').val(info.date.toISOString().substring(0,10));
