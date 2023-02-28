@@ -11,6 +11,7 @@
 <script src="{{ asset('daygrid/main.js')}}"></script> 
 <script src="{{ asset('timegrid/main.js')}}"></script> 
 <script src="{{ asset('list/main.js')}}"></script> 
+<a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back to Venues</a>
 <div id="calendar"></div> 
 <script> 
 		$(function () {
@@ -28,14 +29,8 @@
           defaultDate: '2023-03-01', 
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
-          events: '{{ route('calendar.json') }}',
-		   dateClick: function(info) {
-            $('#starttime').val(info.date.toISOString().substring(11,16));
-            $('#bookingDate').val(info.date.toISOString().substring(0,10));
-            $('#fullCalModal').modal('show');
+          events: "{{url('calendar/venuejson')}}" + "/" + {{$venueid}}
 
-
- }
             
  
  

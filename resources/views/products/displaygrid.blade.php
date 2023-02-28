@@ -13,7 +13,6 @@
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
-			<li><a href="{{route('calendar.display')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
@@ -40,7 +39,7 @@
             <div class="panel-footer" style="text-align:center">
 			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$product->id}}"/></button> 
             <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
-            <button type="button" class="btn btn-default value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
+            <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
 			</div>			
 			<div class="panel-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
         </div>

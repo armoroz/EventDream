@@ -9,6 +9,11 @@ class CalendarController extends Controller
     { 
         return view('calendar.display');
     }
+	
+    public function vendisplay($venueid) 
+    { 
+        return view('calendar.display')->with('venueid',$venueid);
+    }
 
 	public function json()
 	{

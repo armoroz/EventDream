@@ -42,11 +42,9 @@ Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorde
 
 Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
-Route::resource('calendar/display', App\Http\Controllers\calendarController::class);
 Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
-Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson');
-
-Route::get('/calendar/display','App\Http\Controllers\calendarController@index')->name('calendar.display'); 
+Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
+Route::get('/calendar/vendisplay/{venueid}','App\Http\Controllers\calendarController@vendisplay')->name('calendar.vendisplay');
 
 //Route::resource('venues', App\Http\Controllers\venueController::class);
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);

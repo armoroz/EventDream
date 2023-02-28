@@ -11,10 +11,10 @@
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
 			<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
-			<li><a href="{{route('calendar.display')}}" style="font-size: 12pt" >Calendar</a></li>
 			<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
+			<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
         <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block" style="margin-right:5px">Check Out</button></li> 
             <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
@@ -39,10 +39,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    @include('venues.custshow_fields')
+                    @include('venues.custshow_fields')					
 					<div class="col-sm-6" style="margin:10px">
 						<a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back</a>
-						<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$venue->id}}">Add To Cart</button>
+						<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$venue->id}}">Add To Cart</button>	
 					</div>
                 </div>
             </div>
