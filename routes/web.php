@@ -101,3 +101,5 @@ Route::get('products/{product}/edit', 'App\Http\Controllers\productController@ed
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
+
+Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
