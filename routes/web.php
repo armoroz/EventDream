@@ -109,3 +109,6 @@ Route::resource('standardmenus', App\Http\Controllers\standardmenuController::cl
 
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
+
+
+Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
