@@ -29,7 +29,14 @@
           defaultDate: '2023-03-01', 
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
-          events: "{{url('calendar/venuejson')}}" + "/" + {{$venueid}}
+          events: "{{url('calendar/venuejson')}}" + "/" + {{$venueid}},
+		   dateClick: function(info){
+				$('#bookedtime').val(info.date.toISOString().substring(11,16));
+				$('#bookedDate').val(info.date.toISOString().substring(0,10));
+				$('#fullCalModal').modal('show');
+			}
+		  
+		  
 
             
  
