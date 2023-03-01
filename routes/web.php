@@ -103,15 +103,16 @@ Route::post('products/{product}/update','App\Http\Controllers\productController@
 //});
 
 Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
-
+Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
 
 Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
-
+Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
-
+Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
 
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
-
+Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
 
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
+Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
