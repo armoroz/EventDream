@@ -103,3 +103,9 @@ Route::post('products/{product}/update','App\Http\Controllers\productController@
 //});
 
 Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
+
+
+Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
+
+
+Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
