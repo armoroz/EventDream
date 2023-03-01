@@ -112,3 +112,6 @@ Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogControll
 
 
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
+
+
+Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
