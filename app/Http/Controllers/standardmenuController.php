@@ -202,17 +202,6 @@ class standardmenuController extends AppBaseController
         return Response::json(['success'=>true],200);
     }
 	
-	public function json()
-	{
-		$standardmenus = \App\Models\Standardmenu::all();
-		return response()->json($Standardmenus);
-	} 
-	
-	public function showMap()
-	{
-		return view('standardmenus.showmap');
-	}
-	
     public function custshow($id, Request $request)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
