@@ -107,6 +107,7 @@ Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('
 
 Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
+Route::get('standardmenus/displaygrid', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
 Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
