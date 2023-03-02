@@ -73,6 +73,7 @@ class standardmenuController extends AppBaseController
     public function show($id)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
+		$standardmenuimages = $standardmenu->standardmenuimages;
 
         if (empty($standardmenu)) {
             Flash::error('Standardmenu not found');
@@ -80,7 +81,7 @@ class standardmenuController extends AppBaseController
             return redirect(route('standardmenus.index'));
         }
 
-        return view('standardmenus.show')->with('standardmenu', $standardmenu);
+        return view('standardmenus.show')->with('standardmenu', $standardmenu)->with('standardmenuimages',$standardmenuimages);
     }
 
     /**
@@ -127,7 +128,28 @@ class standardmenuController extends AppBaseController
 
         return redirect(route('standardmenus.index'));
     }
+    
+	public function displayGrid(Request $request)
+	{
+		$standardmenus=\App\Models\Standardmenu::all();
+		$standardmenuimages = \App\Models\StandardmenuImages::all();
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $standardmenu => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
 
+		}
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages',$standardmenuimages);
+		
+	}
+	
     /**
      * Remove the specified standardmenu from storage.
      *
@@ -153,4 +175,65 @@ class standardmenuController extends AppBaseController
 
         return redirect(route('standardmenus.index'));
     }
+	
+	public function additem($standardmenuid)
+	{
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			if (isset($cart[$standardmenuid])) {
+				$cart[$standardmenuid]=$cart[$standardmenuid]+1; //add one to standardmenu in cart
+			}
+			else {
+				$cart[$standardmenuid]=1; //new standardmenu in cart
+			}
+		}
+		else {
+			$cart[$standardmenuid]=1; //new cart
+		}
+		Session::put('cart', $cart);
+		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
+	}
+	
+     public function emptycart()
+    {
+        if (Session::has('cart')) {
+            Session::forget('cart');
+        }
+        return Response::json(['success'=>true],200);
+    }
+	
+	public function json()
+	{
+		$standardmenus = \App\Models\Standardmenu::all();
+		return response()->json($Standardmenus);
+	} 
+	
+	public function showMap()
+	{
+		return view('standardmenus.showmap');
+	}
+	
+    public function custshow($id, Request $request)
+    {
+        $standardmenu = $this->standardmenuRepository->find($id);
+		$standardmenuimages = $standardmenu->standardmenuimages;
+
+        if (empty($standardmenu)) {
+            Flash::error('Standardmenu not found');
+
+            return redirect(route('standardmenus.index'));
+        }
+
+		$standardmenus = \App\Models\Standardmenu::all();
+		$totalItems = 0;
+
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			foreach ($cart as $standardmenuId => $qty) {
+				$totalItems += $qty;
+			}
+		}
+
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages]);
+	}
 }
