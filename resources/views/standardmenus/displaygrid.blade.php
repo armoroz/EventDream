@@ -29,3 +29,23 @@
     </nav> 
 </div>
 
+@foreach($standardmenus as $standardmenu) 
+    @if ($j==0) <div class='row'> @endif 
+        <div class="col-sm-4">
+            <div class="panel panel-primary"> 
+				<div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $venue->style }}</div> 
+				@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
+				<div class="panel-body"><img class="img-responsive center-block" height="80%" width="200px" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
+				</div>@endforeach
+				<div class="panel-footer" style="text-align:center">
+				€{{$standardmenu->costtorent}}
+				<button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button>
+				<a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
+				<!--<a  href="{{ url('calendar/vendisplay', [$standardmenu->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a>-->
+
+				</div>
+			</div>	
+        </div>
+    @php $j++ @endphp 
+    @if ($j==3) @php $j=0 @endphp </div> @endif 
+@endforeach
