@@ -7,7 +7,7 @@
         <div class="container-fluid"> 
           <form action="{{route('bookings.store')}}" method="post">
             @csrf
-              <div class="form-group"> <label for="customerid">Customer ID</label> 
+              <div class="form-group"> <label for="customerid">Customer</label> 
 				<input type="text" class="form-control" id="custid" name="customerid"/> 
 			  </div>
 			  <div class="form-group"> 
@@ -19,16 +19,20 @@
 				<input type="text" class="form-control" id="bookedtime" name="bookedtime"/> 
 			  </div> 
 			  <div class="form-group"> 
-				<label for="venueid">VenueID</label> 
+				<label for="venueid">Venue</label> 
 				<input type="text" class="form-control" id="venueid" name="venueid"/> 
 			  </div>
               <div class="form-group"> 
-				<label for="productid">ProductID</label> 
+				<label for="productid">Product</label> 
 				<input type="text" class="form-control" id="productid" name="productid"/> 
+			  </div>
+			  <div class="form-group"> 
+				<label for="bookedprodquantity">bookedprodquantity</label> 
+				<input type="text" class="form-control" id="bookedprodquantity" name="bookedprodquantity"/> 
 			  </div>			  
 			  
 			  <div class="modal-footer"> 
-				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Create Appointment</button> 
+				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Book Event</button> 
 			  </div> 
 		  </form> 
 		</div> 
