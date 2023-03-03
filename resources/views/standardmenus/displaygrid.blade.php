@@ -48,7 +48,7 @@
         </div>
     @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp </div> @endif 
-
+    @endforeach
 
 <script>
 $(".bth,.addItem").click(function() {
