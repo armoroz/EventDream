@@ -27,6 +27,7 @@
 				<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 				<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
 				<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
+				<li><a href="{{route('standardmenus.displaygrid')}}" style="font-size: 12pt" >Menus</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
 			@include('layouts.navAuth')

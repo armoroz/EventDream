@@ -15,6 +15,7 @@
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
 			<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
+			<li><a href="{{route('standardmenus.displaygrid')}}" style="font-size: 12pt" >Menus</a></li>
         <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block" style="margin-right:5px">Check Out</button></li> 
             <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
