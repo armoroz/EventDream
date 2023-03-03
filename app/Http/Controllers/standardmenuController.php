@@ -143,7 +143,6 @@ class standardmenuController extends AppBaseController
 	public function displayGrid(Request $request)
 	{
 		$standardmenus=\App\Models\Standardmenu::all();
-		//$standardmenuimages = \App\Models\StandardmenuImages::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -157,7 +156,7 @@ class standardmenuController extends AppBaseController
 			$totalItems=0;
 
 		}
-		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)/*->with('standardmenuimages',$standardmenuimages)*/;
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems);
 		
 	}
 	
@@ -216,7 +215,6 @@ class standardmenuController extends AppBaseController
     public function custshow($id, Request $request)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
-		//$standardmenuimages = $standardmenu->standardmenuimages;
 
         if (empty($standardmenu)) {
             Flash::error('Standardmenu not found');
@@ -234,6 +232,6 @@ class standardmenuController extends AppBaseController
 			}
 		}
 
-		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems/*,'standardmenuimages' => $standardmenuimages*/]);
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems]);
 	}
 }
