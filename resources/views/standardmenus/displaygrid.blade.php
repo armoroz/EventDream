@@ -17,7 +17,6 @@
 			<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 			<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
 			<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
-			<li><a href="{{route('standardmenus.displaygrid')}}" style="font-size: 12pt" >Standard Menus</a></li>
         <ul class="list-inline nav navbar-nav navbar-right">
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block">Check Out</button></li> 
             <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
@@ -33,22 +32,23 @@
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
-				<div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $standardmenu->style }}</div> 
-				
-				<div class="panel-body">
-				</div>
-				<div class="panel-footer" style="text-align:center">
-				€{{$standardmenu->costtorent}}
-				<button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button>
-				<a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
-				<!--<a  href="{{ url('calendar/vendisplay', [$standardmenu->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a>-->
-
-				</div>
-			</div>	
+            <div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</div> 
+            <div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $standardmenu->standardmenuimg }}"></div>
+			<div class="panel-footer" style="text-align: center">€{{$standardmenu->standardmenucost}}</div>
+            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
+            <div class="panel-footer" style="text-align:center">
+			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$standardmenu->id}}"/></button> 
+            <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
+            <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
+			</div>			
+			<div class="panel-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
         </div>
+    </div> 
     @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp </div> @endif 
-    @endforeach
+@endforeach
+
+
 
 <script>
 $(".bth,.addItem").click(function() {
