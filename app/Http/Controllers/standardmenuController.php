@@ -57,10 +57,18 @@ class standardmenuController extends AppBaseController
         $input = $request->all();
 
         $standardmenu = $this->standardmenuRepository->create($input);
+		
+		/*$standardmenu->standardmenuimg = base64_encode(file_get_contents($request->standardmenuimg));
+        $standardmenu->save();*/
+		
+		$file = $request->file('standardmenuimg');
+        $standardmenu->standardmenuimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
+        $standardmenu->save();
 
         Flash::success('Standardmenu saved successfully.');
 
         return redirect(route('standardmenus.index'));
+		
     }
 
     /**
@@ -73,7 +81,6 @@ class standardmenuController extends AppBaseController
     public function show($id)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
-		//$standardmenuimages = $standardmenu->standardmenuimages;
 
         if (empty($standardmenu)) {
             Flash::error('Standardmenu not found');
@@ -81,7 +88,7 @@ class standardmenuController extends AppBaseController
             return redirect(route('standardmenus.index'));
         }
 
-        return view('standardmenus.show')->with('standardmenu', $standardmenu)/*->with('standardmenuimages',$standardmenuimages)*/;
+        return view('standardmenus.show')->with('standardmenu', $standardmenu);
     }
 
     /**
@@ -123,6 +130,10 @@ class standardmenuController extends AppBaseController
         }
 
         $standardmenu = $this->standardmenuRepository->update($request->all(), $id);
+		
+		$file = $request->file('standardmenuimg');
+        $standardmenu->standardmenuimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
+        $standardmenu->save();
 
         Flash::success('Standardmenu updated successfully.');
 
