@@ -105,9 +105,12 @@ Route::post('products/{product}/update','App\Http\Controllers\productController@
 Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
 Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
 
-Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
+//Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
 Route::get('standardmenus/displaygrid', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
+Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
+Route::get('standardmenus/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
+Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
 Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');

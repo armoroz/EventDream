@@ -33,10 +33,10 @@
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
-				<div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $venue->style }}</div> 
-				@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
-				<div class="panel-body"><img class="img-responsive center-block" height="80%" width="200px" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
-				</div>@endforeach
+				<div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $standardmenu->style }}</div> 
+				
+				<div class="panel-body">
+				</div>
 				<div class="panel-footer" style="text-align:center">
 				€{{$standardmenu->costtorent}}
 				<button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button>
@@ -48,7 +48,7 @@
         </div>
     @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp </div> @endif 
-@endforeach
+
 
 <script>
 $(".bth,.addItem").click(function() {
