@@ -101,3 +101,19 @@ Route::get('products/{product}/edit', 'App\Http\Controllers\productController@ed
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
+
+Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
+Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
+
+Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
+Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
+Route::get('standardmenus/displaygrid', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
+
+Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
+Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
+
+Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
+Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
+
+Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
+Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
