@@ -25,10 +25,14 @@
               <div class="form-group"> 
 				<label for="productid">ProductID</label> 
 				<input type="text" class="form-control" id="productid" name="productid"/> 
+			  </div>
+			  <div class="form-group"> 
+				<label for="bookedprodquantity">bookedprodquantity</label> 
+				<input type="text" class="form-control" id="bookedprodquantity" name="bookedprodquantity"/> 
 			  </div>			  
 			  
 			  <div class="modal-footer"> 
-				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Create Appointment</button> 
+				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Book Event</button> 
 			  </div> 
 		  </form> 
 		</div> 
