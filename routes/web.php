@@ -111,6 +111,7 @@ Route::get('standardmenus/displaygrid', 'App\Http\Controllers\standardmenuContro
 Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
 Route::get('standardmenus/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
 Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
+Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\standardmenuimagesController@create')->name('standardmenu.newimages');
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
 Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
@@ -120,3 +121,5 @@ Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->na
 
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
+
+Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
