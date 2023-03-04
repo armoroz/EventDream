@@ -90,4 +90,9 @@ class standardmenu extends Model
     {
         return $this->hasMany(\App\Models\Standardmenulog::class, 'standardmenuid');
     }
+	
+	public function standardmenuimages()
+	{
+		return $this->hasMany(\App\Models\Standardmenuimages::class, 'standardmenuid');
+	}
 }

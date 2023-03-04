@@ -134,7 +134,7 @@ class venue extends Model
 	}
 	
 	public function venueimages()
-		{
-			return $this->hasMany(\App\Models\Venueimages::class, 'venueid');
-		}
+	{
+		return $this->hasMany(\App\Models\Venueimages::class, 'venueid');
+	}
 }

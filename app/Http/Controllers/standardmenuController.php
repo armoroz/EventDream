@@ -82,14 +82,15 @@ class standardmenuController extends AppBaseController
     public function show($id)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
-
+        $standardmenuimages = $standardmenu->standardmenuimages;
+		
         if (empty($standardmenu)) {
             Flash::error('Standardmenu not found');
 
             return redirect(route('standardmenus.index'));
         }
 
-        return view('standardmenus.show')->with('standardmenu', $standardmenu);
+        return view('standardmenus.show')->with('standardmenu', $standardmenu)->with('standardmenuimages',$standardmenuimages);
     }
 
     /**
