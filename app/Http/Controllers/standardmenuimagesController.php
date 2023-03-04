@@ -54,9 +54,19 @@ class standardmenuimagesController extends AppBaseController
      */
     public function store(CreatestandardmenuimagesRequest $request)
     {
-        $input = $request->all();
-
-        $standardmenuimages = $this->standardmenuimagesRepository->create($input);
+        if ($request->hasFile('imagefile')) {
+            $files = $request->file('imagefile');
+            $i=0;
+            foreach ($files as $file) {
+                $standardmenuimage = new \App\Models\Standardmenuimages();
+                $standardmenuimage->standardmenuid = $request->standardmenuid;
+                $standardmenuimage->imagefile = base64_encode(file_get_contents($file));
+                if (!$standardmenuimage->save()) {
+                    Flash::error('Error - File not saved to the DB');
+                }
+                $i++;
+            }
+        }
 
         Flash::success('Standardmenuimages saved successfully.');
 
