@@ -106,12 +106,19 @@ Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
 Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
 
 //Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
+Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
 Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
 Route::get('standardmenus/displaygrid', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
 Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
 Route::get('standardmenus/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
 Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
 Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\standardmenuimagesController@create')->name('standardmenu.newimages');
+Route::get('/standardmenus/create', 'App\Http\Controllers\standardmenuController@create')->name('standardmenus.create');
+Route::delete('/standardmenus/{standardmenu}', 'App\Http\Controllers\standardmenuController@destroy')->name('standardmenus.destroy');
+Route::get('standardmenus/{standardmenu}', 'App\Http\Controllers\standardmenuController@show')->name('standardmenus.show');
+Route::get('standardmenus/{standardmenu}/edit', 'App\Http\Controllers\standardmenuController@edit')->name('standardmenus.edit');
+Route::post('standardmenus','App\Http\Controllers\standardmenuController@store')->name('standardmenus.store');
+Route::patch('standardmenus/{standardmenu}/update  ','App\Http\Controllers\standardmenuController@update')->name('standardmenus.update');
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
 Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
@@ -122,4 +129,4 @@ Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->na
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
 
-Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
+
