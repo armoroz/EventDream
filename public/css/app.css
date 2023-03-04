@@ -7514,7 +7514,27 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		}
 	}
 	
-	
+	form {
+  display: flex;
+  align-items: right;
+  justify-content: center;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-right: 4px;
+}
+
+button[type="submit"] {
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
 
 
 @tailwind base;
