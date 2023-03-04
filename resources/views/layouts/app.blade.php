@@ -20,6 +20,10 @@
 			</div>
             <ul class="nav navbar-nav"> 
 				
+				<form action="search.php" method="get">
+				<input type="text" name="search_query">
+				<button type="submit">Search</button>
+				</form>
 				<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 				<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
 				<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
@@ -28,6 +32,7 @@
 				<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
 				<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
 				<li><a href="{{route('standardmenus.displaygrid')}}" style="font-size: 12pt" >Menus</a></li>
+				
 			</ul>
 			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
 			@include('layouts.navAuth')
