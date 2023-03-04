@@ -7517,11 +7517,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	form {
   display: flex;
   align-items: right;
-  justify-content: center;
+  justify-content: right;
 }
 
 input[type="text"] {
-  padding: 8px;
+  padding: 6px;
   border-radius: 4px;
   border: 1px solid #ccc;
   margin-right: 4px;
@@ -7535,6 +7535,7 @@ button[type="submit"] {
   border: none;
   cursor: pointer;
 }
+
 
 
 @tailwind base;

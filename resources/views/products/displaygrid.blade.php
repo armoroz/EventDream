@@ -29,6 +29,8 @@
     </nav> 
 </div>
 
+
+
 @foreach($products as $product) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
