@@ -9,6 +9,10 @@
 			<div class="navbar-header">
 				<a class="navbar-brand" href="{{route('dashboard') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
+			<form action="search.php" method="get">
+				<input type="text" name="search_query">
+				<button type="submit">Search</button>
+				</form>
             <ul class="nav navbar-nav"> 
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
