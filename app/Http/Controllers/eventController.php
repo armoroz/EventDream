@@ -189,6 +189,12 @@ class eventController extends AppBaseController
 				$lineitem['qty'] = $qty;
 				$lineitems[] = $lineitem;
 			}
+			
+			foreach ($cart as $standardmenuid => $qty) {
+				$lineitem['standardmenu'] = \App\Models\Standardmenu::find($standardmenuid);
+				$lineitem['qty'] = $qty;
+				$lineitems[] = $lineitem;
+			}
 			// Pass venue and line items to the view
 			return view('events.checkout')->with('lineitems', $lineitems);
 		}

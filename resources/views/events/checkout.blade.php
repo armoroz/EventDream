@@ -51,6 +51,26 @@
         </tr> 
 		@endif
     @endforeach
+	
+    @foreach ($lineitems as $lineitem)
+		@if (isset($lineitem['standardmenu']))
+        @php $standardmenu=$lineitem['standardmenu']; @endphp 
+        <tr>
+			  <td>{{ $standardmenu->standardmenuname }}</td> 
+			  <td><input size="3" style="border:none" type="text" name="standardmenuid[]" readonly value="{{ $standardmenu->id }}"></td> 
+              <td>{{ $standardmenu->standardmenuname }}</td> 
+              <td>{{ $standardmenu->style }}</td>
+              <td>{{ $standardmenu->course }}</td>
+              <td><div class="price">{{ $standardmenu->course}}</div></td> 
+              <td> <input size="3" style="border:none" class="qty" type="text" name="quantity[]" readonly value="<?php echo $lineitem['qty'] ?>"> </td> 
+              <td> 
+                  <button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus"/></button> 
+                  <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
+                  <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>			  
+              </td>
+        </tr> 
+		@endif
+    @endforeach
     </tbody>
 
 </table> 

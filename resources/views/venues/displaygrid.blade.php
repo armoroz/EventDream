@@ -42,6 +42,12 @@
 				<button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$venue->id}}">Add To Cart</button>
 				<a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
 				<a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a>
+				<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+					<input id="fieldRating" name="rating" 
+					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+					type="text" class="rating rating-loading" data-min=0 
+					data-max=5 data-step=1 data-size="sm" data-display-only="true">
+			     </a> </div>
 
 				</div>
 			</div>	
