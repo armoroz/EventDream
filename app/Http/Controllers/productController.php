@@ -235,7 +235,7 @@ class productController extends AppBaseController
 			}
 		}
 
-		return view('products.custshow', ['product' => $product, 'totalItems' => $totalItems]);
+		return view('products.custshow', ['product' => $product, 'totalItems' => $totalItems]); 
 	}
 	
 }

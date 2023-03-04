@@ -217,7 +217,7 @@ class standardmenuController extends AppBaseController
         $standardmenu = $this->standardmenuRepository->find($id);
 
         if (empty($standardmenu)) {
-            Flash::error('Standardmenu not found');
+            Flash::error('Standard Menu not found');
 
             return redirect(route('standardmenus.index'));
         }
