@@ -217,6 +217,7 @@ class standardmenuController extends AppBaseController
     public function custshow($id, Request $request)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
+        $standardmenuimages = $standardmenu->standardmenuimages;
 
         if (empty($standardmenu)) {
             Flash::error('Standard Menu not found');
@@ -234,6 +235,6 @@ class standardmenuController extends AppBaseController
 			}
 		}
 
-		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems]);
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages]);
 	}
 }
