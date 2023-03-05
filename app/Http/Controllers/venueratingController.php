@@ -160,7 +160,7 @@ class venueratingController extends AppBaseController
         return redirect(route('venueratings.index'));
     }
 	
-	public function showcourtratings($courtid)
+	public function showvenueratings($venueid)
     {
         $venueratings = $this->venueratingRepository->all()->where('venueid',$venueid);
         return view('venueratings.index')

@@ -158,4 +158,11 @@ class standardmenuratingController extends AppBaseController
 
         return redirect(route('standardmenuratings.index'));
     }
+
+	public function showstandardmenuratings($standardmenuid)
+    {
+        $standardmenuratings = $this->standardmenuratingRepository->all()->where('standardmenuid',$standardmenuid);
+        return view('standardmenuratings.index')
+            ->with('standardmenuratings', $standardmenuratings);
+    }
 }
