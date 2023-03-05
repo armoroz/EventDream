@@ -121,6 +121,7 @@ Route::post('standardmenus','App\Http\Controllers\standardmenuController@store')
 Route::patch('standardmenus/{standardmenu}/update  ','App\Http\Controllers\standardmenuController@update')->name('standardmenus.update');
 Route::resource('standardmenuratings', App\Http\Controllers\standardmenuratingController::class);
 Route::get('/standardmenuratings/ratestandardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@ratestandardmenu')->name('standardmenuratings.ratestandardmenu');
+Route::get('/standardmenuratings/standardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@showstandardmenuratings')->name('standardmenuratings.showstandardmenuratings');
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
 Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');

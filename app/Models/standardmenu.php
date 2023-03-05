@@ -78,6 +78,11 @@ class standardmenu extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
+    public function standardmenuratings()
+    {
+        return $this->hasMany(\App\Models\Standardmenurating::class, 'standardmenuid');
+    }
+
     public function events()
     {
         return $this->hasMany(\App\Models\Event::class, 'standardmenuid');
