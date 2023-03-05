@@ -35,5 +35,14 @@
 		<li>
              <a href="{!! route('eventproductlogs.index') !!}">Event Log</a>
         </li>
+		<li>
+             <a href="{!! route('standardmenus.index') !!}">Standard Menus</a>
+        </li>
+		<li>
+             <a href="{!! route('standardmenuratings.index') !!}">Stardard Menu Ratings</a>
+        </li>
+		<li>
+             <a href="{!! route('standardmenuimages.index') !!}">Standard Menu Images</a>
+        </li>
     </ul>
 </li>
