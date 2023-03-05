@@ -20,6 +20,11 @@ class standardmenuratingController extends AppBaseController
         $this->standardmenuratingRepository = $standardmenuratingRepo;
     }
 
+	public function ratestandardmenu($standardmenuid)
+	{
+		return view('standardmenuratings.ratestandardmenu')->with('standardmenuid',$standardmenuid);
+	}
+
     /**
      * Display a listing of the standardmenurating.
      *
