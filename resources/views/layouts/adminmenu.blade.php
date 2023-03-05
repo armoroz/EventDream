@@ -11,12 +11,6 @@
         <li>
              <a href="{!! route('permissions.index') !!}">Permissions</a>
         </li>
-        <li>   
-			 <a href="{!! route('products.index') !!}">Products</a>
-        </li>
-        <li>   
-			 <a href="{!! route('venues.index') !!}">Venues</a>
-        </li>
         <li>
              <a href="{!! route('customers.index') !!}">Customer List</a>
         </li>
@@ -24,16 +18,22 @@
              <a href="{!! route('bookings.index') !!}">Bookings</a>
         </li>
 		<li>
-             <a href="{!! route('venueratings.index') !!}">Venue Ratings</a>
-        </li>
-		<li>
-             <a href="{!! route('venueimages.index') !!}">Venue Images</a>
-        </li>
-		<li>
              <a href="{!! route('events.index') !!}">Event List</a>
         </li>
 		<li>
              <a href="{!! route('eventproductlogs.index') !!}">Event Log</a>
+        </li>
+        <li>   
+			 <a href="{!! route('products.index') !!}">Products</a>
+        </li>
+        <li>   
+			 <a href="{!! route('venues.index') !!}">Venues</a>
+        </li>
+		<li>
+             <a href="{!! route('venueratings.index') !!}">Venue Ratings</a>
+        </li>
+		<li>
+             <a href="{!! route('venueimages.index') !!}">Venue Images</a>
         </li>
 		<li>
              <a href="{!! route('standardmenus.index') !!}">Standard Menus</a>
