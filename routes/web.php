@@ -130,3 +130,6 @@ Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
 
 
+
+
+Route::resource('standardmenuratings', App\Http\Controllers\standardmenuratingController::class);
