@@ -123,6 +123,10 @@ Route::resource('standardmenuratings', App\Http\Controllers\standardmenuratingCo
 Route::get('/standardmenuratings/ratestandardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@ratestandardmenu')->name('standardmenuratings.ratestandardmenu');
 Route::get('/standardmenuratings/standardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@showstandardmenuratings')->name('standardmenuratings.showstandardmenuratings');
 
+Route::get('/standardmenus/assignmenuitems/{id}', 'App\Http\Controllers\standardmenuController@assignMenuitems')->name('standardmenus.assignmenuitems');
+Route::patch('/standardmenus/updatemenuitems/{id}', 'App\Http\Controllers\standardmenuController@updateMenuitems')->name("menuitems.menuitemsupdate");
+
+
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
 Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
 

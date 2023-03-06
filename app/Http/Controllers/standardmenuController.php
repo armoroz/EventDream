@@ -9,7 +9,9 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use Session;
+use Spatie\Menuitem\Models\Standardmenu as SpStandardmenu;
+use Spatie\Menuitem\Models\Menuitem as SpMenuitem;
+use App\Models\Standardmenu as Standardmenu;
 
 class standardmenuController extends AppBaseController
 {
@@ -236,5 +238,29 @@ class standardmenuController extends AppBaseController
 		}
 
 		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages]);
+	}
+	
+	public function assignMenuitems($id)
+	{
+		$standardmenu = Standardmenu::findOrFail($id);
+		$menuitems = SpMenuitem::all();
+		return view('standardmenus.assignmenuitems')
+			->with('standardmenu', $standardmenu)->with('menuitems',$menuitems);        
+	}
+	
+	public function updateMenuitems($id, Request $request)
+	{
+		$standardmenu = Standardmenu::findOrFail($id);;
+		$menuitems = SpMenuitem::all();
+		foreach($menuitems as $menuitem) {
+			if (isset($request->menuitem[$menuitem->id])) {
+				$standardmenu->assignmenuitem($menuitem);
+			}
+			else {
+				$standardmenu->removeMenuitem($menuitem);
+			}
+		}
+		Flash::success('Menuitems updated successfully.');
+		return redirect(route('menuitems.index'));
 	}
 }
