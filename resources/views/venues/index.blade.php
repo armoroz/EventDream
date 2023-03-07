@@ -16,10 +16,7 @@
             </div>
         </div>
     </section>
-	<form action="search.php" method="get">
-				<input type="text" name="search_query">
-				<button type="submit">Search</button>
-				</form>
+	
 
     <div class="content px-3">
 

@@ -51725,4 +51725,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
+try {
+  // Access the venueimages property
+  var venueImages = venue.venueimages;
+} catch (error) {
+  // Handle the error
+  console.error(error);
+}
 ;
