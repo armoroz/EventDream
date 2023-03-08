@@ -36,13 +36,25 @@
              <a href="{!! route('venueimages.index') !!}">Venue Images</a>
         </li>
 		<li>
+             <a href="{!! route('menuitems.index') !!}">Menu Items</a>
+        </li>
+		<li>
              <a href="{!! route('standardmenus.index') !!}">Standard Menus</a>
+        </li>
+		<li>
+             <a href="{!! route('standardmenulogs.index') !!}">Standard Menu Log</a>
         </li>
 		<li>
              <a href="{!! route('standardmenuratings.index') !!}">Stardard Menu Ratings</a>
         </li>
 		<li>
              <a href="{!! route('standardmenuimages.index') !!}">Standard Menu Images</a>
+        </li>
+		<li>
+             <a href="{!! route('custommenus.index') !!}">Custom Menus</a>
+        </li>
+		<li>
+             <a href="{!! route('custommenulogs.index') !!}">Custom Menu Log</a>
         </li>
     </ul>
 </li>

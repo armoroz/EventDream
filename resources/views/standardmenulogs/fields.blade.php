@@ -1,7 +1,12 @@
 <!-- Menuitemid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('menuitemid', 'Menuitemid:') !!}
-    {!! Form::number('menuitemid', null, ['class' => 'form-control']) !!}
+
+	{!! Form::label('menuitemid', 'Menuitemid:') !!}
+	<select name="menuitemid" class="form-control">
+   @foreach ($menuitems as $menuitem)
+		<option value='{{$menuitem->id}}'>{{$menuitem}}</option>
+	@endforeach	
+    </select>
 </div>
 
 <!-- Standardmenuid Field -->

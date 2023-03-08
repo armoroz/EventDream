@@ -94,8 +94,22 @@ class menuitem extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
+    public function standardmenus()
+    {
+        return $this->belongsToMany(\App\Models\Standardmenu::class, 'standardmenulog','standardmenuid','menuitemid');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
     public function standardmenulogs()
     {
         return $this->hasMany(\App\Models\Standardmenulog::class, 'menuitemid');
     }
+	
+	public function __toString()
+	{
+		return $this->menuitemname . " " . $this->menuitemdesc ;
+	}
+	
 }

@@ -46,6 +46,21 @@
     <p>{{ $venue->costtorent }}</p>
 </div>
 
+<!-- Rating Field -->
+<div class="col-sm-12">
+@foreach($venueratings as $venuerating)
+	<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+		<td>
+			<input id="fieldRating" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
+			data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+		</td>
+    </div>
+@endforeach
+</div>
+
+		
+		
+
 <!-- Imagefile Field -->
 <div class="container-fluid">
     <div id="thisCarousel" class="carousel slide" data-ride="carousel">
@@ -67,6 +82,7 @@
               </div>  
             @endforeach
         </div>
+
         <!--controls -->
         <a class="left carousel-control" href="#thisCarousel" data-slide="prev" style="background-image:none;color: black;">
           <span class="glyphicon glyphicon-chevron-left"></span>
@@ -79,6 +95,7 @@
       </div>
     </div>
 </div>
+
 
  @csrf
 

@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property \App\Models\Menuitem $menuitemid
  * @property \App\Models\Standardmenu $standardmenuid
  * @property integer $menuitemid
- * @property integer $standardmenuid
+ * @property integer $standardmenuidd
  */
 class standardmenulog extends Model
 {
@@ -28,9 +28,9 @@ class standardmenulog extends Model
 
 
 
-    public $fillable = [
-        'menuitemid',
-        'standardmenuid'
+    public $fillable = [    
+        'standardmenuid',
+		'menuitemid'
     ];
 
     /**
@@ -40,8 +40,8 @@ class standardmenulog extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'menuitemid' => 'integer',
-        'standardmenuid' => 'integer'
+        'standardmenuid' => 'integer',
+		'menuitemid' => 'integer'
     ];
 
     /**
@@ -50,17 +50,9 @@ class standardmenulog extends Model
      * @var array
      */
     public static $rules = [
-        'menuitemid' => 'nullable|integer',
-        'standardmenuid' => 'nullable|integer'
+        'standardmenuid' => 'nullable|integer',
+		'menuitemid' => 'nullable|integer'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function menuitemid()
-    {
-        return $this->belongsTo(\App\Models\Menuitem::class, 'menuitemid');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -69,4 +61,12 @@ class standardmenulog extends Model
     {
         return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
     }
+	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/	
+    public function menuitemid()
+    {
+        return $this->belongsTo(\App\Models\Menuitem::class, 'menuitemid');
+    }	
 }

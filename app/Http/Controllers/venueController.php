@@ -228,6 +228,7 @@ class venueController extends AppBaseController
     {
         $venue = $this->venueRepository->find($id);
 		$venueimages = $venue->venueimages;
+		$venueratings = $venue->venueratings;
 
         if (empty($venue)) {
             Flash::error('Venue not found');
@@ -245,7 +246,7 @@ class venueController extends AppBaseController
 			}
 		}
 
-		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems, 'venueimages' => $venueimages]);
+		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems, 'venueimages' => $venueimages, 'venueratings' => $venueratings]);
 	}
 
 }

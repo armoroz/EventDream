@@ -125,7 +125,7 @@ Route::get('/standardmenuratings/ratestandardmenu/{standardmenu}','App\Http\Cont
 Route::get('/standardmenuratings/standardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@showstandardmenuratings')->name('standardmenuratings.showstandardmenuratings');
 
 Route::get('/standardmenus/assignmenuitems/{id}', 'App\Http\Controllers\standardmenuController@assignMenuitems')->name('standardmenus.assignmenuitems');
-Route::patch('/standardmenus/updatemenuitems/{id}', 'App\Http\Controllers\standardmenuController@updateMenuitems')->name("menuitems.menuitemsupdate");
+Route::patch('/standardmenus/updatemenuitems/{id}', 'App\Http\Controllers\standardmenuController@updateMenuitems')->name("standardmenus.updatemenuitems");
 
 
 Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);

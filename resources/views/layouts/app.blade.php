@@ -27,7 +27,6 @@
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 12pt">Options<span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="{{route('events.index')}}" style="font-size: 12pt" >Events</a></li>
-						<li><a href="{{route('customers.index')}}" style="font-size: 12pt" >Customers</a></li>
 						<li><a href="{{route('bookings.index')}}" style="font-size: 12pt" >Bookings</a></li>
 						<li><a href="{{route('aboutus.index')}}" style="font-size: 12pt" >About us</a></li>
 						<li><a href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>

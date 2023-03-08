@@ -20,7 +20,11 @@
                     @include('venues.custshow_fields')					
 					<div class="col-sm-6" style="margin:10px">
 						<a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back</a>
-						<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$venue->id}}">Add To Cart</button>	
+						<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$venue->id}}">Add To Cart</button>
+						<a href="{!! route('venueratings.ratevenue', [$venue->id]) !!}" 
+						   class='btn btn-default btn-xs'>
+						   <i class="glyphicon glyphicon-star" title="Rate"></i>
+						</a>
 					</div>
                 </div>
             </div>

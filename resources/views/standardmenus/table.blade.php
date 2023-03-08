@@ -51,6 +51,10 @@
 						   class='btn btn-default btn-xs'>
 						   <i class="glyphicon glyphicon-picture"></i>
 						</a>
+						<a href="{!! route('standardmenus.assignmenuitems', [$standardmenu->id]) !!}" 
+						   class='btn btn-default btn-xs'>
+						   <i class="glyphicon glyphicon-cutlery" title="Update Dishes"></i>
+						</a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}

@@ -9,13 +9,12 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
-use Spatie\Menuitem\Models\Standardmenu as SpStandardmenu;
-use Spatie\Menuitem\Models\Menuitem as SpMenuitem;
 use App\Models\Standardmenu as Standardmenu;
+use App\Models\Menuitem as Menuitem;
 
 class standardmenuController extends AppBaseController
 {
-    /** @var standardmenuRepository $standardmenuRepository*/
+    /** @var standardmenuRepository $standardmenuRepositoryy*/
     private $standardmenuRepository;
 
     public function __construct(standardmenuRepository $standardmenuRepo)
@@ -240,27 +239,29 @@ class standardmenuController extends AppBaseController
 		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages]);
 	}
 	
-	public function assignMenuitems($id)
+	public function assignMenuItems($id)
 	{
-		$standardmenu = Standardmenu::findOrFail($id);
-		$menuitems = SpMenuitem::all();
-		return view('standardmenus.assignmenuitems')
-			->with('standardmenu', $standardmenu)->with('menuitems',$menuitems);        
+		$standardmenu = Standardmenu::find($id);
+		$menuitems = Menuitem::all();
+		
+		
+			
+			return view('standardmenus.assignmenuitems')->with('standardmenu',$standardmenu)->with('menuitems',$menuitems);
+		
+		//}
+		echo 'totalstandardmenu= '.$standardmenu->count();
+		echo '<br>totalmenuitems= '.$menuitems->count();
 	}
-	
-	public function updateMenuitems($id, Request $request)
+
+	public function updateMenuItems(Request $request, $id)
 	{
-		$standardmenu = Standardmenu::findOrFail($id);;
-		$menuitems = SpMenuitem::all();
-		foreach($menuitems as $menuitem) {
-			if (isset($request->menuitem[$menuitem->id])) {
-				$standardmenu->assignmenuitem($menuitem);
-			}
-			else {
-				$standardmenu->removeMenuitem($menuitem);
-			}
-		}
-		Flash::success('Menuitems updated successfully.');
-		return redirect(route('menuitems.index'));
+		$standardmenu = Standardmenu::find($id);
+		$menuitems = $request->input('menuitem');
+
+		$standardmenu->menuitems()->sync($menuitems);
+		
+		Flash::success('Standard Menu updated successfully.');
+
+		return redirect()->route('standardmenus.index')->with('success', 'Menu Items updated successfully');
 	}
 }

@@ -91,9 +91,9 @@ class standardmenu extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function standardmenulogs()
+    public function menuitems()
     {
-        return $this->hasMany(\App\Models\Standardmenulog::class, 'standardmenuid');
+        return $this->belongsToMany(\App\Models\Menuitem::class, 'standardmenulog','standardmenuid','menuitemid');
     }
 	
 	public function standardmenuimages()

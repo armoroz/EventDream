@@ -17,8 +17,8 @@ class standardmenulogRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'menuitemid',
-        'standardmenuid'
+        'standardmenuid',
+		'menuitemid'
     ];
 
     /**
