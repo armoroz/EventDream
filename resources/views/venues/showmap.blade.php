@@ -48,7 +48,7 @@
 	redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/red-icon-arrow.png')}}";
 	mymap.locate({setView: true, maxZoom: 16});
 	function onLocationFound(e) {
-		L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("You are here!").openPopup();
+		L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("This is you!").openPopup();
 	}
 	mymap.on('locationfound', onLocationFound);
 
