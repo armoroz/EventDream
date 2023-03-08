@@ -87,7 +87,7 @@
     var mymap = L.map('mapid');
     var icon = new L.Icon();
     icon.options.shadowSize = [0,0];
-    icon.options.iconSize = [25, 20];
+    icon.options.iconSize = [40, 40];
     icon.options.iconAnchor = [10, 70];
     icon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/marker-icon.png')}}";
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhbGluaWsiLCJhIjoiY2xlYTFwemV2MHBhdjNucXM1cHVlZDN3NiJ9.YyBcnu_XLr3krPvCZFy1RQ', {
@@ -117,7 +117,7 @@ $.getJSON({
 // Add a red coloured marker for the user's current location
 var redIcon = new L.Icon({
 	//iconUrl: "{{asset('images\vendor\leaflet\dist\marker-icon-red.png')}}",
-	iconSize: [25, 20],
+	iconSize: [55, 50],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34]
 });
