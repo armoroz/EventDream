@@ -24,8 +24,8 @@ class venueController extends AppBaseController
 	public function searchquery(Request $request)
 	{
 		$searchquery=$request->searchquery;
-		//$venues=\App\Models\venue::where('venuename','LIKE','%{$searchquery}%')->get(); 
-		$venues=\App\Models\venue::all();
+		$venues=\App\Models\venue::where('venuename','LIKE','%'.$searchquery.'%')->get(); 
+		
 		return view('venues.index')
             ->with('venues', $venues);
 	}
