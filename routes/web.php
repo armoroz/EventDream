@@ -56,6 +56,7 @@ Route::get('venues/displaygrid', 'App\Http\Controllers\venueController@displaygr
 Route::get('venues', 'App\Http\Controllers\venueController@index')->name('venues.index');
 Route::get('venues/additem/{id}', 'App\Http\Controllers\venueController@additem')->name('venues.additem');
 Route::get('venues/emptycart', 'App\Http\Controllers\venueController@emptycart')->name('venues.emptycart');
+Route::post('venues/all/search', 'App\Http\Controllers\venueController@searchquery')->name('venues.searchquery');
 
 Route::get('/venues/create', 'App\Http\Controllers\venueController@create')->name('venues.create');
 Route::delete('/venues/{venue}', 'App\Http\Controllers\venueController@destroy')->name('venues.destroy');

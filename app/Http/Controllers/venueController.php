@@ -20,7 +20,17 @@ class venueController extends AppBaseController
     {
         $this->venueRepository = $venueRepo;
     }
-
+	
+	public function searchquery(Request $request)
+	{
+		$searchquery=$request->searchquery;
+		//$venues=\App\Models\venue::where('venuename','LIKE','%{$searchquery}%')->get(); 
+		$venues=\App\Models\venue::all();
+		return view('venues.index')
+            ->with('venues', $venues);
+	}
+	
+	
     /**
      * Display a listing of the venue.
      *

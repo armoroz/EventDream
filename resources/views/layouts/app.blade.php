@@ -35,9 +35,10 @@
 			</li>
 
 			<li>
-				<form style="margin-top: 8px; height:33.5px;" action="search.php" method="get">
-				<input type="text" name="search_query">
-				<button style="background-color:lightskyblue" type="submit">Search</button>
+				<form style="margin-top: 8px; height:33.5px;" action="{{route('venues.searchquery')}}" method="POST">
+					@csrf
+					<input type="text" name="searchquery">
+					<button style="background-color:lightskyblue" type="submit">Search</button>
 				</form>
 			</li>
 			

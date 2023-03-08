@@ -25,8 +25,10 @@
     <p>  Yes, we encourage clients to visit the venue before booking to ensure it meets their needs. You can schedule a visit through our website.  </p>
 	<p>  What is your cancellation policy?</p>
 	<p>	Our cancellation policy varies based on the event and the venue. We will work with you to determine the best course of action in the event of a cancellation.</p>
-	<p> What kind of events do you manage </p>
+	<p> What kind of events do you manage? </p>
 	<p>We manage a variety of events, from weddings and corporate events to concerts and festivals. Our team is experienced in managing events of all sizes and types.</p>
+	<p> What does a your company do? <p>
+	<p> Our company provides services to manage, operate and maintain event. These services can include booking events, handling event logistics, maintaining the property, managing supplier relationships, and more.
   </section>
 
 
