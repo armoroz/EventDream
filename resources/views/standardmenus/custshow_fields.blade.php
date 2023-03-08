@@ -28,8 +28,19 @@
     <p>{{ $standardmenu->userid }}</p>
 </div>
 
-<!-- Imagefile Field -->
+<!-- Rating Field -->
+<div class="col-sm-12">
+@foreach($standardmenuratings as $standardmenurating)
+	<div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
+		<td>
+			<input id="fieldRating" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
+			data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+		</td>
+    </div>
+@endforeach
+</div>
 
+<!-- Imagefile Field -->
 <div class="container-fluid">
     <div id="thisCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->

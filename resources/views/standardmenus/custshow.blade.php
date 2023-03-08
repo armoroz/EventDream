@@ -20,6 +20,10 @@
                     @include('standardmenus.custshow_fields')
 					<a class="btn btn-default float-right" href="{{ route('standardmenus.displaygrid') }}">Back</a>
 					<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$standardmenu->id}}">Add To Cart</button>
+					<a href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}" 
+						   class='btn btn-default btn-xs'>
+						   <i class="glyphicon glyphicon-star" title="Rate"></i>
+					</a>
                 </div>
             </div>
         </div>
