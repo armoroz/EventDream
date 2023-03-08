@@ -6,7 +6,7 @@
      var mymap = L.map('mapid');
      var icon = new L.Icon();
      icon.options.shadowSize = [0,0];
-     icon.options.iconSize = [20, 40];
+     icon.options.iconSize = [40, 40];
      icon.options.iconAnchor = [10, 70];
      icon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/marker-icon.png')}}";
      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhbGluaWsiLCJhIjoiY2xlYTFwemV2MHBhdjNucXM1cHVlZDN3NiJ9.YyBcnu_XLr3krPvCZFy1RQ', {
@@ -18,8 +18,8 @@
      }).addTo(mymap);
  mymap.setView(new L.LatLng(53.4053, -6.3784), 13); 
  
- $.getJSON({
-    url: '{{route('venues.map.json')}}'
+    $.getJSON({
+      url: '{{route('venues.map.json')}}'
     }).done(function (venues) {
         var bounds = [];
         for ( var i=0; i < venues.length; ++i ) {
@@ -38,7 +38,22 @@
 		$('#lng').val(e.latlng.lng);        
 		$('#createVenueModal').modal('show');
 	}
+	
+	// Add a red coloured marker for the user's current location
+	var redIcon = new L.Icon({
+	    iconUrl: "{{asset('images\vendor\leaflet\dist\marker-icon-red.png')}}",
+		iconSize: [55, 50],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34]
+	});
+	
+	mymap.locate({setView: true, maxZoom: 16});
+	function onLocationFound(e) {
+		L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("You are here!").openPopup();
+	}
+	mymap.on('locationfound', onLocationFound);
 
+    
  </script>
  @include('venues.createvenuemodal')
  @endsection
