@@ -24,9 +24,6 @@
 			<td><img class="img-responsive center-block" 
 			    height="100" width="100%" src="{{ $menuitem->menuitemimglink }}">
 			</td>
-			<td><div class="form-group col-sm-6">
-				{!! Form::file('menuitemimglink', null, ['class' => 'form-control']) !!}
-			</div></td>
             <td>{{ $menuitem->userid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['menuitems.destroy', $menuitem->id], 'method' => 'delete']) !!}
