@@ -25,9 +25,21 @@ class venueController extends AppBaseController
 	{
 		$searchquery=$request->searchquery;
 		$venues=\App\Models\venue::where('venuename','LIKE','%'.$searchquery.'%')->get(); 
+		$venueimages = \App\Models\VenueImages::all();
 		
-		return view('venues.index')
-            ->with('venues', $venues);
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $venue => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+		}
+		
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages);
 	}
 	
 	

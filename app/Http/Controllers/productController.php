@@ -21,6 +21,27 @@ class productController extends AppBaseController
     {
         $this->productRepository = $productRepo;
     }
+	
+	public function searchquery(Request $request)
+	{
+		$searchquery=$request->searchquery;
+		$products=\App\Models\product::where('productname','LIKE','%'.$searchquery.'%')->get(); 
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $product => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+		}
+		
+		return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
+	}	
+	
 
     /**
      * Display a listing of the product.

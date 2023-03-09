@@ -34,6 +34,7 @@ Route::get('products', 'App\Http\Controllers\productController@index')->name('pr
 Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
 Route::get('products/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
 Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');
+Route::post('products/all/search', 'App\Http\Controllers\productController@searchquery')->name('products.searchquery');
 
 Route::get('events/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
 Route::resource('events', App\Http\Controllers\eventController::class);
