@@ -51,6 +51,15 @@
 				</form>
 			@endif
 			</li>
+			<li>
+			@if(Request::url() == route('standardmenus.displaygrid') || Request::url() == route('standardmenus.searchquery'))
+				<form style="margin-top: 8px; height:33.5px;" action="{{route('standardmenus.searchquery')}}" method="POST">
+					@csrf
+					<input type="text" name="searchquery">
+					<button style="background-color:lightskyblue" type="submit">Search</button>
+				</form>
+			@endif
+			</li>
 			
 			@if(Request::url() == route('products.displaygrid') || Request::url() == route('venues.displaygrid') || Request::url() == route('standardmenus.displaygrid') || isset($venue) && Request::url() == route('venues.custshow', [$venue->id]) || isset($product) && Request::url() == route('products.custshow', [$product->id]) || isset($standardmenu) && Request::url() == route('standardmenus.custshow', [$standardmenu->id]) || Request::url() == route('venues.searchquery') || Request::url() == route('products.searchquery'))
             <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 

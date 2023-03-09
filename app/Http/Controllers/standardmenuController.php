@@ -21,6 +21,27 @@ class standardmenuController extends AppBaseController
     {
         $this->standardmenuRepository = $standardmenuRepo;
     }
+	
+	public function searchquery(Request $request)
+	{
+		$searchquery=$request->searchquery;
+		$standardmenus=\App\Models\standardmenu::where('standardmenuname','LIKE','%'.$searchquery.'%')->get(); 
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $standardmenu => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+		}
+		
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems);
+	}
+	
 
     /**
      * Display a listing of the standardmenu.
