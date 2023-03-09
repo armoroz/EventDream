@@ -57,16 +57,18 @@ class standardmenuratingController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreatestandardmenuratingRequest $request)
-    {
-        $input = $request->all();
+	public function store(CreatestandardmenuratingRequest $request)
+	{
+		$input = $request->all();
 
-        $standardmenurating = $this->standardmenuratingRepository->create($input);
+		$standardmenurating = $this->standardmenuratingRepository->create($input);
 
-        Flash::success('Standardmenurating saved successfully.');
+		Flash::success('Standard menu rating saved successfully.');
 
-        return redirect(route('standardmenuratings.index'));
-    }
+		$standardmenuid = $request->standardmenuid;
+
+		return redirect()->route('standardmenus.custshow', ['standardmenu' => $standardmenuid]);
+	}
 
     /**
      * Display the specified standardmenurating.

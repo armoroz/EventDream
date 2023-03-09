@@ -28,7 +28,11 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                <form method="POST" action="{{ route('venueratings.store') }}">
+					@csrf
+					<input type="hidden" name="venueid" value="{{ $venueid }}">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
                 <a href="{{ route('venueratings.index') }}" class="btn btn-default">Cancel</a>
             </div>
 

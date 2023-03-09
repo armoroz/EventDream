@@ -28,7 +28,11 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                <form method="POST" action="{{ route('standardmenuratings.store') }}">
+					@csrf
+					<input type="hidden" name="standardmenuid" value="{{ $standardmenuid }}">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</form>
                 <a href="{{ route('standardmenuratings.index') }}" class="btn btn-default">Cancel</a>
             </div>
 

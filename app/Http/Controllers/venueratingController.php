@@ -57,16 +57,18 @@ class venueratingController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreatevenueratingRequest $request)
-    {
-        $input = $request->all();
+	public function store(CreatevenueratingRequest $request)
+	{
+		$input = $request->all();
 
-        $venuerating = $this->venueratingRepository->create($input);
+		$venuerating = $this->venueratingRepository->create($input);
 
-        Flash::success('Venuerating saved successfully.');
+		Flash::success('Venuerating saved successfully.');
 
-        return redirect(route('venueratings.index'));
-    }
+		$venueid = $request->venueid;
+
+		return redirect()->route('venues.custshow', ['venues' => $venueid]);
+	}
 
     /**
      * Display the specified venuerating.
