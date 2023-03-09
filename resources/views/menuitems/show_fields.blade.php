@@ -29,10 +29,9 @@
 </div>
 
 <!-- Menuitemimglink Field -->
-<div class="col-sm-12">
-    {!! Form::label('menuitemimglink', 'Menuitemimglink:') !!}
-    <p>{{ $menuitem->menuitemimglink }}</p>
-</div>
+<div><td><img class="img-responsive left-block" 
+	height="200px" width="200px" src="{{ $menuitem->menuitemimglink }}">
+</td></div>
 
 <!-- Userid Field -->
 <div class="col-sm-12">

@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Menuitem</h1>
+                    <h1>Edit Menu Item</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::model($menuitem, ['route' => ['menuitems.update', $menuitem->id], 'method' => 'patch']) !!}
+            {!! Form::model($menuitem, ['route' => ['menuitems.update', $menuitem->id], 'method' => 'patch', 'files' => 'true']) !!}
 
             <div class="card-body">
                 <div class="row">

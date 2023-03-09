@@ -17,7 +17,10 @@
             <div class="row" style="padding-left: 20px">
                 <div class="form-group col-sm-4">
                     @foreach($menuitems as $menuitem)
-                    <label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label>
+                    <tr><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></tr>
+					<div><tr><img class="img-responsive left-block" 
+						height="200px" width="200px" src="{{ $menuitem->menuitemimglink }}">
+					</tr></div>
                     <div class="col-sm-2"><input class="checkbox-inline" type="checkbox" name="menuitem[]"
                             value="{{$menuitem->id}}" @if($standardmenu->menuitems->contains($menuitem)) checked @endif ></div>
                     @endforeach

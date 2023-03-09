@@ -8,6 +8,7 @@
         <th>Menuitemallergens</th>
         <th>Menuitemcost</th>
         <th>Menuitemimglink</th>
+		<th>Upload Image</th>
         <th>Userid</th>
             <th colspan="3">Action</th>
         </tr>
@@ -20,7 +21,12 @@
             <td>{{ $menuitem->menuitemnutrition }}</td>
             <td>{{ $menuitem->menuitemallergens }}</td>
             <td>{{ $menuitem->menuitemcost }}</td>
-            <td>{{ $menuitem->menuitemimglink }}</td>
+			<td><img class="img-responsive center-block" 
+			    height="100" width="100%" src="{{ $menuitem->menuitemimglink }}">
+			</td>
+			<td><div class="form-group col-sm-6">
+				{!! Form::file('menuitemimglink', null, ['class' => 'form-control']) !!}
+			</div></td>
             <td>{{ $menuitem->userid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['menuitems.destroy', $menuitem->id], 'method' => 'delete']) !!}

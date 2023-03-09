@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Session;
 
 class menuitemController extends AppBaseController
 {
@@ -57,6 +58,10 @@ class menuitemController extends AppBaseController
         $input = $request->all();
 
         $menuitem = $this->menuitemRepository->create($input);
+		
+		$file = $request->file('menuitemimglink');
+        $menuitem->menuitemimglink = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
+        $menuitem->save();
 
         Flash::success('Menuitem saved successfully.');
 
@@ -122,6 +127,10 @@ class menuitemController extends AppBaseController
         }
 
         $menuitem = $this->menuitemRepository->update($request->all(), $id);
+		
+		$file = $request->file('menuitemimglink');
+        $menuitem->menuitemimglink = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
+        $menuitem->save();
 
         Flash::success('Menuitem updated successfully.');
 

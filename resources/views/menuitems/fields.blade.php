@@ -28,10 +28,10 @@
     {!! Form::number('menuitemcost', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Menuitemimglink Field -->
+<!-- Image Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('menuitemimglink', 'Menuitemimglink:') !!}
-    {!! Form::text('menuitemimglink', null, ['class' => 'form-control','maxlength' => 50,'maxlength' => 50]) !!}
+    {!! Form::label('menuitemimglink', 'Menu Item Image:') !!}
+    {!! Form::file('menuitemimglink', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Userid Field -->

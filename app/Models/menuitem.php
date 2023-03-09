@@ -71,7 +71,7 @@ class menuitem extends Model
         'menuitemnutrition' => 'nullable|string',
         'menuitemallergens' => 'nullable|string',
         'menuitemcost' => 'nullable|numeric',
-        'menuitemimglink' => 'nullable|string|max:50',
+        'menuitemimglink' => 'nullable',
         'userid' => 'nullable|integer'
     ];
 

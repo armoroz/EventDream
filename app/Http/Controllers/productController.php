@@ -81,9 +81,6 @@ class productController extends AppBaseController
 
         $product = $this->productRepository->create($input);
 		
-		/*$product->productimg = base64_encode(file_get_contents($request->productimg));
-        $product->save();*/
-		
 		$file = $request->file('productimg');
         $product->productimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
         $product->save();
