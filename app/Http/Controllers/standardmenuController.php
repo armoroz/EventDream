@@ -265,14 +265,8 @@ class standardmenuController extends AppBaseController
 	{
 		$standardmenu = Standardmenu::find($id);
 		$menuitems = Menuitem::all();
-		
-		
 			
-			return view('standardmenus.assignmenuitems')->with('standardmenu',$standardmenu)->with('menuitems',$menuitems);
-		
-		//}
-		echo 'totalstandardmenu= '.$standardmenu->count();
-		echo '<br>totalmenuitems= '.$menuitems->count();
+		return view('standardmenus.assignmenuitems')->with('standardmenu',$standardmenu)->with('menuitems',$menuitems);
 	}
 
 	public function updateMenuItems(Request $request, $id)
