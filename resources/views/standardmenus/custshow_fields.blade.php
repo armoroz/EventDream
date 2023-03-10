@@ -26,6 +26,7 @@
 
 <!-- Rating Field -->
 <div class="col-sm-12">
+{!! Form::label('standardmenuratings', 'Menu Ratings:') !!}
 @foreach($standardmenuratings as $standardmenurating)
 	<div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 		<td>
