@@ -1,3 +1,5 @@
+<div class="row">
+
 <!-- Standardmenuname Field -->
 <div class="col-sm-12">
     {!! Form::label('standardmenuname', 'Standardmenuname:') !!}
@@ -22,12 +24,6 @@
     <p>{{ $standardmenu->description }}</p>
 </div>
 
-<!-- Userid Field -->
-<div class="col-sm-12">
-    {!! Form::label('userid', 'Userid:') !!}
-    <p>{{ $standardmenu->userid }}</p>
-</div>
-
 <!-- Rating Field -->
 <div class="col-sm-12">
 @foreach($standardmenuratings as $standardmenurating)
@@ -39,6 +35,8 @@
     </div>
 @endforeach
 </div>
+
+
 
 <!-- Imagefile Field -->
 <div class="container-fluid">
@@ -72,4 +70,24 @@
       </div>
     </div>
 </div>
+</div>
 
+<div class="row">
+<!-- Menu item Field -->
+<table class="table table-condensed table-bordered">
+<thead> 
+					<tr> <th>Name</th><th>Image</th><th>Price</th> </tr>
+				</thead>
+				<tbody>
+    {!! Form::label('menuitem', 'Menu Items:') !!}
+    @foreach($standardmenu->menuitems as $menuitem)
+	<tr>
+        <td>{{ $menuitem->menuitemname }}</td>
+		<td><img class="img-responsive left-block" 
+	height="100px" width="100px" src="{{ $menuitem->menuitemimglink }}"></td>
+	<td>€{{$menuitem->menuitemcost}} </td>	
+	</tr>
+	</tbody>
+    @endforeach
+</table>
+</div>

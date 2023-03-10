@@ -152,5 +152,5 @@ class standardmenulogController extends AppBaseController
         Flash::success('Standardmenulog deleted successfully.');
 
         return redirect(route('standardmenulogs.index'));
-    }
+    }	
 }
