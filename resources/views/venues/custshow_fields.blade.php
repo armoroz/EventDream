@@ -48,7 +48,7 @@
 
 <!-- Rating Field -->
 <div class="col-sm-12">
-@foreach($venueratings as $venuerating)
+@foreach($venueratings->slice(-3) as $venuerating)
 	<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 		<td>
 			<input id="fieldRating" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
