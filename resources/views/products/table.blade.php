@@ -23,7 +23,7 @@
             <td>{{ $product->productlocation }}</td>
             <td>{{ $product->productquantity }}</td>
 			<td><img class="img-responsive center-block" 
-			    height="100" width="100%" src="{{ $product->productimg }}">
+			    style="max-height: 100px; min-height: 100px; max-width:100px; min-width: 100px;" src="{{ $product->productimg }}">
 			</td>
             <td>{{ $product->userid }}</td>
 			<td>

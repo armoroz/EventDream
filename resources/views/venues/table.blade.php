@@ -30,7 +30,7 @@
             <td>{{ $venue->costtorent }}</td>
             <td>{{ $venue->userid }}</td>
 			<td>@foreach($venue->venueimages->take(1) as $venueimage)		
-            <img class="img-responsive center-block" height="100" width="100%" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">@endforeach</td>
+            <img style="max-height: 100px; min-height: 100px; max-width:150px; min-width: 150px;" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">@endforeach</td>
 			<td>{!! round($venue->venueratings->avg('rating'),2); !!}</td> 
 			<td> <a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 

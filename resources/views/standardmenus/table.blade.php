@@ -22,7 +22,7 @@
             <td>{{ $standardmenu->description }}</td>
             <td>{{ $standardmenu->userid }}</td>
 			<td>@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
-            <img class="img-responsive center-block" height="100" width="100%" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach</td>
+            <img class="img-responsive center-block" style="max-height: 100px; min-height: 100px; max-width:150px; min-width: 150px;" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach</td>
 			<td>{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}</td> 
 			<td> <a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 					<input id="fieldRating" name="rating" 

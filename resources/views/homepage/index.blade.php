@@ -6,17 +6,21 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <style>
-  h2 {
+h2 {
 	margin-left:0px;
 	padding-top: 20px;
   }
+p {
+	float: left;
+	border-color: black;
+ }
 
-  .col-lg-8 {
+.col-lg-8 {
     width: 75%;
 	float: right;
   }
 
-.img-responsive {
+.img-home {
 	max-width: 200px;  
 	height: 150px;
 }
@@ -26,7 +30,7 @@ div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   margin: -15px;
-  height: 440px;
+  height: 448px;
 }
 
 div.scrollmenu div.home {
@@ -52,7 +56,7 @@ div.scrollmenu a:hover {
 				<div class="panel panel-primary"> 
 				<div class="panel-heading">{{ $venue->venuename }} {{ $venue->city }}</div> 
 				@foreach($venue->venueimages->take(1) as $venueimage)		
-				<div class="panel-body"><img class="img-responsive center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">
+				<div class="panel-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">
 				</div>@endforeach
 				<div class="panel-footer" style="text-align:center; color:black;">
 				€{{$venue->costtorent}}
@@ -72,6 +76,7 @@ div.scrollmenu a:hover {
       @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
+<div class="home"><div><a href="{!! route('venues.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
 </div>
 
 <h2>Products</h2>
@@ -81,7 +86,7 @@ div.scrollmenu a:hover {
 	<div class="home">
             <div class="panel panel-primary"> 
             <div class="panel-heading">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
-            <div class="panel-body"><img class="img-responsive center-block"  src="{{ $product->productimg }}"></div>
+            <div class="panel-body"><img class="img-home center-block"  src="{{ $product->productimg }}"></div>
 			<div class="panel-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>
             <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
             <div class="panel-footer" style="text-align:center">
@@ -95,6 +100,7 @@ div.scrollmenu a:hover {
       @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
+<div class="home"><div><a href="{!! route('products.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
 </div>
 
 <h2>Menus</h2>
@@ -105,7 +111,7 @@ div.scrollmenu a:hover {
             <div class="panel panel-primary"> 
             <div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</div> 
             @foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
-			<div class="panel-body"><img class="img-responsive center-block" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
+			<div class="panel-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
 			</div>@endforeach
 			<div class="panel-footer" style="text-align: center; color:black;">
 			€{{$standardmenu->standardmenucost}}
@@ -123,7 +129,10 @@ div.scrollmenu a:hover {
       @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
+<div class="home"><div><a href="{!! route('standardmenus.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
 </div>
-
-
 @endsection('content')
+@section('side')<li><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="glyphicon glyphicon-shopping-cart"title="Cart"></span></li>
+				<li><span style="font-size:70px;margin-left:10px; margin-top:10px;" class="glyphicon glyphicon-user"title="Account"></span></li>
+				<li><span style="font-size:70px;margin-left:10px; margin-top:10px;" class="glyphicon glyphicon-folder-close" title="View Projects"></span></li>
+@endsection('side')

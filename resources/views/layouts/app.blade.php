@@ -78,7 +78,7 @@
         <div id="page-content-wrapper"> 
             <div class="container-fluid"> 
                 <div class="row"> 
-                    <div class="col-lg-2"></div> 
+                    <div class="col-lg-2">@yield('side')</div> 
                     <div class="col-lg-8"> @yield('content') </div> 
                     <div class="col-lg-2"></div> 
                 </div> 
