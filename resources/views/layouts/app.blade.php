@@ -15,11 +15,11 @@
     <body>
         <nav class="navbar navbar-default navbar-static-top">		
 			<div class="navbar-header">
-				<!--<a class="navbar-brand" style="font-size: 16pt" href="{{route('dashboard') }}">EventDream</a>-->
-				<a class="navbar-brand" href="{{route('dashboard') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
+				<a class="navbar-brand" href="{{route('homepage.index') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
 
 			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+			<li><a href="{{route('homepage.index')}}" style="font-size: 12pt" >Home</a></li>
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
 			<li><a href="{{route('standardmenus.displaygrid')}}" style="font-size: 12pt" >Menus</a></li>
@@ -78,7 +78,7 @@
         <div id="page-content-wrapper"> 
             <div class="container-fluid"> 
                 <div class="row"> 
-                    <div class="col-lg-2"></div> 
+                    <div class="col-lg-2">@yield('side')</div> 
                     <div class="col-lg-8"> @yield('content') </div> 
                     <div class="col-lg-2"></div> 
                 </div> 

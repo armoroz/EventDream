@@ -85,7 +85,7 @@
 	<tr>
         <td>{{ $menuitem->menuitemname }}</td>
 		<td><img class="img-responsive left-block" 
-	height="100px" width="100px" src="{{ $menuitem->menuitemimglink }}"></td>
+	style="max-height: 100px; min-height: 100px; max-width:150px; min-width: 150px;" src="{{ $menuitem->menuitemimglink }}"></td>
 	<td>€{{$menuitem->menuitemcost}} </td>	
 	</tr>
 	</tbody>

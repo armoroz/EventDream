@@ -41,7 +41,8 @@ class menuitem extends Model
         'menuitemallergens',
         'menuitemcost',
         'menuitemimglink',
-        'userid'
+        'userid',
+		'course'
     ];
 
     /**
@@ -57,7 +58,8 @@ class menuitem extends Model
         'menuitemallergens' => 'string',
         'menuitemcost' => 'decimal:2',
         'menuitemimglink' => 'string',
-        'userid' => 'integer'
+        'userid' => 'integer',
+		'course' => 'string'
     ];
 
     /**
@@ -72,7 +74,8 @@ class menuitem extends Model
         'menuitemallergens' => 'nullable|string',
         'menuitemcost' => 'nullable|numeric',
         'menuitemimglink' => 'nullable',
-        'userid' => 'nullable|integer'
+        'userid' => 'nullable|integer',
+		'menuitemallergens' => 'nullable|string'
     ];
 
     /**

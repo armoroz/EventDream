@@ -23,7 +23,8 @@ class menuitemRepository extends BaseRepository
         'menuitemallergens',
         'menuitemcost',
         'menuitemimglink',
-        'userid'
+        'userid',
+		'course'
     ];
 
     /**
