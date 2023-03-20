@@ -48,6 +48,7 @@
 
 <!-- Rating Field -->
 <div class="col-sm-12">
+{!! Form::label('venueratings', 'Venue Ratings:') !!}
 @foreach($venueratings->slice(-3) as $venuerating)
 	<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 		<td>

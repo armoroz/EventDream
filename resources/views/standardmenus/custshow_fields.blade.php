@@ -27,7 +27,7 @@
 <!-- Rating Field -->
 <div class="col-sm-12">
 {!! Form::label('standardmenuratings', 'Menu Ratings:') !!}
-@foreach($standardmenuratings as $standardmenurating)
+@foreach($standardmenuratings->slice(-3) as $standardmenurating)
 	<div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 		<td>
 			<input id="fieldRating" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
