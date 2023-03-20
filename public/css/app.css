@@ -5892,10 +5892,10 @@ button.close {
   position: relative;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 9px solid #999;
+  border: 9px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 7px 9px rgba(0, 0, 0, 0.5);
   outline: 0;
 }
 .modal-backdrop {
@@ -5988,7 +5988,7 @@ button.close {
   word-spacing: normal;
   word-wrap: normal;
   white-space: normal;
-  font-size: 12px;
+  font-size: 10px;
   filter: alpha(opacity=0);
   opacity: 0;
 }
@@ -6089,7 +6089,7 @@ button.close {
   left: 0;
   z-index: 1060;
   display: none;
-  max-width: 276px;
+  max-width: 500px;
   padding: 1px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: normal;
