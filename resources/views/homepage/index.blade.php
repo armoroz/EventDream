@@ -13,6 +13,7 @@
   .col-lg-8 {
     width: 75%;
 	float: right;
+	margin-right: -10px;
   }
 div.scrollmenu {
   background-color: #333;
@@ -41,7 +42,7 @@ div.scrollmenu a:hover {
 @foreach($venues as $venue)
 	@if ($j==0) @endif
             @foreach($venue->venueimages->take(1) as $venueimage)		
-				<div><img class="img-responsive center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">
+				<div><a href="{{ route('venues.custshow', [$venue->id]) }}"><img class="img-responsive center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"></a>
 				</div>@endforeach
       @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp  @endif 
