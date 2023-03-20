@@ -86,10 +86,10 @@ class bookingController extends AppBaseController
         if (empty($booking)) {
             Flash::error('Booking not found');
 
-            return redirect(route('bookings.index'));
+            return redirect(route('calendar.vendisplay'));
         }
 
-        return view('bookings.show')->with('booking', $booking);
+        return view('calendar.vendisplay')->with('calendar', $calendar);
     }
 
     /**
