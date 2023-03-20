@@ -40,8 +40,8 @@
     {!! Form::number('userid', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Image Field -->
+<!--image Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('productimg', 'Product Image:') !!}
+    {!! Form::label('productimg', 'prod Picture:') !!}
     {!! Form::file('productimg', null, ['class' => 'form-control']) !!}
 </div>

@@ -5083,9 +5083,9 @@ a.thumbnail.active {
   color: inherit;
 }
 .alert-success {
-  color: #3c763d;
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
+  color: white;
+  background-color: #95a9cf;
+  border-color: #5c739e;
 }
 .alert-success hr {
   border-top-color: #c9e2b3;
