@@ -15,8 +15,7 @@
     <body>
         <nav class="navbar navbar-default navbar-static-top">		
 			<div class="navbar-header">
-				<!--<a class="navbar-brand" style="font-size: 16pt" href="{{route('dashboard') }}">EventDream</a>-->
-				<a class="navbar-brand" href="{{route('dashboard') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
+				<a class="navbar-brand" href="{{route('homepage.index') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
 
 			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">

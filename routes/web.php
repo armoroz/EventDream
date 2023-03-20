@@ -139,6 +139,4 @@ Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->na
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
 
-
-
-
+Route::get('homepage', 'App\Http\Controllers\homepageController@index')->name('homepage.index');
