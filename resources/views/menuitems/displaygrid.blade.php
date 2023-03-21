@@ -23,7 +23,8 @@
 </style>
 
 <!--<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
-
+<form action="{{route('menuitems.newstandardmenu')}}" id="newmenuform" method="post">
+@csrf
 @foreach($menuitems as $menuitem) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
@@ -46,11 +47,18 @@
     @if ($j==3) @php $j=0 @endphp </div> @endif 
 @endforeach
 
-<a href="{{ route('custommenus.create') }}" class="fixed-button">
-    <button type="button" class="btn btn-primary">Add Menu Items to Custom Menu</button>
-</a>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+    <button type="button" id="newmenubtn" class="btn btn-primary">Add Menu Items to Custom Menu</button>
+</form>
+<script>
+$(document).ready(function(){
+	console.log("ready");
+});
+$('#newmenubtn').click(function() {
+    console.log('hello');
+	$('#newmenuform').submit();
+});
+</script>
 
 @endsection('content')
 

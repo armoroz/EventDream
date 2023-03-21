@@ -5168,6 +5168,7 @@ __webpack_require__(/*! jquery/dist/jquery.js */ "./node_modules/jquery/dist/jqu
 __webpack_require__(/*! bootstrap/dist/js/bootstrap.js */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 __webpack_require__(/*! bootstrap-star-rating/js/star-rating.js */ "./node_modules/bootstrap-star-rating/js/star-rating.js");
 __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
+__webpack_require__.g.$ = __webpack_require__.g.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
@@ -51725,11 +51726,4 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
-try {
-  // Access the venueimages property
-  var venueImages = venue.venueimages;
-} catch (error) {
-  // Handle the error
-  console.error(error);
-}
 ;

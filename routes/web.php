@@ -115,6 +115,8 @@ Route::get('menuitems/{menuitem}/edit', 'App\Http\Controllers\menuitemController
 Route::patch('menuitems/{menuitem}/update  ','App\Http\Controllers\menuitemController@update')->name('menuitems.update');
 Route::post('menuitems','App\Http\Controllers\menuitemController@store')->name('menuitems.store');
 
+Route::post('menuitems/all/newstandardmenu','App\Http\Controllers\menuitemController@newstandardmenu')->name('menuitems.newstandardmenu');
+
 //Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
 Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
