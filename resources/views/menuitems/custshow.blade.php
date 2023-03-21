@@ -20,7 +20,7 @@
                     @include('menuitems.custshow_fields')
 					<div class="col-sm-6" style="margin:10px">
 						<a class="btn btn-default float-right" href="{{ route('menuitems.displaygrid') }}">Back</a>
-						<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$menuitem->id}}">Add To Cart</button>
+						
 					</div>
                 </div>
             </div>

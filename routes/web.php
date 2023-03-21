@@ -141,6 +141,7 @@ Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@i
 
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
+Route::get('/custommenus/create', 'App\Http\Controllers\custommenuController@create')->name('custommenus.create');
 
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
