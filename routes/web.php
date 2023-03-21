@@ -108,6 +108,10 @@ Route::post('products/{product}/update','App\Http\Controllers\productController@
 Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
 Route::get('menuitems/displaygrid', 'App\Http\Controllers\menuitemController@displaygrid')->name('menuitems.displaygrid');
 Route::get('menuitems/custshow/{menuitem}', 'App\Http\Controllers\menuitemController@custshow')->name('menuitems.custshow');
+Route::get('/menuitems/create', 'App\Http\Controllers\menuitemController@create')->name('menuitems.create');
+Route::delete('/menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@destroy')->name('menuitems.destroy');
+Route::get('menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@show')->name('menuitems.show');
+Route::get('menuitems/{menuitem}/edit', 'App\Http\Controllers\menuitemController@edit')->name('menuitems.edit');
 
 //Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
