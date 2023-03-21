@@ -17,8 +17,7 @@
 
         <div class="card">
 
-            {!! Form::open(['route' => 'menuitems.store']) !!}
-
+            {!! Form::open(['route' => 'menuitems.store', 'method' => 'post', 'files' => true]) !!}
             <div class="card-body">
 
                 <div class="row">

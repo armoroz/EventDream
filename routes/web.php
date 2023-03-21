@@ -112,6 +112,8 @@ Route::get('/menuitems/create', 'App\Http\Controllers\menuitemController@create'
 Route::delete('/menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@destroy')->name('menuitems.destroy');
 Route::get('menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@show')->name('menuitems.show');
 Route::get('menuitems/{menuitem}/edit', 'App\Http\Controllers\menuitemController@edit')->name('menuitems.edit');
+Route::patch('menuitems/{menuitem}/update  ','App\Http\Controllers\menuitemController@update')->name('menuitems.update');
+Route::post('menuitems','App\Http\Controllers\menuitemController@store')->name('menuitems.store');
 
 //Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
@@ -142,6 +144,7 @@ Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@i
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
 Route::get('/custommenus/create', 'App\Http\Controllers\custommenuController@create')->name('custommenus.create');
+
 
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
