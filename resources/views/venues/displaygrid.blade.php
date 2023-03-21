@@ -5,6 +5,18 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+<label for="price-filter">Filter by Price:</label>
+<select id="price-filter">
+  <option value="all">All</option>
+  <option value="0-50">€0 - €50</option>
+  <option value="50-100">€50 - €100</option>
+  <option value="150-200">€150 - €200</option>
+  <option value="250-300">€250 - €300</option>
+</select>
+<button onclick="filterProducts()">Filter</button>
+
+
+
 @foreach($venues as $venue) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
@@ -52,6 +64,28 @@ $(".bth,.addItem").click(function() {
       }
     });
 });
+
+<script>
+function filterProducts() {
+  const priceFilter = document.getElementById("price-filter").value;
+  const productList = document.getElementById("product-list");
+  const productItems = productList.getElementsByTagName("crown plaza restaurant dublin");
+  
+  for (let i = 0; i < productItems.length; i++) {
+    const productPrice = parseInt(productItems[i].getAttribute("data-price"));
+    
+    if (priceFilter === "all" || (priceFilter === "0-50" && productPrice <= 50) ||
+        (priceFilter === "50-100" && productPrice > 50 && productPrice <= 100) ||
+        (priceFilter === "150-200" && productPrice > 150 && productPrice <= 200))
+        (priceFilter === "250-300" && productPrice > 250 && productPrice <= 300))	{
+      productItems[i].style.display = "block";
+    } else {
+      productItems[i].style.display = "none";
+    }
+  });
+});
+
+
 
 $("#emptycart").click(function() { $.ajax({ 
     type: "get", url: "{{ url('venues/emptycart')   }}",
