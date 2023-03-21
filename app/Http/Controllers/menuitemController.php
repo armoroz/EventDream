@@ -162,4 +162,24 @@ class menuitemController extends AppBaseController
 
         return redirect(route('menuitems.index'));
     }
+	
+	public function displayGrid(Request $request)
+	{
+		$menuitems=\App\Models\Menuitem::all();
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $menuitem => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+
+		}
+		return view('menuitems.displaygrid')->with('menuitems',$menuitems)->with('totalItems',$totalItems);
+		
+	}
 }

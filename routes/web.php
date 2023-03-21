@@ -104,8 +104,10 @@ Route::post('products','App\Http\Controllers\productController@store')->name('pr
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
 
-Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
+//Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
 Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
+Route::get('menuitems/displaygrid', 'App\Http\Controllers\menuitemController@displaygrid')->name('menuitems.displaygrid');
+Route::get('menuitems/custshow/{menuitem}', 'App\Http\Controllers\menuitemController@custshow')->name('menuitems.custshow');
 
 //Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
