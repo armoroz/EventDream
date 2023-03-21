@@ -54,19 +54,19 @@ class menuitemController extends AppBaseController
 		
 		//return view('menuitems.create');
 		$thisCustomMenu = new \App\Models\CustomMenu();
-		$thisCustomMenu->description = $description;
+		//$thisCustomMenu->custommenuname = $custommenuname;
 		$thisCustomMenu->save();
 		$custommenuID = $thisCustomMenu->id;
 		$menuitemids = $request->menuitemid;
 		
-		$quantities = $request->quantity;
+		/*$quantities = $request->quantity;
 		for($i=0;$i<sizeof($menuitemids);$i++) {
 			$thisCustomMenuDetail = new \App\Models\CustomMenulog();
 			$thisCustomMenuDetail->custommenuid = $custommenuID;
 			$thisCustomMenuDetail->menuitemid = $menuitemids[$i];
 			
 			$thisCustomMenuDetail->save();
-		}
+		}*/
 		Session::forget('cart');
 		Flash::success("Your Custom Menu has been placed");
 		return redirect(route('menuitems.displaygrid'));

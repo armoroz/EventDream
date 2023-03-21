@@ -24,7 +24,7 @@
 			<li><a href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
 			<li><a href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li><a href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
-			<li><a href="{{route('standardmenus.displaygrid')}}" style="font-size: 12pt" >Menus</a></li>
+			<li><a href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
 			<li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 12pt">Options<span class="caret"></span></a>
 					<ul class="dropdown-menu">
