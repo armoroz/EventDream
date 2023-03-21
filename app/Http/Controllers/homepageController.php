@@ -9,7 +9,7 @@ use Session;
 
 class homepageController extends Controller
 {
-    public function index(Request $request)
+    public function homepage(Request $request)
     {
         $products=\App\Models\Product::all();
         $standardmenus=\App\Models\Standardmenu::all();
@@ -34,7 +34,7 @@ class homepageController extends Controller
 
 		}
 		
-        return view('homepage.index')
+        return view('homepage')
             ->with('products', $products)
             ->with('standardmenus', $standardmenus)
 			->with('venues', $venues)

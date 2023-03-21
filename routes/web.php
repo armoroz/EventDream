@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\homepageController@homepage', function () {
+    return view('homepage');
+})->name('homepage');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/homepage', 'App\Http\Controllers\homepageController@homepage', function () {
+    return view('homepage');
+})->middleware(['auth'])->name('homepage');
 
 require __DIR__.'/auth.php';
 
@@ -139,4 +139,4 @@ Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->na
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
 
-Route::get('homepage', 'App\Http\Controllers\homepageController@index')->name('homepage.index');
+//Route::get('homepage', 'App\Http\Controllers\homepageController@homepage')->name('homepage.homepage');
