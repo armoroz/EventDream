@@ -9,11 +9,9 @@
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
-            <div class="panel-heading">{{ $menuitem->menuitemname }}</div> 
-            
-			<div class="panel-footer" style="text-align: center">
-            <a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
-			</div>			
+            <div class="panel-heading">{{ $menuitem->menuitemname }} {{ $menuitem->course }}</div> 
+			<div class="panel-body"><img class="img-responsive center-block" height="100" width="100%" src="{{ $menuitem->menuitemimg }}"></div>
+            <div class="panel-footer"><a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>				
         </div>
 	</div>
     @php $j++ @endphp 

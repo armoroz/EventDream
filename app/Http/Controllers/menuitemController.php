@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
+use App\Models\Menuitem as Menuitem;
 
 class menuitemController extends AppBaseController
 {
@@ -181,5 +182,21 @@ class menuitemController extends AppBaseController
 		}
 		return view('menuitems.displaygrid')->with('menuitems',$menuitems)->with('totalItems',$totalItems);
 		
+	}
+	
+	public function custshow($id, Request $request)
+    {
+        $menuitem = $this->menuitemRepository->find($id);
+
+        if (empty($menuitem)) {
+            Flash::error('Menu Item not found');
+
+            return redirect(route('menuitems.index'));
+        }
+
+		$menuitems = \App\Models\Menuitem::all();
+		
+
+		return view('menuitems.custshow', ['menuitem' => $menuitem]);
 	}
 }
