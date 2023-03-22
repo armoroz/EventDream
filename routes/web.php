@@ -61,7 +61,7 @@ Route::delete('/products/{product}', 'App\Http\Controllers\productController@des
 Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
-Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
+Route::patch('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
 */
 
@@ -85,6 +85,7 @@ Route::get('/calendar/vendisplay/{venueid}','App\Http\Controllers\calendarContro
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
 
 /* Products */
+Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create');
 Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy');
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::get('products/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
@@ -94,14 +95,14 @@ Route::get('products/additem/{id}', 'App\Http\Controllers\productController@addi
 Route::get('products/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
 Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');
 Route::post('products/all/search', 'App\Http\Controllers\productController@searchquery')->name('products.searchquery');
-Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create');
+Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
+Route::patch('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 
 /* Venues/Ratings/Images */
 Route::delete('/venues/{venue}', 'App\Http\Controllers\venueController@destroy')->name('venues.destroy');
 Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name('venues.map.json');
 Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
 Route::get('venues/displaygrid', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
-Route::post('venues/{venue}/update','App\Http\Controllers\venueController@update')->name('venues.update');
 Route::get('venues/custshow/{venues}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
 Route::get('venues', 'App\Http\Controllers\venueController@index')->name('venues.index');
 Route::get('venues/additem/{id}', 'App\Http\Controllers\venueController@additem')->name('venues.additem');
@@ -157,14 +158,11 @@ Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\stan
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
 Route::get('/custommenus/create', 'App\Http\Controllers\custommenuController@create')->name('custommenus.create');
-Route::get('/custommenus/custcreate/{custommenuid}', 'App\Http\Controllers\custommenuController@custcreate')->name('custommenus.custcreate');
-Route::get('custommenus/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
+Route::post('custommenus','App\Http\Controllers\custommenuController@store')->name('custommenus.store');
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
-Route::get('custommenus/{custommenu}/edit', [App\Http\Controllers\custommenuController::class, 'edit'])->name('custommenus.edit');
+Route::get('custommenus/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
-
-
 
 /* Menu Options */
 Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);

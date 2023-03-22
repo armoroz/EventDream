@@ -85,8 +85,6 @@ class standardmenuController extends AppBaseController
 		/*$standardmenu->standardmenuimg = base64_encode(file_get_contents($request->standardmenuimg));
         $standardmenu->save();*/
 		
-		$file = $request->file('standardmenuimg');
-        $standardmenu->standardmenuimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
         $standardmenu->save();
 
         Flash::success('Standardmenu saved successfully.');
