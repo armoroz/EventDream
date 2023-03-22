@@ -10,7 +10,6 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
-use App\Models\Menuitem as Menuitem;
 
 class menuitemController extends AppBaseController
 {
