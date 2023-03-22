@@ -5,6 +5,17 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+<label for="price-filter">Filter by Price:</label>
+<select id="price-filter">
+  <option value="all">All</option>
+  <option value="0-50">€0 - €50</option>
+  <option value="50-100">€50 - €100</option>
+  <option value="150-200">€150 - €200</option>
+  <option value="250-300">€250 - €300</option>
+</select>
+<button onclick="filterProducts()">Filter</button>
+
+
 @foreach($products as $product) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
