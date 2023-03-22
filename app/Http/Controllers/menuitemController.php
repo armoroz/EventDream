@@ -47,29 +47,40 @@ class menuitemController extends AppBaseController
     }
 	
 	public function newstandardmenu(Request $request)
-    {
-        $menuitems=$request->menuitems;
-		//print_r($menuitems);
-		
-		//return view('menuitems.create');
+	{
+		$menuitems = $request->menuitems;
 		$thisCustomMenu = new \App\Models\CustomMenu();
-		//$thisCustomMenu->custommenuname = $custommenuname;
 		$thisCustomMenu->save();
 		$custommenuID = $thisCustomMenu->id;
-		//$menuitemids = $request->menuitemid;
-		
-		//$quantities = $request->quantity;
-		for($i=0;$i<sizeof($menuitems);$i++) {
+
+		// Build a string containing the selected menu item IDs
+		$selectedMenuItems = "";
+		for ($i = 0; $i < sizeof($menuitems); $i++) {
+			$selectedMenuItems .= $menuitems[$i];
+			if ($i != sizeof($menuitems) - 1) {
+				$selectedMenuItems .= ", ";
+			}
+		}
+
+		// Update the custom menu's description field with the selected menu item IDs
+		$thisCustomMenu->description = "Selected menu item IDs: " . $selectedMenuItems;
+		$thisCustomMenu->save();
+
+		for ($i = 0; $i < sizeof($menuitems); $i++) {
 			$thisCustomMenuDetail = new \App\Models\CustomMenulog();
 			$thisCustomMenuDetail->custommenuid = $custommenuID;
 			$thisCustomMenuDetail->menuitemid = $menuitems[$i];
-			
+
 			$thisCustomMenuDetail->save();
 		}
+
 		Session::forget('cart');
 		Flash::success("Your Custom Menu has been placed");
 		return redirect(route('menuitems.displaygrid'));
-    }
+	}
+    
+	
+ 
 	
 	public function placeorder(Request $request)
 	{
