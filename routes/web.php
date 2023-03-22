@@ -147,6 +147,7 @@ Route::resource('custommenus', App\Http\Controllers\custommenuController::class)
 Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
 Route::get('/custommenus/create', 'App\Http\Controllers\custommenuController@create')->name('custommenus.create');
 Route::get('custommenus/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
+Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
 
 Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
 Route::get('menuoptions', 'App\Http\Controllers\menuoptionController@index')->name('menuoptions.index');

@@ -153,4 +153,24 @@ class custommenuController extends AppBaseController
 
         return redirect(route('custommenus.index'));
     }
+	
+	public function displayGrid(Request $request)
+	{
+		$custommenus=\App\Models\Custommenu::all();
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $custommenu => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+
+		}
+		return view('custommenus.displaygrid')->with('custommenus',$custommenus)->with('totalItems',$totalItems);
+		
+	}
 }
