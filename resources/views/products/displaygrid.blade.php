@@ -5,15 +5,13 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<label for="price-filter">Filter by Price:</label>
-<select id="price-filter">
-  <option value="all">All</option>
-  <option value="0-50">€0 - €50</option>
-  <option value="50-100">€50 - €100</option>
-  <option value="150-200">€150 - €200</option>
-  <option value="250-300">€250 - €300</option>
-</select>
 <button onclick="filterProducts()">Filter</button>
+<label for="minPrice">Min Price:</label>
+<input type="number" id="minPrice" name="minPrice">
+
+<label for="maxPrice">Max Price:</label>
+<input type="number" id="maxPrice" name="maxPrice">
+<div id="filteredProducts"></div>
 
 
 @foreach($products as $product) 
@@ -56,6 +54,32 @@ $(".bth,.addItem").click(function() {
       }
     });
 });
+function filterProducts() {
+  // Get the values of the minimum and maximum prices
+  let minPrice = document.getElementById("minPrice").value;
+  let maxPrice = document.getElementById("maxPrice").value;
+
+  // Filter the products based on the price range
+  let filteredProducts = products.filter((product) => {
+    return product.productcost >= minPrice && product.productcost <= maxPrice;
+  });
+
+  // Display the filtered products in the container element
+  let container = document.getElementById("filteredProducts");
+  container.innerHTML = "";
+
+  filteredProducts.forEach((product) => {
+    let productElement = document.createElement("div");
+    productElement.innerHTML = `
+      <h3>${product.productname}</h3>
+      <p>${product.productdesc}</p>
+      <p>Price: ${product.productcost}</p>
+      <p>Quantity: ${product.productquantity}</p>
+    `;
+    container.appendChild(productElement);
+  });
+}
+
 
 $("#emptycart").click(function() { $.ajax({ 
     type: "get", url: "{{ url('products/emptycart')   }}",
