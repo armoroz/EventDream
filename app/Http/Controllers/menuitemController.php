@@ -75,8 +75,15 @@ class menuitemController extends AppBaseController
 
 		Session::forget('cart');
 		Flash::success("Your Custom Menu has been placed");
-		return redirect(route('custommenus.create'));
-	}
+		return redirect()->route('custommenus.create', ['custommenuid' => $custommenuID]);
+		
+		/*// Generate the URL for the create custom menu page and redirect the user
+        $url = route('custommenus.create', ['custommenuid' => $custommenuID]);
+        return redirect($url)->with('success', 'Your Custom Menu has been placed');*/
+    }
+		
+
+	
 
     
 	

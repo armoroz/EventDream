@@ -40,10 +40,14 @@ class custommenuController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
-    {
-        return view('custommenus.create');
-    }
+	public function create($id)
+	{
+		$custommenu = $this->custommenuRepository->find($id);
+		$menuitems = $custommenu->menuitems;
+		return view('custommenus.create', ['menuitems' => $menuitems]);
+	}
+
+	
 
     /**
      * Store a newly created custommenu in storage.
