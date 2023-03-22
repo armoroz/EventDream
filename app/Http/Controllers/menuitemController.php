@@ -53,31 +53,31 @@ class menuitemController extends AppBaseController
 		$thisCustomMenu->save();
 		$custommenuID = $thisCustomMenu->id;
 
-		// Build a string containing the selected menu item IDs
+		// Build a string containing the selected menu item names
 		$selectedMenuItems = "";
-		for ($i = 0; $i < sizeof($menuitems); $i++) {
-			$selectedMenuItems .= $menuitems[$i];
-			if ($i != sizeof($menuitems) - 1) {
-				$selectedMenuItems .= ", ";
-			}
+		foreach ($menuitems as $menuitem) {
+			$menuitemname = \App\Models\MenuItem::find($menuitem)->menuitemname;
+			$selectedMenuItems .= $menuitemname . ", ";
 		}
+		$selectedMenuItems = rtrim($selectedMenuItems, ", "); // remove the last comma and space
 
-		// Update the custom menu's description field with the selected menu item IDs
-		$thisCustomMenu->description = "Selected menu item IDs: " . $selectedMenuItems;
+		// Update the custom menu's description field with the selected menu item names
+		$thisCustomMenu->description = "Your Selected Menu Items: " . $selectedMenuItems;
 		$thisCustomMenu->save();
 
-		for ($i = 0; $i < sizeof($menuitems); $i++) {
+		foreach ($menuitems as $menuitem) {
 			$thisCustomMenuDetail = new \App\Models\CustomMenulog();
 			$thisCustomMenuDetail->custommenuid = $custommenuID;
-			$thisCustomMenuDetail->menuitemid = $menuitems[$i];
+			$thisCustomMenuDetail->menuitemid = $menuitem;
 
 			$thisCustomMenuDetail->save();
 		}
 
 		Session::forget('cart');
 		Flash::success("Your Custom Menu has been placed");
-		return redirect(route('menuitems.displaygrid'));
+		return redirect(route('custommenus.create'));
 	}
+
     
 	
  
