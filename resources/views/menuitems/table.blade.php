@@ -21,9 +21,7 @@
             <td>{{ $menuitem->menuitemnutrition }}</td>
             <td>{{ $menuitem->menuitemallergens }}</td>
             <td>{{ $menuitem->menuitemcost }}</td>
-			<td><img class="img-responsive center-block" 
-			    height="100" width="100%" src="{{ $menuitem->menuitemimglink }}">
-			</td>
+			<td><img class="tableimg center-block" src="{{ $menuitem->menuitemimglink }}"></td>
             <td>{{ $menuitem->userid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['menuitems.destroy', $menuitem->id], 'method' => 'delete']) !!}

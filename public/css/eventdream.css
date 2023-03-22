@@ -2,6 +2,13 @@ Body{
 background-color: #616b75;
 }
 
+.tableimg {
+	max-height: 100px; 
+	min-height: 100px; 
+	max-width:100px; 
+	min-width: 100px;
+}
+
 .panel-primary {
   border-color: #2d3033;
 }
@@ -59,5 +66,5 @@ background-color: #616b75;
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  max-height: 300px; min-height: 300px; max-width:300px; min-width: 300px;
+  max-height: 200px; min-height: 200px; max-width:250px; min-width: 250px;
 }

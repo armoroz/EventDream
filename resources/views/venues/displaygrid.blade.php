@@ -16,7 +16,6 @@
 <button onclick="filterProducts()">Filter</button>
 
 
-
 @foreach($venues as $venue) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">

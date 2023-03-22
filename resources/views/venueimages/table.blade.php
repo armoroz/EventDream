@@ -12,9 +12,7 @@
             <tr>
                 <td>{{ $venueimages->venueid }}</td>
             <td>
-            <img class="img-responsive center-block" height="200" width="100" 
-                src="data:image/jpeg;base64,{{$venueimages->imagefile}}">
-			</td>
+            <img class="tableimg center-block" src="data:image/jpeg;base64,{{$venueimages->imagefile}}"></td>
                 <td width="120">
                     {!! Form::open(['route' => ['venueimages.destroy', $venueimages->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

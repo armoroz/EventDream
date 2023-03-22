@@ -23,52 +23,12 @@ Route::get('/homepage', 'App\Http\Controllers\homepageController@homepage', func
 
 require __DIR__.'/auth.php';
 
+
 /* General Permissions */
 
 Route::get('/logout','\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@store');
 Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
-
-Route::get('products/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
-Route::get('products', 'App\Http\Controllers\productController@index')->name('products.index');
-Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
-Route::get('products/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
-Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');
-Route::post('products/all/search', 'App\Http\Controllers\productController@searchquery')->name('products.searchquery');
-
-Route::get('events/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
-Route::resource('events', App\Http\Controllers\eventController::class);
-Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
-Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
-
-Route::resource('customers', App\Http\Controllers\customerController::class);
-Route::resource('bookings', App\Http\Controllers\bookingController::class);
-Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
-Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
-Route::get('/calendar/vendisplay/{venueid}','App\Http\Controllers\calendarController@vendisplay')->name('calendar.vendisplay');
-
-//Route::resource('venues', App\Http\Controllers\venueController::class);
-Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
-Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
-Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
-Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name('venues.map.json');
-Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
-Route::get('venues/displaygrid', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
-Route::get('venues', 'App\Http\Controllers\venueController@index')->name('venues.index');
-Route::get('venues/additem/{id}', 'App\Http\Controllers\venueController@additem')->name('venues.additem');
-Route::get('venues/emptycart', 'App\Http\Controllers\venueController@emptycart')->name('venues.emptycart');
-Route::post('venues/all/search', 'App\Http\Controllers\venueController@searchquery')->name('venues.searchquery');
-
-Route::get('/venues/create', 'App\Http\Controllers\venueController@create')->name('venues.create');
-Route::delete('/venues/{venue}', 'App\Http\Controllers\venueController@destroy')->name('venues.destroy');
-Route::get('venues/{venue}', 'App\Http\Controllers\venueController@show')->name('venues.show');
-Route::get('venues/{venue}/edit', 'App\Http\Controllers\venueController@edit')->name('venues.edit');
-Route::post('venues','App\Http\Controllers\venueController@store')->name('venues.store');
-Route::patch('venues/{venue}/update  ','App\Http\Controllers\venueController@update')->name('venues.update');
-Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
-Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
-Route::post('venues/{venue}/update','App\Http\Controllers\venueController@update')->name('venues.update');
-Route::get('venues/custshow/{venues}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
 
 Route::resource('users', App\Http\Controllers\usersController::class);
 Route::resource('roles', App\Http\Controllers\rolesController::class);
@@ -79,83 +39,136 @@ Route::patch('/users/updateroles/{id}', 'App\Http\Controllers\UsersController@up
 Route::get('/roles/assignpermissions/{id}', 'App\Http\Controllers\RolesController@assignPermissions')->name('roles.assignpermissions');
 Route::patch('/roles/updatepermissions/{id}', 'App\Http\Controllers\RolesController@updatePermissions')->name("roles.permissionsupdate");
 
+/* Role Permissions */
+
 /* System Admin Security */
-
-//Route::group(['middleware' => ['role:System Admin']], function () {  
-//Route::resource('products', App\Http\Controllers\productController::class);
-//Route::get('products', 'App\Http\Controllers\productController@index');                     
-Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')/*->middleware('permission:Create Product')*/;
-Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')/*->middleware('permission:Delete Product')*/;
+/*
+Route::group(['middleware' => ['role:System Admin']], function () {                      
+Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')->middleware('permission:Create Product');
+Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')->middleware('permission:Delete Product');
 Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
-
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::patch('products/{product}/update  ','App\Http\Controllers\productController@update')->name('products.update');
-//});
+});
+*/
 
 /* Warehouse Worker Security */
-
-//Route::group(['middleware' => ['role:Warehouse Worker']], function () { 
-Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')/*->middleware('permission:Create Product')*/;
-Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')/*->middleware('permission:Delete Product')*/;
+/*
+Route::group(['middleware' => ['role:Warehouse Worker']], function () { 
+Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')->middleware('permission:Create Product');
+Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')->middleware('permission:Delete Product');
 Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
 Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::post('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 //});
+*/
 
-//Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
+
+
+/* Customers */
+Route::resource('customers', App\Http\Controllers\customerController::class);
+
+/* Events/Logs */
+Route::resource('events', App\Http\Controllers\eventController::class);
+Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
+Route::get('events/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
+Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
+
+/* Calendar */
+Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
+Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
+Route::get('/calendar/vendisplay/{venueid}','App\Http\Controllers\calendarController@vendisplay')->name('calendar.vendisplay');
+
+/* Bookings */
+Route::resource('bookings', App\Http\Controllers\bookingController::class);
+
+/* Products */
+Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy');
+Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
+Route::get('products/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
+Route::get('products', 'App\Http\Controllers\productController@index')->name('products.index');
+Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
+Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
+Route::get('products/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
+Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');
+Route::post('products/all/search', 'App\Http\Controllers\productController@searchquery')->name('products.searchquery');
+Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create');
+
+/* Venues/Ratings/Images */
+Route::delete('/venues/{venue}', 'App\Http\Controllers\venueController@destroy')->name('venues.destroy');
+Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name('venues.map.json');
+Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
+Route::get('venues/displaygrid', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
+Route::post('venues/{venue}/update','App\Http\Controllers\venueController@update')->name('venues.update');
+Route::get('venues/custshow/{venues}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
+Route::get('venues', 'App\Http\Controllers\venueController@index')->name('venues.index');
+Route::get('venues/additem/{id}', 'App\Http\Controllers\venueController@additem')->name('venues.additem');
+Route::get('venues/emptycart', 'App\Http\Controllers\venueController@emptycart')->name('venues.emptycart');
+Route::post('venues/all/search', 'App\Http\Controllers\venueController@searchquery')->name('venues.searchquery');
+Route::get('/venues/create', 'App\Http\Controllers\venueController@create')->name('venues.create');
+Route::get('venues/{venue}', 'App\Http\Controllers\venueController@show')->name('venues.show');
+Route::get('venues/{venue}/edit', 'App\Http\Controllers\venueController@edit')->name('venues.edit');
+Route::post('venues','App\Http\Controllers\venueController@store')->name('venues.store');
+Route::patch('venues/{venue}/update  ','App\Http\Controllers\venueController@update')->name('venues.update');
+Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
+Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
+Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
+Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
+Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
+
+/* Menu Items */
+Route::delete('/menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@destroy')->name('menuitems.destroy');
 Route::get('menuitems', 'App\Http\Controllers\menuitemController@index')->name('menuitems.index');
 Route::get('menuitems/displaygrid', 'App\Http\Controllers\menuitemController@displaygrid')->name('menuitems.displaygrid');
 Route::get('menuitems/custshow/{menuitem}', 'App\Http\Controllers\menuitemController@custshow')->name('menuitems.custshow');
 Route::get('/menuitems/create', 'App\Http\Controllers\menuitemController@create')->name('menuitems.create');
-Route::delete('/menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@destroy')->name('menuitems.destroy');
 Route::get('menuitems/{menuitem}', 'App\Http\Controllers\menuitemController@show')->name('menuitems.show');
 Route::get('menuitems/{menuitem}/edit', 'App\Http\Controllers\menuitemController@edit')->name('menuitems.edit');
 Route::patch('menuitems/{menuitem}/update  ','App\Http\Controllers\menuitemController@update')->name('menuitems.update');
 Route::post('menuitems','App\Http\Controllers\menuitemController@store')->name('menuitems.store');
-
 Route::post('menuitems/all/newstandardmenu','App\Http\Controllers\menuitemController@newstandardmenu')->name('menuitems.newstandardmenu');
 
-//Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
-Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
+/* Standard Menus/Logs/Ratings/Images */
+Route::delete('/standardmenus/{standardmenu}', 'App\Http\Controllers\standardmenuController@destroy')->name('standardmenus.destroy');
 Route::get('standardmenus', 'App\Http\Controllers\standardmenuController@index')->name('standardmenus.index');
 Route::get('standardmenus/displaygrid', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
 Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
 Route::get('standardmenus/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
 Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
-Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\standardmenuimagesController@create')->name('standardmenu.newimages');
 Route::get('/standardmenus/create', 'App\Http\Controllers\standardmenuController@create')->name('standardmenus.create');
-Route::delete('/standardmenus/{standardmenu}', 'App\Http\Controllers\standardmenuController@destroy')->name('standardmenus.destroy');
 Route::get('standardmenus/{standardmenu}', 'App\Http\Controllers\standardmenuController@show')->name('standardmenus.show');
 Route::get('standardmenus/{standardmenu}/edit', 'App\Http\Controllers\standardmenuController@edit')->name('standardmenus.edit');
 Route::post('standardmenus','App\Http\Controllers\standardmenuController@store')->name('standardmenus.store');
 Route::patch('standardmenus/{standardmenu}/update  ','App\Http\Controllers\standardmenuController@update')->name('standardmenus.update');
+Route::post('standardmenus/all/search', 'App\Http\Controllers\standardmenuController@searchquery')->name('standardmenus.searchquery');
+Route::get('/standardmenus/assignmenuitems/{id}', 'App\Http\Controllers\standardmenuController@assignMenuitems')->name('standardmenus.assignmenuitems');
+Route::patch('/standardmenus/updatemenuitems/{id}', 'App\Http\Controllers\standardmenuController@updateMenuitems')->name("standardmenus.updatemenuitems");
+Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
+Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
 Route::resource('standardmenuratings', App\Http\Controllers\standardmenuratingController::class);
 Route::get('/standardmenuratings/ratestandardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@ratestandardmenu')->name('standardmenuratings.ratestandardmenu');
 Route::get('/standardmenuratings/standardmenu/{standardmenu}','App\Http\Controllers\standardmenuratingController@showstandardmenuratings')->name('standardmenuratings.showstandardmenuratings');
-Route::post('standardmenus/all/search', 'App\Http\Controllers\standardmenuController@searchquery')->name('standardmenus.searchquery');
+Route::resource('standardmenuimages', App\Http\Controllers\standardmenuimagesController::class);
+Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\standardmenuimagesController@create')->name('standardmenu.newimages');
 
-Route::get('/standardmenus/assignmenuitems/{id}', 'App\Http\Controllers\standardmenuController@assignMenuitems')->name('standardmenus.assignmenuitems');
-Route::patch('/standardmenus/updatemenuitems/{id}', 'App\Http\Controllers\standardmenuController@updateMenuitems')->name("standardmenus.updatemenuitems");
-
-
-Route::resource('standardmenulogs', App\Http\Controllers\standardmenulogController::class);
-Route::get('standardmenulogs', 'App\Http\Controllers\standardmenulogController@index')->name('standardmenulogs.index');
-
+/* Custom Menus/Logs */
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus', 'App\Http\Controllers\custommenuController@index')->name('custommenus.index');
-Route::get('/custommenus/create/{custommenuid}', 'App\Http\Controllers\custommenuController@create')->name('custommenus.create');
-//Route::get('/custommenus/create/{custommenuid}', [custommenuController::class, 'create'])->name('custommenus.create');
-//Route::get('/custommenus/create/{id}', [custommenuController::class, 'create']);
-
+Route::get('/custommenus/create', 'App\Http\Controllers\custommenuController@create')->name('custommenus.create');
+Route::get('/custommenus/custcreate/{custommenuid}', 'App\Http\Controllers\custommenuController@custcreate')->name('custommenus.custcreate');
 Route::get('custommenus/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
-
-Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
-Route::get('menuoptions', 'App\Http\Controllers\menuoptionController@index')->name('menuoptions.index');
-
+Route::get('custommenus/{custommenu}/edit', [App\Http\Controllers\custommenuController::class, 'edit'])->name('custommenus.edit');
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
 
-//Route::get('homepage', 'App\Http\Controllers\homepageController@homepage')->name('homepage.homepage');
+
+
+/* Menu Options */
+Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
+Route::get('menuoptions', 'App\Http\Controllers\menuoptionController@index')->name('menuoptions.index');
+
+
+

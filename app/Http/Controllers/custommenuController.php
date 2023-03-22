@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Session;
 
 class custommenuController extends AppBaseController
 {
@@ -42,12 +43,8 @@ class custommenuController extends AppBaseController
      */
 	public function create($id)
 	{
-		$custommenu = $this->custommenuRepository->find($id);
-		$menuitems = $custommenu->menuitems;
-		return view('custommenus.create', ['menuitems' => $menuitems]);
+		return view('custommenus.create');
 	}
-
-	
 
     /**
      * Store a newly created custommenu in storage.
@@ -85,6 +82,19 @@ class custommenuController extends AppBaseController
         }
 
         return view('custommenus.show')->with('custommenu', $custommenu);
+    }
+
+    public function custshow($id)
+    {
+        $custommenu = $this->custommenuRepository->find($id);
+
+        if (empty($custommenu)) {
+            Flash::error('Custommenu not found');
+
+            return redirect(route('custommenus.index'));
+        }
+
+        return view('custommenus.custshow')->with('custommenu', $custommenu);
     }
 
     /**
@@ -127,7 +137,7 @@ class custommenuController extends AppBaseController
 
         $custommenu = $this->custommenuRepository->update($request->all(), $id);
 
-        Flash::success('Custommenu updated successfully.');
+        Flash::success('Custommenu Saved successfully.');
 
         return redirect(route('custommenus.index'));
     }
@@ -158,6 +168,7 @@ class custommenuController extends AppBaseController
         return redirect(route('custommenus.index'));
     }
 	
+	
 	public function displayGrid(Request $request)
 	{
 		$custommenus=\App\Models\Custommenu::all();
@@ -176,5 +187,6 @@ class custommenuController extends AppBaseController
 		}
 		return view('custommenus.displaygrid')->with('custommenus',$custommenus)->with('totalItems',$totalItems);
 		
-	}
+	}	
+	
 }

@@ -12,9 +12,7 @@
             <tr>
                 <td>{{ $standardmenuimages->standardmenuid }}</td>
                 <td>
-				<img class="img-responsive center-block" height="200" width="100" 
-					src="data:image/jpeg;base64,{{$standardmenuimages->imagefile}}">
-				</td>
+				<img class="tableimg center-block" src="data:image/jpeg;base64,{{$standardmenuimages->imagefile}}"></td>
                 <td width="120">
                     {!! Form::open(['route' => ['standardmenuimages.destroy', $standardmenuimages->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
