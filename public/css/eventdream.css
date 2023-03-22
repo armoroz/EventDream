@@ -68,3 +68,9 @@ background-color: #616b75;
   display: block;
   max-height: 200px; min-height: 200px; max-width:250px; min-width: 250px;
 }
+
+.alert-success {
+  color: white;
+  background-color: #95a9cf;
+  border-color: #5c739e;
+}
