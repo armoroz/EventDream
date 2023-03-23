@@ -71,10 +71,18 @@ Route::patch('products/{product}/update','App\Http\Controllers\productController
 Route::resource('customers', App\Http\Controllers\customerController::class);
 
 /* Events/Logs */
-Route::resource('events', App\Http\Controllers\eventController::class);
-Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
+//Route::resource('events', App\Http\Controllers\eventController::class);
+Route::post('events','App\Http\Controllers\eventController@store')->name('events.store');
+Route::patch('events/{event}/update','App\Http\Controllers\eventController@update')->name('events.update');
+Route::get('/events/create', 'App\Http\Controllers\eventController@create')->name('events.create');
+Route::delete('/events/{event}', 'App\Http\Controllers\eventController@destroy')->name('events.destroy');
 Route::get('events/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
 Route::post('events/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
+Route::get('events/{event}/edit', 'App\Http\Controllers\eventController@edit')->name('events.edit');
+Route::get('events', 'App\Http\Controllers\eventController@index')->name('events.index');
+Route::get('events/{event}', 'App\Http\Controllers\eventController@show')->name('events.show');
+Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
+
 
 /* Calendar */
 Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
