@@ -42,6 +42,17 @@ class productController extends AppBaseController
 		return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
 	}	
 	
+	
+	public function filterProducts(Request $request)
+	{
+		$priceRange = explode('-', $request->price_range);
+  
+		$products = Product::whereBetween('price', [$priceRange[5], $priceRange[10]])->get();
+
+		return view('products.index', ['products' => $products]);
+	}
+
+	
 
     /**
      * Display a listing of the product.

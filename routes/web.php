@@ -102,6 +102,7 @@ Route::get('products/additem/{id}', 'App\Http\Controllers\productController@addi
 Route::get('products/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
 Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');
 Route::post('products/all/search', 'App\Http\Controllers\productController@searchquery')->name('products.searchquery');
+Route::post('/products/filter', [ProductController::class, 'filterProducts'])->name('products.filter');
 Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
 Route::patch('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
 
