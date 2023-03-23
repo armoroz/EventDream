@@ -83,7 +83,6 @@ Route::get('events', 'App\Http\Controllers\eventController@index')->name('events
 Route::get('events/{event}', 'App\Http\Controllers\eventController@show')->name('events.show');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 
-
 /* Calendar */
 Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
 Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
@@ -169,19 +168,12 @@ Route::get('/custommenus/create', 'App\Http\Controllers\custommenuController@cre
 Route::post('custommenus','App\Http\Controllers\custommenuController@store')->name('custommenus.store');
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
 Route::get('custommenus/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
-Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
-Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
-
-/* Uncomment these */
-/*
-Route::get('custommenus/{custommenu}/edit', [App\Http\Controllers\custommenuController::class, 'edit'])->name('custommenus.edit');
-*/
-
 Route::patch('custommenus/{custommenu}/update','App\Http\Controllers\custommenuController@update')->name('custommenus.update');
 Route::delete('/custommenus/{custommenu}', 'App\Http\Controllers\custommenuController@destroy')->name('custommenus.destroy');
 Route::get('custommenus/{custommenu}/edit', 'App\Http\Controllers\custommenuController@edit')->name('custommenus.edit');
 Route::get('custommenus/{custommenu}', 'App\Http\Controllers\custommenuController@show')->name('custommenus.show');
-
+Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
+Route::get('custommenulogs', 'App\Http\Controllers\custommenulogController@index')->name('custommenulogs.index');
 
 /* Menu Options */
 Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
