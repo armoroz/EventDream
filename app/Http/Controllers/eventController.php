@@ -60,8 +60,10 @@ class eventController extends AppBaseController
         $event = $this->eventRepository->create($input);
 
         Flash::success('Event saved successfully.');
-
-        return redirect(route('events.index'));
+		
+		$venueid = $request->venueid;
+		
+		return redirect()->route('calendar.vendisplay', ['venueid' => $venueid]);
     }
 
     /**

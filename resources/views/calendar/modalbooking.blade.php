@@ -5,18 +5,18 @@
         <button type="button" class="close" data-dismiss="modal">×</button> <h4 class="modal-title">Book an Event</h4>       </div> 
       <div class="modal-body"> 
         <div class="container-fluid"> 
-          <form action="{{route('bookings.store')}}" method="post">
+          <form action="{{route('events.store')}}" method="post">
             @csrf
               <div class="form-group"> <label for="customerid">Customer</label> 
 				<input type="text" class="form-control" id="custid" name="customerid"/> 
 			  </div>
 			  <div class="form-group"> 
-				<label for="bookeddate">Booked Date</label> 
-				<input type="text" class="form-control" id="bookedDate" name="bookeddate"/> 
+				<label for="eventdate">Event Date</label> 
+				<input type="text" class="form-control" id="eventdate" name="eventdate"/> 
 			  </div> 
 			  <div class="form-group"> 
-				<label for="bookedtime">Booked Time</label> 
-				<input type="text" class="form-control" id="bookedtime" name="bookedtime"/> 
+				<label for="eventtime">Event Time</label> 
+				<input type="text" class="form-control" id="eventtime" name="eventtime"/> 
 			  </div> 
 			  <div class="form-group"> 
 				<label for="venueid">Venue</label> 

@@ -31,8 +31,8 @@
           eventLimit: true, // allow "more" link when too many events   
           events: "{{url('calendar/venuejson')}}" + "/" + {{$venueid}},
 		   dateClick: function(info){
-				$('#bookedtime').val(info.date.toISOString().substring(11,16));
-				$('#bookedDate').val(info.date.toISOString().substring(0,10));
+				$('#eventtime').val(info.date.toISOString().substring(11,16));
+				$('#eventDate').val(info.date.toISOString().substring(0,10));
 				$('#venueid').val
 				$('#fullCalModal').modal('show');
 			}
