@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 @section('content') 
 <H2>Place Order</h2> 
-{{ Form::open(array('url' => 'events/placeorder', 'method' => 'post')) }} 
+{{ Form::open(array('url' => 'events/all/placeorder', 'method' => 'post')) }} 
 @csrf <table class="table table-condensed table-bordered"> 
     <thead> 
         <tr><th>Image</th><th>Id</th><th>Name</th><th>Type</th><th>Description</th><th>Price</th><th>Quantity</th>
@@ -56,7 +56,9 @@
 		@if (isset($lineitem['standardmenu']))
         @php $standardmenu=$lineitem['standardmenu']; @endphp 
         <tr>
-			  <td>{{ $standardmenu->standardmenuname }}</td> 
+			  <td>@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
+				<div class="panel-body"><img class="img-responsive center-block" height="30%" width="30%" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}"></div>@endforeach
+			  </td>
 			  <td><input size="3" style="border:none" type="text" name="standardmenuid[]" readonly value="{{ $standardmenu->id }}"></td> 
               <td>{{ $standardmenu->standardmenuname }}</td> 
               <td>{{ $standardmenu->style }}</td>

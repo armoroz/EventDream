@@ -62,6 +62,20 @@ $(".bth,.addItem").click(function() {
     });
 });
 
+$("#emptycart").click(function() { $.ajax({ 
+    type: "get", url: "{{ url('venues/all/emptycart')   }}",
+    success: function() { 
+        $('#shoppingcart').text(0); 
+    }, 
+    error: function() { 
+        alert("problem communicating with the server");
+    } 
+  }); 
+}); 
+
+
+
+</script>
 <script>
 function filterProducts() {
   const priceFilter = document.getElementById("price-filter").value;
@@ -81,18 +95,6 @@ function filterProducts() {
     }
   });
 });
-
-
-
-$("#emptycart").click(function() { $.ajax({ 
-    type: "get", url: "{{ url('venues/emptycart')   }}",
-    success: function() { 
-        $('#shoppingcart').text(0); 
-    }, 
-    error: function() { 
-        alert("problem communicating with the server");
-    } 
-  }); 
-}); 
 </script>
+
 @endsection('content')

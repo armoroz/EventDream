@@ -5,7 +5,7 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<form action="{{ route('products.filter') }}" method="POST">
+<form action="{{ route('products.filterproducts') }}" method="POST">
   @csrf
   <select name="price_range">
     <option value="5">5</option>
@@ -35,7 +35,6 @@
 @endforeach
 
 
-
 <script>
 $(".bth,.addItem").click(function() {
     var total = parseInt($('#shoppingcart').text());
@@ -58,7 +57,7 @@ $(".bth,.addItem").click(function() {
 
  
 $("#emptycart").click(function() { $.ajax({ 
-    type: "get", url: "{{ url('products/emptycart')   }}",
+    type: "get", url: "{{ url('products/all/emptycart')   }}",
     success: function() { 
         $('#shoppingcart').text(0); 
     }, 

@@ -52,7 +52,7 @@ $(".bth,.addItem").click(function() {
 });
 
 $("#emptycart").click(function() { $.ajax({ 
-    type: "get", url: "{{ url('standardmenus/emptycart')   }}",
+    type: "get", url: "{{ url('standardmenus/all/emptycart')   }}",
     success: function() { 
         $('#shoppingcart').text(0); 
     }, 
