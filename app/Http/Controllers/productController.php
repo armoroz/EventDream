@@ -13,6 +13,7 @@ use Session;
 
 
 class productController extends AppBaseController
+
 {
     /** @var productRepository $productRepository*/
     private $productRepository;
@@ -47,7 +48,7 @@ class productController extends AppBaseController
 	{
 		$priceRange = explode('-', $request->price_range);
   
-		$products = Product::whereBetween('price', [$priceRange[5], $priceRange[10]])->get();
+		$products = Product::whereBetween('price', [$minprice[0], $maxprice[1]])->get();
 
 		return view('products.index', ['products' => $products]);
 	}

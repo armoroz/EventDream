@@ -42,14 +42,7 @@ class venueController extends AppBaseController
 		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages);
 	}
 	
-	public function filterProducts(Request $request)
-	{
-		$priceRange = explode('-', $request->price_range);
-  
-		$products = Product::whereBetween('price', [$priceRange[0], $priceRange[1]])->get();
-
-		return view('products.filter', ['products' => $products]);
-	}
+	
 	
     /**
      * Display a listing of the venue.
@@ -232,6 +225,16 @@ class venueController extends AppBaseController
         }
         return Response::json(['success'=>true],200);
     }
+	
+	public function filterVenues(Request $request)
+	{
+		$priceRange = explode('-', $request->price_range);
+  
+		$Venues = Venue::whereBetween('price', [$minprice[0], $maxprice[1]])->get();
+
+		return view('venues.index', ['venues' => $venues]);
+	}
+
 	
 	public function json()
 	{
