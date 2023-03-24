@@ -21,7 +21,7 @@ p {
   }
 
 .col-lg-2 {
-    width: 25%;
+    width: 24.8%;
   }
 
 .img-home {
