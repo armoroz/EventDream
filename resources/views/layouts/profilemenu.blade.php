@@ -4,5 +4,8 @@
         <li>
              <a class="dropdown-item" href="{!! route('customers.create') !!}">Edit Profile</a>
         </li>
+		<li><hr class="dropdown-divider"></li>
+		<a class="dropdown-item" href="{!! route('logout') !!}">Logout</a>
+		</li>
     </ul>
 </li>

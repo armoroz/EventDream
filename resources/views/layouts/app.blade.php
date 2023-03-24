@@ -34,17 +34,8 @@ backdrop-filter: blur(8px);">
 			<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
-
-			<li class="dropdown" >
-				<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Options</button>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="{{route('events.index')}}">Events</a></li>
-						<li><a class="dropdown-item" href="{{route('bookings.index')}}">Bookings</a></li>
-						<li><a class="dropdown-item" href="{{route('aboutus.index')}}">Abous Us</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="{{route('venues.showmap')}}">Map</a></li>
-					</ul>
-			</li>
+			<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
 
 			<li class="nav-item">
 			@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
