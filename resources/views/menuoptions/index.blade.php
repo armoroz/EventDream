@@ -35,24 +35,47 @@
             </div>
         </div>
     </div>
-
-    <style>
-        .btn-primary {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background-color: #3e8e41;
-        }
-    </style>
+	
+<!doctype html>
+<html>
+<head>
+	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+</head>
+<div class= "bodymenuoptions">
+  <div class= "container">
+	<div class="menucard">
+	  <div class="box-image">
+        <img src="images\vendor\leaflet\dist\img1.jpg">
+      </div>
+    <div class="content">
+		<h2>Standard Menus</h2>
+		<p>Explore our menus ranging from traditional Irish cuisine 
+		to exotic African delights!</p>
+	</div>
+   </div>
+	<div class="menucard">
+	  <div class="box-image">
+        <img src="images\vendor\leaflet\dist\img2.jpg">
+      </div>
+    <div class="content">
+		<h2>Menu Items</h2>
+		<p>Read more information on individual menu items 
+		to browse through the ingredients included, allergens, and so on.
+		Or even better! Make your own customised menu just how you like it!</p>
+	</div>
+   </div>
+	<div class="menucard">
+	  <div class="box-image">
+        <img src="images\vendor\leaflet\dist\img3.jpg">
+      </div>
+    <div class="content">
+		<h2>Custom Menus</h2>
+		<p>Review your previously made customised menus 
+		to simply order them again for your upcoming event. Time-saving, right!</p>
+	</div>
+   </div>
+  </div>
+</div>
+</html>
 @endsection
