@@ -28,7 +28,7 @@
 				<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
 
-			<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+			<ul class="nav navbar-nav navbar-right">
 			<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
@@ -47,7 +47,7 @@
 
 			<li class="nav-item">
 			@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
-				<form style="margin-top: 8px; height:33.5px;" action="{{route('venues.searchquery')}}" method="POST">
+				<form style="margin-top: 5px; height:33.5px;" action="{{route('venues.searchquery')}}" method="POST">
 					@csrf
 					<input type="text" name="searchquery">
 					<button style="background-color:lightskyblue" type="submit">Search</button>
@@ -55,7 +55,7 @@
 			</li>
 			<li class="nav-item">
 			@elseif(Request::url() == route('products.displaygrid') || Request::url() == route('products.searchquery'))
-				<form style="margin-top: 8px; height:33.5px;" action="{{route('products.searchquery')}}" method="POST">
+				<form style="margin-top: 5px; height:33.5px;" action="{{route('products.searchquery')}}" method="POST">
 					@csrf
 					<input type="text" name="searchquery">
 					<button style="background-color:lightskyblue" type="submit">Search</button>
@@ -63,13 +63,13 @@
 			</li>
 			<li class="nav-item">
 			@elseif(Request::url() == route('standardmenus.displaygrid') || Request::url() == route('standardmenus.searchquery'))
-				<form style="margin-top: 8px; height:33.5px;" action="{{route('standardmenus.searchquery')}}" method="POST">
+				<form style="margin-top: 5px; height:33.5px;" action="{{route('standardmenus.searchquery')}}" method="POST">
 					@csrf
 					<input type="text" name="searchquery">
 					<button style="background-color:lightskyblue" type="submit">Search</button>
 				</form>
 			@else
-				<form style="margin-top: 8px; height:33.5px;" action="{{route('products.searchquery')}}" method="POST">
+				<form style="margin-top: 5px; height:33.5px;" action="{{route('products.searchquery')}}" method="POST">
 					@csrf
 					<input type="text" name="searchquery">
 					<button style="background-color:lightskyblue" type="submit">Search</button>
@@ -78,11 +78,11 @@
 			</li>
 			
 			@if(Request::url() == route('products.displaygrid') || Request::url() == route('venues.displaygrid') || Request::url() == route('standardmenus.displaygrid') || Request::url() == route('custommenus.displaygrid') || isset($venue) && Request::url() == route('venues.custshow', [$venue->id]) || isset($product) && Request::url() == route('products.custshow', [$product->id]) || isset($standardmenu) && Request::url() == route('standardmenus.custshow', [$standardmenu->id]) || Request::url() == route('venues.searchquery') || Request::url() == route('products.searchquery') || Request::url() == route('standardmenus.searchquery'))
-            <li><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
-            <li><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
-            <li><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
-            <div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:0px;">{{$totalItems}}</div>
-            <li><div class="navbar-text" style="font-size:13pt;margin-left:0px;">Item(s)</div></li>
+            <li class="nav-item"><button id="checkOut" onclick="window.location.href='{{route('events.checkout')}}'" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
+            <li class="nav-item"><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
+            <li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
+            <div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:5px;">{{$totalItems}}</div>
+            <li class="nav-item"><div class="navbar-text" style="font-size:12pt;margin-left:0px;">Item(s)</div></li>
             @endif
 			@include('layouts.navAuth')
 			</ul>
