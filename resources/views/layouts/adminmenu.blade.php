@@ -10,17 +10,18 @@
         <li>
              <a class="dropdown-item" href="{!! route('permissions.index') !!}">Permissions</a>
         </li>
+		<li><hr class="dropdown-divider"></li>
         <li>
-             <a class="dropdown-item" href="{!! route('customers.index') !!}">Customer List</a>
+             <a class="dropdown-item" href="{!! route('customers.index') !!}">Customers</a>
         </li>
         <li>
              <a class="dropdown-item" href="{!! route('bookings.index') !!}">Bookings</a>
         </li>
 		<li>
-             <a class="dropdown-item" href="{!! route('events.index') !!}">Event List</a>
+             <a class="dropdown-item" href="{!! route('events.index') !!}">Events</a>
         </li>
 		<li>
-             <a class="dropdown-item" href="{!! route('eventproductlogs.index') !!}">Event Log</a>
+             <a class="dropdown-item" href="{!! route('eventproductlogs.index') !!}">Event Product Log</a>
         </li>
         <li>   
 			 <a class="dropdown-item" href="{!! route('products.index') !!}">Products</a>
