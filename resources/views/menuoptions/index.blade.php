@@ -52,6 +52,7 @@
 		<h2>Standard Menus</h2>
 		<p>Explore our menus ranging from traditional Irish cuisine 
 		to exotic African delights!</p>
+		 <a class="btn btn-primary mx-2" href="{{ route('standardmenus.displaygrid') }}">Open</a>
 	</div>
    </div>
 	<div class="menucard">
@@ -60,9 +61,9 @@
       </div>
     <div class="content">
 		<h2>Menu Items</h2>
-		<p>Read more information on individual menu items 
-		to browse through the ingredients included, allergens, and so on.
+		<p>Browse menu items to view ingredients, allergens, and so on.
 		Or even better! Make your own customised menu just how you like it!</p>
+		<a class="btn btn-primary mx-2" href="{{ route('menuitems.displaygrid') }}">Open</a>
 	</div>
    </div>
 	<div class="menucard">
@@ -73,6 +74,7 @@
 		<h2>Custom Menus</h2>
 		<p>Review your previously made customised menus 
 		to simply order them again for your upcoming event. Time-saving, right!</p>
+		<a class="btn btn-primary mx-2" href="{{ route('custommenus.displaygrid') }}">Open</a>
 	</div>
    </div>
   </div>
