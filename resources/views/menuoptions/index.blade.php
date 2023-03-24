@@ -10,32 +10,9 @@
             </div>
         </div>
     </section>
-
-    <div class="content px-3">
-
+	
         @include('flash::message')
 
-        <div class="d-flex justify-content-center my-5">
-            <a class="btn btn-primary mx-2" href="{{ route('standardmenus.displaygrid') }}">
-                Standard Menus
-            </a>
-            <a class="btn btn-primary mx-2" href="{{ route('custommenus.displaygrid') }}">
-                Custom Menus
-            </a>
-            <a class="btn btn-primary mx-2" href="{{ route('menuitems.displaygrid') }}">
-                Menu Items
-            </a>
-        </div>
-
-        <div class="card">
-            <div class="card-body p-0">
-                <div class="card-footer clearfix">
-                    <div class="float-right"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-	
 <!doctype html>
 <html>
 <head>
