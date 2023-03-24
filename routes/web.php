@@ -145,6 +145,11 @@ Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\stan
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
 Route::get('custommenus/all/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
+Route::get('custommenus/additem/{id}', 'App\Http\Controllers\custommenuController@additem')->name('custommenus.additem');
+Route::get('custommenus/all/emptycart', 'App\Http\Controllers\custommenuController@emptycart')->name('custommenus.emptycart');
+Route::get('/custommenus/assignmenuitems/{id}', 'App\Http\Controllers\custommenuController@assignMenuitems')->name('custommenus.assignmenuitems');
+Route::patch('/custommenus/updatemenuitems/{id}', 'App\Http\Controllers\custommenuController@updateMenuitems')->name("custommenus.updatemenuitems");
+
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 
 /* Menu Options */

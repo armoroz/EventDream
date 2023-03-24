@@ -67,7 +67,7 @@ class venueratingController extends AppBaseController
 
 		$venueid = $request->venueid;
 
-		return redirect()->route('venues.custshow', ['venues' => $venueid]);
+		return redirect()->route('venues.custshow', ['venue' => $venueid]);
 	}
 
     /**
