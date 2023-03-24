@@ -20,6 +20,10 @@ p {
 	float: right;
   }
 
+.col-lg-2 {
+    width: 25%;
+  }
+
 .img-home {
 	max-width: 200px;  
 	height: 150px;

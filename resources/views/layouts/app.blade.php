@@ -8,7 +8,7 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.1.2/js/star-rating.min.js"></script>
 		<script src="{{asset('themes/krajee-fas/theme.js')}}"></script>
-		<link rel="stylesheet" href="{{asset('themes/krajee-fas/theme.css')}}"></script>        
+		<link rel="stylesheet" href="{{asset('themes/krajee-fas/theme.css')}}">     
 		
 		<!-- Bootstrap 5.1.3 --> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -23,12 +23,12 @@
 
     </head> 
     <body>
-        <nav class="navbar navbar-expand-sm bg-light navbar-light" style="position: fixed; top: 0; width: 100%; z-index: 9999;">		
+        <nav class="navbar navbar-expand-sm bg-light navbar-light" style="position: fixed; top: 0; width: 100%; height: 50px; z-index: 9999;">		
 			<div class="navbar-header">
 				<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
 
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="navbar-nav ms-auto">
 			<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
@@ -96,5 +96,5 @@
                 </div> 
             </div> 
          </div> 
-    </body> 
+    </body>
 </html>
