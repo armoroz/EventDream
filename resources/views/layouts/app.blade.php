@@ -23,8 +23,7 @@
 
     </head> 
     <body>
-        <nav class="navbar navbar-expand-sm navbar-dark" style="position: fixed; top: 0; width: 100%; height: 50px; z-index: 9999; background:rgba(255,255,255,.4);
-backdrop-filter: blur(8px);">		
+        <nav class="navbar navbar-expand-sm navbar-dark" style="position: fixed; top: 0; width: 100%; height: 50px; z-index: 9999; background:rgba(255,255,255,.4); backdrop-filter: blur(8px);">		
 			<div class="navbar-header">
 				<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 			</div>
