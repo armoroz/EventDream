@@ -1,9 +1,8 @@
 <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 12pt">Stock Menu
-    <span class="caret"></span></a>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Stock Menu</button>
     <ul class="dropdown-menu">
         <li>
-             <a href="{!! route('products.index') !!}">Products</a>
+             <a class="dropdown-item" href="{!! route('products.index') !!}">Products</a>
         </li>
     </ul>
 </li>

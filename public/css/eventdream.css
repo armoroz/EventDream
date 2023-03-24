@@ -152,3 +152,8 @@ height: 215px;
 	visibility: visible;
 	opacity: 1;
 }
+
+
+.dropdown-toggle {
+	background-color: grey;
+}

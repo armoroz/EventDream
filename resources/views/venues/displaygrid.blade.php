@@ -14,7 +14,7 @@
 <input type="number" id="maxPrice" name="maxPrice">
 <div id="filteredProducts"></div>
 
-@foreach($venues as $venue) 
+<!--@foreach($venues as $venue) 
     @if ($j==0) <div class='row'> @endif 
         <div class="col-sm-4">
             <div class="panel panel-primary"> 
@@ -39,7 +39,29 @@
         </div>
     @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp </div> @endif 
-@endforeach
+@endforeach-->
+
+
+    <div class='d-flex flex-wrap align-content-start bg-light'> 
+    @foreach($venues as $venue) 
+        <div class="p-2 border col-4 g-3"> 
+            <div class="card text-center"> 
+                <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }} {{ $venue->city }}</h5></div>
+                @foreach($venue->venueimages->take(1) as $venueimage)<div class="card-body"><img style="width:65%;height:200px;" class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/></div>@endforeach
+				<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
+                <div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$venue->id}}">Add To Cart</button></div>
+				<div class="card-footer"><a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a></div>
+				<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+				<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+					<input id="fieldRating" name="rating" 
+					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+					type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+					data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
+				</div>		
+			</div> 
+		</div>
+    @endforeach
+    </div>
 
 
 

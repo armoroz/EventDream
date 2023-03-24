@@ -53,12 +53,12 @@ div.scrollmenu a:hover {
 @foreach($venues as $venue)
 	@if ($j==0) @endif
           <div class="home">	
-				<div class="panel panel-primary"> 
-				<div class="panel-heading">{{ $venue->venuename }} {{ $venue->city }}</div> 
+				<div class="card text-center"> 
+				<div class="card-header d-block">{{ $venue->venuename }} {{ $venue->city }}</div> 
 				@foreach($venue->venueimages->take(1) as $venueimage)		
-				<div class="panel-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">
+				<div class="card-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">
 				</div>@endforeach
-				<div class="panel-footer" style="text-align:center; color:black;">
+				<div class="card-footer" style="text-align:center; color:black;">
 				€{{$venue->costtorent}}
 				<button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$venue->id}}">Add To Cart</button>
 				<a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
@@ -66,7 +66,7 @@ div.scrollmenu a:hover {
 				<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 
 					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-					type="text" class="rating rating-loading" data-min=0 
+					type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 					data-max=5 data-step=1 data-size="sm" data-display-only="true">
 			     </a> </div>
 
@@ -84,17 +84,17 @@ div.scrollmenu a:hover {
 @foreach($products as $product)
 	@if ($j==0) @endif
 	<div class="home">
-            <div class="panel panel-primary"> 
-            <div class="panel-heading">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
-            <div class="panel-body"><img class="img-home center-block"  src="{{ $product->productimg }}"></div>
-			<div class="panel-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>
-            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
-            <div class="panel-footer" style="text-align:center">
+            <div class="card text-center"> 
+            <div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
+            <div class="card-body"><img class="img-home center-block"  src="{{ $product->productimg }}"></div>
+			<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>
+            <div class="card-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
+            <div class="card-footer" style="text-align:center">
 			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$product->id}}"/></button> 
             <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
             <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
 			</div>			
-			<div class="panel-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
+			<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
         </div>
 	</div>
       @php $j++ @endphp 
@@ -108,19 +108,19 @@ div.scrollmenu a:hover {
 @foreach($standardmenus as $standardmenu)
 	@if ($j==0) @endif
 	<div class="home">
-            <div class="panel panel-primary"> 
-            <div class="panel-heading">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</div> 
+            <div class="card text-center"> 
+            <div class="card-header d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</div> 
             @foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
-			<div class="panel-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
+			<div class="card-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
 			</div>@endforeach
-			<div class="panel-footer" style="text-align: center; color:black;">
+			<div class="card-footer" style="text-align: center; color:black;">
 			€{{$standardmenu->standardmenucost}}
-            <div class="panel-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
+            <div class="card-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
             <a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
             <div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 					<input id="fieldRating" name="rating" 
 					value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
-					type="text" class="rating rating-loading" data-min=0 
+					type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 					data-max=5 data-step=1 data-size="sm" data-display-only="true">
 			     </a> </div>
 			</div>			

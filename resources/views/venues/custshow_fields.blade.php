@@ -52,7 +52,7 @@
 @foreach($venueratings->slice(-3) as $venuerating)
 	<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 		<td>
-			<input id="fieldRating" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
+			<input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
 			data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
 		</td>
     </div>
@@ -61,36 +61,34 @@
 
 <!-- Imagefile Field -->
 <div class="container-fluid">
-    <div id="thisCarousel" class="carousel slide" data-ride="carousel">
+  <div id="thisCarousel" class="carousel slide" data-bs-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#thisCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#thisCarousel" data-slide-to="1"></li>
-      <li data-target="#thisCarousel" data-slide-to="2"></li>
-	  <li data-target="#thisCarousel" data-slide-to="3"></li>
+      <li data-bs-target="#thisCarousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#thisCarousel" data-bs-slide-to="1"></li>
+      <li data-bs-target="#thisCarousel" data-bs-slide-to="2"></li>
+      <li data-bs-target="#thisCarousel" data-bs-slide-to="0"></li>
     </ol>
-      <div id="thisCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Images -->
-        <div class="carousel-inner" role="listbox">	
-            @foreach($venueimages as $venueimage)
-            
-              <div style="padding-bottom:20px" class="item @if($loop->first) active @endif">
-                <img src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" 
-                    style="width:45%;height:350px;" class="img-responsive center-block">
-              </div>  
-            @endforeach
+
+    <!-- Images -->
+    <div class="carousel-inner">
+      @foreach($venueimages as $venueimage)
+        <div style="padding-bottom:20px" class="carousel-item @if($loop->first) active @endif">
+          <img src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" class="d-block w-50" alt="Venue Image">
         </div>
-        <!--controls -->
-        <a class="left carousel-control" href="#thisCarousel" data-slide="prev" style="background-image:none;color: black;">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#thisCarousel" data-slide="next" style="background-image:none;color: black;">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+      @endforeach
     </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#thisCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#thisCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </div>
 
 @csrf
