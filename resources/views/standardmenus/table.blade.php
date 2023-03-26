@@ -45,15 +45,15 @@
                         </a>
 						<a href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="glyphicon glyphicon-star"></i>
+						   <i class="fas fa-star"></i>
 						</a>
 						<a href="{!! route('standardmenu.newimages', [$standardmenu->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="glyphicon glyphicon-picture"></i>
+						   <i class="fas fa-images"></i>
 						</a>
 						<a href="{!! route('standardmenus.assignmenuitems', [$standardmenu->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="glyphicon glyphicon-cutlery" title="Update Dishes"></i>
+						   <i class="fas fa-drumstick-bite" title="Update Dishes"></i>
 						</a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

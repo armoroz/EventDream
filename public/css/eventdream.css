@@ -74,3 +74,88 @@ background-color: #616b75;
   background-color: #95a9cf;
   border-color: #5c739e;
 }
+
+.bodymenuoptions
+{
+	justify-content: center;
+	align-items: center;
+}
+
+
+.container
+{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+padding: 30px;
+position: relative;
+justify-content: space-between;
+width: 1100px;
+margin: 20px 0;
+}
+
+.container .menucard
+{
+box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+transition: 0.4s ease-in-out;
+position: relative;
+margin: 30px 10px;
+padding: 20px 15px;
+background: #fff;
+display: flex;
+flex-direction: column;
+max-width: 300px;
+height: 215px;
+}
+
+.container .menucard:hover
+{
+	height: 420px;
+}
+
+.container .menucard .box-image
+{
+	z-index: 1;
+	box-shadow: 0 6px 21px rgba(0,0,0,1);
+	position: relative;
+	top: -60px;
+	left: 18px;
+	width: 235px;
+	height: 235px;
+}
+
+.container .menucard .box-image img
+{
+	max-width: 100%;
+	border-radius: 5px;
+	
+}
+
+.container .menucard .content
+{
+	visibility: hidden;
+	transition: 0.4s ease-in-out;
+	position: relative;
+	text-align: left;
+	opacity: 0;
+	margin-top: -140px;
+	padding: 9px 14px;
+}
+
+.container .menucard:hover .content
+{
+	
+	margin-top: -40px;
+	transition-delay: 0.4s;
+	visibility: visible;
+	opacity: 1;
+}
+
+.dropdown-toggle {
+	background-color: grey;
+	margin-right:10px;
+}
+
+.nav-item {
+	margin-right:10px;
+}

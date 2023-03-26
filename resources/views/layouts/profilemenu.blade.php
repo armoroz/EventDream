@@ -1,9 +1,11 @@
 <li class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-size: 12pt">Profile
-    <span class="caret"></span></a>
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Profile</button>
     <ul class="dropdown-menu">
         <li>
-             <a href="{!! route('customers.create') !!}">Edit Profile</a>
+             <a class="dropdown-item" href="{!! route('customers.create') !!}">Edit Profile</a>
         </li>
+		<li><hr class="dropdown-divider"></li>
+		<a class="dropdown-item" href="{!! route('logout') !!}">Logout</a>
+		</li>
     </ul>
 </li>

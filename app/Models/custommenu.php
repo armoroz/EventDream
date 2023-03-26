@@ -69,4 +69,13 @@ class custommenu extends Model
     {
         return $this->hasMany(\App\Models\Event::class, 'custommenuid');
     }
+	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function menuitems()
+    {
+        return $this->belongsToMany(\App\Models\Menuitem::class, 'custommenulog','custommenuid','menuitemid');
+    }
+
 }

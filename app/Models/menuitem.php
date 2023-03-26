@@ -85,6 +85,14 @@ class menuitem extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'userid');
     }
+	
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function custommenus()
+    {
+        return $this->belongsToMany(\App\Models\Custommenu::class, 'custommenulog','custommenuid','menuitemid');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -30,7 +30,7 @@
 @foreach($standardmenuratings->slice(-3) as $standardmenurating)
 	<div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 		<td>
-			<input id="fieldRating" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
+			<input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
 			data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
 		</td>
     </div>

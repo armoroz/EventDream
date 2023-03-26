@@ -35,7 +35,7 @@
 			<td> <a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 
 					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-					type="text" class="rating rating-loading" data-min=0 
+					type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 					data-max=5 data-step=1 data-size="sm" data-display-only="true">
 			     </a>
 			</td>			
@@ -45,19 +45,19 @@
                     <div class='btn-group'>
                         <a href="{{ route('venues.show', [$venue->id]) }}"
                            class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
+                            <i class="fas fa-eye"></i>
                         </a>
                         <a href="{{ route('venues.edit', [$venue->id]) }}"
                            class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
+                            <i class="fas fa-edit"></i>
                         </a>
 						<a href="{!! route('venueratings.ratevenue', [$venue->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="glyphicon glyphicon-star"></i>
+						   <i class="fas fa-star"></i>
 						</a>
 						<a href="{!! route('venue.newimages', [$venue->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="glyphicon glyphicon-picture"></i>
+						   <i class="fas fa-picture"></i>
 						</a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

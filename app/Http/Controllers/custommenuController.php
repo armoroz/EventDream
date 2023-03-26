@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
+use App\Models\Custommenu as Custommenu;
+use App\Models\Menuitem as Menuitem;
 
 class custommenuController extends AppBaseController
 {
@@ -188,5 +190,51 @@ class custommenuController extends AppBaseController
 		return view('custommenus.displaygrid')->with('custommenus',$custommenus)->with('totalItems',$totalItems);
 		
 	}	
+
+	public function additem($custommenuid)
+	{
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			if (isset($cart[$custommenuid])) {
+				$cart[$custommenuid]=$cart[$custommenuid]+1; //add one to custommenu in cart
+			}
+			else {
+				$cart[$custommenuid]=1; //new custommenu in cart
+			}
+		}
+		else {
+			$cart[$custommenuid]=1; //new cart
+		}
+		Session::put('cart', $cart);
+		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
+	}
 	
+     public function emptycart()
+    {
+        if (Session::has('cart')) {
+            Session::forget('cart');
+        }
+        return Response::json(['success'=>true],200);
+    }
+	
+	public function assignMenuItems($id)
+	{
+		$custommenu = Custommenu::find($id);
+		$menuitems = Menuitem::all();
+			
+		return view('custommenus.assignmenuitems')->with('custommenu',$custommenu)->with('menuitems',$menuitems);
+	}
+
+	public function updateMenuItems(Request $request, $id)
+	{
+		$custommenu = Custommenu::find($id);
+		$menuitems = $request->input('menuitem');
+
+		$custommenu->menuitems()->sync($menuitems);
+		
+		Flash::success('Custom Menu updated successfully.');
+
+		return redirect()->route('custommenus.index')->with('success', 'Menu Items updated successfully');
+	}
+
 }

@@ -153,10 +153,6 @@ class standardmenuController extends AppBaseController
         }
 
         $standardmenu = $this->standardmenuRepository->update($request->all(), $id);
-		
-		$file = $request->file('standardmenuimg');
-        $standardmenu->standardmenuimg = "data:image/jpeg;base64," . base64_encode(file_get_contents($file));
-        $standardmenu->save();
 
         Flash::success('Standardmenu updated successfully.');
 
