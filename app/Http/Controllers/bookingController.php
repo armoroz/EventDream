@@ -69,7 +69,7 @@ class bookingController extends AppBaseController
 
         Flash::success('Booking saved successfully.');
 
-        return redirect(route('bookings.index'));
+        return redirect(route('bookings.'));
     }
 
     /**
@@ -86,10 +86,10 @@ class bookingController extends AppBaseController
         if (empty($booking)) {
             Flash::error('Booking not found');
 
-            return redirect(route('calendar.vendisplay'));
+            return redirect(route('bookings.index'));
         }
 
-        return view('calendar.vendisplay')->with('calendar', $calendar);
+        return view('bookings.show')->with('booking', $booking);
     }
 
     /**

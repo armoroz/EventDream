@@ -48,7 +48,7 @@ class productController extends AppBaseController
 	{
 		$priceRange = explode('-', $request->price_range);
   
-		$products = Product::whereBetween('price', [$minprice[0], $maxprice[1]])->get();
+		$products = Product::whereBetween('costtorent', [$priceRange[0], $priceRange[1]])->get();
 
 		return view('products.index', ['products' => $products]);
 	}

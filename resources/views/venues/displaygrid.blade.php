@@ -5,8 +5,9 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-
-<button onclick="filterProducts()">Filter</button>
+<form action="{{ route('venues.filter') }}" method="POST">
+  @csrf
+<button onclick="filterVenues()">Filter</button>
 <label for="minPrice">Min Price:</label>
 <input type="number" id="minPrice" name="minPrice">
 
@@ -66,7 +67,7 @@ $(".bth,.addItem").click(function() {
 function filterProducts() {
   const priceFilter = document.getElementById("price-filter").value;
   const productList = document.getElementById("product-list");
-  const productItems = productList.getElementsByTagName("crown plaza restaurant dublin");
+  const productItems = productList.getElementsByTagName("product-items");
   
   for (let i = 0; i < productItems.length; i++) {
     const productPrice = parseInt(productItems[i].getAttribute("data-price"));

@@ -123,6 +123,7 @@ Route::post('venues','App\Http\Controllers\venueController@store')->name('venues
 Route::patch('venues/{venue}/update  ','App\Http\Controllers\venueController@update')->name('venues.update');
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
 Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
+Route::post('/venues/filter', [VenueController::class, 'filterVenues'])->name('venues.filter');
 Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
 Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');

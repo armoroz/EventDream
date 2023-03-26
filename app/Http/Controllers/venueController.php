@@ -11,7 +11,7 @@ use Flash;
 use Response;
 use Session;
 
-class venueController extends AppBaseController
+class venueController extends Controller
 {
     /** @var venueRepository $venueRepository*/
     private $venueRepository;
@@ -230,7 +230,7 @@ class venueController extends AppBaseController
 	{
 		$priceRange = explode('-', $request->price_range);
   
-		$Venues = Venue::whereBetween('price', [$minprice[0], $maxprice[1]])->get();
+		$Venues = Venue::whereBetween('productcost', [$minprice[0], $maxprice[1]])->get();
 
 		return view('venues.index', ['venues' => $venues]);
 	}

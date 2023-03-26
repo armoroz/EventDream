@@ -11,9 +11,9 @@
 				<input type="text" class="form-control" id="custid" name="customerid"/> 
 			  </div>
 			  <div class="form-group"> 
-				<label for="eventdate">Event Date</label> 
-				<input type="text" class="form-control" id="eventdate" name="eventdate"/> 
-			  </div> 
+				<label for="bookingdate">Event Date</label> 
+				<input type="text" class="form-control" id="eventDate" name="eventdate"/> 
+			</div> 
 			  <div class="form-group"> 
 				<label for="eventtime">Event Time</label> 
 				<input type="text" class="form-control" id="eventtime" name="eventtime"/> 

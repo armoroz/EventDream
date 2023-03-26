@@ -7,12 +7,13 @@
 
 <form action="{{ route('products.filter') }}" method="POST">
   @csrf
-  <select name="price_range">
-    <option value="5">5</option>
-    <option value="10">10</option>
-  </select>
-  <button type="submit">Filter</button>
-</form>
+<button onclick="filterProducts()">Filter</button>
+<label for="minPrice">Min Price:</label>
+<input type="number" id="minPrice" name="minPrice">
+
+<label for="maxPrice">Max Price:</label>
+<input type="number" id="maxPrice" name="maxPrice">
+<div id="filteredProducts"></div>
 
 @foreach($products as $product) 
     @if ($j==0) <div class='row'> @endif 
