@@ -7,13 +7,16 @@
 
 <form action="{{ route('products.filterproducts') }}" method="POST">
   @csrf
+  <body style="font-size:12px;">
+<i class="fas fa-spinner fa-spin"></i>
 <button onclick="filterProducts()">Filter</button>
 <label for="minPrice">Min Price:</label>
 <input type="number" id="minPrice" name="minPrice">
-
 <label for="maxPrice">Max Price:</label>
 <input type="number" id="maxPrice" name="maxPrice">
 <div id="filteredProducts"></div>
+
+
 
     <div class='d-flex flex-wrap align-content-start bg-light'> 
     @foreach($products as $product) 

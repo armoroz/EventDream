@@ -50,7 +50,7 @@ class productController extends AppBaseController
   
 		$products = Product::whereBetween('costtorent', [$priceRange[0], $priceRange[1]])->get();
 
-		return view('products.index', ['products' => $products]);
+		return view('products.index', ['products' , $products]);
 	}
 
 	
