@@ -7,6 +7,8 @@
 
 <form action="{{ route('venues.filter') }}" method="POST">
   @csrf
+  <body style="font-size:12px;">
+<i class="fas fa-spinner fa-spin"></i>
 <button onclick="filterVenues()">Filter</button>
 <label for="minPrice">Min Price:</label>
 <input type="number" id="minPrice" name="minPrice">
