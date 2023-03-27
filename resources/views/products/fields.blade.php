@@ -25,7 +25,7 @@
 <!-- Productlocation Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('productlocation', 'Productlocation:') !!}
-    {!! Form::text('productlocation', null, ['class' => 'form-control','maxlength' => 30,'maxlength' => 30]) !!}
+    {!! Form::select('productlocation', ['warehouse' => 'Warehouse', 'kitchen' => 'Kitchen', 'headquarters' => 'Headquarters'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Productquantity Field -->

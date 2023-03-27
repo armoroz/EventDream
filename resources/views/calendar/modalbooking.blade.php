@@ -20,7 +20,7 @@
 			  </div> 
 			  <div class="form-group"> 
 				<label for="venueid">Venue</label> 
-				<input type="text" class="form-control" id="venueid" name="venueid"/> 
+				<input type="text" class="form-control" value="{{$venueid}}" id="venueid" name="venueid" readonly/> 
 			  </div>
               <div class="form-group"> 
 				<label for="productid">Product</label> 
