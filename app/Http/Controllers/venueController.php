@@ -234,7 +234,7 @@ class venueController extends Controller
   
 		$venues = \App\Models\Venue::whereBetween('costtorent', [$minprice, $maxprice])->get();
 
-		return view('venues.index', ['venues' => $venues]);
+		return view('venues.displayGrid', ['venues' => $venues]);
 	}
 
 

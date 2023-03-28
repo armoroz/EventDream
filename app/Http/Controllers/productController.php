@@ -52,7 +52,7 @@ class productController extends AppBaseController
   
 		$products = \App\Models\Product::whereBetween('productcost', [$minprice, $maxprice])->get();
 
-		return view('products.index', ['products' => $products]);
+		return view('products.displayGrid', ['products' => $products]);
 	}
 
 
