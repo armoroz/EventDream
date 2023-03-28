@@ -5,16 +5,24 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-
-    <div class='d-flex flex-wrap align-content-start bg-light'> 
+<!doctype html>
+<html>
+<head>
+	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+</head>
+    <!--<div class='d-flex flex-wrap align-content-start bg-light'>-->
     @foreach($standardmenus as $standardmenu) 
-        <div class="p-2 border col-4 g-3"> 
-            <div class="card text-center"> 
+        <!--<div class="p-2 border col-4 g-3"> 
+            <div class="card text-center">-->
 				<div class= "bodymenuoptions">
 				  <div class= "container">
 					<div class="menucard">
+						<div class="box-image">
+							@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
+						</div>
+						<div class="content">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
-						@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<div class="card-body"><img class="img-responsive center-block" height="80%" width="200px" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}"></div>@endforeach
 						<div class="card-footer" style="text-align: center">€{{$standardmenu->standardmenucost}}</div>
 						<div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
 						<div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
@@ -28,9 +36,9 @@
 		        </div>
 			</div> 
 		</div> 
-	</div> 
+</html>
     @endforeach
-    </div>
+    
 
 
 
