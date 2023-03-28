@@ -2,7 +2,19 @@
 @section('content')
 @include('flash::message') 
 @php $j=0 @endphp 
- 
+
+
+
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1>Standard Menus</h1>
+			</div>
+		</div>
+	</div>
+</section>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <!doctype html>
@@ -15,13 +27,13 @@
     @foreach($standardmenus as $standardmenu) 
         <!--<div class="p-2 border col-4 g-3"> 
             <div class="card text-center">-->
-				<div class= "bodymenuoptions">
-				  <div class= "container">
-					<div class="menucard">
-						<div class="box-image">
+				<div class= "dpg-bodymenuoptions">
+				  <div class= "dpg-container">
+					<div class="dpg-menucard">
+						<div class="dpg-box-image">
 							@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
 						</div>
-						<div class="content">
+						<div class="dpg-content">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
 						<div class="card-footer" style="text-align: center">€{{$standardmenu->standardmenucost}}</div>
 						<div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
