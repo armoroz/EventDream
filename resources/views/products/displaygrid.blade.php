@@ -16,11 +16,21 @@
 <input type="number" id="maxPrice" name="maxPrice">
 <div id="filteredProducts"></div>
 
+<div>
+        <li class="nav-item" style="margin-right:5px;">
+            <select id="productnameselect" class="form-select" size="1">
+                <option value="All">All</option>
+                <option value="flower">Flower</option>
+                <option value="elegance">Elegance</option>
+                <option value="standard">Standard</option>
+            </select>   
+        </li>
+</div>
 
 
     <div class='d-flex flex-wrap align-content-start bg-light'> 
     @foreach($products as $product) 
-        <div class="p-2 border col-4 g-3"> 
+        <div class="p-2 border col-4 g-3 allproductnames {{$product->productname}}"> 
             <div class="card text-center"> 
                 <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</h5></div>
                 <div class="card-body"><img style="width:65%;height:200px;" class="mx-auto d-block" src="{{ $product->productimg }}"/></div>
@@ -64,5 +74,17 @@ $("#emptycart").click(function() { $.ajax({
     } 
   }); 
 }); 
+
+$("#productnameselect").on('change', function() {
+    var productname = $(this).find(":selected").val();
+    if (productname=='All') {
+        $('.allproductnames').show();
+    }
+    else {
+        $('.allproductnames').hide();
+        $('.'+productname).show();
+    } 
+});
 </script>
+
 @endsection('content')

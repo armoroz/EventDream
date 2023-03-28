@@ -5,7 +5,7 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<form action="{{ route('venues.filter') }}" method="POST">
+<form action="{{ route('venues.filtervenues') }}" method="POST">
   @csrf
   <body style="font-size:12px;">
 <i class="fas fa-spinner fa-spin"></i>
