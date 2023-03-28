@@ -226,14 +226,17 @@ class venueController extends Controller
         return Response::json(['success'=>true],200);
     }
 	
-	public function filterVenues(Request $request)
+		public function filterVenues(Request $request)
 	{
-		$priceRange = explode('-', $request->price_range);
+		//$priceRange = explode('-', $request->price_range);
+		$minprice = $request->minPrice;
+		$maxprice = $request->maxPrice;
   
-		$Venues = Venue::whereBetween('productcost', [$minprice[0], $maxprice[1]])->get();
+		$venues = \App\Models\Venue::whereBetween('costtorent', [$minprice, $maxprice])->get();
 
 		return view('venues.index', ['venues' => $venues]);
 	}
+
 
 	
 	public function json()

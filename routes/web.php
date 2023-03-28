@@ -106,7 +106,7 @@ Route::get('venues/all/emptycart', 'App\Http\Controllers\venueController@emptyca
 
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
 Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
-Route::post('/venues/filter', [VenueController::class, 'filterVenues'])->name('venues.filter');
+Route::post('/venues/filter', 'App\Http\Controllers\venueController@filterVenues')->name('venues.filter');
 Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
 Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
