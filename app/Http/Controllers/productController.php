@@ -64,11 +64,8 @@ class productController extends AppBaseController
 			$totalItems=0;
 		}
 
-<<<<<<< HEAD
-		return view('products.displayGrid', ['products' => $products]);
-=======
 		return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
->>>>>>> a36d5da9689112a92d8652a534962ddebed2d900
+
 	}
 
 
