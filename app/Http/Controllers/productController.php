@@ -51,8 +51,20 @@ class productController extends AppBaseController
 		$maxprice = $request->maxPrice;
   
 		$products = \App\Models\Product::whereBetween('productcost', [$minprice, $maxprice])->get();
+		
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $product => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+		}
 
-		return view('products.index', ['products' => $products]);
+		return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
 	}
 
 

@@ -233,8 +233,21 @@ class venueController extends Controller
 		$maxprice = $request->maxPrice;
   
 		$venues = \App\Models\Venue::whereBetween('costtorent', [$minprice, $maxprice])->get();
+		$venueimages = \App\Models\VenueImages::all();
 
-		return view('venues.index', ['venues' => $venues]);
+		if ($request->session()->has('cart')) {
+        $cart = $request->session()->get('cart');
+        $totalQty=0;
+        foreach ($cart as $venue => $qty) {
+            $totalQty = $totalQty + $qty;
+        }
+        $totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+		}
+		
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages);
 	}
 
 
