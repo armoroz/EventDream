@@ -46,14 +46,15 @@ class productController extends AppBaseController
 	
 	public function filterProducts(Request $request)
 	{
-		$priceRange = explode('-', $request->price_range);
+		//$priceRange = explode('-', $request->price_range);
+		$minprice = $request->minPrice;
+		$maxprice = $request->maxPrice;
   
-		$products = Product::whereBetween('costtorent', [$priceRange[0], $priceRange[1]])->get();
+		$products = \App\Models\Product::whereBetween('productcost', [$minprice, $maxprice])->get();
 
-		return view('products.index', ['products' , $products]);
+		return view('products.index', ['products' => $products]);
 	}
 
-	
 
     /**
      * Display a listing of the product.
