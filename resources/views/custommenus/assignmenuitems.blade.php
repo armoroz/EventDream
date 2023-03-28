@@ -7,7 +7,7 @@
 </style>
 <section class="content-header">
     <h1>
-        Menu Items for Standard Menu: <b>{{$custommenu->custommenuname}}</b> 
+        Menu Items for Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
     </h1>
 </section>
 <div class="content">
