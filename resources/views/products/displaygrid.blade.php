@@ -29,9 +29,9 @@
 </div>
 
 
-    <div class='d-flex flex-wrap align-content-start bg-light'> 
+    <div class='d-flex flex-wrap align-content-start bg-transparent'> 
     @foreach($products as $product) 
-        <div class="p-2 border col-4 g-3 allproductnames {{$product->productname}}"> 
+        <div class="p-2 col-4 g-3 allproductnames {{$product->productname}}"> 
             <div class="card text-center"> 
                 <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</h5></div>
                 <div class="card-body"><img style="width:65%;height:200px;" class="mx-auto d-block" src="{{ $product->productimg }}"/></div>

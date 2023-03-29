@@ -17,9 +17,9 @@
 <div id="filteredProducts"></div>
 </form>
 
-    <div class='d-flex flex-wrap align-content-start bg-light'> 
+    <div class='d-flex flex-wrap align-content-start bg-transparent'> 
     @foreach($venues as $venue) 
-        <div class="p-2 border col-4 g-3"> 
+        <div class="p-2 col-4 g-3"> 
             <div class="card text-center"> 
                 <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
                 @foreach($venue->venueimages->take(1) as $venueimage)<div class="card-body"><img style="width:65%;height:200px;" class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/></div>@endforeach

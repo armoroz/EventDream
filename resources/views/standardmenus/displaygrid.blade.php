@@ -23,7 +23,7 @@
   <div class="p-0 col-4 g-4">
 	<div class= "bodyoptions-stdm">
 	  <div class= "container-stdm">
-		<div class="card-stdm">
+		<div class="card-stdm" style="height: 100%;">
 			<div class="box-image-stdm">
 				@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
 			</div>
