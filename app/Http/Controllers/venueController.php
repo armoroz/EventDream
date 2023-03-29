@@ -25,7 +25,7 @@ class venueController extends Controller
 	{
 		$searchquery=$request->searchquery;
 		$venues=\App\Models\venue::where('venuename','LIKE','%'.$searchquery.'%')->get(); 
-		$venueimages = \App\Models\VenueImages::all();
+		$venueimages = \App\Models\venueimages::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -155,8 +155,8 @@ class venueController extends Controller
 	
 	public function displayGrid(Request $request)
 	{
-		$venues=\App\Models\Venue::all();
-		$venueimages = \App\Models\VenueImages::all();
+		$venues=\App\Models\venue::all();
+		$venueimages = \App\Models\venueimages::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -232,8 +232,8 @@ class venueController extends Controller
 		$minprice = $request->minPrice;
 		$maxprice = $request->maxPrice;
   
-		$venues = \App\Models\Venue::whereBetween('costtorent', [$minprice, $maxprice])->get();
-		$venueimages = \App\Models\VenueImages::all();
+		$venues = \App\Models\venue::whereBetween('costtorent', [$minprice, $maxprice])->get();
+		$venueimages = \App\Models\venueimages::all();
 
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -255,7 +255,7 @@ class venueController extends Controller
 	
 	public function json()
 	{
-		$venues = \App\Models\Venue::all();
+		$venues = \App\Models\venue::all();
 		return response()->json($venues);
 	} 
 	
@@ -276,7 +276,7 @@ class venueController extends Controller
             return redirect(route('venues.index'));
         }
 
-		$venues = \App\Models\Venue::all();
+		$venues = \App\Models\venue::all();
 		$totalItems = 0;
 
 		if ($request->session()->has('cart')) {

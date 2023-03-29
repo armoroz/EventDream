@@ -15,7 +15,7 @@
                 <td>{{ $standardmenurating->rating }}</td>
 				<td><input id="fieldRating" name="rating" 
 				value="{!! $standardmenurating->rating !!}"
-				type="text" class="rating rating-loading" data-min=0 
+				type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 				data-max=5 data-step=1 data-size="sm" data-display-only="true"></td>	
             <td>{{ $standardmenurating->comment }}</td>
             <td>{{ $standardmenurating->standardmenuid }}</td>

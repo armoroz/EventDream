@@ -9,7 +9,7 @@
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6">
+			<div class="col-sm-6" style="padding-bottom: 60px;">
 				<h1>Custom Menus</h1>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 
 <div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
 @foreach($custommenus as $custommenu) 
-  <div class="p-0 border col-4 g-3">
+  <div class="p-0 col-4 g-3">
 	<div class= "bodyoptions-ctm">
 	  <div class= "container-ctm">
 		<div class="card-ctm">
