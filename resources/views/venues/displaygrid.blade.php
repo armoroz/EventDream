@@ -5,7 +5,7 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<form action="{{ route('venues.filtervenues') }}" method="POST">
+<form action="{{ route('venues.filtervenues') }}" method="POST" style="margin: 5px 0px 5px 0px;">
   @csrf
 <i class="fas fa-spinner fa-spin"></i>
 <button onclick="filterVenues()">Filter</button>

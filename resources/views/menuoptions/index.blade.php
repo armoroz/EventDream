@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+@include('flash::message')
 
     <section class="content-header">
         <div class="container-fluid">
@@ -11,11 +12,6 @@
         </div>
     </section>
 	
-        @include('flash::message')
-
-
-<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
 
 <div class= "bodyoptions-mopt">
   <div class= "container-mopt">

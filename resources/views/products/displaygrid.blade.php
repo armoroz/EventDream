@@ -16,15 +16,16 @@
 <div id="filteredProducts"></div>
 </form>
 
-<div>
-        <li class="nav-item" style="margin-right:5px;">
+<div style="align: right; width: 110px; margin: 5px 0px 5px 0px;">
+
             <select id="productnameselect" class="form-select" size="1">
+				<option value="All" selected>Filter By</option>
                 <option value="All">All</option>
                 <option value="flower">Flower</option>
                 <option value="elegance">Elegance</option>
                 <option value="standard">Standard</option>
             </select>   
-        </li>
+     
 </div>
 
 
