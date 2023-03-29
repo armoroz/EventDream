@@ -3,9 +3,6 @@
 @include('flash::message') 
 @php $j=0 @endphp 
  
-
-
-
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
@@ -18,9 +15,6 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-
-<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
 
 <div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
 @foreach($custommenus as $custommenu) 
