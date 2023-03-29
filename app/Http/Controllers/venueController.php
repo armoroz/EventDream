@@ -82,7 +82,7 @@ class venueController extends Controller
 
         $venue = $this->venueRepository->create($input);
 
-        Flash::success('Venue saved successfully.');
+        Flash::success('Venue saved successfully!');
 
         return redirect(route('venues.showmap'));
     }
