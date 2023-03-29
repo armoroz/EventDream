@@ -136,7 +136,7 @@ div.scrollmenu a:hover {
 <div class="home"><div><a href="{!! route('standardmenus.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
 </div>
 @endsection('content')
-@section('side')<li><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="glyphicon glyphicon-shopping-cart"title="Cart"></span></li>
-				<li><span style="font-size:70px;margin-left:10px; margin-top:10px;" class="glyphicon glyphicon-user"title="Account"></span></li>
-				<li><span style="font-size:70px;margin-left:10px; margin-top:10px;" class="glyphicon glyphicon-folder-close" title="View Projects"></span></li>
+@section('side')<div><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="fas fa-shopping-cart"title="Cart"></span></div>
+				<div><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-user"title="Account"></span></div>
+				<div><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-folder-open" title="View Projects"></span></div>
 @endsection('side')
