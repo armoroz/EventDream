@@ -115,7 +115,7 @@ background: #fff;
 display: flex;
 flex-direction: column;
 max-width: 300px;
-height: 215px;
+height: 225px;
 }
 
 .container-mopt .card-mopt:hover
@@ -191,7 +191,7 @@ padding: 20px 15px;
 background: #fff;
 display: flex;
 flex-direction: column;
-max-width: 300px;
+min-width: 300px;
 height: 600px;
 }
 
