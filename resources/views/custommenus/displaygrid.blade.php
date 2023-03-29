@@ -18,17 +18,17 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<!doctype html>
-<html>
-<head>
-	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-</head>
 
-	<div class= "dpg-bodyoptions">@foreach($custommenus as $custommenu) 
-	  <div class= "dpg-container">
-		<div class="dpg-card">
-			<div class="dpg-content">
+<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+
+<div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
+@foreach($custommenus as $custommenu) 
+  <div class="p-0 border col-4 g-3">
+	<div class= "bodyoptions-ctm">
+	  <div class= "container-ctm">
+		<div class="card-ctm">
+			<div class="content-ctm">
 			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }} {{ $custommenu->description }}</h5></div>
             <div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$custommenu->id}}">Add To Cart</button></div>		
 			<div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
@@ -38,9 +38,12 @@
 			</div> 
 		</div>
 	  </div> 
+	</div>
+  </div>
     @endforeach
-	</div> 
-</html>
+</div>
+
+
 
 <script>
 $(".bth,.addItem").click(function() {

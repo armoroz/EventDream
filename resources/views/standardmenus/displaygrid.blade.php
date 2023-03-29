@@ -17,20 +17,20 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<!doctype html>
-<html>
-<head>
-	<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
-	<meta charset="utf-8">
-</head>
 
-	<div class= "dpg-bodyoptions">@foreach($standardmenus as $standardmenu) 
-	  <div class= "dpg-container">
-		<div class="dpg-card">
-			<div class="dpg-box-image">
+<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+
+<div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
+@foreach($standardmenus as $standardmenu) 
+  <div class="p-0 border col-4 g-4">
+	<div class= "bodyoptions-stdm">
+	  <div class= "container-stdm">
+		<div class="card-stdm">
+			<div class="box-image-stdm">
 				@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
 			</div>
-			<div class="dpg-content">
+			<div class="content-stdm">
 			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
 			<div class="card-footer" style="text-align: center">€{{$standardmenu->standardmenucost}}</div>
 			<div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
@@ -44,9 +44,10 @@
 			</div> 
 		</div>
 	  </div> 
-    @endforeach
-	</div> 
-</html>
+	</div>
+ </div> 
+ @endforeach
+</div>
 
 
 
