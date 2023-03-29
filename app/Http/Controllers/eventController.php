@@ -181,19 +181,25 @@ class eventController extends AppBaseController
 			$cart = Session::get('cart');
 			$lineitems = array();
 			foreach ($cart as $productid => $qty) {
-				$lineitem['product'] = \App\Models\Product::find($productid);
+				$lineitem['product'] = \App\Models\product::find($productid);
 				$lineitem['qty'] = $qty;
 				$lineitems[] = $lineitem;
 			}
 			
 			foreach ($cart as $venueid => $qty) {
-				$lineitem['venue'] = \App\Models\Venue::find($venueid);
+				$lineitem['venue'] = \App\Models\venue::find($venueid);
 				$lineitem['qty'] = $qty;
 				$lineitems[] = $lineitem;
 			}
 			
 			foreach ($cart as $standardmenuid => $qty) {
-				$lineitem['standardmenu'] = \App\Models\Standardmenu::find($standardmenuid);
+				$lineitem['standardmenu'] = \App\Models\standardmenu::find($standardmenuid);
+				$lineitem['qty'] = $qty;
+				$lineitems[] = $lineitem;
+			}
+			
+			foreach ($cart as $custommenuid => $qty) {
+				$lineitem['custommenu'] = \App\Models\custommenu::find($custommenuid);
 				$lineitem['qty'] = $qty;
 				$lineitems[] = $lineitem;
 			}

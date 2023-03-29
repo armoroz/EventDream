@@ -59,7 +59,7 @@ $(".bth,.addItem").click(function() {
 });
 
 $("#emptycart").click(function() { $.ajax({ 
-    type: "get", url: "{{ url('custommenus/emptycart')   }}",
+    type: "get", url: "{{ url('custommenus/all/emptycart')   }}",
     success: function() { 
         $('#shoppingcart').text(0); 
     }, 
@@ -67,6 +67,6 @@ $("#emptycart").click(function() { $.ajax({
         alert("problem communicating with the server");
     } 
   }); 
-}); 
+});
 </script>
 @endsection('content')
