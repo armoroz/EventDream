@@ -11,9 +11,9 @@ class homepageController extends Controller
 {
     public function homepage(Request $request)
     {
-        $products=\App\Models\Product::all();
-        $standardmenus=\App\Models\Standardmenu::all();
-        $venues=\App\Models\Venue::all();
+        $products=\App\Models\product::all();
+        $standardmenus=\App\Models\standardmenu::all();
+        $venues=\App\Models\venue::all();
 		
 		if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
