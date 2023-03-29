@@ -27,7 +27,7 @@
 			</div>
 			<div class="content-stdm">
 			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
-			<div class="card-footer" style="text-align: center">€{{$standardmenu->standardmenucost}}</div>
+			<div class="card-footer" style="text-align: center">€20 Per Person</div>
 			<div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
 			<div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
 			<div class="card-footer"><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">

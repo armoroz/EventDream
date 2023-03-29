@@ -7,7 +7,6 @@
 
 <form action="{{ route('products.filterproducts') }}" method="POST">
   @csrf
-  <body style="font-size:12px;">
 <i class="fas fa-spinner fa-spin"></i>
 <button onclick="filterProducts()">Filter</button>
 <label for="minPrice">Min Price:</label>
@@ -15,6 +14,7 @@
 <label for="maxPrice">Max Price:</label>
 <input type="number" id="maxPrice" name="maxPrice">
 <div id="filteredProducts"></div>
+</form>
 
 <div>
         <li class="nav-item" style="margin-right:5px;">

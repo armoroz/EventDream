@@ -287,3 +287,13 @@ height: 275px;
 	padding: 9px 14px;
 }
 
+.dropdown-toggle {
+	background-color: transparent;
+}
+
+.caption-badge.caption-secondary {
+	display: none;
+}
+.caption-badge.caption-warning {
+	display: none;
+}
