@@ -70,7 +70,7 @@ div.scrollmenu a:hover {
 				<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 
 					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-					type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+					type="text" data-theme="krajee-fas" class="rating" data-min=0 
 					data-max=5 data-step=1 data-size="sm" data-display-only="true">
 			     </a> </div>
 
