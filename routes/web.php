@@ -69,6 +69,7 @@ Route::patch('products/{product}/update','App\Http\Controllers\productController
 
 /* Customers */
 Route::resource('customers', App\Http\Controllers\customerController::class);
+Route::get('customer/custedit/{id}', 'App\Http\Controllers\customerController@custedit')->name('customers.custedit');
 
 /* Events/Logs */
 Route::resource('events', App\Http\Controllers\eventController::class);

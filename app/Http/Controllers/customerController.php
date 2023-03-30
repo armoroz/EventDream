@@ -103,6 +103,19 @@ class customerController extends AppBaseController
 
         return view('customers.edit')->with('customer', $customer);
     }
+	
+	public function custedit($id)
+    {
+        $customer = $this->customerRepository->find($id);
+
+        if (empty($customer)) {
+            Flash::error('Customer not found');
+
+            return redirect(route('customers.index'));
+        }
+
+        return view('customers.custedit')->with('customer', $customer);
+    }
 
     /**
      * Update the specified customer in storage.
