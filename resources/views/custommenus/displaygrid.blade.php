@@ -22,13 +22,12 @@
 	<div class= "bodyoptions-ctm">
 	  <div class= "container-ctm">
 		<div class="card-ctm">
-			<div class="content-ctm">
-			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }} {{ $custommenu->description }}</h5></div>
-            <div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$custommenu->id}}">Add To Cart</button></div>		
-			<div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+			<div class="content-ctm" style="margin:-10px">
+			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }}</h5></div>
+            <div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button></div>		
+			<div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">More info <i class='fas fa-angle-double-right'></i></button></a></div>
 			<div class="card-footer"><a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" 
-			     class="btn btn-default center-block" title="Update Dishes">Update Dishes</a>
-		    </div>	
+			     class="btn btn-success mx-auto d-block addItem" title="Update Dishes">Update Dishes <i class='far fa-hat-chef'></i></a></div>				
 			</div> 
 		</div>
 	  </div> 
@@ -36,7 +35,6 @@
   </div>
     @endforeach
 </div>
-
 
 
 <script>
