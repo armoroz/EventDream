@@ -4,7 +4,7 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
-            <a class="dropdown-item" href="{!! route('customers.custedit', [Auth::user()->customer->id]) !!}">Edit Profile</a>
+            <a class="dropdown-item" href="{!! route('customers.show', [Auth::user()->customer->id]) !!}">View Profile</a>
         </li>
         <li>
             <hr class="dropdown-divider">

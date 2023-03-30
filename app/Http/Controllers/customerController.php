@@ -139,7 +139,7 @@ class customerController extends AppBaseController
 
         Flash::success('Customer updated successfully.');
 
-        return redirect(route('customers.index'));
+        return redirect()->route('customers.show', ['customer' => $customer]);
     }
 
     /**

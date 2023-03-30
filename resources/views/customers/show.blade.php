@@ -12,6 +12,10 @@
                        href="{{ route('customers.index') }}">
                         Back
                     </a>
+                    <a class="btn btn-default float-right"
+                       href="{!! route('customers.custedit', [Auth::user()->customer->id]) !!}">
+                        Edit Profile
+                    </a>
                 </div>
             </div>
         </div>
