@@ -30,7 +30,8 @@ class custommenu extends Model
 
     public $fillable = [
         'custommenuname',
-        'description'
+        'description',
+		'customerid'
     ];
 
     /**
@@ -41,7 +42,8 @@ class custommenu extends Model
     protected $casts = [
         'id' => 'integer',
         'custommenuname' => 'string',
-        'description' => 'string'
+        'description' => 'string',
+		'customerid' => 'integer'
     ];
 
     /**
@@ -51,7 +53,8 @@ class custommenu extends Model
      */
     public static $rules = [
         'custommenuname' => 'nullable|string|max:20',
-        'description' => 'nullable|string'
+        'description' => 'nullable|string',
+		'customerid' => 'nullable|integer'
     ];
 
     /**
@@ -76,6 +79,11 @@ class custommenu extends Model
     public function menuitems()
     {
         return $this->belongsToMany(\App\Models\Menuitem::class, 'custommenulog','custommenuid','menuitemid');
+    }
+	
+    public function customerid()
+    {
+        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
     }
 
 }

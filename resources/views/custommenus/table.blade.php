@@ -4,6 +4,7 @@
         <tr>
             <th>Custommenuname</th>
         <th>Description</th>
+		<th>Customer ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -12,6 +13,7 @@
             <tr>
                 <td>{{ $custommenu->custommenuname }}</td>
             <td>{{ $custommenu->description }}</td>
+			<td>{{ $custommenu->customerid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

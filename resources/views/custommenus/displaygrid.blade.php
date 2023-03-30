@@ -17,7 +17,8 @@
 
 
 <div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
-@foreach($custommenus as $custommenu) 
+@foreach($custommenus as $custommenu)
+@if($custommenu->customerid == Auth::user()->customer->id)
   <div class="p-0 col-3 g-3">
 	<div class= "bodyoptions-ctm">
 	  <div class= "container-ctm">
@@ -33,6 +34,7 @@
 	  </div> 
 	</div>
   </div>
+  @endif
     @endforeach
 </div>
 

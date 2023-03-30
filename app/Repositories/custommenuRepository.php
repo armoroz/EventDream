@@ -18,7 +18,8 @@ class custommenuRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'custommenuname',
-        'description'
+        'description',
+		'customerid'
     ];
 
     /**
