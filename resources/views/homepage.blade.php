@@ -51,7 +51,6 @@ div.scrollmenu a:hover {
   background-color: #777;
 }
 </style>
-
 <h2>Venues</h2>
 <div class="scrollmenu">
 @foreach($venues as $venue)

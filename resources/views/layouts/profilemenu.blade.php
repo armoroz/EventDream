@@ -7,6 +7,9 @@
             <a class="dropdown-item" href="{!! route('customers.show', [Auth::user()->customer->id]) !!}">View Profile</a>
         </li>
         <li>
+            <a class="dropdown-item" href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">View Orders</a>
+        </li>
+        <li>
             <hr class="dropdown-divider">
         </li>
         <li>

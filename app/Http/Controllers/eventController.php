@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
+use Illuminate\Support\Facades\Auth;
 
 class eventController extends AppBaseController
 {
@@ -32,9 +33,16 @@ class eventController extends AppBaseController
     {
         $events = $this->eventRepository->all();
 
-        return view('events.index')
-            ->with('events', $events);
+        return view('events.index')->with('events', $events);
     }
+	
+	public function custindex(Request $request)
+	{
+		$customerId = Auth::user()->customer->id;
+		$events = $this->eventRepository->findByCustomerId($customerId);
+		
+		return view('events.custindex', compact('events'));
+	}
 
     /**
      * Show the form for creating a new event.
@@ -175,50 +183,51 @@ class eventController extends AppBaseController
 		}
 	}*/
 	
-	public function checkout()
-	{
-		if (Session::has('cart')) {
-			$cart = Session::get('cart');
-			$lineitems = array();
-			foreach ($cart as $productid => $qty) {
-				$lineitem['product'] = \App\Models\product::find($productid);
-				$lineitem['qty'] = $qty;
-				$lineitems[] = $lineitem;
-			}
-			
-			foreach ($cart as $venueid => $qty) {
-				$lineitem['venue'] = \App\Models\venue::find($venueid);
-				$lineitem['qty'] = $qty;
-				$lineitems[] = $lineitem;
-			}
-			
-			foreach ($cart as $standardmenuid => $qty) {
-				$lineitem['standardmenu'] = \App\Models\standardmenu::find($standardmenuid);
-				$lineitem['qty'] = $qty;
-				$lineitems[] = $lineitem;
-			}
-			
-			foreach ($cart as $custommenuid => $qty) {
-				$lineitem['custommenu'] = \App\Models\custommenu::find($custommenuid);
-				$lineitem['qty'] = $qty;
-				$lineitems[] = $lineitem;
-			}
-			// Pass venue and line items to the view
-			return view('events.checkout')->with('lineitems', $lineitems);
-		}
-		else {
-			Flash::error("There are no items in your cart");
-			return redirect(route('products.displaygrid'));
-		}
-	}
+public function checkout()
+{
+    if (Session::has('cart')) {
+        $cart = Session::get('cart');
+        $lineitems = array();
+        foreach ($cart as $id => $qty) {
+
+            list($type, $itemId) = explode('-', $id);
+
+            $lineitem = []; // Add this line to re-initialize the variable
+
+            if ($type === 'product' && $product = \App\Models\Product::find($itemId)) {
+                $lineitem['product'] = $product;
+            } elseif ($type === 'venue' && $venue = \App\Models\Venue::find($itemId)) {
+                $lineitem['venue'] = $venue;
+            } elseif ($type === 'standardmenu' && $standardmenu = \App\Models\StandardMenu::find($itemId)) {
+                $lineitem['standardmenu'] = $standardmenu;
+            } elseif ($type === 'custommenu' && $custommenu = \App\Models\CustomMenu::find($itemId)) {
+                $lineitem['custommenu'] = $custommenu;
+            } else {
+                continue; // Skip if no matching model is found
+            }
+            $lineitem['qty'] = $qty;
+            $lineitems[] = $lineitem;
+        }
+
+        // Pass venue and line items to the view
+        return view('events.checkout')->with('lineitems', $lineitems);
+    } else {
+        Flash::error("There are no items in your cart");
+        return redirect(route('products.displaygrid'));
+    }
+}
 	
 	public function placeorder(Request $request)
 	{
 		$thisOrder = new \App\Models\Event();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
+		$thisOrder->customerid = $request->customerid;
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid;
+		$customerid = $request->customerid;
+		$custommenuid = $request->custommenuid;
+		$standardmenuid = $request->standardmenuid;
 		/*$venueids = $request->venueid;*/
 		$quantities = $request->quantity;
 		for($i=0;$i<sizeof($productids);$i++) {

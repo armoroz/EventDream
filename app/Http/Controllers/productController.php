@@ -233,22 +233,24 @@ class productController extends AppBaseController
         return redirect(route('products.index'));
     }
 	
+
+	
 	public function additem($productid)
 	{
 		if (Session::has('cart')) {
 			$cart = Session::get('cart');
-			if (isset($cart[$productid])) {
-				$cart[$productid]=$cart[$productid]+1; //add one to product in cart
+			$itemId = 'product-' . $productid;
+			if (isset($cart[$itemId])) {
+				$cart[$itemId] = $cart[$itemId] + 1; //add one to venue in cart
+			} else {
+				$cart[$itemId] = 1; //new venue in cart
 			}
-			else {
-				$cart[$productid]=1; //new product in cart
-			}
-		}
-		else {
-			$cart[$productid]=1; //new cart
+		} else {
+			$itemId = 'product-' . $productid;
+			$cart[$itemId] = 1; //new cart
 		}
 		Session::put('cart', $cart);
-		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
+		return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
 	}
 	
      public function emptycart()

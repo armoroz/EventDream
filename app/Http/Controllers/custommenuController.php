@@ -191,23 +191,23 @@ class custommenuController extends AppBaseController
 		
 	}	
 
-	public function additem($custommenuid)
-	{
-		if (Session::has('cart')) {
-			$cart = Session::get('cart');
-			if (isset($cart[$custommenuid])) {
-				$cart[$custommenuid]=$cart[$custommenuid]+1; //add one to custommenu in cart
-			}
-			else {
-				$cart[$custommenuid]=1; //new custommenu in cart
-			}
-		}
-		else {
-			$cart[$custommenuid]=1; //new cart
-		}
-		Session::put('cart', $cart);
-		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
-	}
+public function additem($custommenuid)
+{
+    if (Session::has('cart')) {
+        $cart = Session::get('cart');
+        $itemId = 'custommenu-' . $custommenuid;
+        if (isset($cart[$itemId])) {
+            $cart[$itemId] = $cart[$itemId] + 1;
+        } else {
+            $cart[$itemId] = 1;
+        }
+    } else {
+        $itemId = 'custommenu-' . $custommenuid;
+        $cart[$itemId] = 1;
+    }
+    Session::put('cart', $cart);
+    return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
+}
 	
      public function emptycart()
     {

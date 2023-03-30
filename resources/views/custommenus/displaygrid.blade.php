@@ -8,6 +8,7 @@
 		<div class="row mb-2">
 			<div class="col-sm-6" style="padding-bottom: 60px;">
 				<h1>Custom Menus</h1>
+				<a class="btn btn-primary mx-2" href="{{ route('menuitems.displaygrid') }}">Create a Custom Menu</a>
 			</div>
 		</div>
 	</div>
@@ -37,7 +38,6 @@
   @endif
     @endforeach
 </div>
-
 
 <script>
 $(".bth,.addItem").click(function() {

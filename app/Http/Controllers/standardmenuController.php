@@ -205,23 +205,23 @@ class standardmenuController extends AppBaseController
         return redirect(route('standardmenus.index'));
     }
 	
-	public function additem($standardmenuid)
-	{
-		if (Session::has('cart')) {
-			$cart = Session::get('cart');
-			if (isset($cart[$standardmenuid])) {
-				$cart[$standardmenuid]=$cart[$standardmenuid]+1; //add one to standardmenu in cart
-			}
-			else {
-				$cart[$standardmenuid]=1; //new standardmenu in cart
-			}
-		}
-		else {
-			$cart[$standardmenuid]=1; //new cart
-		}
-		Session::put('cart', $cart);
-		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
-	}
+public function additem($standardmenuid)
+{
+    if (Session::has('cart')) {
+        $cart = Session::get('cart');
+        $itemId = 'standardmenu-' . $standardmenuid;
+        if (isset($cart[$itemId])) {
+            $cart[$itemId] = $cart[$itemId] + 1;
+        } else {
+            $cart[$itemId] = 1;
+        }
+    } else {
+        $itemId = 'standardmenu-' . $standardmenuid;
+        $cart[$itemId] = 1;
+    }
+    Session::put('cart', $cart);
+    return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
+}
 	
      public function emptycart()
     {

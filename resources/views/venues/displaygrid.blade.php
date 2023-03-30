@@ -53,6 +53,7 @@ $(".bth,.addItem").click(function() {
       success: function(response) {
           total=total+1;
           $('#shoppingcart').text(response.total);
+		  console.log('Venue added to cart:', i);
       },
       error: function() {
           alert("problem communicating with the server");

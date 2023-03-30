@@ -73,9 +73,9 @@ Route::get('customer/custedit/{id}', 'App\Http\Controllers\customerController@cu
 
 /* Events/Logs */
 Route::resource('events', App\Http\Controllers\eventController::class);
-
 Route::get('events/all/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
+Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 
 /* Calendar */
@@ -105,10 +105,8 @@ Route::post('venues/all/search', 'App\Http\Controllers\venueController@searchque
 Route::post('/venues/all/filter', 'App\Http\Controllers\venueController@filterVenues')->name('venues.filtervenues');
 Route::get('venues/additem/{id}', 'App\Http\Controllers\venueController@additem')->name('venues.additem');
 Route::get('venues/all/emptycart', 'App\Http\Controllers\venueController@emptycart')->name('venues.emptycart');
-
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
 Route::get('/venueratings/ratevenue/{venue}','App\Http\Controllers\venueratingController@ratevenue')->name('venueratings.ratevenue');
-
 Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingController@showvenueratings')->name('venueratings.showvenueratings');
 Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
 Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');

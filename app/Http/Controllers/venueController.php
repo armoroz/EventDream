@@ -204,18 +204,18 @@ class venueController extends Controller
 	{
 		if (Session::has('cart')) {
 			$cart = Session::get('cart');
-			if (isset($cart[$venueid])) {
-				$cart[$venueid]=$cart[$venueid]+1; //add one to venue in cart
+			$itemId = 'venue-' . $venueid;
+			if (isset($cart[$itemId])) {
+				$cart[$itemId] = $cart[$itemId] + 1; //add one to venue in cart
+			} else {
+				$cart[$itemId] = 1; //new venue in cart
 			}
-			else {
-				$cart[$venueid]=1; //new venue in cart
-			}
-		}
-		else {
-			$cart[$venueid]=1; //new cart
+		} else {
+			$itemId = 'venue-' . $venueid;
+			$cart[$itemId] = 1; //new cart
 		}
 		Session::put('cart', $cart);
-		return Response::json(['success'=>true,'total'=>array_sum($cart)],200);
+		return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
 	}
 	
      public function emptycart()

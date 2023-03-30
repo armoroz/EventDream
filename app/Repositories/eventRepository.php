@@ -47,4 +47,9 @@ class eventRepository extends BaseRepository
     {
         return event::class;
     }
+	
+	public function findByCustomerId($customerId)
+	{
+		return $this->model->where('customerid', $customerId)->get();
+	}	
 }
