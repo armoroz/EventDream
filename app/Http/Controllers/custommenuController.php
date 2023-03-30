@@ -134,14 +134,14 @@ class custommenuController extends AppBaseController
         if (empty($custommenu)) {
             Flash::error('Custommenu not found');
 
-            return redirect(route('custommenus.index'));
+            return redirect(route('custommenus.displaygrid'));
         }
 
         $custommenu = $this->custommenuRepository->update($request->all(), $id);
 
         Flash::success('Custommenu Saved successfully.');
 
-        return redirect(route('custommenus.index'));
+        return redirect(route('custommenus.displaygrid'));
     }
 
     /**
