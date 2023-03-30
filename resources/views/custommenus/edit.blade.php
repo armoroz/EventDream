@@ -26,7 +26,7 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Create Custom Menu', ['class' => 'btn btn-primary']) !!}
                 <a href="{{ route('custommenus.displaygrid') }}" class="btn btn-default">Cancel</a>
             </div>
 

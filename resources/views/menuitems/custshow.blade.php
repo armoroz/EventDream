@@ -19,8 +19,7 @@
                 <div class="row">
                     @include('menuitems.custshow_fields')
 					<div class="col-sm-6" style="margin:10px">
-						<a class="btn btn-default float-right" href="{{ route('menuitems.displaygrid') }}">Back</a>
-						
+						<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
 					</div>
                 </div>
             </div>

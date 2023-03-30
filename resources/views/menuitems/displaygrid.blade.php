@@ -6,7 +6,7 @@
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 60px;">
+			<div class="col-sm-6" style="padding-bottom: 10px;">
 				<h1>Menu Items</h1>
 			</div>
 		</div>
@@ -37,7 +37,7 @@
 
 <form action="{{route('menuitems.newstandardmenu')}}" id="newmenuform" method="post">
 @csrf
-<div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
+<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin:-10px"> 
 @foreach($menuitems as $menuitem) 
   <div class="p-0 col-4 g-4">
 	<div class= "bodyoptions-meni">
@@ -51,7 +51,7 @@
             <div class="card-footer">
                 <div class="btn-checkbox">
                     <div class="text-center">
-						<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">More info <i class="fas fa-info-circle"></i></button></a>
+						<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a>
                     </div>
                     <div class="checkbox">
                         <input type="checkbox" name="menuitems[]" value="{{ $menuitem->id }}">

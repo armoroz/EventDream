@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div class="row">
                     @include('standardmenus.custshow_fields')
-					<a class="btn btn-default float-right" href="{{ route('standardmenus.displaygrid') }}">Back</a>
+					<a href="{{ route('standardmenus.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
 					<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$standardmenu->id}}">Add To Cart</button>
 					<a href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}" 
 						   class='btn btn-default btn-xs'>

@@ -360,3 +360,64 @@ height: 245px;
 	margin-top: -50px;
 	padding: 9px 14px;
 }
+
+#newmenubtn {
+	position: relative;
+	bottom: 5px;
+	right: -700px;
+ 
+}
+
+.btn-addtoCart {
+	background-color: #198754;
+	color: white; 
+}
+
+.btn-addtoCart:hover {
+	background-color: #157147; 
+	color: white; 
+}
+
+.btn-updateDishes {
+	background-color: #008cba;
+    color: white; 
+}
+
+.btn-updateDishes:hover {
+	background-color: #0079a1; 
+    color: white;
+}
+
+.btn-moreInfo {
+	background-color: #4d648d;
+    color: white; 
+}
+
+.btn-moreInfo:hover {
+	background-color: #44587d; 
+    color: white;
+}
+
+.btn-back {
+	background-color: #c67c06;
+	justify-content: center;
+	align-items: center;
+    color: white; 
+    border-radius: 50%;
+	width: 47px;
+	height: 47px;
+	line-height: 50px;
+    position: relative;
+}
+
+.btn-back:hover {
+	background-color: #b26f05; 
+    color: white;
+}
+
+
+.btn-back i {
+	font-size: 34px;
+	display: flex;
+	justify-content: center;
+}
