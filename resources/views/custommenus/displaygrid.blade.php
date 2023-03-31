@@ -6,11 +6,12 @@
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 60px;">
-				<h1>Custom Menus</h1>
-				<a class="btn btn-primary mx-2" href="{{ route('menuitems.displaygrid') }}">Create a Custom Menu</a>
+			<div class="col-sm-6" style="padding-bottom: 80px;">
+				 <h1 class="mb-4">Custom Menus</h1>
+				<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-createCustomMenu">Create Custom Menu</button></a>
 			</div>
 		</div>
+		
 	</div>
 </section>
 

@@ -363,8 +363,8 @@ height: 245px;
 
 #newmenubtn {
 	position: relative;
-	bottom: 5px;
-	right: -700px;
+	bottom: 100px;
+	right: -630px;
  
 }
 
@@ -420,4 +420,24 @@ height: 245px;
 	font-size: 34px;
 	display: flex;
 	justify-content: center;
+}
+
+.btn-giveRating {
+	background-color: #daa520;
+    color: white; 
+}
+
+.btn-giveRating:hover {
+	background-color: #c4941d; 
+    color: white;
+}
+
+.btn-createCustomMenu {
+	background-color: #2d3033;
+    color: white; 
+}
+
+.btn-createCustomMenu:hover {
+	background-color: #000000; 
+    color: white;
 }

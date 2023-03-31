@@ -7,14 +7,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Custom Menu Details for {{ $custommenu->custommenuname }}</h1>
+                    <h1>Custom Menu Details</h1>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="content px-3">
-        <div class="card">
+        <div class="card" style="max-width: 400px">
             <div class="card-body">
                 <div class="row">
                     @include('custommenus.custshow_fields')

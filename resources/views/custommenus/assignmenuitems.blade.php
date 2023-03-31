@@ -23,7 +23,7 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th>Check</th>
-                        <th>Price</th> 
+                        
                     </tr>
                 </thead> 
                 <tbody> 
@@ -32,8 +32,7 @@
                         <td><img height="100px" width="100px" src="{{ $menuitem->menuitemimglink }}"></td>
                         <td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
                         <td><div class="col-sm-2"><input class="checkbox-inline" type="checkbox" name="menuitem[]" value="{{$menuitem->id}}" 
-                            @if($custommenu->menuitems->contains($menuitem)) checked @endif ></div></td>
-                        <td>€{{$menuitem->menuitemcost}} </td>    
+                            @if($custommenu->menuitems->contains($menuitem)) checked @endif ></div></td>   
                     </tr>
                     @endforeach
                 </tbody>
@@ -49,7 +48,7 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th>Check</th>
-                        <th>Price</th> 
+                        
                     </tr>
                 </thead> 
                 <tbody> 
@@ -59,7 +58,6 @@
                         <td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
                         <td><div class="col-sm-2"><input class="checkbox-inline" type="checkbox" name="menuitem[]" value="{{$menuitem->id}}" 
                             @if($custommenu->menuitems->contains($menuitem)) checked @endif ></div></td>
-                        <td>€{{$menuitem->menuitemcost}} </td>    
                     </tr>
                     @endforeach
                 </tbody>
@@ -75,7 +73,6 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th>Check</th>
-                        <th>Price</th> 
                     </tr>
                 </thead> 
                 <tbody> 
@@ -85,7 +82,6 @@
                         <td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
                         <td><div class="col-sm-2"><input class="checkbox-inline" type="checkbox" name="menuitem[]" value="{{$menuitem->id}}" 
                             @if($custommenu->menuitems->contains($menuitem)) checked @endif ></div></td>
-                        <td>€{{$menuitem->menuitemcost}} </td>    
                     </tr>
                     @endforeach
                 </tbody>
@@ -93,7 +89,7 @@
         </div>
 			<!-- Submit Fieldd -->
 			<div class="form-group col-sm-12">
-				{!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+				{!! Form::submit('Update My Menu', ['class' => 'btn btn-primary']) !!}
 				<a href="{!! route('custommenus.index') !!}" class="btn btn-default">Cancel</a>
 				{!! Form::close() !!}
 			</div>

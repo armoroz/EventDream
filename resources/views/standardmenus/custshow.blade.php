@@ -8,6 +8,7 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Standard Menu Details</h1>
+
                 </div>
             </div>
         </div>
@@ -16,18 +17,19 @@
     <div class="content px-3">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    @include('standardmenus.custshow_fields')
+			@include('standardmenus.custshow_fields')
+              <div class="row">
+                <div class="col-sm-6">    
 					<a href="{{ route('standardmenus.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
-					<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$standardmenu->id}}">Add To Cart</button>
-					<a href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}" 
-						   class='btn btn-default btn-xs'>
-						   <i class="fas fa-star" title="Rate"></i>
-					</a>
-                </div>
+				</div>
+			    <div class="col-sm-6 text-right">
+			        <a href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}"><button class="btn btn-giveRating"><i class='far fa-stars'></i></button></a>
+					<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$standardmenu->id}}"><i class='far fa-shopping-cart'></i></button>
+			    </div>		
+               </div>
             </div>
         </div>
-    </div>
+	</div>
 
 <script>
 $(".bth,.addItem").click(function() {

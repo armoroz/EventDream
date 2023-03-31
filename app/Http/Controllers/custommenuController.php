@@ -139,7 +139,7 @@ class custommenuController extends AppBaseController
 
         $custommenu = $this->custommenuRepository->update($request->all(), $id);
 
-        Flash::success('Custommenu Saved successfully.');
+        Flash::success('You have successfully created a custom menu!');
 
         return redirect(route('custommenus.displaygrid'));
     }

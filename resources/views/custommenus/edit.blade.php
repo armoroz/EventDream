@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Custommenu</h1>
+                    <h1>My Custom Menu</h1>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
 
         @include('adminlte-templates::common.errors')
 
-        <div class="card">
+        <div class="card" style="max-width: 400px">
 
             {!! Form::model($custommenu, ['route' => ['custommenus.update', $custommenu->id], 'method' => 'patch']) !!}
 
