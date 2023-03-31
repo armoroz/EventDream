@@ -234,7 +234,7 @@ public function additem($custommenuid)
 		
 		Flash::success('Custom Menu updated successfully.');
 
-		return redirect()->route('custommenus.index')->with('success', 'Menu Items updated successfully');
+		return redirect()->route('custommenus.displaygrid')->with('success', 'Menu Items updated successfully');
 	}
 
 }

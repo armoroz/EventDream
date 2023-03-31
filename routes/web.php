@@ -70,13 +70,18 @@ Route::patch('products/{product}/update','App\Http\Controllers\productController
 /* Customers */
 Route::resource('customers', App\Http\Controllers\customerController::class);
 Route::get('customer/custedit/{id}', 'App\Http\Controllers\customerController@custedit')->name('customers.custedit');
+Route::patch('customer/custupdate/{customer}', 'App\Http\Controllers\customerController@custupdate')->name('customers.custupdate');
+Route::get('customer/custshow/{id}', 'App\Http\Controllers\customerController@custshow')->name('customers.custshow');
+
 
 /* Events/Logs */
 Route::resource('events', App\Http\Controllers\eventController::class);
 Route::get('events/all/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
+Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow')->name('events.custshow');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
+Route::get('orderplaced', function () { return view('orderplaced');})->name('orderplaced');
 
 /* Calendar */
 Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 

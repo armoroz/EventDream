@@ -83,6 +83,20 @@ class customerController extends AppBaseController
 
         return view('customers.show')->with('customer', $customer);
     }
+	
+    public function custshow($id)
+    {
+        $customer = $this->customerRepository->find($id);
+
+        if (empty($customer)) {
+            Flash::error('Customer not found');
+
+            return redirect(route('customers.index'));
+        }
+
+        return view('customers.custshow')->with('customer', $customer);
+    }
+	
 
     /**
      * Show the form for editing the specified customer.
@@ -111,7 +125,7 @@ class customerController extends AppBaseController
         if (empty($customer)) {
             Flash::error('Customer not found');
 
-            return redirect(route('customers.index'));
+            return redirect(route('homepage'));
         }
 
         return view('customers.custedit')->with('customer', $customer);
@@ -139,7 +153,24 @@ class customerController extends AppBaseController
 
         Flash::success('Customer updated successfully.');
 
-        return redirect()->route('customers.show', ['customer' => $customer]);
+        return redirect()->route('customers.index');
+    }
+	
+    public function custupdate($id, UpdatecustomerRequest $request)
+    {
+        $customer = $this->customerRepository->find($id);
+
+        if (empty($customer)) {
+            Flash::error('Customer not found');
+
+            return redirect(route('customers.index'));
+        }
+
+        $customer = $this->customerRepository->update($request->all(), $id);
+
+        Flash::success('Customer updated successfully.');
+
+        return redirect()->route('customers.custshow', ['id' => $customer->id]);
     }
 
     /**

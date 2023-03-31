@@ -4,10 +4,10 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
-            <a class="dropdown-item" href="{!! route('customers.show', [Auth::user()->customer->id]) !!}">View Profile</a>
+            <a class="dropdown-item" href="{!! route('customers.custshow', [Auth::user()->customer->id]) !!}">View Profile</a>
         </li>
         <li>
-            <a class="dropdown-item" href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">View Orders</a>
+            <a class="dropdown-item" href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">View Events</a>
         </li>
         <li>
             <hr class="dropdown-divider">

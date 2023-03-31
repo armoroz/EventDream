@@ -71,19 +71,19 @@
 <!-- Cardno Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cardno', 'Cardno:') !!}
-    {!! Form::number('cardno', null, ['class' => 'form-control']) !!}
+    {!! Form::password('cardno', ['class' => 'form-control', 'placeholder' => 'Card No.']) !!}
 </div>
 
 <!-- Cardexpiry Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('cardexpiry', 'Cardexpiry:') !!}
-    {!! Form::text('cardexpiry', null, ['class' => 'form-control','maxlength' => 7,'maxlength' => 7]) !!}
+    {!! Form::password('cardexpiry', ['class' => 'form-control', 'placeholder' => 'Expiry']) !!}
 </div>
 
 <!-- Cvv Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('cvv', 'Cvv:') !!}
-    {!! Form::number('cvv', null, ['class' => 'form-control']) !!}
+    {!! Form::label('cvv', 'CVV:') !!}
+{!! Form::password('cvv', ['class' => 'form-control', 'placeholder' => 'CVV']) !!}
 </div>
 
 <!-- Username Field -->
@@ -94,6 +94,6 @@
 
 <!-- Pass Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('pass', 'Pass:') !!}
-    {!! Form::text('pass', null, ['class' => 'form-control','maxlength' => 30,'maxlength' => 30]) !!}
+    {!! Form::label('pass', 'Password:') !!}
+    {!! Form::password('pass', ['class' => 'form-control', 'placeholder' => 'Password']) !!}
 </div>

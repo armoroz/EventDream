@@ -22,12 +22,12 @@
         <div class="p-2 col-4 g-3"> 
             <div class="card text-center"> 
                 <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
-                @foreach($venue->venueimages->take(1) as $venueimage)<div class="card-body"><img style="width:65%;height:200px;" class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/></div>@endforeach
+                @foreach($venue->venueimages->take(1) as $venueimage)<div class="card-body"><img style="max-height: 200px; min-height: 200px; max-width:250px; min-width: 250px;" class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/></div>@endforeach
 				<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
 				<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
-                <div class="card-footer"><button id="addItem" type="button" class="btn btn-success mx-auto d-block addItem" value="{{$venue->id}}">Add To Cart</button></div>
+                <div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$venue->id}}"><i class='far fa-shopping-cart'></i></button></div>
 				<div class="card-footer"><a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a></div>
-				<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+				<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
 				<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 
 					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 

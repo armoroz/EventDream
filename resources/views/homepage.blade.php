@@ -8,7 +8,7 @@
 <style>
 h2 {
 	margin-left:0px;
-	padding-top: 20px;
+	padding-top: 30px;
   }
 p {
 	float: left;
@@ -25,8 +25,10 @@ p {
   }
 
 .img-home {
+	min-width: 200px;  
+	min-height: 150px;
 	max-width: 200px;  
-	height: 150px;
+	max-height: 150px;
 }
 
 div.scrollmenu {
@@ -50,32 +52,33 @@ div.scrollmenu div.home {
 div.scrollmenu a:hover {
   background-color: #777;
 }
+
+.card-header {
+	color: grey;
+}
+
 </style>
 <h2>Venues</h2>
 <div class="scrollmenu">
 @foreach($venues as $venue)
 	@if ($j==0) @endif
-          <div class="home">	
+          <div class="home">
 				<div class="card text-center"> 
-				<div class="card-header d-block">{{ $venue->venuename }} {{ $venue->city }}</div> 
-				@foreach($venue->venueimages->take(1) as $venueimage)		
-				<div class="card-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">
-				</div>@endforeach
-				<div class="card-footer" style="text-align:center; color:black;">
-				€{{$venue->costtorent}}
-				<button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$venue->id}}">Add To Cart</button>
-				<a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
-				<a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a>
-				<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
-					<input id="fieldRating" name="rating" 
-					value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-					type="text" data-theme="krajee-fas" class="rating" data-min=0 
-					data-max=5 data-step=1 data-size="sm" data-display-only="true">
-			     </a> </div>
-
+					<div class="card-header d-block">{{ $venue->venuename }} {{ $venue->city }}</div> 
+					@foreach($venue->venueimages->take(1) as $venueimage)		
+					<div class="card-body"><a href="{{ route('venues.custshow', [$venue->id]) }}"><img class="img-home center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"></a></div>
+					@endforeach
+					€{{$venue->costtorent}}
+					<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+					<div class="card-footer"><a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a></div>
+					<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+						<input id="fieldRating" name="rating" 
+						value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+						type="text" data-theme="krajee-fas" class="rating" data-min=0 
+						data-max=5 data-step=1 data-size="sm" data-display-only="true">
+					 </a> </div>
 				</div>
 			</div>	
-		</div>
       @php $j++ @endphp 
     @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
@@ -89,13 +92,13 @@ div.scrollmenu a:hover {
 	<div class="home">
             <div class="card text-center"> 
             <div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
-            <div class="card-body"><img class="img-home center-block"  src="{{ $product->productimg }}"></div>
+            <div class="card-body"><a href="{{ route('products.custshow', [$product->id]) }}"><img class="img-home center-block" src="{{ $product->productimg }}"></a></div>
 			<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>
             <div class="card-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
             <div class="card-footer" style="text-align:center">
-			<button type="button" class="btn btn-default add"><span class="glyphicon glyphicon-plus" value="{{$product->id}}"/></button> 
-            <button type="button" class="btn btn-default subtract"><span class="glyphicon glyphicon-minus"/></button> 
-            <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="glyphicon glyphicon-remove"/></button>
+			<button type="button" class="btn btn-default add"><span class="fas fa-plus" value="{{$product->id}}"/></button> 
+            <button type="button" class="btn btn-default subtract"><span class="fas fa-minus"/></button> 
+            <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="fas fa-times"/></button>
 			</div>			
 			<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
         </div>
@@ -135,7 +138,10 @@ div.scrollmenu a:hover {
 <div class="home"><div><a href="{!! route('standardmenus.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
 </div>
 @endsection('content')
-@section('side')<div><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="fas fa-shopping-cart"title="Cart"></span></div>
-				<div><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-user"title="Account"></span></div>
-				<div><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-folder-open" title="View Projects"></span></div>
+@section('side')
+	<div><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="fas fa-shopping-cart"title="Cart"></span></div>
+	
+	<div><a href="{!! route('customers.custshow', [Auth::user()->customer->id]) !!}" style="color: inherit;"><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-user" title="View Profile"></span></a></div>
+	
+	<div><a href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}" style="color: inherit;"><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-folder-open" title="View Projects"></span></a></div>
 @endsection('side')

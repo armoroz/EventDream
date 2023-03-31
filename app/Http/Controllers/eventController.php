@@ -93,6 +93,19 @@ class eventController extends AppBaseController
 
         return view('events.show')->with('event', $event);
     }
+	
+    public function custshow($id)
+    {
+        $event = $this->eventRepository->find($id);
+
+        if (empty($event)) {
+            Flash::error('Event not found');
+
+            return redirect(route('events.index'));
+        }
+
+        return view('events.custshow')->with('event', $event);
+    }
 
     /**
      * Show the form for editing the specified event.
@@ -224,23 +237,23 @@ public function checkout()
 		$thisOrder->customerid = $request->customerid;
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
-		$productids = $request->productid;
+		$productids = $request->productid ?? [];
 		$customerid = $request->customerid;
 		$custommenuid = $request->custommenuid;
 		$standardmenuid = $request->standardmenuid;
-		/*$venueids = $request->venueid;*/
-		$quantities = $request->quantity;
+		/*$venueids = $request->venueid ?? [];*/
+		$quantities = $request->quantity ?? [];
 		for($i=0;$i<sizeof($productids);$i++) {
 			$thisOrderDetail = new \App\Models\Eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
 			$thisOrderDetail->productid = $productids[$i];
-			/*$thisOrderDetail->venueid = $venueids[$i];*/
-			$thisOrderDetail->eventproductquantity = $quantities[$i];
+			/*$thisOrderDetail->venueid = $venueids[$i] ?? null;*/
+			$thisOrderDetail->eventproductquantity = $quantities[$i] ?? 0;
 			$thisOrderDetail->save();
 		}
 		Session::forget('cart');
 		Flash::success("Your Event Order has been placed");
-		return redirect(route('products.displaygrid'));
+		return redirect(route('orderplaced'));
 	}
 
 }

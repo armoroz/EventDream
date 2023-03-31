@@ -62,7 +62,7 @@ class menuitemController extends AppBaseController
 		$selectedMenuItems = rtrim($selectedMenuItems, ", "); // remove the last comma and space
 
 		// Update the custom menu's description field with the selected menu item names
-		$thisCustomMenu->description = "Your Selected Menu Items: " . $selectedMenuItems;
+		$thisCustomMenu->description = $selectedMenuItems;
 		$thisCustomMenu->save();
 
 		foreach ($menuitems as $menuitem) {

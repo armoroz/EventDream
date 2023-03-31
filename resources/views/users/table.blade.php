@@ -22,13 +22,13 @@
                     {!! Form::open(['route' => ['users.destroy', $users->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
 					    <a href="{{ route('users.assignroles', [$users->id]) }}" class='btn btn-default btn-xs' title="Assign role">
-                            <i class="far fa-user-tag"></i>
+                            <i class="fas fa-user-tag"></i>
                         </a>
                         <a href="{{ route('users.show', [$users->id]) }}" class='btn btn-default btn-xs' title="View">
-                            <i class="far fa-eye"></i>
+                            <i class="fas fa-eye"></i>
                         </a>
                         <a href="{{ route('users.edit', [$users->id]) }}" class='btn btn-default btn-xs' title="Edit">
-                            <i class="far fa-edit"></i>
+                            <i class="fas fa-edit"></i>
                         </a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

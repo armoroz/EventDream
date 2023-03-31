@@ -1,4 +1,4 @@
-<div id="fullCalModal" class="modal" role="dialog">
+<div id="fullCalModal" class="modal" role="dialog" style="margin-top: 100px;">
   <div class="modal-dialog"> 
     <div class="modal-content"> 
       <div class="modal-header"> 
@@ -7,8 +7,8 @@
         <div class="container-fluid"> 
           <form action="{{route('events.store')}}" method="post">
             @csrf
-              <div class="form-group"> <label for="customerid">Customer</label> 
-				<input type="text" class="form-control" id="custid" name="customerid"/> 
+              <div class="form-group">
+				<input type="hidden" class="form-control" value="{{Auth::user()->customer->id}}" id="custid" name="customerid"/> 
 			  </div>
 			  <div class="form-group"> 
 				<label for="eventdate">Event Date</label> 

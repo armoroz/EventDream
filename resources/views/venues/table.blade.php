@@ -57,7 +57,7 @@
 						</a>
 						<a href="{!! route('venue.newimages', [$venue->id]) !!}" 
 						   class='btn btn-default btn-xs'>
-						   <i class="fas fa-picture"></i>
+						   <i class="fas fa-images"></i>
 						</a>
                         {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>

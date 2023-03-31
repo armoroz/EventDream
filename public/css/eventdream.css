@@ -297,6 +297,18 @@ height: 245px;
 .caption-badge.caption-warning {
 	display: none;
 }
+.caption-badge.caption-success {
+	display: none;
+}
+.caption-badge.caption-primary {
+	display: none;
+}
+.caption-badge.caption-info {
+	display: none;
+}
+.caption-badge.caption-danger {
+	display: none;
+}
 
 .bodyoptions-meni
 {

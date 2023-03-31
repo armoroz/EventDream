@@ -7,12 +7,6 @@
                 <div class="col-sm-6">
                     <h1>Event Details</h1>
                 </div>
-                <div class="col-sm-6">
-                    <a class="btn btn-default float-right"
-                       href="{{ route('events.index') }}">
-                        Back
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -22,6 +16,12 @@
             <div class="card-body">
                 <div class="row">
                     @include('events.show_fields')
+                <div class="col-sm-6" style="margin-left: 850px; margin-bottom: 0px;">
+                    <a class="btn btn-primary float-right">
+                       href="{{ route('events.index')}}">
+                        Back
+                    </a>
+                </div>					
                 </div>
             </div>
         </div>
