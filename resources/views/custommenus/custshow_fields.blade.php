@@ -66,4 +66,21 @@ margin: 0;
 </div>
 </div>
 
+<table class="table table-condensed table-bordered">
+<thead> 
+					<tr> <th>Name</th><th>Image</th><th>Price</th> </tr>
+				</thead>
+				<tbody>
+    {!! Form::label('menuitem', 'Menu Items:') !!}
+    @foreach($custommenu->menuitems as $menuitem)
+	<tr>
+        <td>{{ $menuitem->menuitemname }}</td>
+		<td><img class="img-responsive left-block" 
+	style="max-height: 100px; min-height: 100px; max-width:150px; min-width: 150px;" src="{{ $menuitem->menuitemimglink }}"></td>
+	<td>€{{$menuitem->menuitemcost}} </td>	
+	</tr>
+	</tbody>
+    @endforeach
+</table>
+
  
