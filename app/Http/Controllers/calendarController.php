@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request; 
 use \App\Models\appointment as appointment;
 use \App\Models\venueevent as venueevent;
+use \App\Models\Venue;
 class CalendarController extends Controller 
+
 { 
     public function index() 
     { 
@@ -12,7 +14,8 @@ class CalendarController extends Controller
 	
     public function vendisplay($venueid) 
     { 
-        return view('calendar.display')->with('venueid',$venueid);
+		$venue = Venue::find($venueid);
+        return view('calendar.display')->with('venueid',$venueid)->with('venue',$venue);
     }
 
 	public function json()

@@ -2,6 +2,7 @@
 @section('content') 
 @include('calendar.assets')
 @include('calendar.modalbooking')
+@include('flash::message') 
 <link href="{{ asset('core/main.css')}}" rel='stylesheet' /> 
 <link href="{{ asset('daygrid/main.css')}}" rel='stylesheet' />
 <link href="{{ asset('timegrid/main.css')}}" rel='stylesheet' /> 
