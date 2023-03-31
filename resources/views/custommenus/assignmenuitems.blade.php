@@ -90,7 +90,7 @@
 			<!-- Submit Fieldd -->
 			<div class="form-group col-sm-12">
 				{!! Form::submit('Update My Menu', ['class' => 'btn btn-primary']) !!}
-				<a href="{!! route('custommenus.index') !!}" class="btn btn-default">Cancel</a>
+				<a href="{!! route('custommenus.displaygrid') !!}" class="btn btn-default">Cancel</a>
 				{!! Form::close() !!}
 			</div>
 		</div>
