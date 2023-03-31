@@ -39,3 +39,9 @@
     {!! Form::label('userid', 'Userid:') !!}
     {!! Form::number('userid', null, ['class' => 'form-control']) !!}
 </div>
+
+<!-- Course Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('course', 'Course:') !!}
+    {!! Form::select('course', ['starter' => 'Starer', 'main' => 'Main', 'dessert' => 'Dessert'], null, ['class' => 'form-control']) !!}
+</div>

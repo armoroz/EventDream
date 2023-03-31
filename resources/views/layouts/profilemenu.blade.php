@@ -4,6 +4,9 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
         <li>
+            <a class="dropdown-item" style="font-weight: bold; font-size: 9pt;">Welcome  {{ Auth::user()->customer->firstname }}</a>
+        </li>
+		<li>
             <a class="dropdown-item" href="{!! route('customers.custshow', [Auth::user()->customer->id]) !!}">View Profile</a>
         </li>
         <li>

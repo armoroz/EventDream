@@ -2,13 +2,13 @@
     <table class="table" id="menuitems-table">
         <thead>
         <tr>
-            <th>Menuitemname</th>
+        <th>Menuitemname</th>
+		<th>Course</th>
         <th>Menuitemdesc</th>
         <th>Menuitemnutrition</th>
         <th>Menuitemallergens</th>
         <th>Menuitemcost</th>
         <th>Menuitemimglink</th>
-		<th>Upload Image</th>
         <th>Userid</th>
             <th colspan="3">Action</th>
         </tr>
@@ -16,7 +16,8 @@
         <tbody>
         @foreach($menuitems as $menuitem)
             <tr>
-                <td>{{ $menuitem->menuitemname }}</td>
+            <td>{{ $menuitem->menuitemname }}</td>
+			<td>{{ $menuitem->course }}</td>
             <td>{{ $menuitem->menuitemdesc }}</td>
             <td>{{ $menuitem->menuitemnutrition }}</td>
             <td>{{ $menuitem->menuitemallergens }}</td>

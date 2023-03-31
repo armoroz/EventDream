@@ -79,7 +79,7 @@
                     </tr>
                 </thead> 
                 <tbody> 
-                    @foreach($menuitems->where('course', 'desert') as $menuitem)
+                    @foreach($menuitems->where('course', 'dessert') as $menuitem)
                     <tr>
                         <td><img style="max-height:100px; width:100px;" src="{{ $menuitem->menuitemimglink }}"></td>
                         <td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
