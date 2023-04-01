@@ -266,6 +266,7 @@ class venueController extends Controller
 	
     public function custshow($id, Request $request)
     {
+		
         $venue = $this->venueRepository->find($id);
 		$venueimages = $venue->venueimages;
 		$venueratings = $venue->venueratings;
