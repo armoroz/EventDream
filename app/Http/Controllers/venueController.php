@@ -155,10 +155,11 @@ class venueController extends Controller
 	
 	public function displayGrid(Request $request)
 	{
-		$venues=\App\Models\venue::all();
-	
+		$venues = \App\Models\venue::all();
+		$hello = \app\Models\hello::all();
 		//hh
-		$venueimages = \App\Models\venueimages::all(); //hh
+		$venueimages = app\Models\venueimages::all();
+
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
