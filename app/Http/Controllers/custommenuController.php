@@ -85,8 +85,8 @@ class custommenuController extends AppBaseController
 
         return view('custommenus.show')->with('custommenu', $custommenu);
     }
-
-    public function custshow($id)
+	
+    public function custshow($id, Request $request)
     {
         $custommenu = $this->custommenuRepository->find($id);
 
@@ -96,8 +96,18 @@ class custommenuController extends AppBaseController
             return redirect(route('custommenus.index'));
         }
 
-        return view('custommenus.custshow')->with('custommenu', $custommenu);
-    }
+		$custommenus = \App\Models\Custommenu::all();
+		$totalItems = 0;
+
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			foreach ($cart as $custommenuId => $qty) {
+				$totalItems += $qty;
+			}
+		}
+
+		return view('custommenus.custshow', ['custommenu' => $custommenu, 'totalItems' => $totalItems]); 
+	}
 
     /**
      * Show the form for editing the specified custommenu.

@@ -3,6 +3,24 @@
 @include('flash::message') 
 @php $j=0 @endphp 
 
+<style>
+.col-sm-6 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-giveRating {
+  margin-left: auto;
+}
+
+.btn-addtoCart {
+  margin-left: 10px;
+}
+
+
+
+</style>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -21,8 +39,6 @@
               <div class="row">
                 <div class="col-sm-6">    
 					<a href="{{ route('standardmenus.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
-				</div>
-			    <div class="col-sm-6 text-right">
 			        <a href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}"><button class="btn btn-giveRating"><i class='far fa-stars'></i></button></a>
 					<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$standardmenu->id}}"><i class='far fa-shopping-cart'></i></button>
 			    </div>		

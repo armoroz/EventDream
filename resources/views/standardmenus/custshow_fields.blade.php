@@ -2,7 +2,7 @@
 
 <!-- Standardmenuname Field -->
 <div class="col-sm-12">
-    {!! Form::label('standardmenuname', 'Standardmenuname:') !!}
+    {!! Form::label('standardmenuname', 'Standard Menu Name:') !!}
     <p>{{ $standardmenu->standardmenuname }}</p>
 </div>
 

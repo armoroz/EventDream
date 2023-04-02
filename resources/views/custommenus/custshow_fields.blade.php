@@ -56,25 +56,17 @@ margin: 0;
     <span class="custom-menu-name">{{ $custommenu->custommenuname }}</span>
   </div>
 
-<div class="col-sm-12">
-  <span class="custom-menu-label">Menu Items List</span>
-  <ul class="custom-menu-list">
-    @foreach(explode(',', $custommenu->description) as $item)
-      <li><i class='fad fa-check-circle fa-lg' style='color:#419b56'></i>{{ $item }}</li>
-    @endforeach
-  </ul>
-</div>
 </div>
 
 <table class="table table-condensed table-bordered">
-<thead> 
-					<tr> <th>Name</th><th>Image</th><th>Price</th> </tr>
-				</thead>
-				<tbody>
+    <thead> 
+		<tr> <th>Name</th><th>Image</th><th>Price</th> </tr>
+	</thead>
+	<tbody>
     {!! Form::label('menuitem', 'Menu Items:') !!}
     @foreach($custommenu->menuitems as $menuitem)
 	<tr>
-        <td>{{ $menuitem->menuitemname }}</td>
+        <td><i class='fad fa-check-circle fa-lg' style='color:#419b56'></i>{{ $menuitem->menuitemname }}</td>
 		<td><img class="img-responsive left-block" 
 	style="max-height: 100px; min-height: 100px; max-width:150px; min-width: 150px;" src="{{ $menuitem->menuitemimglink }}"></td>
 	<td>€{{$menuitem->menuitemcost}} </td>	

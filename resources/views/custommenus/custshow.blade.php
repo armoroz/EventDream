@@ -18,12 +18,44 @@
             <div class="card-body">
                 <div class="row">
                     @include('custommenus.custshow_fields')
-					<div class="col-sm-6" style="margin-right:10px">
+					<div class="col-sm-6">
 						<a href="{{ route('custommenus.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
-					</div>
+						<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button>
+					</div>		
+				  </div>
                 </div>
             </div>
         </div>
     </div>
-	
-@endsection('content')  
+
+<script>	
+$(".bth,.addItem").click(function() {
+    var total = parseInt($('#shoppingcart').text());
+    var i=$(this).val();
+    $('#shoppingcart').text(total);    
+    $.ajax({
+      type: "get",
+      url: "{{url('custommenus/additem/')}}" + "/" + i,
+      type: "GET",
+      success: function(response) {
+          total=total+1;
+          $('#shoppingcart').text(response.total);
+      },
+      error: function() {
+          alert("problem communicating with the server");
+      }
+    });
+});
+
+$("#emptycart").click(function() { $.ajax({ 
+    type: "get", url: "{{ url('custommenus/emptycart')   }}",
+    success: function() { 
+        $('#shoppingcart').text(0); 
+    }, 
+    error: function() { 
+        alert("problem communicating with the server");
+    } 
+  }); 
+}); 
+</script>
+@endsection('content') 
