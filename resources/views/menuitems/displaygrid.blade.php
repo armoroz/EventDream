@@ -17,12 +17,7 @@
 
 
 <style>
-    .fixed-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 9999;
-    }
+
 	
 	.checkbox {
         margin-left: 10px;
@@ -54,7 +49,8 @@
 						<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a>
                     </div>
                     <div class="checkbox">
-                        <input type="checkbox" name="menuitems[]" value="{{ $menuitem->id }}">
+                        <input type="checkbox" id="cbox-selectMenuItems" name="menuitems[]" value="{{ $menuitem->id }}">
+						<label for="cbox-selectMenuItems"></label>
                     </div>
                 </div>
             </div>

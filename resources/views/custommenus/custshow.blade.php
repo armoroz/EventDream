@@ -20,6 +20,7 @@
                     @include('custommenus.custshow_fields')
 					<div class="col-sm-6">
 						<a href="{{ route('custommenus.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
+						<a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" class="btn btn-updateDishes" title="Update Dishes"><i class='far fa-hat-chef'></i></a>	
 						<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button>
 					</div>		
 				  </div>
