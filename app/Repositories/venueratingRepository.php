@@ -19,7 +19,8 @@ class venueratingRepository extends BaseRepository
     protected $fieldSearchable = [
         'rating',
         'comment',
-        'venueid'
+        'venueid',
+		'customerid'
     ];
 
     /**

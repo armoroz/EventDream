@@ -22,7 +22,8 @@ class standardmenuratingController extends AppBaseController
 
 	public function ratestandardmenu($standardmenuid)
 	{
-		return view('standardmenuratings.ratestandardmenu')->with('standardmenuid',$standardmenuid);
+		$customerid = auth()->user()->customer->id;
+		return view('standardmenuratings.ratestandardmenu')->with(['standardmenuid' => $standardmenuid, 'customerid' => $customerid]);
 	}
 
     /**

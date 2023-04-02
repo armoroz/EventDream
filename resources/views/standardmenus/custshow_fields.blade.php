@@ -26,15 +26,16 @@
 
 <!-- Rating Field -->
 <div class="col-sm-12">
-{!! Form::label('standardmenuratings', 'Menu Ratings:') !!}
-@foreach($standardmenuratings->slice(-3) as $standardmenurating)
-	<div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
-		<td>
-			<input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
-			data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
-		</td>
-    </div>
-@endforeach
+    {!! Form::label('standardmenuratings', 'Standard Menu Ratings:') !!}
+    @foreach($standardmenuratings->slice(-3) as $standardmenurating)
+        <div style="border-style: groove; border-color: lightgrey;">
+            <td>
+              {{ $standardmenurating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
+                data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+            {!! $standardmenurating->comment !!}
+			</td>    
+        </div>
+    @endforeach
 </div>
 
 

@@ -156,11 +156,8 @@ class venueController extends Controller
 	public function displayGrid(Request $request)
 	{
 		$venues = \App\Models\venue::all();
-		$hello = \app\Models\hello::all();
-		//hh
-		$venueimages = app\Models\venueimages::all();
+		$venueimages = \App\Models\venueimages::all();
 
-		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
         $totalQty=0;
@@ -271,9 +268,8 @@ class venueController extends Controller
     {
 		
         $venue = $this->venueRepository->find($id);
-		//hh
 		$venueratings = $venue->venueratings;
-		$venueimages = $venue->venueimages;//hh
+		$venueimages = $venue->venueimages;
 
         if (empty($venue)) {
             Flash::error('Venue not found');

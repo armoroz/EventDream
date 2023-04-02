@@ -48,15 +48,16 @@
 
 <!-- Rating Field -->
 <div class="col-sm-12">
-{!! Form::label('venueratings', 'Venue Ratings:') !!}
-@foreach($venueratings->slice(-3) as $venuerating)
-	<div><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
-		<td>
-			<input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
-			data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
-		</td>
-    </div>
-@endforeach
+    {!! Form::label('venueratings', 'Venue Ratings:') !!}
+    @foreach($venueratings->slice(-3) as $venuerating)
+        <div style="border-style: groove; border-color: lightgrey;">
+            <td>
+              {{ $venuerating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
+                data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+            {!! $venuerating->comment !!}
+			</td>    
+        </div>
+    @endforeach
 </div>
 
 <!-- Imagefile Field -->

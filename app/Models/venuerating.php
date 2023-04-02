@@ -31,7 +31,8 @@ class venuerating extends Model
     public $fillable = [
         'rating',
         'comment',
-        'venueid'
+        'venueid',
+		'customerid'
     ];
 
     /**
@@ -43,7 +44,8 @@ class venuerating extends Model
         'id' => 'integer',
         'rating' => 'integer',
         'comment' => 'string',
-        'venueid' => 'integer'
+        'venueid' => 'integer',
+		'customerid' => 'integer'
     ];
 
     /**
@@ -54,7 +56,8 @@ class venuerating extends Model
     public static $rules = [
         'rating' => 'nullable|integer',
         'comment' => 'nullable|string',
-        'venueid' => 'nullable|integer'
+        'venueid' => 'nullable|integer',
+		'customerid' => 'nullable|integer'
     ];
 
     /**
@@ -64,4 +67,10 @@ class venuerating extends Model
     {
         return $this->belongsTo(\App\Models\Venue::class, 'venueid');
     }
+	
+	public function customer()
+	{
+		return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+	}
+	
 }

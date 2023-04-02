@@ -19,7 +19,8 @@ class standardmenuratingRepository extends BaseRepository
     protected $fieldSearchable = [
         'rating',
         'comment',
-        'standardmenuid'
+        'standardmenuid',
+		'customerid'
     ];
 
     /**

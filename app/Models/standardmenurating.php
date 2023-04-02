@@ -31,7 +31,8 @@ class standardmenurating extends Model
     public $fillable = [
         'rating',
         'comment',
-        'standardmenuid'
+        'standardmenuid',
+		'customerid'
     ];
 
     /**
@@ -43,7 +44,8 @@ class standardmenurating extends Model
         'id' => 'integer',
         'rating' => 'integer',
         'comment' => 'string',
-        'standardmenuid' => 'integer'
+        'standardmenuid' => 'integer',
+		'customerid' => 'integer'
     ];
 
     /**
@@ -54,7 +56,8 @@ class standardmenurating extends Model
     public static $rules = [
         'rating' => 'nullable|integer',
         'comment' => 'nullable|string',
-        'standardmenuid' => 'nullable|integer'
+        'standardmenuid' => 'nullable|integer',
+		'customerid' => 'nullable|integer'
     ];
 
     /**
@@ -64,4 +67,10 @@ class standardmenurating extends Model
     {
         return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
     }
+	
+    public function customer()
+    {
+        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+    }
+	
 }
