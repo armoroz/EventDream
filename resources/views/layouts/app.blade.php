@@ -2,7 +2,7 @@
     <head> 
         <meta charset="UTF-8"> 
         <title>EventDream</title> 
-		<link rel="shortcut icon" href="{{ asset('img/favicon.png') }}" type="image/x-icon">
+		<link rel="shortcut icon" href="{{ asset('img/ff.png') }}" type="image/x-icon">
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'> 
 
 		<!--suppress JSUnresolvedLibraryURL -->
