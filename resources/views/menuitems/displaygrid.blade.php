@@ -49,8 +49,8 @@
 						<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a>
                     </div>
                     <div class="checkbox">
-                        <input type="checkbox" id="cbox-selectMenuItems" name="menuitems[]" value="{{ $menuitem->id }}">
-						<label for="cbox-selectMenuItems"></label>
+                        <input type="checkbox" id="cbox-selectMenuItems-{{ $menuitem->id }}" name="menuitems[]" value="{{ $menuitem->id }}">
+                        <label for="cbox-selectMenuItems-{{ $menuitem->id }}"></label>
                     </div>
                 </div>
             </div>

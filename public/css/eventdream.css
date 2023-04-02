@@ -478,19 +478,19 @@ height: 245px;
 	}
 }
 
-#cbox-selectMenuItems{
-	display: none;
+[id^="cbox-selectMenuItems"] {
+    display: none;
 }
 
-#cbox-selectMenuItems:checked ~ label{
-	background-color: #000000;
-	animation: checky 0.6s ease;
+[id^="cbox-selectMenuItems"]:checked ~ label {
+    background-color: #000000;
+    animation: checky 0.6s ease;
 }
 
-#cbox-selectMenuItems:checked ~ label::after{
-	transform: rotate(45deg) scale(1);
-	opacity: 1;
-}	
+[id^="cbox-selectMenuItems"]:checked ~ label::after {
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+}
 
 .checkbox label {
 	top: 1px;
@@ -518,4 +518,5 @@ height: 245px;
 	position: absolute;
 	transform: rotate(45deg) scale(0);
 }
+	
 	
