@@ -4,11 +4,11 @@
 <!-- Standardmenuid Field -->
 {!! Form::hidden('standardmenuid', $standardmenuid, ['class' => 'form-control', 'readonly' => 'true']) !!}
 
-
-
 <!-- Standardmenuname Field -->
-
-
+<div class="form-group col-sm-6"> 
+<input type="text" class="form-control" value="{{$standardmenu->standardmenuname}}" readonly/>
+</div>		  
+			  
 <!-- Rating Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('rating', 'Rating:') !!}

@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use \App\Models\Standardmenu;
 
 class standardmenuratingController extends AppBaseController
 {
@@ -22,8 +23,10 @@ class standardmenuratingController extends AppBaseController
 
 	public function ratestandardmenu($standardmenuid)
 	{
+		$standardmenu = \App\Models\Standardmenu::find($standardmenuid);
 		$customerid = auth()->user()->customer->id;
-		return view('standardmenuratings.ratestandardmenu')->with(['standardmenuid' => $standardmenuid, 'customerid' => $customerid]);
+		return view('standardmenuratings.ratestandardmenu')->with('standardmenuid',$standardmenuid)->with('standardmenu',$standardmenu)->with('customerid', $customerid);
+
 	}
 
     /**
