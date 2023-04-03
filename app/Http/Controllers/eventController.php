@@ -207,13 +207,13 @@ public function checkout()
 
             $lineitem = []; // Add this line to re-initialize the variable
 
-            if ($type === 'product' && $product = \App\Models\Product::find($itemId)) {
+            if ($type === 'product' && $product = \App\Models\product::find($itemId)) {
                 $lineitem['product'] = $product;
-            } elseif ($type === 'venue' && $venue = \App\Models\Venue::find($itemId)) {
+            } elseif ($type === 'venue' && $venue = \App\Models\venue::find($itemId)) {
                 $lineitem['venue'] = $venue;
-            } elseif ($type === 'standardmenu' && $standardmenu = \App\Models\StandardMenu::find($itemId)) {
+            } elseif ($type === 'standardmenu' && $standardmenu = \App\Models\standardmenu::find($itemId)) {
                 $lineitem['standardmenu'] = $standardmenu;
-            } elseif ($type === 'custommenu' && $custommenu = \App\Models\CustomMenu::find($itemId)) {
+            } elseif ($type === 'custommenu' && $custommenu = \App\Models\custommenu::find($itemId)) {
                 $lineitem['custommenu'] = $custommenu;
             } else {
                 continue; // Skip if no matching model is found
