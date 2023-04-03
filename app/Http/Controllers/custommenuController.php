@@ -163,7 +163,7 @@ class custommenuController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $custommenu = $this->custommenuRepository->find($id);
 
@@ -178,9 +178,29 @@ class custommenuController extends AppBaseController
         Flash::success('Custommenu deleted successfully.');
 
         return redirect(route('custommenus.index'));
-    }
-	
-	
+    }*/
+
+	public function destroy($id)
+	{
+		$custommenu = $this->custommenuRepository->find($id);
+
+		if (empty($custommenu)) {
+			Flash::error('Custommenu not found');
+			return redirect(route('custommenus.index'));
+		}
+
+		// Delete all custom menu logs for the custom menu
+		$custommenu->customMenuLogs()->delete();
+
+		// Delete the custom menu itself
+		$this->custommenuRepository->delete($id);
+
+		Flash::success('Your custom menu has been deleted');
+
+		return redirect(route('custommenus.displaygrid'));
+	}
+
+
 	public function displayGrid(Request $request)
 	{
 		$custommenus=\App\Models\Custommenu::all();

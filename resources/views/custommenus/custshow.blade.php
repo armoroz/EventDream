@@ -23,6 +23,7 @@
 						<a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" class="btn btn-updateDishes" title="Update Dishes"><i class='far fa-hat-chef'></i></a>	
 						{!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete']) !!}
 						<div class='btn-group'>{!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}</div>
+						{!! Form::close() !!}
 						<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button>
 					</div>	
                 </div>
@@ -60,15 +61,6 @@ $("#emptycart").click(function() { $.ajax({
     } 
   }); 
 }); 
-
-const delete-btn = document.querySelector('.delete-btn')
-const frontflip = document.querySelector('.frontflip')
-const YES-btn = document.querySelector('.yesOption-btn')
-const NO-btn = document.querySelector('noOption-btn')
-
-front.addEventListener('click', function(){
-	delete-btn.classList.add('open')
-})
 
 </script>
 @endsection('content') 
