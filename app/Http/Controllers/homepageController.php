@@ -17,6 +17,7 @@ class homepageController extends Controller
 		$venueimages = \App\Models\venueimages::all();
 		$standardmenuimages = \App\Models\standardmenuimages::all();
 		$venuerating = \App\Models\venuerating::all();
+		$standardmenurating = \App\Models\standardmenurating::all();
 		
 		if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
@@ -43,6 +44,7 @@ class homepageController extends Controller
 			->with('venues', $venues)
 			->with('venueimages', $venueimages)
 			->with('venuerating', $venuerating)
+			->with('standardmenurating', $standardmenurating)
 			->with('standardmenuimages', $standardmenuimages)
             ->with('totalItems',$totalItems);
     }	
