@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
-use App\Models\venueimages;
+use App\Models\venueimages as venueimages;
+use App\Models\venuerating as venueratings;
 
 class venueController extends Controller
 {
