@@ -261,6 +261,7 @@ public function additem($standardmenuid)
         $standardmenu = $this->standardmenuRepository->find($id);
 		$standardmenuimages = \App\Models\standardmenuimages::all();
 		$standardmenuratings = \App\Models\standardmenurating::all();
+		$menuitems = \App\Models\menuitem::all();
 		$standardmenulogs = $standardmenu->standardmenulogs;
 
         if (empty($standardmenu)) {
@@ -279,7 +280,7 @@ public function additem($standardmenuid)
 			}
 		}
 
-		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages, 'standardmenuratings' => $standardmenuratings, 'standardmenulogs' => $standardmenulogs]);
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages, 'standardmenuratings' => $standardmenuratings, 'standardmenulogs' => $standardmenulogs, 'menuitems' => $menuitems]);
 	}
 	
 	public function assignMenuItems($id)
