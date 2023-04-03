@@ -25,6 +25,8 @@ class venueController extends Controller
 	{
 		$searchquery=$request->searchquery;
 		$venues=\App\Models\venue::where('venuename','LIKE','%'.$searchquery.'%')->get(); 
+	
+		
 		$venueimages = \App\Models\venueimages::all();
 		
 		if ($request->session()->has('cart')) {
@@ -157,6 +159,7 @@ class venueController extends Controller
 	{
 		$venues = \App\Models\venue::all();
 		$venueimages = \App\Models\venueimages::all();
+
 
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
