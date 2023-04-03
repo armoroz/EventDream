@@ -259,8 +259,8 @@ public function additem($standardmenuid)
     public function custshow($id, Request $request)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
-        $standardmenuimages = $standardmenu->standardmenuimages;
-		$standardmenuratings = $standardmenu->standardmenuratings;
+		$standardmenuimages = \App\Models\standardmenuimages::all();
+		$standardmenurating = \App\Models\standardmenurating::all();
 		$standardmenulogs = $standardmenu->standardmenulogs;
 
         if (empty($standardmenu)) {
