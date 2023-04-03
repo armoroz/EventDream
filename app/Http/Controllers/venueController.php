@@ -11,7 +11,7 @@ use Flash;
 use Response;
 use Session;
 use App\Models\venueimages as venueimages;
-use App\Models\venuerating as venueratings;
+use App\Models\venuerating as venuerating;
 
 class venueController extends Controller
 {
@@ -57,10 +57,12 @@ class venueController extends Controller
      */
     public function index(Request $request)
     {
+		$venuerating = \App\Models\venuerating::all();
+		$venueimages = \App\Models\venueimages::all();
         $venues = $this->venueRepository->all();
 
-        return view('venues.index')
-            ->with('venues', $venues);
+        return view('venues.index')->with('venues', $venues)->with('venueimages', $venueimages)
+			->with('venuerating', $venuerating);
     }
 
     /**
@@ -101,6 +103,7 @@ class venueController extends Controller
     public function show($id)
     {
         $venue = $this->venueRepository->find($id);
+		$venuerating = \App\Models\venuerating::all();
 		$venueimages = $venue->venueimages;
 
         if (empty($venue)) {
@@ -109,7 +112,7 @@ class venueController extends Controller
             return redirect(route('venues.index'));
         }
 
-        return view('venues.show')->with('venue', $venue)->with('venueimages',$venueimages);
+        return view('venues.show')->with('venue', $venue)->with('venueimages',$venueimages)->with('venuerating', $venuerating);
     }
 
     /**
@@ -161,6 +164,7 @@ class venueController extends Controller
 	{
 		$venues = \App\Models\venue::all();
 		$venueimages = \App\Models\venueimages::all();
+		$venuerating = \App\Models\venuerating::all();
 
 
 		if ($request->session()->has('cart')) {
@@ -175,7 +179,7 @@ class venueController extends Controller
 			$totalItems=0;
 
 		}
-		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages);
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages)->with('venuerating', $venuerating);
 		
 	}
 
