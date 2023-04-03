@@ -49,14 +49,14 @@ class menuitemController extends AppBaseController
 	public function newstandardmenu(Request $request)
 	{
 		$menuitems = $request->menuitems;
-		$thisCustomMenu = new \App\Models\CustomMenu();
+		$thisCustomMenu = new \App\Models\custommenu();
 		$thisCustomMenu->save();
 		$custommenuID = $thisCustomMenu->id;
 
 		// Build a string containing the selected menu item names
 		$selectedMenuItems = "";
 		foreach ($menuitems as $menuitem) {
-			$menuitemname = \App\Models\MenuItem::find($menuitem)->menuitemname;
+			$menuitemname = \App\Models\menuitem::find($menuitem)->menuitemname;
 			$selectedMenuItems .= $menuitemname . ", ";
 		}
 		$selectedMenuItems = rtrim($selectedMenuItems, ", "); // remove the last comma and space
@@ -66,7 +66,7 @@ class menuitemController extends AppBaseController
 		$thisCustomMenu->save();
 
 		foreach ($menuitems as $menuitem) {
-			$thisCustomMenuDetail = new \App\Models\CustomMenulog();
+			$thisCustomMenuDetail = new \App\Models\custommenulog();
 			$thisCustomMenuDetail->custommenuid = $custommenuID;
 			$thisCustomMenuDetail->menuitemid = $menuitem;
 
@@ -84,7 +84,7 @@ class menuitemController extends AppBaseController
 	
 	public function placeorder(Request $request)
 	{
-		$thisOrder = new \App\Models\Event();
+		$thisOrder = new \App\Models\event();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
@@ -92,7 +92,7 @@ class menuitemController extends AppBaseController
 		/*$venueids = $request->venueid;*/
 		$quantities = $request->quantity;
 		for($i=0;$i<sizeof($productids);$i++) {
-			$thisOrderDetail = new \App\Models\Eventproductlog();
+			$thisOrderDetail = new \App\Models\eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
 			$thisOrderDetail->productid = $productids[$i];
 			/*$thisOrderDetail->venueid = $venueids[$i];*/
@@ -223,7 +223,7 @@ class menuitemController extends AppBaseController
 	
 	public function displayGrid(Request $request)
 	{
-		$menuitems=\App\Models\Menuitem::all();
+		$menuitems=\App\Models\menuitem::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -251,7 +251,7 @@ class menuitemController extends AppBaseController
             return redirect(route('menuitems.index'));
         }
 
-		$menuitems = \App\Models\Menuitem::all();
+		$menuitems = \App\Models\menuitem::all();
 		
 
 		return view('menuitems.custshow', ['menuitem' => $menuitem]);

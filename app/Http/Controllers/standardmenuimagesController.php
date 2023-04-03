@@ -58,7 +58,7 @@ class standardmenuimagesController extends AppBaseController
             $files = $request->file('imagefile');
             $i=0;
             foreach ($files as $file) {
-                $standardmenuimage = new \App\Models\Standardmenuimages();
+                $standardmenuimage = new \App\Models\standardmenuimages();
                 $standardmenuimage->standardmenuid = $request->standardmenuid;
                 $standardmenuimage->imagefile = base64_encode(file_get_contents($file));
                 if (!$standardmenuimage->save()) {

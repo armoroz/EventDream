@@ -54,9 +54,12 @@ class standardmenuController extends AppBaseController
     public function index(Request $request)
     {
         $standardmenus = $this->standardmenuRepository->all();
+		$standardmenuimages = \App\Models\standardmenuimages::all();
+		$standardmenurating = \App\Models\standardmenurating::all();
+		
 
         return view('standardmenus.index')
-            ->with('standardmenus', $standardmenus);
+            ->with('standardmenus', $standardmenus)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating);
     }
 
     /**
