@@ -141,9 +141,5 @@ div.scrollmenu a:hover {
 @section('side')
 	<div><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="fas fa-shopping-cart"title="Cart"></span></div>
 	
-	@if(Auth::check())
-	<div><a href="{!! route('customers.custshow', [Auth::user()->customer->id]) !!}" style="color: inherit;"><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-user" title="View Profile"></span></a></div>
-	
-	<div><a href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}" style="color: inherit;"><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-folder-open" title="View Projects"></span></a></div>
-	@endif
+
 @endsection('side')
