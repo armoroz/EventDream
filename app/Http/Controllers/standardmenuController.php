@@ -188,7 +188,7 @@ class standardmenuController extends AppBaseController
      *
      * @return Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
 
@@ -203,7 +203,27 @@ class standardmenuController extends AppBaseController
         Flash::success('Standardmenu deleted successfully.');
 
         return redirect(route('standardmenus.index'));
-    }
+    }*/
+	
+	public function destroy($id)
+	{
+		$standardmenu = $this->standardmenuRepository->find($id);
+
+		if (empty($standardmenu)) {
+			Flash::error('Standardmenu not found');
+			return redirect(route('standardmenus.index'));
+		}
+
+		// Delete all standard menu logs for the standard menu
+		$standardmenu->standardMenuLogs()->delete();
+
+		// Delete the standard menu itself
+		$this->standardmenuRepository->delete($id);
+
+		Flash::success('Standard Menu and relevant logs deleted successfully.');
+
+		return redirect(route('standardmenus.index'));
+	}
 	
 public function additem($standardmenuid)
 {
