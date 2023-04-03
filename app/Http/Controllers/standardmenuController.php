@@ -165,6 +165,8 @@ class standardmenuController extends AppBaseController
 	public function displayGrid(Request $request)
 	{
 		$standardmenus=\App\Models\Standardmenu::all();
+		$standardmenuimages = \App\Models\standardmenuimages::all();
+		$standardmenurating = \App\Models\standardmenurating::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -178,7 +180,7 @@ class standardmenuController extends AppBaseController
 			$totalItems=0;
 
 		}
-		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems);
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating);
 		
 	}
 	
