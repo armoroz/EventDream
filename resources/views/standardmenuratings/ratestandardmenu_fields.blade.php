@@ -2,10 +2,12 @@
 {!! Form::hidden('customerid', $customerid, ['class' => 'form-control', 'readonly' => 'true']) !!}
 
 <!-- Standardmenuid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('standardmenuid', 'Standardmenuid:') !!}
-    {!! Form::number('standardmenuid', $standardmenuid, ['class' => 'form-control', 'readonly' => 'true']) !!}
-</div>
+{!! Form::hidden('standardmenuid', $standardmenuid, ['class' => 'form-control', 'readonly' => 'true']) !!}
+
+
+
+<!-- Standardmenuname Field -->
+
 
 <!-- Rating Field -->
 <div class="form-group col-sm-6">
