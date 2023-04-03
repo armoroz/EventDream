@@ -278,7 +278,7 @@ class venueController extends Controller
 		
         $venue = $this->venueRepository->find($id);
 		$venueimages = \App\Models\venueimages::all();
-		$venuerating = \App\Models\venuerating::all();
+		$venueratings = \App\Models\venuerating::all();
 
         if (empty($venue)) {
             Flash::error('Venue not found');
