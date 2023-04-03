@@ -260,7 +260,7 @@ public function additem($standardmenuid)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
 		$standardmenuimages = \App\Models\standardmenuimages::all();
-		$standardmenurating = \App\Models\standardmenurating::all();
+		$standardmenuratings = \App\Models\standardmenurating::all();
 		$standardmenulogs = $standardmenu->standardmenulogs;
 
         if (empty($standardmenu)) {
