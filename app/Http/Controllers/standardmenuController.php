@@ -12,6 +12,7 @@ use Response;
 use Session;
 use App\Models\Standardmenu as Standardmenu;
 use App\Models\Menuitem as Menuitem;
+use App\Models\customer;
 
 class standardmenuController extends AppBaseController
 {

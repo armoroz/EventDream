@@ -12,6 +12,7 @@ use Response;
 use Session;
 use App\Models\venueimages as venueimages;
 use App\Models\venuerating as venuerating;
+use App\Models\customer;
 
 class venueController extends Controller
 {
