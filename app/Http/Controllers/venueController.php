@@ -12,7 +12,6 @@ use Response;
 use Session;
 use App\Models\venueimages as venueimages;
 use App\Models\venuerating as venuerating;
-use App\Models\customer;
 
 class venueController extends Controller
 {
@@ -166,6 +165,7 @@ class venueController extends Controller
 		$venues = \App\Models\venue::all();
 		$venueimages = \App\Models\venueimages::all();
 		$venuerating = \App\Models\venuerating::all();
+		$customers=\App\Models\customer::all();
 
 
 		if ($request->session()->has('cart')) {
@@ -180,7 +180,7 @@ class venueController extends Controller
 			$totalItems=0;
 
 		}
-		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages)->with('venuerating', $venuerating);
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages)->with('venuerating', $venuerating)->with('customers', $customers);
 		
 	}
 
@@ -280,6 +280,7 @@ class venueController extends Controller
         $venue = $this->venueRepository->find($id);
 		$venueimages = \App\Models\venueimages::all();
 		$venueratings = \App\Models\venuerating::all();
+		$customers=\App\Models\customer::all();
 
         if (empty($venue)) {
             Flash::error('Venue not found');
@@ -297,7 +298,7 @@ class venueController extends Controller
 			}
 		}
 
-		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems, 'venueimages' => $venueimages, 'venueratings' => $venueratings]);
+		return view('venues.custshow', ['venue' => $venue, 'totalItems' => $totalItems, 'venueimages' => $venueimages, 'venueratings' => $venueratings, 'customers' => $customers]);
 	}
 
 }

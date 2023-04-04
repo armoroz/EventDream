@@ -15,7 +15,8 @@ class CalendarController extends Controller
     public function vendisplay($venueid) 
     { 
 		$venue = venue::find($venueid);
-        return view('calendar.display')->with('venueid',$venueid)->with('venue',$venue);
+		$customers=\App\Models\customer::all();
+        return view('calendar.display')->with('venueid',$venueid)->with('venue',$venue)->with('customers',$customers);
     }
 
 	public function json()
