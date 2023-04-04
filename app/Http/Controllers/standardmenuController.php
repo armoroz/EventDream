@@ -168,6 +168,7 @@ class standardmenuController extends AppBaseController
 		$standardmenus=\App\Models\Standardmenu::all();
 		$standardmenuimages = \App\Models\standardmenuimages::all();
 		$standardmenurating = \App\Models\standardmenurating::all();
+		$customers=\App\Models\customer::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -181,7 +182,7 @@ class standardmenuController extends AppBaseController
 			$totalItems=0;
 
 		}
-		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating);
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating)>with('customers', $customers);
 		
 	}
 	
@@ -264,6 +265,7 @@ public function additem($standardmenuid)
 		$standardmenuratings = \App\Models\standardmenurating::all();
 		$menuitems = \App\Models\menuitem::all();
 		$standardmenulogs = $standardmenu->standardmenulogs;
+		$customers=\App\Models\customer::all();
 
         if (empty($standardmenu)) {
             Flash::error('Standard Menu not found');
@@ -281,7 +283,7 @@ public function additem($standardmenuid)
 			}
 		}
 
-		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages, 'standardmenuratings' => $standardmenuratings, 'standardmenulogs' => $standardmenulogs, 'menuitems' => $menuitems]);
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages, 'standardmenuratings' => $standardmenuratings, 'standardmenulogs' => $standardmenulogs, 'menuitems' => $menuitems, 'customers' => $customers]);
 	}
 	
 	public function assignMenuItems($id)
