@@ -3,7 +3,9 @@
         <meta charset="UTF-8"> 
         <title>EventDream</title> 
 		<link rel="shortcut icon" href="{{ asset('img/ff.png') }}" type="image/x-icon">
-		<link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon.png') }}">
+		<link rel="apple-touch-icon" href="{{ asset('img/fff.png') }}">
+		<link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/android-chrome-192x192.png') }}">
+		<link rel="icon" type="image/png" sizes="512x512" href="{{ asset('img/android-chrome-512x512.png') }}">
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'> 
 
 		<!--suppress JSUnresolvedLibraryURL -->
