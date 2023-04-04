@@ -182,7 +182,7 @@ class standardmenuController extends AppBaseController
 			$totalItems=0;
 
 		}
-		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating)>with('customers', $customers);
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating)->with('customers', $customers);
 		
 	}
 	
