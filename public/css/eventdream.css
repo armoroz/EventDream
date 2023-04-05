@@ -519,4 +519,8 @@ height: 245px;
 	transform: rotate(45deg) scale(0);
 }
 	
-	
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}	

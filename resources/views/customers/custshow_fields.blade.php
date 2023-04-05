@@ -23,9 +23,9 @@ tr:nth-child(even) {
 
 <table>
   <tr>
-    <th>Deets</th>
+    <th>Details</th>
     <th>Address</th>
-    <th>Card</th>
+    <th>Card Information</th>
   </tr>
   <tr>
     <td>{!! Form::label('firstname', 'Firstname:') !!} <strong>{{ $customer->firstname }}</strong></td>
