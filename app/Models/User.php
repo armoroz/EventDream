@@ -47,6 +47,6 @@ class User extends Authenticatable
 	
 	public function customer()
 	{
-		return $this->hasOne(\App\Models\Customer::class, 'userid');
+		return $this->hasOne(\App\Models\customer::class, 'userid');
 	}
 }
