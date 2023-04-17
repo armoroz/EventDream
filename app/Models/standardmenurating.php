@@ -65,12 +65,12 @@ class standardmenurating extends Model
      **/
     public function standardmenuid()
     {
-        return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
+        return $this->belongsTo(\App\Models\standardmenu::class, 'standardmenuid');
     }
 	
     public function customer()
     {
-        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+        return $this->belongsTo(\App\Models\customer::class, 'customerid');
     }
 	
 }

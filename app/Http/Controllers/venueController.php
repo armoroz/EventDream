@@ -163,9 +163,6 @@ class venueController extends Controller
 	public function displayGrid(Request $request)
 	{
 		$venues = \App\Models\venue::all();
-		$venueimages = \App\Models\venueimages::all();
-		$venuerating = \App\Models\venuerating::all();
-		$customers=\App\Models\customer::all();
 
 
 		if ($request->session()->has('cart')) {
@@ -180,7 +177,7 @@ class venueController extends Controller
 			$totalItems=0;
 
 		}
-		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems)->with('venueimages',$venueimages)->with('venuerating', $venuerating)->with('customers', $customers);
+		return view('venues.displaygrid')->with('venues',$venues)->with('totalItems',$totalItems);
 		
 	}
 

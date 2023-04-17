@@ -70,7 +70,7 @@ class booking extends Model
      **/
     public function productid()
     {
-        return $this->belongsTo(\App\Models\Product::class, 'productid');
+        return $this->belongsTo(\App\Models\product::class, 'productid');
     }
 
     /**
@@ -78,6 +78,6 @@ class booking extends Model
      **/
     public function venueid()
     {
-        return $this->belongsTo(\App\Models\Venue::class, 'venueid');
+        return $this->belongsTo(\App\Models\venue::class, 'venueid');
     }
 }

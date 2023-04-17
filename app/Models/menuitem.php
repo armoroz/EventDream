@@ -91,7 +91,7 @@ class menuitem extends Model
      **/
     public function custommenus()
     {
-        return $this->belongsToMany(\App\Models\Custommenu::class, 'custommenulog','custommenuid','menuitemid');
+        return $this->belongsToMany(\App\Models\custommenu::class, 'custommenulog','custommenuid','menuitemid');
     }
 
     /**
@@ -99,7 +99,7 @@ class menuitem extends Model
      **/
     public function custommenulogs()
     {
-        return $this->hasMany(\App\Models\Custommenulog::class, 'menuitemid');
+        return $this->hasMany(\App\Models\custommenulog::class, 'menuitemid');
     }
 
     /**
@@ -107,7 +107,7 @@ class menuitem extends Model
      **/
     public function standardmenus()
     {
-        return $this->belongsToMany(\App\Models\Standardmenu::class, 'standardmenulog','standardmenuid','menuitemid');
+        return $this->belongsToMany(\App\Models\standardmenu::class, 'standardmenulog','standardmenuid','menuitemid');
     }
 
     /**
@@ -115,7 +115,7 @@ class menuitem extends Model
      **/
     public function standardmenulogs()
     {
-        return $this->hasMany(\App\Models\Standardmenulog::class, 'menuitemid');
+        return $this->hasMany(\App\Models\standardmenulog::class, 'menuitemid');
     }
 	
 	public function __toString()

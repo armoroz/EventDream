@@ -80,12 +80,12 @@ class standardmenu extends Model
      **/
     public function standardmenuratings()
     {
-        return $this->hasMany(\App\Models\Standardmenurating::class, 'standardmenuid');
+        return $this->hasMany(\App\Models\standardmenurating::class, 'standardmenuid');
     }
 
     public function events()
     {
-        return $this->hasMany(\App\Models\Event::class, 'standardmenuid');
+        return $this->hasMany(\App\Models\event::class, 'standardmenuid');
     }
 
     /**
@@ -93,11 +93,11 @@ class standardmenu extends Model
      **/
     public function menuitems()
     {
-        return $this->belongsToMany(\App\Models\Menuitem::class, 'standardmenulog','standardmenuid','menuitemid');
+        return $this->belongsToMany(\App\Models\menuitem::class, 'standardmenulog','standardmenuid','menuitemid');
     }
 	
 	public function standardmenuimages()
 	{
-		return $this->hasMany(\App\Models\Standardmenuimages::class, 'standardmenuid');
+		return $this->hasMany(\App\Models\standardmenuimages::class, 'standardmenuid');
 	}
 }

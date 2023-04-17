@@ -92,7 +92,7 @@ class product extends Model
      **/
     public function bookings()
     {
-        return $this->hasMany(\App\Models\Booking::class, 'productid');
+        return $this->hasMany(\App\Models\booking::class, 'productid');
     }
 
     /**
@@ -100,7 +100,7 @@ class product extends Model
      **/
     public function eventproductlogs()
     {
-        return $this->hasMany(\App\Models\Eventproductlog::class, 'productid');
+        return $this->hasMany(\App\Models\eventproductlog::class, 'productid');
     }
 	
 	public function __toString()

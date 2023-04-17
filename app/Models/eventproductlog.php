@@ -67,7 +67,7 @@ class eventproductlog extends Model
      **/
     public function eventid()
     {
-        return $this->belongsTo(\App\Models\Event::class, 'eventid');
+        return $this->belongsTo(\App\Models\event::class, 'eventid');
     }
 
     /**
@@ -75,6 +75,6 @@ class eventproductlog extends Model
      **/
     public function productid()
     {
-        return $this->belongsTo(\App\Models\Product::class, 'productid');
+        return $this->belongsTo(\App\Models\product::class, 'productid');
     }
 }

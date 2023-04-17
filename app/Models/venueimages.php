@@ -57,6 +57,6 @@ class venueimages extends Model
      **/
     public function venueid()
     {
-        return $this->belongsTo(\App\Models\Venue::class, 'venueid');
+        return $this->belongsTo(\App\Models\venue::class, 'venueid');
     }
 }

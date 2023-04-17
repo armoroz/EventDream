@@ -59,7 +59,7 @@ class custommenulog extends Model
      **/
     public function menuitemid()
     {
-        return $this->belongsTo(\App\Models\Menuitem::class, 'menuitemid');
+        return $this->belongsTo(\App\Models\menuitem::class, 'menuitemid');
     }
 
     /**
@@ -67,6 +67,6 @@ class custommenulog extends Model
      **/
     public function custommenuid()
     {
-        return $this->belongsTo(\App\Models\Custommenu::class, 'custommenuid');
+        return $this->belongsTo(\App\Models\custommenu::class, 'custommenuid');
     }
 }

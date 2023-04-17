@@ -62,7 +62,7 @@ class custommenu extends Model
      **/
     public function custommenulogs()
     {
-        return $this->hasMany(\App\Models\Custommenulog::class, 'custommenuid');
+        return $this->hasMany(\App\Models\custommenulog::class, 'custommenuid');
     }
 
     /**
@@ -70,7 +70,7 @@ class custommenu extends Model
      **/
     public function events()
     {
-        return $this->hasMany(\App\Models\Event::class, 'custommenuid');
+        return $this->hasMany(\App\Models\event::class, 'custommenuid');
     }
 	
     /**
@@ -78,12 +78,12 @@ class custommenu extends Model
      **/
     public function menuitems()
     {
-        return $this->belongsToMany(\App\Models\Menuitem::class, 'custommenulog','custommenuid','menuitemid');
+        return $this->belongsToMany(\App\Models\menuitem::class, 'custommenulog','custommenuid','menuitemid');
     }
 	
     public function customerid()
     {
-        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+        return $this->belongsTo(\App\Models\customer::class, 'customerid');
     }
 
 }

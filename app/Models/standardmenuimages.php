@@ -57,6 +57,6 @@ class standardmenuimages extends Model
      **/
     public function standardmenuid()
     {
-        return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
+        return $this->belongsTo(\App\Models\standardmenu::class, 'standardmenuid');
     }
 }

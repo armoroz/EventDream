@@ -14,11 +14,6 @@ class homepageController extends Controller
         $products=\App\Models\product::all();
         $standardmenus=\App\Models\standardmenu::all();
         $venues=\App\Models\venue::all();
-		$venueimages = \App\Models\venueimages::all();
-		$standardmenuimages = \App\Models\standardmenuimages::all();
-		$venuerating = \App\Models\venuerating::all();
-		$standardmenurating = \App\Models\standardmenurating::all();
-		$customers=\App\Models\customer::all();
 		
 		if ($request->session()->has('cart')) {
             $cart = $request->session()->get('cart');
@@ -43,11 +38,6 @@ class homepageController extends Controller
             ->with('products', $products)
             ->with('standardmenus', $standardmenus)
 			->with('venues', $venues)
-			->with('customers', $customers)
-			->with('venueimages', $venueimages)
-			->with('venuerating', $venuerating)
-			->with('standardmenurating', $standardmenurating)
-			->with('standardmenuimages', $standardmenuimages)
             ->with('totalItems',$totalItems);
     }	
 	

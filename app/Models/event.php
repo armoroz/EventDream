@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Model as Model;
  * @property integer $userid
  * @property integer $standardmenuid
  * @property integer $custommenuid
- * @property integer $deliveryid
  */
 class event extends Model
 {
@@ -52,8 +51,7 @@ class event extends Model
         'customerid',
         'userid',
         'standardmenuid',
-        'custommenuid',
-        'deliveryid'
+        'custommenuid'
     ];
 
     /**
@@ -71,8 +69,7 @@ class event extends Model
         'customerid' => 'integer',
         'userid' => 'integer',
         'standardmenuid' => 'integer',
-        'custommenuid' => 'integer',
-        'deliveryid' => 'integer'
+        'custommenuid' => 'integer'
     ];
 
     /**
@@ -90,8 +87,7 @@ class event extends Model
         'customerid' => 'nullable|integer',
         'userid' => 'nullable|integer',
         'standardmenuid' => 'nullable|integer',
-        'custommenuid' => 'nullable|integer',
-        'deliveryid' => 'nullable|integer'
+        'custommenuid' => 'nullable|integer'
     ];
 
     /**
@@ -99,7 +95,7 @@ class event extends Model
      **/
     public function venueid()
     {
-        return $this->belongsTo(\App\Models\Venue::class, 'venueid');
+        return $this->belongsTo(\App\Models\venue::class, 'venueid');
     }
 
     /**
@@ -107,7 +103,7 @@ class event extends Model
      **/
     public function customerid()
     {
-        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+        return $this->belongsTo(\App\Models\customer::class, 'customerid');
     }
 
     /**
@@ -123,7 +119,7 @@ class event extends Model
      **/
     public function standardmenuid()
     {
-        return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
+        return $this->belongsTo(\App\Models\standardmenu::class, 'standardmenuid');
     }
 
     /**
@@ -131,22 +127,15 @@ class event extends Model
      **/
     public function custommenuid()
     {
-        return $this->belongsTo(\App\Models\Custommenu::class, 'custommenuid');
+        return $this->belongsTo(\App\Models\custommenu::class, 'custommenuid');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function deliveryid()
-    {
-        return $this->belongsTo(\App\Models\Delivery::class, 'deliveryid');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
     public function eventproductlogs()
     {
-        return $this->hasMany(\App\Models\Eventproductlog::class, 'eventid');
+        return $this->hasMany(\App\Models\eventproductlog::class, 'eventid');
     }
 }

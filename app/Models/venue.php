@@ -102,7 +102,7 @@ class venue extends Model
      **/
     public function bookings()
     {
-        return $this->hasMany(\App\Models\Booking::class, 'venueid');
+        return $this->hasMany(\App\Models\booking::class, 'venueid');
     }
 
     /**
@@ -110,7 +110,7 @@ class venue extends Model
      **/
     public function events()
     {
-        return $this->hasMany(\App\Models\Event::class, 'venueid');
+        return $this->hasMany(\App\Models\event::class, 'venueid');
     }
 
     /**
@@ -118,7 +118,7 @@ class venue extends Model
      **/
     public function venueratings()
     {
-        return $this->hasMany(\App\Models\Venuerating::class, 'venueid');
+        return $this->hasMany(\App\Models\venuerating::class, 'venueid');
     }
 	
 	public function getNameAttribute()
@@ -135,6 +135,6 @@ class venue extends Model
 	
 	public function venueimages()
 	{
-		return $this->hasMany(\App\Models\Venueimages::class, 'venueid');
+		return $this->hasMany(\App\Models\venueimages::class, 'venueid');
 	}
 }

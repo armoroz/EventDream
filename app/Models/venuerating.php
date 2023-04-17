@@ -65,12 +65,12 @@ class venuerating extends Model
      **/
     public function venueid()
     {
-        return $this->belongsTo(\App\Models\Venue::class, 'venueid');
+        return $this->belongsTo(\App\Models\venue::class, 'venueid');
     }
 	
 	public function customer()
 	{
-		return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+		return $this->belongsTo(\App\Models\customer::class, 'customerid');
 	}
 	
 }

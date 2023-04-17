@@ -55,12 +55,10 @@ class standardmenuController extends AppBaseController
     public function index(Request $request)
     {
         $standardmenus = $this->standardmenuRepository->all();
-		$standardmenuimages = \App\Models\standardmenuimages::all();
-		$standardmenurating = \App\Models\standardmenurating::all();
 		
 
         return view('standardmenus.index')
-            ->with('standardmenus', $standardmenus)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating);
+            ->with('standardmenus', $standardmenus);
     }
 
     /**
@@ -166,9 +164,6 @@ class standardmenuController extends AppBaseController
 	public function displayGrid(Request $request)
 	{
 		$standardmenus=\App\Models\Standardmenu::all();
-		$standardmenuimages = \App\Models\standardmenuimages::all();
-		$standardmenurating = \App\Models\standardmenurating::all();
-		$customers=\App\Models\customer::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -182,7 +177,7 @@ class standardmenuController extends AppBaseController
 			$totalItems=0;
 
 		}
-		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('standardmenuimages', $standardmenuimages)->with('standardmenurating', $standardmenurating)->with('customers', $customers);
+		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems);
 		
 	}
 	
@@ -261,11 +256,7 @@ public function additem($standardmenuid)
     public function custshow($id, Request $request)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
-		$standardmenuimages = \App\Models\standardmenuimages::all();
-		$standardmenuratings = \App\Models\standardmenurating::all();
-		$menuitems = \App\Models\menuitem::all();
 		$standardmenulogs = $standardmenu->standardmenulogs;
-		$customers=\App\Models\customer::all();
 
         if (empty($standardmenu)) {
             Flash::error('Standard Menu not found');
@@ -283,7 +274,7 @@ public function additem($standardmenuid)
 			}
 		}
 
-		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenuimages' => $standardmenuimages, 'standardmenuratings' => $standardmenuratings, 'standardmenulogs' => $standardmenulogs, 'menuitems' => $menuitems, 'customers' => $customers]);
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenulogs' => $standardmenulogs]);
 	}
 	
 	public function assignMenuItems($id)

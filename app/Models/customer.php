@@ -110,7 +110,7 @@ class customer extends Model
      **/
     public function events()
     {
-        return $this->hasMany(\App\Models\Event::class, 'customerid');
+        return $this->hasMany(\App\Models\event::class, 'customerid');
     }
 	
 	public function user()
