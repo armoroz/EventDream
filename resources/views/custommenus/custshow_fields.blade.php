@@ -69,7 +69,7 @@ margin: 0;
         <td><i class='fad fa-check-circle fa-lg' style='color:#419b56'></i>{{ $menuitem->menuitemname }}</td>
 		<td><img class="img-responsive left-block" 
 	style="max-height: 100px; min-height: 100px; max-width:150px; min-width: 150px;" src="{{ $menuitem->menuitemimglink }}"></td>
-	<td>€{{$menuitem->menuitemcost}} </td>	
+	<td>€{{$menuitem->menuitemcost}} </td>	 
 	</tr>
 	</tbody>
     @endforeach

@@ -23,7 +23,7 @@
 						<a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" class="btn btn-updateDishes" title="Update Dishes"><i class='far fa-hat-chef'></i></a>	
 						{!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete']) !!}
 						<div class='btn-group'>{!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}</div>
-						{!! Form::close() !!}
+						{!! Form::close() !!} 
 						<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button>
 					</div>	
                 </div>
