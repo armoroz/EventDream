@@ -41,16 +41,25 @@ class CalendarController extends Controller
 	}*/
 	
 	
-	public function venuejson($venueid)
-	{
-		//$this->view->disable();
-		$content = venueevent::where('venueid',$venueid)->get();
-		//$content=$json_encode($events);
-		return response($content)->withHeaders([
-				'Content-Type' => 'application/json',
-				'charset' => 'UTF-8'
-			]);
-	}
+public function venuejson($venueid)
+{
+    $events = venueevent::where('venueid', $venueid)->get();
+    $formattedEvents = $events->map(function ($event) {
+        return [
+            'id' => $event->id,
+            'title' => $event->title,
+            'start' => $event->date,
+            'venueid' => $event->venueid,
+        ];
+    });
+
+    $content = $formattedEvents->toJson();
+
+    return response($content)->withHeaders([
+        'Content-Type' => 'application/json',
+        'charset' => 'UTF-8'
+    ]);
+}
 } 
 
 			

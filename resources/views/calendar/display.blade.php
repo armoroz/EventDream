@@ -27,13 +27,13 @@
           plugins: [ 'dayGrid', 'timeGrid', 'list', 'interaction' ],
           header: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek' }, 
           slotDuration: '00:10:00', 
-          defaultDate: '2023-03-01', 
+          defaultDate: new Date().toISOString().substring(0, 10), 
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
           events: "{{url('calendar/all/json')}}",
 		   dateClick: function(info){
-				$('#eventtime').val(info.date.toISOString().substring(11,16));
-				$('#eventDate').val(info.date.toISOString().substring(0,10));
+				$('#eventtime').val('');
+				$('#eventDate').val(info.dateStr);
 				$('#venueid').val
 				$('#fullCalModal').modal('show');
 			}
@@ -46,4 +46,18 @@
 	 }); 
      calendar.render(); }); 
 </script> 
+<style>
+.fc-content {
+	background-color: pink;
+	border-color: pink;
+}
+.fc-event-container {
+	background-color: pink;
+	border-color: pink;
+}
+.fc-draggable {
+	background-color: pink;
+	border-color: pink;
+}
+</style>
 @endsection

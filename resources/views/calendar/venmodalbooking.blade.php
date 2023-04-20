@@ -13,11 +13,11 @@
 			  </div>
 			  <div class="form-group"> 
 				<label for="eventdate">Event Date</label> 
-				<input type="text" class="form-control" id="eventDate" name="eventdate"/> 
+				<input type="text" class="form-control" id="eventDate" name="eventdate" readonly/> 
 			</div> 
 			  <div class="form-group"> 
 				<label for="eventtime">Event Time</label> 
-				<input type="text" class="form-control" id="eventtime" name="eventtime"/> 
+				<input type="text" class="form-control" id="eventtime" name="eventtime" placeholder="Enter a time" />
 			  </div> 
 			  <div class="form-group"> 
 				<label for="venueid">Venue</label> 

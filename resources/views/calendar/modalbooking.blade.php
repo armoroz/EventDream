@@ -17,12 +17,11 @@
 			</div> 
 			  <div class="form-group"> 
 				<label for="eventtime">Event Time</label> 
-				<input type="text" class="form-control" id="eventtime" name="eventtime"/> 
+				<input type="text" class="form-control" id="eventtime" name="eventtime" placeholder="Enter a time" />
 			  </div> 
 			  <div class="form-group"> 
 				<label for="venueid">Venue</label> 
-				<input type="hidden" class="form-control"  id="venueid" name="venueid"/> 
-				<input type="text" class="form-control"/>
+				<input type="text" class="form-control" id="venueid" name="venueid"/> 
 			  </div>
 			  <div class="modal-footer"> 
 				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Book Event</button> 
