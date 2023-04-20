@@ -76,7 +76,8 @@ Route::get('customer/custshow/{id}', 'App\Http\Controllers\customerController@cu
 
 /* Events/Logs */
 Route::resource('events', App\Http\Controllers\eventController::class);
-Route::get('events/venstore', 'App\Http\Controllers\eventController@venstore')->name('events.venstore');
+Route::post('events/venstore', 'App\Http\Controllers\eventController@venstore')->name('events.venstore');
+Route::post('events/store', 'App\Http\Controllers\eventController@store')->name('events.store');
 Route::get('events/all/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
