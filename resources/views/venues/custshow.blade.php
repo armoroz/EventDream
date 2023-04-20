@@ -21,7 +21,7 @@
 					<div class="col-sm-6" style="margin:10px">
 						<a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back</a>
 						<button id="addItem" type="button" class="btn btn-default float-left addItem" value="{{$venue->id}}">Add To Cart</button>
-						<a href="{!! route('venueratings.ratevenue', [$venue->id]) !!}" 
+						<a onclick="handleRateVenue('{{ url('venueratings/ratevenue', [$venue->id]) }}')"
 						   class='btn btn-default btn-xs'>
 						   <i class="fas fa-star" title="Rate"></i>
 						</a>
@@ -61,4 +61,20 @@ $("#emptycart").click(function() { $.ajax({
   }); 
 }); 
 </script>
+
+<script>
+let isAuthenticated = @json(auth()->check());
+
+function handleRateVenue(url) {
+  if (isAuthenticated) {
+    window.location.href = url;
+  } else {
+    let result = confirm('You must login or sign up to view this page. Click OK to login or Cancel to stay on this page.');
+    if (result) {
+      window.location.href = '{{ url("login") }}';
+    }
+  }
+}
+</script>
+
 @endsection('content')

@@ -257,6 +257,8 @@ public function additem($standardmenuid)
     {
         $standardmenu = $this->standardmenuRepository->find($id);
 		$standardmenulogs = $standardmenu->standardmenulogs;
+		$standardmenuimages = \App\Models\standardmenuimages::all();
+		$standardmenuratings = \App\Models\standardmenurating::all();
 
         if (empty($standardmenu)) {
             Flash::error('Standard Menu not found');
@@ -274,7 +276,7 @@ public function additem($standardmenuid)
 			}
 		}
 
-		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenulogs' => $standardmenulogs]);
+		return view('standardmenus.custshow', ['standardmenu' => $standardmenu, 'totalItems' => $totalItems, 'standardmenulogs' => $standardmenulogs, 'standardmenuimages' => $standardmenuimages, 'standardmenuratings' => $standardmenuratings]);
 	}
 	
 	public function assignMenuItems($id)

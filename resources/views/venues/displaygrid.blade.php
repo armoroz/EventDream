@@ -26,7 +26,7 @@
 				<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
 				<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
                 <div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$venue->id}}"><i class='far fa-shopping-cart'></i></button></div>
-				<div class="card-footer"><a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleViewAvailability('{{ url('calendar/vendisplay', [$venue->id]) }}')">View Availibility</button></a></div>
+				<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleViewAvailability('{{ url('calendar/vendisplay', [$venue->id]) }}')">View Availibility</button></div>
 				<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
 				<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 					<input id="fieldRating" name="rating" 
@@ -103,9 +103,10 @@ function handleViewAvailability(url) {
   if (isAuthenticated) {
     window.location.href = url;
   } else {
-    alert('You must login or sign up to view this page.');
-    // Redirect to login page
-    window.location.href = '{{ route("login") }}';
+    let result = confirm('You must login or sign up to view this page. Click OK to login or Cancel to stay on this page.');
+    if (result) {
+      window.location.href = '{{ url("login") }}';
+    }
   }
 }
 </script>
