@@ -31,13 +31,13 @@
                     <tr>
                         <td><img height="100px" width="100px" src="{{ $menuitem->menuitemimglink }}"></td>
                         <td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
-                        <!--<td><div class="col-sm-2"><input class="checkbox-inline" type="checkbox" name="menuitem[]" value="{{$menuitem->id}}" 
-                            @if($custommenu->menuitems->contains($menuitem)) checked @endif ></div></td>-->
+                        <td><div class="col-sm-2"><input class="checkbox-inline" type="checkbox" name="menuitem[]" value="{{$menuitem->id}}" 
+                            @if($custommenu->menuitems->contains($menuitem)) checked @endif ></div></td>
 							
-						<td><div class="col-sm-2"><div class="checkbox">
+						<!--<td><div class="col-sm-2"><div class="checkbox">
 							<input class="checkbox" type="checkbox" id="cbox-selectMenuItems-{{ $menuitem->id }}" name="menuitems[]" value="{{ $menuitem->id }}">
 							<label for="cbox-selectMenuItems-{{ $menuitem->id }}"></label>
-						</div></div></td>
+						</div></div></td>-->
                     </tr>
                     @endforeach
                 </tbody>
