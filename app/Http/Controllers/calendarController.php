@@ -7,7 +7,7 @@ use \App\Models\venue;
 class CalendarController extends Controller 
 
 { 
-    public function index() 
+    public function display() 
     { 
         return view('calendar.display');
     }
@@ -16,7 +16,7 @@ class CalendarController extends Controller
     { 
 		$venue = venue::find($venueid);
 		$customers=\App\Models\customer::all();
-        return view('calendar.display')->with('venueid',$venueid)->with('venue',$venue)->with('customers',$customers);
+        return view('calendar.vendisplay')->with('venueid',$venueid)->with('venue',$venue)->with('customers',$customers);
     }
 
 	public function json()

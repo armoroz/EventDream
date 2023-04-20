@@ -19,6 +19,9 @@
         <li>
              <a class="dropdown-item" href="{!! route('bookings.index') !!}">Bookings</a>
         </li>
+        <li>
+             <a class="dropdown-item" href="{!! route('calendar.display') !!}">Calendar</a>
+        </li>
 		<li>
              <a class="dropdown-item" href="{!! route('events.index') !!}">Events</a>
         </li>

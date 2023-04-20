@@ -6,7 +6,7 @@
     </div> 
       <div class="modal-body"> 
         <div class="container-fluid"> 
-          <form action="{{route('events.store')}}" method="post">
+          <form action="{{route('events.venstore')}}" method="post">
             @csrf
               <div class="form-group">
 				<input type="hidden" class="form-control" value="{{Auth::user()->customer->id}}" id="custid" name="customerid"/> 
@@ -21,8 +21,8 @@
 			  </div> 
 			  <div class="form-group"> 
 				<label for="venueid">Venue</label> 
-				<input type="hidden" class="form-control"  id="venueid" name="venueid"/> 
-				<input type="text" class="form-control"/>
+				<input type="hidden" class="form-control" value="{{$venueid}}" id="venueid" name="venueid" readonly/> 
+				<input type="text" class="form-control" value="{{$venue->venuename}}" readonly/>
 			  </div>
 			  <div class="modal-footer"> 
 				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Book Event</button> 

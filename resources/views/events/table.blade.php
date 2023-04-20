@@ -24,8 +24,8 @@
             <td>{{ $event->orderplacedon }}</td>
             <td>{{ $event->eventordertotal }}</td>
             <td>{{ $event->eventdiscount }}</td>
-            <td>{{ $event->venueid }}</td>
-            <td>{{ $event->customerid }}</td>
+            <td>{{ $event->venue->venuename }}</td>
+            <td>{{ $event->customer->firstname }}</td>
             <td>{{ $event->userid }}</td>
             <td>{{ $event->standardmenuid }}</td>
             <td>{{ $event->custommenuid }}</td>

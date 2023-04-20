@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateeventRequest;
 use App\Repositories\eventRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use \App\Models\customer as customer;
 use Flash;
 use Response;
 use Session;
@@ -32,8 +33,9 @@ class eventController extends AppBaseController
     public function index(Request $request)
     {
         $events = $this->eventRepository->all();
+		$customers=\App\Models\customer::all();
 
-        return view('events.index')->with('events', $events);
+        return view('events.index')->with('events', $events)->with('customers',$customers);
     }
 	
 	public function custindex(Request $request)
@@ -61,7 +63,7 @@ class eventController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateeventRequest $request)
+    public function venstore(CreateeventRequest $request)
     {
         $input = $request->all();
 
@@ -72,6 +74,19 @@ class eventController extends AppBaseController
 		$venueid = $request->venueid;
 		
 		return redirect()->route('calendar.vendisplay', ['venueid' => $venueid]);
+    }
+	
+    public function store(CreateeventRequest $request)
+    {
+        $input = $request->all();
+
+        $event = $this->eventRepository->create($input);
+
+        Flash::success('Event saved successfully.');
+		
+		$venueid = $request->venueid;
+		
+		return redirect()->route('calendar.display', ['venueid' => $venueid]);
     }
 
     /**

@@ -21,7 +21,7 @@
             <td>{{ $event->eventtime }}</td>
             <td>{{ $event->orderplacedon }}</td>
             <td>{{ $event->eventordertotal }}</td>
-            <td>{{ $event->venueid }}</td>
+            <td>{{ $event->venue->venuename }}</td>
             <td>{{ $event->standardmenuid }}</td>
             <td>{{ $event->custommenuid}}</td>
                 <td width="120">

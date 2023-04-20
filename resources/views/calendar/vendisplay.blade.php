@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 @section('content') 
 @include('calendar.assets')
-@include('calendar.modalbooking')
+@include('calendar.venmodalbooking')
 @include('flash::message') 
 <link href="{{ asset('core/main.css')}}" rel='stylesheet' /> 
 <link href="{{ asset('daygrid/main.css')}}" rel='stylesheet' />
@@ -30,7 +30,7 @@
           defaultDate: '2023-03-01', 
           editable: true, 
           eventLimit: true, // allow "more" link when too many events   
-          events: "{{url('calendar/all/json')}}",
+          events: "{{url('calendar/venuejson', $venueid)}}",
 		   dateClick: function(info){
 				$('#eventtime').val(info.date.toISOString().substring(11,16));
 				$('#eventDate').val(info.date.toISOString().substring(0,10));

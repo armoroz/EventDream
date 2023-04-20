@@ -93,7 +93,7 @@ class event extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function venueid()
+    public function venue()
     {
         return $this->belongsTo(\App\Models\venue::class, 'venueid');
     }
@@ -101,7 +101,7 @@ class event extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function customerid()
+    public function customer()
     {
         return $this->belongsTo(\App\Models\customer::class, 'customerid');
     }

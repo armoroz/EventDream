@@ -76,6 +76,7 @@ Route::get('customer/custshow/{id}', 'App\Http\Controllers\customerController@cu
 
 /* Events/Logs */
 Route::resource('events', App\Http\Controllers\eventController::class);
+Route::get('events/venstore', 'App\Http\Controllers\eventController@venstore')->name('events.venstore');
 Route::get('events/all/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
@@ -84,9 +85,10 @@ Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogControll
 Route::get('orderplaced', function () { return view('orderplaced');})->name('orderplaced');
 
 /* Calendar */
-Route::get('/calendar/json','App\Http\Controllers\calendarController@json')->name('calendar.json'); 
 Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
 Route::get('/calendar/vendisplay/{venueid}','App\Http\Controllers\calendarController@vendisplay')->name('calendar.vendisplay');
+Route::get('/calendar/all/json','App\Http\Controllers\calendarController@json')->name('calendar.json');
+Route::get('/calendar/all/display','App\Http\Controllers\calendarController@display')->name('calendar.display');
 
 /* Bookings */
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
