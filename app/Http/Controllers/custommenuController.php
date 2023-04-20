@@ -204,8 +204,6 @@ class custommenuController extends AppBaseController
 
 	public function displayGrid(Request $request)
 	{
-		
-		
 		$custommenus=\App\Models\custommenu::all();
 		
 		if ($request->session()->has('cart')) {
@@ -252,14 +250,7 @@ public function additem($custommenuid)
 	
 	public function assignMenuItems($id)
 	{
-		
-		
-		
-		
 		$custommenu = custommenu::find($id);
-		
-		
-		
 		$menuitems = menuitem::all();
 			
 		return view('custommenus.assignmenuitems')->with('custommenu',$custommenu)->with('menuitems',$menuitems);
@@ -267,8 +258,6 @@ public function additem($custommenuid)
 
 	public function updateMenuItems(Request $request, $id)
 	{
-		
-		
 		$custommenu = custommenu::find($id);
 		$menuitems = $request->input('menuitem');
 
