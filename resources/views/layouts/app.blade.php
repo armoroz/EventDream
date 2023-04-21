@@ -98,7 +98,16 @@
 			<footer class="text-white text-center py-3 mt-auto">
 				<p>Policy | Legal | About Us | Socials | © 2023 EventDream™</p>
 			</footer>
-			
+<style>
+.container-stdm,
+.container-ctm,
+.container-meni {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 		</div>	  
     </body>
 </html>
