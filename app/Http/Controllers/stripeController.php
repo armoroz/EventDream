@@ -19,7 +19,7 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency'	=> 'eur',
 						'product_data' => [
-							'name' => 'Send money',
+							'name' => 'Your Total:',
 						],
 						'unit_amount' =>100,
 					],
