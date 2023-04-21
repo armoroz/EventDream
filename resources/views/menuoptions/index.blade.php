@@ -11,7 +11,15 @@
             </div>
         </div>
     </section>
-	
+<style>
+footer {
+  display: none;
+}
+
+.col-lg-2{
+	max-width: 13%;
+}
+</style>
 
 <div class= "bodyoptions-mopt">
   <div class= "container-mopt">
