@@ -29,24 +29,32 @@
      
 </div>
 
-<div class='d-flex flex-wrap align-content-start bg-transparent'> 
-@foreach($venues as $venue) 
-    <div class="p-2 col-4 g-3 venuelocationnames {{$venue->city}}"> 
-        <div class="card text-center"> 
-			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
-			@foreach($venue->venueimages->take(1) as $venueimage)<div class="card-body"><img style="max-height: 200px; min-height: 200px; max-width:250px; min-width: 250px;" class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/></div>@endforeach
-			<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
-			<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
-			<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$venue->id}}"><i class='far fa-shopping-cart'></i></button></div>
-			<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
-			<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleViewAvailability('{{ url('calendar/vendisplay', [$venue->id]) }}')">View Availibility</button></div>
-			<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
-				<input id="fieldRating" name="rating" 
-				value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-				type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
-				data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
-			</div>		
-		</div> 
+<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;">  
+    @foreach($venues as $venue) 
+	<div class="p-2 col-4 g-3 venuelocationnames {{$venue->city}}">
+		<div class= "bodyoptions-stdm">
+			<div class= "container-stdm">
+				<div class="card-stdm" style="height: 100%;">
+					<div class="box-image-stdm">
+						<div class="image-wrapper"><img  class="mx-auto d-block" src="{{ $venue->venueimg }}"/></div>
+					</div>
+						<div class="content-stdm">
+							<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
+							<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
+							<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
+							<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" style="background-color: pink;" value="{{$venue->id}}"><i class='far fa-shopping-cart'></i></button></div>
+							<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
+							<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleViewAvailability('{{ url('calendar/vendisplay', [$venue->id]) }}')">View Availibility</button></div>
+							<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+								<input id="fieldRating" name="rating" 
+								value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+								type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+								data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
+							</div>		
+						</div>	
+		        </div> 
+	        </div>
+		</div>
 	</div>
 @endforeach
 </div>
