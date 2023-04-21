@@ -1,14 +1,14 @@
 @extends('layouts.app')
- @csrf
- @section('content')
- <div id="mapid" class="center-block" style="width: 110%; height: 580px; margin-top: 25px; border: 4px solid #444452;"></div>
- 
- <style>
- .col-lg-2{
+@section('content')
+@csrf
+<div id="mapid" class="center-block" style="width: 110%; height: 580px; margin-top: 25px; border: 4px solid #444452;"></div>
+
+<style>
+.col-lg-2{
 	max-width: 13%;
 }
 </style>
- <script>
+<script>
      var mymap = L.map('mapid');
      var icon = new L.Icon();
      icon.options.shadowSize = [0,0];
@@ -59,6 +59,6 @@
 	mymap.on('locationfound', onLocationFound);
 
     
- </script>
- @include('venues.createvenuemodal')
- @endsection
+</script>
+@include('venues.createvenuemodal')
+@endsection
