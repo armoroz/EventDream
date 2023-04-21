@@ -31,7 +31,7 @@
 
 <div class='d-flex flex-wrap align-content-start bg-transparent'> 
     @foreach($products as $product) 
-	<div class="p-2 col-4 g-3">
+	<div class="p-2 col-4 g-3 allproductnames {{$product->productname}}">
 		<div class= "bodyoptions-stdm">
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
@@ -39,7 +39,7 @@
 						<div class="image-wrapper"><img  class="mx-auto d-block" src="{{ $product->productimg }}"/></div>
 					</div>
 						<div class="content-stdm">
-							<div class="card-header d-block allproductnames"><h5 class="mx-auto d-block">{{$product->productname}}</h5></div>
+							<div class="card-header d-block"><h5 class="mx-auto d-block">{{$product->productname}}</h5></div>
 							<div class="card-footer" style="text-align: center">€{{$product->productcost}}</div>
 							<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$product->id}}"><i class='far fa-shopping-cart'></i></button></div>
 							<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>

@@ -17,9 +17,21 @@
 <div id="filteredProducts"></div>
 </form>
 
+<div style="align: right; width: 110px; margin: 5px 0px 5px 0px;">
+
+            <select id="venuelocationselect" class="form-select" size="1">
+				<option value="All" selected>Filter By</option>
+                <option value="All">All</option>
+                <option value="Dublin">Dublin</option>
+                <option value="Meath">Meath</option>
+                <option value="Kildare">Kildare</option>
+            </select>   
+     
+</div>
+
     <div class='d-flex flex-wrap align-content-start bg-transparent'> 
     @foreach($venues as $venue) 
-        <div class="p-2 col-4 g-3"> 
+        <div class="p-2 col-4 g-3 venuelocationnames {{$venue->city}}"> 
             <div class="card text-center"> 
                 <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
                 @foreach($venue->venueimages->take(1) as $venueimage)<div class="card-body"><img style="max-height: 200px; min-height: 200px; max-width:250px; min-width: 250px;" class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/></div>@endforeach
@@ -72,7 +84,16 @@ $("#emptycart").click(function() { $.ajax({
   }); 
 }); 
 
-
+$("#venuelocationselect").on('change', function() {
+    var city = $(this).find(":selected").val();
+    if (city=='All') {
+        $('.venuelocationnames').show();
+    }
+    else {
+        $('.venuelocationnames').hide();
+        $('.'+city).show();
+    } 
+});
 
 </script>
 <script>
