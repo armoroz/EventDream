@@ -213,13 +213,13 @@ class venueController extends Controller
 			$cart = Session::get('cart');
 			$itemId = 'venue-' . $venueid;
 			if (isset($cart[$itemId])) {
-				$cart[$itemId] = $cart[$itemId] + 1; //add one to venue in cart
+				$cart[$itemId] = $cart[$itemId] + 1;
 			} else {
-				$cart[$itemId] = 1; //new venue in cart
+				$cart[$itemId] = 1;
 			}
 		} else {
 			$itemId = 'venue-' . $venueid;
-			$cart[$itemId] = 1; //new cart
+			$cart[$itemId] = 1;
 		}
 		Session::put('cart', $cart);
 		return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
