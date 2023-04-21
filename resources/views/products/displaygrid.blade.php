@@ -29,7 +29,7 @@
 </div>
 
 
-<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px"> 
+<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 
     @foreach($products as $product) 
 	<div class="p-0 col-4 g-4 allproductnames {{$product->productname}}">
 		<div class= "bodyoptions-stdm">

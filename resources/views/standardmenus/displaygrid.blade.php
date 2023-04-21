@@ -18,7 +18,7 @@
 <meta charset="utf-8">
 
 
-<div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
+<div class='d-flex flex-wrap align-content-start' style="margin:-100px; padding-bottom: 50px;"> 
 	@foreach($standardmenus as $standardmenu) 
 	<div class="p-0 col-4 g-4">
 		<div class= "bodyoptions-stdm">
