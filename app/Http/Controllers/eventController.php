@@ -38,6 +38,12 @@ class eventController extends AppBaseController
         return view('events.index')->with('events', $events)->with('customers',$customers);
     }
 	
+    public function orderplaced(Request $request)
+    {
+
+        return view('events.orderplaced');
+    }
+	
 	public function custindex(Request $request)
 	{
 		$customerId = Auth::user()->customer->id;

@@ -116,7 +116,7 @@ $.getJSON({
 }).done(function (venues) {
     var bounds = [];
     for ( var i=0; i < venues.length; ++i ) {
-        if (venues[i].id == {{$venue->id}}) { // check if the current venue ID matches the ID of the venue you want to display on the map
+        if (venues[i].id == {{$venue->id}}) {
             thisMarker = L.marker( [venues[i].lat, venues[i].lng] ,{icon : icon}).addTo( mymap ).bindPopup(venues[i].name);
             bounds.push([venues[i].lat,venues[i].lng]);
         }
@@ -126,7 +126,6 @@ $.getJSON({
     alert("Failed to load map data.");
 });
 	
-// Add a red coloured marker for the user's current location
 var redIcon = new L.Icon({
 	//iconUrl: "{{asset('images\vendor\leaflet\dist\marker-icon-red.png')}}",
 	iconSize: [55, 50],
@@ -140,7 +139,6 @@ function onLocationFound(e) {
 }
 mymap.on('locationfound', onLocationFound);
 
-// set the view of the map to show both markers
 var group = new L.featureGroup([redIcon, icon]);
 mymap.fitBounds(group.getBounds());
 

@@ -92,6 +92,11 @@
     </tbody>
 
 </table> 
-<p style="text-align:right; font-size:18px; padding:10px; border:solid white 1px;">Total: €<label>{{ $ttlCost }}</label></p>
-<button type="submit" class="btn btn-primary">Submit</button> {{ Form::close() }} 
+{{ Form::close() }}
+<!--<p style="text-align:right; font-size:18px; padding:10px; border:solid white 1px;">Total: €<label>{{ $ttlCost }}</label></p>
+<button type="submit" class="btn btn-primary">Submit</button>  -->
+<form action="{{route('stripe.checkout')}}" method="POST">
+	<input type="hidden" name="_token" value="{{csrf_token()}}">
+	<button type="submit" class="btn btn-primary">Continue to Payment</button>
+</form>
 @endsection 

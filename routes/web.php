@@ -29,6 +29,7 @@ require __DIR__.'/auth.php';
 Route::get('/logout','\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@store');
 Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
+Route::post('stripe/checkout','App\Http\Controllers\stripeController@checkout')->name('stripe.checkout');
 
 Route::resource('users', App\Http\Controllers\usersController::class);
 Route::resource('roles', App\Http\Controllers\rolesController::class);
@@ -82,8 +83,8 @@ Route::get('events/all/checkout', 'App\Http\Controllers\eventController@checkout
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
 Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow')->name('events.custshow');
+Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
-Route::get('orderplaced', function () { return view('orderplaced');})->name('orderplaced');
 
 /* Calendar */
 Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 

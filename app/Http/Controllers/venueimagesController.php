@@ -70,7 +70,7 @@ class venueimagesController extends AppBaseController
 
         Flash::success('Venueimages saved successfully.');
 
-        return redirect(route('venueimages.index'));
+        return redirect(route('venues.index'));
     }
 
     /**
@@ -135,7 +135,7 @@ class venueimagesController extends AppBaseController
 
         Flash::success('Venueimages updated successfully.');
 
-        return redirect(route('venueimages.index'));
+        return redirect(route('venues.index'));
     }
 
     /**

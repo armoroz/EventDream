@@ -21,9 +21,9 @@
             <select id="productnameselect" class="form-select" size="1">
 				<option value="All" selected>Filter By</option>
                 <option value="All">All</option>
-                <option value="flower">Flower</option>
-                <option value="elegance">Elegance</option>
-                <option value="standard">Standard</option>
+                <option value="Flower">Flower</option>
+                <option value="Elegance">Elegance</option>
+                <option value="Standard">Standard</option>
             </select>   
      
 </div>

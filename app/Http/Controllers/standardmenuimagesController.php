@@ -70,7 +70,7 @@ class standardmenuimagesController extends AppBaseController
 
         Flash::success('Standardmenuimages saved successfully.');
 
-        return redirect(route('standardmenuimages.index'));
+        return redirect(route('standardmenus.index'));
     }
 
     /**
@@ -135,7 +135,7 @@ class standardmenuimagesController extends AppBaseController
 
         Flash::success('Standardmenuimages updated successfully.');
 
-        return redirect(route('standardmenuimages.index'));
+        return redirect(route('standardmenus.index'));
     }
 
     /**
