@@ -90,7 +90,7 @@
 					<div class="row"> 
 						<div class="col-lg-2">@yield('side')</div> 
 						<div class="col-lg-8" style="padding-top: 60px;"> @yield('content') </div> 
-						<div class="col-lg-2"></div> 
+						<div class="col-lg-2">@yield('side2')</div> 
 					</div> 
 				</div> 
 			 </div> 

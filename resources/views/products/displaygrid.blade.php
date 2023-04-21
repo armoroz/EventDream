@@ -29,19 +29,29 @@
 </div>
 
 
-    <div class='d-flex flex-wrap align-content-start bg-transparent'> 
+<div class='d-flex flex-wrap align-content-start bg-transparent'> 
     @foreach($products as $product) 
-        <div class="p-2 col-4 g-3 allproductnames {{$product->productname}}"> 
-            <div class="card text-center"> 
-                <div class="card-header d-block"><h5 class="mx-auto d-block">{{ $product->productdesc }} {{ $product->producttype }}</h5></div>
-                <div class="card-body"><img style="max-height: 200px; min-height: 200px; max-width:250px; min-width: 250px;" class="mx-auto d-block" src="{{ $product->productimg }}"/></div>
-				<div class="card-footer" style="text-align: center">€{{$product->productcost}}</div>
-                <div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$product->id}}"><i class='far fa-shopping-cart'></i></button></div>
-				<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
-            </div>			
-        </div> 
+	<div class="p-2 col-4 g-3">
+		<div class= "bodyoptions-stdm">
+			<div class= "container-stdm">
+				<div class="card-stdm" style="height: 100%;">
+					<div class="box-image-stdm">
+						<div><img  class="mx-auto d-block" src="{{ $product->productimg }}"/></div>
+					</div>
+					<div class="card text-center"> 
+						<div class="content-stdm">
+							<div class="card-header d-block"><h5 class="mx-auto d-block allproductnames {{$product->productname}}"></h5></div>
+							<div class="card-footer" style="text-align: center">€{{$product->productcost}}</div>
+							<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$product->id}}"><i class='far fa-shopping-cart'></i></button></div>
+							<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
     @endforeach
-    </div>
+</div>
 
 
 <script>

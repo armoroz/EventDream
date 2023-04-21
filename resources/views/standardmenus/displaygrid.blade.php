@@ -19,31 +19,31 @@
 
 
 <div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
-@foreach($standardmenus as $standardmenu) 
-  <div class="p-0 col-4 g-4">
-	<div class= "bodyoptions-stdm">
-	  <div class= "container-stdm">
-		<div class="card-stdm" style="height: 100%;">
-			<div class="box-image-stdm">
-				@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
-			</div>
-			<div class="content-stdm">
-			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
-			<div class="card-footer" style="text-align: center">€20 Per Person</div>
-		    <div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$standardmenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
-            <div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>	
-			<div class="card-footer"><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
-				<input id="fieldRating" name="rating" 
-				value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
-				type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
-				data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
-			</div>		
+	@foreach($standardmenus as $standardmenu) 
+	<div class="p-0 col-4 g-4">
+		<div class= "bodyoptions-stdm">
+			<div class= "container-stdm">
+				<div class="card-stdm" style="height: 100%;">
+					<div class="box-image-stdm">
+						@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
+					</div>
+					<div class="content-stdm">
+						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
+						<div class="card-footer" style="text-align: center">€20 Per Person</div>
+						<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$standardmenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
+						<div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>	
+						<div class="card-footer"><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
+							<input id="fieldRating" name="rating" 
+							value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
+							type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+							data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
+						</div>
+					</div> 
+				</div>
 			</div> 
 		</div>
-	  </div> 
-	</div>
- </div> 
- @endforeach
+	</div> 
+	@endforeach
 </div>
 
 
