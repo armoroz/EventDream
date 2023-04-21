@@ -35,9 +35,9 @@
 		<div class= "bodyoptions-stdm">
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
-					<div class="box-image-stdm">
-						<div class="image-wrapper"><img  class="mx-auto d-block" src="{{ $venue->venueimg }}"/></div>
-					</div>
+					    <div class="box-image-stdm">
+					    @foreach($venue->venueimages->take(1) as $venueimage)<img src="data:image/jpeg;base64,{{$venueimage->imagefile}}">@endforeach
+						</div>
 						<div class="content-stdm">
 							<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
 							<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
@@ -50,11 +50,11 @@
 								value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
 								type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 								data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
-							</div>		
-						</div>	
+					        </div>		
+				        </div>	
 		        </div> 
 	        </div>
-		</div>
+	    </div>
 	</div>
 @endforeach
 </div>
