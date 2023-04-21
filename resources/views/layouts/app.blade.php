@@ -99,6 +99,59 @@
 				<p>Policy | Legal | About Us | Socials | © 2023 EventDream™</p>
 			</footer>
 <style>
+.container-stdm
+{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+padding: 30px;
+position: relative;
+justify-content: space-between;
+width: 1100px;
+margin: 15px 0;
+}
+
+.container-stdm .card-stdm
+{
+box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+transition: 0.4s ease-in-out;
+position: relative;
+margin: 30px 10px;
+padding: 20px 15px;
+background: #fff;
+display: flex;
+flex-direction: column;
+min-width: 300px;
+height: 600px;
+}
+
+
+.container-stdm .card-stdm .box-image-stdm {
+  z-index: 1;
+  box-shadow: 0 6px 21px rgba(0,0,0,1);
+  position: relative;
+  top: -60px;
+  left: 18px;
+  width: 235px;
+  height: 235px;
+  overflow: hidden;
+  border-radius: none;
+}
+
+.container-stdm .card-stdm .box-image-stdm .image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-stdm .card-stdm .box-image-stdm img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
 .container-stdm,
 .container-ctm,
 .container-meni {
