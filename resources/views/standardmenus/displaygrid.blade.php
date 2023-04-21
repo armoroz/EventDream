@@ -46,8 +46,6 @@
 	@endforeach
 </div>
 
-
-
 <script>
 $(".bth,.addItem").click(function() {
     var total = parseInt($('#shoppingcart').text());
@@ -78,4 +76,5 @@ $("#emptycart").click(function() { $.ajax({
   }); 
 }); 
 </script>
+
 @endsection('content')

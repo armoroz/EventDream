@@ -5,33 +5,30 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<form action="{{ route('venues.filtervenues') }}" method="POST" style="margin: 5px 0px 5px 0px;">
-  @csrf
-<i class="fas fa-spinner fa-spin"></i>
-<button onclick="filterVenues()">Filter</button>
-<label for="minPrice">Min Price:</label>
-<input type="number" id="minPrice" name="minPrice">
-
-<label for="maxPrice">Max Price:</label>
-<input type="number" id="maxPrice" name="maxPrice">
-<div id="filteredProducts"></div>
+<form action="{{ route('venues.filtervenues') }}" method="POST">
+	@csrf
+	<i class="fas fa-spinner fa-spin"></i>
+	<button onclick="filterVenues()">Filter</button>
+	<label for="minPrice">Min Price:</label>
+	<input type="number" id="minPrice" name="minPrice">
+	<label for="maxPrice">Max Price:</label>
+	<input type="number" id="maxPrice" name="maxPrice">
+	<div id="filteredProducts"></div>
 </form>
 
 <div style="align: right; width: 110px; margin: 5px 0px 5px 0px;">
-
-            <select id="venuelocationselect" class="form-select" size="1">
-				<option value="All" selected>Filter By</option>
-                <option value="All">All</option>
-                <option value="Dublin">Dublin</option>
-                <option value="Meath">Meath</option>
-                <option value="Kildare">Kildare</option>
-            </select>   
-     
+	<select id="venuelocationselect" class="form-select" size="1">
+		<option value="All" selected>Filter By</option>
+		<option value="All">All</option>
+		<option value="Dublin">Dublin</option>
+		<option value="Meath">Meath</option>
+		<option value="Kildare">Kildare</option>
+	</select>
 </div>
 
 <div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;">  
     @foreach($venues as $venue) 
-	<div class="p-2 col-4 g-3 venuelocationnames {{$venue->city}}">
+	<div class="p-0 col-4 g-4 venuelocationnames {{$venue->city}}">
 		<div class= "bodyoptions-stdm">
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
@@ -52,16 +49,14 @@
 							value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
 							type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 							data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
-						</div>		
-					</div>	
-		        </div> 
-	        </div>
-	    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	@endforeach
 </div>
-
-
 
 <script>
 $(".bth,.addItem").click(function() {
@@ -105,4 +100,5 @@ $("#venuelocationselect").on('change', function() {
 });
 
 </script>
+
 @endsection('content')

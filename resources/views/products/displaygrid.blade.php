@@ -6,28 +6,25 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <form action="{{ route('products.filterproducts') }}" method="POST">
-  @csrf
-<i class="fas fa-spinner fa-spin"></i>
-<button onclick="filterProducts()">Filter</button>
-<label for="minPrice">Min Price:</label>
-<input type="number" id="minPrice" name="minPrice">
-<label for="maxPrice">Max Price:</label>
-<input type="number" id="maxPrice" name="maxPrice">
-<div id="filteredProducts"></div>
+	@csrf
+	<i class="fas fa-spinner fa-spin"></i>
+	<button onclick="filterProducts()">Filter</button>
+	<label for="minPrice">Min Price:</label>
+	<input type="number" id="minPrice" name="minPrice">
+	<label for="maxPrice">Max Price:</label>
+	<input type="number" id="maxPrice" name="maxPrice">
+	<div id="filteredProducts"></div>
 </form>
 
 <div style="align: right; width: 110px; margin: 5px 0px 5px 0px;">
-
-            <select id="productnameselect" class="form-select" size="1">
-				<option value="All" selected>Filter By</option>
-                <option value="All">All</option>
-                <option value="Flower">Flower</option>
-                <option value="Elegance">Elegance</option>
-                <option value="Standard">Standard</option>
-            </select>   
-     
+	<select id="productnameselect" class="form-select" size="1">
+		<option value="All" selected>Filter By</option>
+		<option value="All">All</option>
+		<option value="Flower">Flower</option>
+		<option value="Elegance">Elegance</option>
+		<option value="Standard">Standard</option>
+	</select>
 </div>
-
 
 <div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 
     @foreach($products as $product) 
@@ -51,7 +48,6 @@
     @endforeach
 </div>
 
-
 <script>
 $(".bth,.addItem").click(function() {
     var total = parseInt($('#shoppingcart').text());
@@ -71,8 +67,6 @@ $(".bth,.addItem").click(function() {
     });
 });
 
-
- 
 $("#emptycart").click(function() { $.ajax({ 
     type: "get", url: "{{ url('products/all/emptycart')   }}",
     success: function() { 
