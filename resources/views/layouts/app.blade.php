@@ -44,32 +44,32 @@
 
 				<li class="nav-item">
 				@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
-					<form style="margin-top: 5px; height:33.5px;" action="{{route('venues.searchquery')}}" method="POST">
+					<form action="{{route('venues.searchquery')}}" method="POST">
 						@csrf
 						<input type="text" name="searchquery">
-						<button style="background-color:lightskyblue" type="submit">Search</button>
+						<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
 					</form>
 				</li>
 				<li class="nav-item">
 				@elseif(Request::url() == route('products.displaygrid') || Request::url() == route('products.searchquery'))
-					<form style="margin-top: 5px; height:33.5px;" action="{{route('products.searchquery')}}" method="POST">
+					<form action="{{route('products.searchquery')}}" method="POST">
 						@csrf
 						<input type="text" name="searchquery">
-						<button style="background-color:lightskyblue" type="submit">Search</button>
+						<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
 					</form>
 				</li>
 				<li class="nav-item">
 				@elseif(Request::url() == route('standardmenus.displaygrid') || Request::url() == route('standardmenus.searchquery'))
-					<form style="margin-top: 5px; height:33.5px;" action="{{route('standardmenus.searchquery')}}" method="POST">
+					<form action="{{route('standardmenus.searchquery')}}" method="POST">
 						@csrf
 						<input type="text" name="searchquery">
-						<button style="background-color:lightskyblue" type="submit">Search</button>
+						<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
 					</form>
 				@else
-					<form style="margin-top: 5px; height:33.5px;" action="{{route('products.searchquery')}}" method="POST">
+					<form action="{{route('products.searchquery')}}" method="POST">
 						@csrf
 						<input type="text" name="searchquery">
-						<button style="background-color:lightskyblue" type="submit">Search</button>
+						<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
 					</form>
 				@endif
 				</li>
@@ -88,7 +88,7 @@
 			<div id="page-content-wrapper"> 
 				<div class="container-fluid"> 
 					<div class="row"> 
-						<div class="col-lg-2">@yield('side')</div> 
+						<div class="col-lg-2" style="padding-top: 60px;">@yield('side')</div> 
 						<div class="col-lg-8" style="padding-top: 60px;"> @yield('content') </div> 
 						<div class="col-lg-2">@yield('side2')</div> 
 					</div> 

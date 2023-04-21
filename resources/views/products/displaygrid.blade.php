@@ -5,10 +5,11 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+@section('side')
 <form action="{{ route('products.filterproducts') }}" method="POST">
 	@csrf
 	<i class="fas fa-spinner fa-spin"></i>
-	<button onclick="filterProducts()">Filter</button>
+	<button class="btn btn-primary" onclick="filterProducts()">Filter</button>
 	<label for="minPrice">Min Price:</label>
 	<input type="number" id="minPrice" name="minPrice">
 	<label for="maxPrice">Max Price:</label>
@@ -25,6 +26,7 @@
 		<option value="Standard">Standard</option>
 	</select>
 </div>
+@endsection('side')
 
 <div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 
     @foreach($products as $product) 
