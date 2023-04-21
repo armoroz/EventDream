@@ -35,28 +35,30 @@
 		<div class= "bodyoptions-stdm">
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
-					    <div class="box-image-stdm">
-					    @foreach($venue->venueimages->take(1) as $venueimage)<img src="data:image/jpeg;base64,{{$venueimage->imagefile}}">@endforeach
+					<div class="box-image-stdm">
+						<div class="image-wrapper">
+					    @foreach($venue->venueimages->take(1) as $venueimage)<img src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/>@endforeach
 						</div>
-						<div class="content-stdm">
-							<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
-							<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
-							<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
-							<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" style="background-color: pink;" value="{{$venue->id}}"><i class='far fa-shopping-cart'></i></button></div>
-							<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
-							<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleViewAvailability('{{ url('calendar/vendisplay', [$venue->id]) }}')">View Availibility</button></div>
-							<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
-								<input id="fieldRating" name="rating" 
-								value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-								type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
-								data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
-					        </div>		
-				        </div>	
+					</div>
+					<div class="content-stdm">
+						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
+						<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
+						<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
+						<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" style="background-color: pink;" value="{{$venue->id}}"><i class='far fa-shopping-cart'></i></button></div>
+						<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
+						<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">View Availibility</button></div>
+						<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+							<input id="fieldRating" name="rating" 
+							value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+							type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+							data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
+						</div>		
+					</div>	
 		        </div> 
 	        </div>
 	    </div>
 	</div>
-@endforeach
+	@endforeach
 </div>
 
 
@@ -102,40 +104,5 @@ $("#venuelocationselect").on('change', function() {
     } 
 });
 
-</script>
-<script>
-function filterProducts() {
-  const priceFilter = document.getElementById("price-filter").value;
-  const productList = document.getElementById("product-list");
-  const productItems = productList.getElementsByTagName("product-items");
-  
-  for (let i = 0; i < productItems.length; i++) {
-    const productPrice = parseInt(productItems[i].getAttribute("data-price"));
-    
-    if (priceFilter === "all" || (priceFilter === "0-50" && productPrice <= 50) ||
-        (priceFilter === "50-100" && productPrice > 50 && productPrice <= 100) ||
-        (priceFilter === "150-200" && productPrice > 150 && productPrice <= 200))
-        (priceFilter === "250-300" && productPrice > 250 && productPrice <= 300))	{
-      productItems[i].style.display = "block";
-    } else {
-      productItems[i].style.display = "none";
-    }
-  });
-});
-</script>
-
-<script>
-let isAuthenticated = @json(auth()->check());
-
-function handleViewAvailability(url) {
-  if (isAuthenticated) {
-    window.location.href = url;
-  } else {
-    let result = confirm('You must login or sign up to view this page. Click OK to login or Cancel to stay on this page.');
-    if (result) {
-      window.location.href = '{{ url("login") }}';
-    }
-  }
-}
 </script>
 @endsection('content')

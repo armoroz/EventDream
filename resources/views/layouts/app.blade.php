@@ -75,7 +75,7 @@
 				</li>
 				
 				@if(Request::url() == route('products.displaygrid') || Request::url() == route('venues.displaygrid') || Request::url() == route('standardmenus.displaygrid') || Request::url() == route('custommenus.displaygrid') || isset($venue) && Request::url() == route('venues.custshow', [$venue->id]) || isset($product) && Request::url() == route('products.custshow', [$product->id]) || isset($standardmenu) && Request::url() == route('standardmenus.custshow', [$standardmenu->id]) || Request::url() == route('venues.searchquery') || Request::url() == route('products.searchquery') || Request::url() == route('standardmenus.searchquery') || Request::url() == route('venues.filtervenues') || Request::url() == route('products.filterproducts') || isset($custommenu) && Request::url() == route('custommenus.custshow', [$custommenu->id]))
-				<li class="nav-item"><button id="checkOut" onclick="handleCheckout('{{ url('events/all/checkout') }}')" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
+				<li class="nav-item"><button id="checkOut" onclick="handleCheckLogin('{{ url('events/all/checkout') }}')" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
 				<li class="nav-item"><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
 				<li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
 				<div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:5px;">{{$totalItems}}</div>
@@ -165,7 +165,7 @@ height: 600px;
 <script>
 let isAuthenticated = @json(auth()->check());
 
-function handleCheckout(url) {
+function handleCheckLogin(url) {
   if (isAuthenticated) {
     window.location.href = url;
   } else {

@@ -12,7 +12,7 @@
 <script src="{{ asset('daygrid/main.js')}}"></script> 
 <script src="{{ asset('timegrid/main.js')}}"></script> 
 <script src="{{ asset('list/main.js')}}"></script> 
-<a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back to Venues</a>
+<a class="btn btn-primary float-right" style="margin-bottom: 5px;" href="{{ route('venues.displaygrid') }}">Back to Venues</a>
 <div id="calendar"></div> 
 <script> 
 		$(function () {
