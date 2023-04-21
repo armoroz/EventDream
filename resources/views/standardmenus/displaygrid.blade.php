@@ -6,8 +6,8 @@
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 80px;">
-				<h1>Standard Menus</h1>
+			<div class="col-sm-6" style="padding-bottom: 100px;">
+
 			</div>
 		</div>
 	</div>
@@ -25,7 +25,9 @@
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
 					<div class="box-image-stdm">
-						@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
+						<div class="image-wrapper">
+							@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">@endforeach
+						</div>
 					</div>
 					<div class="content-stdm">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>

@@ -5,6 +5,16 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6" style="padding-bottom: 50px;">
+
+			</div>
+		</div>
+	</div>
+</section>
+
 @section('side')
 <form action="{{ route('products.filterproducts') }}" method="POST">
 	@csrf

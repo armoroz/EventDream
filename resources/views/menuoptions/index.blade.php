@@ -39,7 +39,7 @@ footer {
         <img src="images\vendor\leaflet\dist\img2.jpg">
       </div>
     <div class="content-mopt">
-		<h2>Menu Items</h2>
+		<h2>Our Dishes</h2>
 		<p>Browse menu items to view ingredients, allergens, and so on.
 		Or even better! Make your own customised menu just how you like it!</p>
 		<a class="btn btn-primary mx-2" href="{{ route('menuitems.displaygrid') }}">Open</a>

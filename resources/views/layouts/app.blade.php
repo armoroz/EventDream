@@ -34,6 +34,31 @@
 					<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo.png')}}" alt="Logo" width="120" height="50"></a>
 				</div>
 
+				@if(Request::url() == route('venues.displaygrid'))
+				<ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt; color: #333333;">Venues</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+				@elseif(Request::url() == route('products.displaygrid'))
+				<ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt; color: #333333;">Products</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+				@elseif(Request::url() == route('menuoptions.index'))
+				<ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt; color: #333333;">Menus</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
+				<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+				@else
 				<ul class="navbar-nav ms-auto">
 				<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
@@ -41,7 +66,7 @@
 				<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
 				<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
-
+				@endif
 				<li class="nav-item">
 				@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
 					<form action="{{route('venues.searchquery')}}" method="POST">
@@ -83,8 +108,8 @@
 				@endif
 				@include('layouts.navAuth')
 				</ul>
-			</nav> 
-
+			</nav>
+			
 			<div id="page-content-wrapper"> 
 				<div class="container-fluid"> 
 					<div class="row"> 
