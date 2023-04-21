@@ -36,7 +36,7 @@
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
 					<div class="box-image-stdm">
-						<div><img  class="mx-auto d-block" src="{{ $product->productimg }}"/></div>
+						<div class="image-wrapper"><img  class="mx-auto d-block" src="{{ $product->productimg }}"/></div>
 					</div>
 					<div class="card text-center"> 
 						<div class="content-stdm">
