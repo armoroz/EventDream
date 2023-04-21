@@ -137,7 +137,7 @@ height: 225px;
 .container-mopt .card-mopt .box-image-mopt img
 {
 	max-width: 100%;
-	border-radius: 5px;
+	border-radius: none;
 	
 }
 
@@ -205,7 +205,7 @@ height: 600px;
   width: 235px;
   height: 235px;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: none;
 }
 
 .container-stdm .card-stdm .box-image-stdm .image-wrapper {
@@ -367,7 +367,7 @@ height: 245px;
 .container-meni .card-meni .box-image-meni img
 {
 	max-width: 100%;
-	border-radius: 5px;
+	border-radius: none;
 	
 }
 
