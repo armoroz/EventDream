@@ -61,36 +61,36 @@
 </div>
 
 <!-- Imagefile Field -->
-<div class="container-fluid">
-  <div id="thisCarousel" class="carousel slide" data-bs-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-bs-target="#thisCarousel" data-bs-slide-to="0" class="active"></li>
-      <li data-bs-target="#thisCarousel" data-bs-slide-to="1"></li>
-      <li data-bs-target="#thisCarousel" data-bs-slide-to="2"></li>
-      <li data-bs-target="#thisCarousel" data-bs-slide-to="0"></li>
-    </ol>
+<div class="container-fluid" style="max-width: 400px; min-width: 400px; min-height: 300px; max-height: 300px;">
+    <div id="thisCarousel" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators" style="background-color: lightgrey;">
+            @foreach($venueimages as $index => $venueimage)
+                <li data-bs-target="#thisCarousel" data-bs-slide-to="{{ $index }}" class="@if($loop->first) active @endif"></li>
+            @endforeach
+        </ol>
 
-    <!-- Images -->
-    <div class="carousel-inner">
-      @foreach($venueimages as $venueimage)
-        <div style="padding-bottom:20px" class="carousel-item @if($loop->first) active @endif">
-          <img src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" class="d-block w-50" alt="Venue Image">
+        <!-- Images -->
+        <div class="carousel-inner" style="height: 200px;">
+            @foreach($venueimages as $venueimage)
+                <div class="carousel-item @if($loop->first) active @endif" style="height: 200px;">
+                    <img src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" class="d-block w-100" style="object-fit: cover; height: 100%;" alt="Venue Image">
+                </div>
+            @endforeach
         </div>
-      @endforeach
-    </div>
 
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#thisCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#thisCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+        <!-- Controls -->
+        <button class="carousel-control-prev" style="background-color: lightgrey;" type="button" data-bs-target="#thisCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" style="background-color: lightgrey;" type="button" data-bs-target="#thisCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 </div>
+
 
 @csrf
 
@@ -103,7 +103,6 @@
     icon.options.iconAnchor = [10, 70];
     icon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/marker-icon.png')}}";
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2hhbGluaWsiLCJhIjoiY2xlYTFwemV2MHBhdjNucXM1cHVlZDN3NiJ9.YyBcnu_XLr3krPvCZFy1RQ', {
-        attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox/streets-v11',
         tileSize: 512,
