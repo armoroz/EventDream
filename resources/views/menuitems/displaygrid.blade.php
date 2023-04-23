@@ -6,7 +6,7 @@
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 10px;">
+			<div class="col-sm-6" style="padding-bottom: 100px; padding-top: 20px;">
 				<h1>Menu Items</h1>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 
 <form action="{{route('menuitems.newstandardmenu')}}" id="newmenuform" method="post">
 @csrf
-<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin:-10px"> 
+<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin:-100px"> 
 @foreach($menuitems as $menuitem) 
   <div class="p-0 col-4 g-4">
 	<div class= "bodyoptions-meni">
