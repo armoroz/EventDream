@@ -20,6 +20,10 @@
 				<input type="text" class="form-control" id="eventtime" name="eventtime" placeholder="Enter a time" />
 			  </div> 
 			  <div class="form-group"> 
+				<label for="numOfGuests">No. of Guests</label> 
+				<input type="text" class="form-control" id="numOfGuests" name="numOfGuests" placeholder="No. of Guests" />
+			  </div> 
+			  <div class="form-group"> 
 				<label for="venueid">Venue</label> 
 				<input type="hidden" class="form-control" value="{{$venueid}}" id="venueid" name="venueid" readonly/> 
 				<input type="text" class="form-control" value="{{$venue->venuename}}" readonly/>

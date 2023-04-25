@@ -22,6 +22,7 @@ class eventRepository extends BaseRepository
         'orderplacedon',
         'eventordertotal',
         'eventdiscount',
+		'numOfGuests',
         'venueid',
         'customerid',
         'userid',
