@@ -62,6 +62,21 @@ class stripeController extends Controller
 					'quantity' => $quantity,
 				];
 			}
+			
+			elseif (isset($item['custommenu'])) {
+				$custommenu = $item['custommenu'];
+				$quantity = $item['qty'];
+				$stripeLineItems[] = [
+					'price_data' => [
+						'currency' => 'eur',
+						'product_data' => [
+							'name' => $custommenu->custommenuname,
+						],
+						'unit_amount' => 2000,
+					],
+					'quantity' => $quantity,
+				];
+			}
 
 		}
 

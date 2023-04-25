@@ -80,7 +80,9 @@ Route::resource('events', App\Http\Controllers\eventController::class);
 Route::post('events/venstore', 'App\Http\Controllers\eventController@venstore')->name('events.venstore');
 Route::post('events/store', 'App\Http\Controllers\eventController@store')->name('events.store');
 Route::get('events/all/checkout', 'App\Http\Controllers\eventController@checkout')->name('events.checkout');
+Route::get('events/eventcheckout/{event}', 'App\Http\Controllers\eventController@eventcheckout')->name('events.eventcheckout');
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
+Route::post('events/eventplaceorder/{event}', 'App\Http\Controllers\eventController@eventplaceorder')->name('events.eventplaceorder');
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
 Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow')->name('events.custshow');
 Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
@@ -98,6 +100,7 @@ Route::resource('bookings', App\Http\Controllers\bookingController::class);
 /* Products */
 Route::resource('products', App\Http\Controllers\productController::class);
 Route::get('products/all/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
+Route::get('products/eventdisplaygrid/{event}', 'App\Http\Controllers\productController@eventdisplaygrid')->name('products.eventdisplaygrid');
 Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
 Route::get('products/all/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
 Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');

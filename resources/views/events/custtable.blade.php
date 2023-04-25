@@ -2,6 +2,7 @@
     <table class="table" id="events-table">
         <thead>
         <tr>
+		<th>Event ID</th>
         <th>Event Date</th>
 		<th>Customer</th>
         <th>Event Time</th>
@@ -17,6 +18,7 @@
         <tbody>
         @foreach($events as $event)
             <tr>
+			<td>{{ $event->id }}</td>
             <td>{{ $event->eventdate }}</td>
 			<td>{{ Auth::user()->customer->firstname }}</td>
             <td>{{ $event->eventtime }}</td>
@@ -33,9 +35,9 @@
                            class='btn btn-default btn-xs'>
                             <i class="fas fa-eye"></i>
                         </a>
-                        <a href="{{ route('products.displaygrid') }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="fas fa-book"></i>
+                        <a href="{{ route('products.eventdisplaygrid', [$event->id]) }}"
+                           class='btn btn-primary'>
+                            Add-ons
                         </a>
                     </div>
                     {!! Form::close() !!}

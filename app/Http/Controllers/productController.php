@@ -188,21 +188,48 @@ class productController extends AppBaseController
 
 	public function displayGrid(Request $request)
 	{
-		$products=\App\Models\Product::all();
+		$products=\App\Models\product::all();
 		
 		if ($request->session()->has('cart')) {
-        $cart = $request->session()->get('cart');
-        $totalQty=0;
-        foreach ($cart as $product => $qty) {
-            $totalQty = $totalQty + $qty;
-        }
-        $totalItems=$totalQty;
+			$cart = $request->session()->get('cart');
+			$totalQty=0;
+			foreach ($cart as $product => $qty) {
+				$totalQty = $totalQty + $qty;
+			}
+			$totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+		}
+		
+		return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
+		
+	}
+	
+	public function eventdisplayGrid($eventid,Request $request)
+	{
+		$products=\App\Models\product::all();
+		$event=\App\Models\event::find($eventid);
+		
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			$totalQty=0;
+			foreach ($cart as $product => $qty) {
+				$totalQty = $totalQty + $qty;
+			}
+			$totalItems=$totalQty;
 		}
 		else {
 			$totalItems=0;
 
 		}
-		return view('products.displaygrid')->with('products',$products)->with('totalItems',$totalItems);
+	
+		if (!Session::has('eventid')) {
+			
+			Session::put('eventid', $eventid);
+		}
+
+		return view('products.eventdisplaygrid')->with('products',$products)->with('totalItems',$totalItems)->with('event',$event);
 		
 	}
 

@@ -243,6 +243,7 @@ class eventController extends AppBaseController
 				$lineitems[] = $lineitem;
 			}
 
+			// Pass venue and line items to the view
 			return view('events.checkout')->with('lineitems', $lineitems);
 		} else {
 			Flash::error("There are no items in your cart");
@@ -252,15 +253,13 @@ class eventController extends AppBaseController
 	
 	public function placeorder(Request $request)
 	{
-		$thisOrder = new \App\Models\Event();
+		$thisOrder = new \App\Models\event();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->customerid = $request->customerid;
-		$thisOrder->venueid = $request->venueid;
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid ?? [];
 		$customerid = $request->customerid;
-		$venueid = $request->venueid;
 		$custommenuid = $request->custommenuid;
 		$standardmenuid = $request->standardmenuid;
 		/*$venueids = $request->venueid ?? [];*/
@@ -269,6 +268,7 @@ class eventController extends AppBaseController
 			$thisOrderDetail = new \App\Models\Eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
 			$thisOrderDetail->productid = $productids[$i];
+			/*$thisOrderDetail->venueid = $venueids[$i] ?? null;*/
 			$thisOrderDetail->eventproductquantity = $quantities[$i] ?? 0;
 			$thisOrderDetail->save();
 		}
@@ -276,5 +276,75 @@ class eventController extends AppBaseController
 		Flash::success("Your Event Order has been placed");
 		return redirect(route('events.orderplaced'));
 	}
+	
+	public function eventcheckout($eventid)
+	{
+		$event=\App\Models\event::find($eventid);
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			$lineitems = array();
+			foreach ($cart as $id => $qty) {
+
+				list($type, $itemId) = explode('-', $id);
+
+				$lineitem = [];
+
+				if ($type === 'product' && $product = \App\Models\product::find($itemId)) {
+					$lineitem['product'] = $product;
+				} elseif ($type === 'venue' && $venue = \App\Models\venue::find($itemId)) {
+					$lineitem['venue'] = $venue;
+				} elseif ($type === 'standardmenu' && $standardmenu = \App\Models\standardmenu::find($itemId)) {
+					$lineitem['standardmenu'] = $standardmenu;
+				} elseif ($type === 'custommenu' && $custommenu = \App\Models\custommenu::find($itemId)) {
+					$lineitem['custommenu'] = $custommenu;
+				} else {
+					continue;
+				}
+				$lineitem['qty'] = $qty;
+				$lineitems[] = $lineitem;
+			}
+
+			// Pass venue and line items to the view
+			return view('events.eventcheckout')->with('lineitems', $lineitems)->with('event',$event);
+		} else {
+			Flash::error("There are no items in your cart");
+			return redirect(route('products.eventdisplaygrid'));
+		}
+	}
+
+
+	
+	public function eventplaceorder($eventid,Request $request)
+	{
+		$thisEvent = \App\Models\event::find($eventid);
+		
+		if ($thisEvent) {
+			$thisEvent->orderplacedon = (new \DateTime())->format("Y-m-d H:i:s");		
+			$thisEvent->save();
+			$thisEvent->customerid = $request->customerid;
+			$eventID = $thisEvent->id;
+			$productids = $request->productid ?? [];
+			$customerid = $request->customerid;
+			$custommenuid = $request->custommenuid;
+			$standardmenuid = $request->standardmenuid;
+			$quantities = $request->quantity ?? [];
+			for($i=0;$i<sizeof($productids);$i++) {
+				$thisEventProductLog = new \App\Models\eventproductlog();
+				$thisEventProductLog->eventid = $eventID;
+				$thisEventProductLog->productid = $productids[$i];
+				$thisEventProductLog->eventproductquantity = $quantities[$i] ?? 0;
+				$thisEventProductLog->save();
+			}
+			Session::forget('cart');
+			Flash::success("Your Event Order has been placed");
+			return redirect(route('events.orderplaced'));
+			}
+		else {
+			Flash::error("Event not found");
+			return redirect(route('products.eventdisplaygrid'));
+		}	
+		
+	}
+
 
 }
