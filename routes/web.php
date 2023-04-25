@@ -17,10 +17,6 @@ Route::get('/', 'App\Http\Controllers\homepageController@homepage', function () 
     return view('homepage');
 })->name('homepage');
 
-Route::get('/homepage', 'App\Http\Controllers\homepageController@homepage', function () {
-    return view('homepage');
-})->middleware(['auth'])->name('homepage');
-
 require __DIR__.'/auth.php';
 
 
@@ -99,7 +95,7 @@ Route::resource('bookings', App\Http\Controllers\bookingController::class);
 
 /* Products */
 Route::resource('products', App\Http\Controllers\productController::class);
-Route::get('products/all/displaygrid', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
+Route::get('products/all/shop', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
 Route::get('products/eventdisplaygrid/{event}', 'App\Http\Controllers\productController@eventdisplaygrid')->name('products.eventdisplaygrid');
 Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
 Route::get('products/all/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
@@ -111,7 +107,7 @@ Route::post('products/all/filter', 'App\Http\Controllers\productController@filte
 Route::resource('venues', App\Http\Controllers\venueController::class);
 Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name('venues.map.json');
 Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
-Route::get('venues/all/displaygrid', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
+Route::get('venues/all/shop', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
 Route::get('venues/custshow/{venue}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
 Route::post('venues/all/search', 'App\Http\Controllers\venueController@searchquery')->name('venues.searchquery');
 Route::post('/venues/all/filter', 'App\Http\Controllers\venueController@filterVenues')->name('venues.filtervenues');
@@ -125,13 +121,13 @@ Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesControl
 
 /* Menu Items */
 Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
-Route::get('menuitems/all/displaygrid', 'App\Http\Controllers\menuitemController@displaygrid')->name('menuitems.displaygrid');
+Route::get('menuitems/all/shop', 'App\Http\Controllers\menuitemController@displaygrid')->name('menuitems.displaygrid');
 Route::get('menuitems/custshow/{menuitem}', 'App\Http\Controllers\menuitemController@custshow')->name('menuitems.custshow');
 Route::post('menuitems/all/newstandardmenu','App\Http\Controllers\menuitemController@newstandardmenu')->name('menuitems.newstandardmenu');
 
 /* Standard Menus/Logs/Ratings/Images */
 Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
-Route::get('standardmenus/all/displaygrid', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
+Route::get('standardmenus/all/shop', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
 Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
 Route::get('standardmenus/all/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
 Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
@@ -149,7 +145,7 @@ Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\stan
 /* Custom Menus/Logs */
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
-Route::get('custommenus/all/displaygrid', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
+Route::get('custommenus/all/shop', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
 Route::get('custommenus/additem/{id}', 'App\Http\Controllers\custommenuController@additem')->name('custommenus.additem');
 Route::get('custommenus/all/emptycart', 'App\Http\Controllers\custommenuController@emptycart')->name('custommenus.emptycart');
 Route::get('/custommenus/assignmenuitems/{id}', 'App\Http\Controllers\custommenuController@assignMenuitems')->name('custommenus.assignmenuitems');
