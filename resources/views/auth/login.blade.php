@@ -47,11 +47,11 @@
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button class="btn btn-primary">
                     {{ __('Log in') }}
                 </x-button>
-                <x-button class="ml-3">
-                    <a href="{{ route('register') }}" style=" color: #333333;">Register Here</a>
+                <x-button class="btn btn-primary">
+                    <a href="{{ route('register') }}" style=" color: white; text-decoration:none;">Register Here</a>
 						<!--{{ __('Register Here') }} -->
                 </x-button>
             </div>
