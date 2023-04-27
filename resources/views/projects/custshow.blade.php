@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Event Details</h1>
+                    <h1>Project Details</h1>
                 </div>
             </div>
         </div>
@@ -15,10 +15,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    @include('events.custshow_fields')
+                    @include('projects.custshow_fields')
                 <div class="col-sm-6" style="margin-left: 850px; margin-bottom: 0px;">
                     <a class="btn btn-primary float-right"
-                       href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">
+                       href="{!! route('projects.custindex', [Auth::user()->customer->id]) !!}">
                         Back
                     </a>
                 </div>					
