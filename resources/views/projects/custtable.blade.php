@@ -33,7 +33,7 @@
                 <td width="120">
                     {!! Form::open(['route' => ['projects.destroy', $project->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('projects.show', [$project->id]) }}"
+                        <a href="{{ route('projects.custshow', [$project->id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>

@@ -34,6 +34,14 @@ class projectController extends AppBaseController
         return view('projects.index')
             ->with('projects', $projects);
     }
+	
+    public function custindex(Request $request)
+    {
+        $projects = $this->projectRepository->all();
+
+        return view('projects.custindex')
+            ->with('projects', $projects);
+    }
 
     /**
      * Show the form for creating a new project.
@@ -90,7 +98,7 @@ class projectController extends AppBaseController
         if (empty($project)) {
             Flash::error('Project not found');
 
-            return redirect(route('projects.index'));
+            return redirect(route('projects.custindex'));
         }
 
         return view('projects.custshow')->with('project', $project);

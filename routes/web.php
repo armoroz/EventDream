@@ -161,3 +161,4 @@ Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class)
 Route::resource('projects', App\Http\Controllers\projectController::class);
 Route::post('projects/all/createproject', 'App\Http\Controllers\eventController@createproject')->name('projects.createproject');
 Route::get('projects/custshow/{id}', 'App\Http\Controllers\projectController@custshow')->name('projects.custshow');
+Route::get('projects/custindex/{id}', 'App\Http\Controllers\projectController@custindex')->name('projects.custindex');
