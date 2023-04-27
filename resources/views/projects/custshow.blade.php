@@ -3,7 +3,24 @@
 @include('flash::message') 
 @php $j=0 @endphp 
 
-@section('content')
+ <style>
+.card {
+  margin: 0 auto;
+  float: none;
+}
+
+.col-sm-6 .btn {
+    margin-right: 5px;
+}
+.button-group {
+  display: flex;
+  align-items: center;
+}
+.button-group .btn {
+  margin-right: 5px;
+}
+ </style>
+ 
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
