@@ -2,7 +2,7 @@
     <table class="table" id="projects-table">
         <thead>
         <tr>
-            <th>Eventdate</th>
+        <th>Eventdate</th>
         <th>Eventtime</th>
         <th>Orderplacedon</th>
         <th>Eventordertotal</th>

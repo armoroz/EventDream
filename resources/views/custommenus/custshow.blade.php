@@ -3,10 +3,21 @@
 @include('flash::message') 
 @php $j=0 @endphp 
 
+
+
+ <style>
+.card {
+  margin: 0 auto;
+  float: none;
+}
+ </style>
+
+
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-13">
                     <h1>Custom Menu Details</h1>
                 </div>
             </div>
