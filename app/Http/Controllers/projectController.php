@@ -167,14 +167,14 @@ class projectController extends AppBaseController
         if (empty($project)) {
             Flash::error('Project not found');
 
-            return redirect(route('projects.index'));
+            return redirect(route('projects.custindex'));
         }
 
         $this->projectRepository->delete($id);
 
         Flash::success('Project deleted successfully.');
 
-        return redirect(route('projects.index'));
+        return redirect(route('projects.custindex'));
     }
 	
     public function projectcreated(Request $request)
