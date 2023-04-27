@@ -244,8 +244,15 @@ class eventController extends AppBaseController
 				$lineitem['qty'] = $qty;
 				$lineitems[] = $lineitem;
 			}
+			
+			$encodedLineItems = urlencode(serialize($lineitems));
+			$form = '<form method="POST" action="'.route('events.placeorder').'">';
+			$form .= '<input type="hidden" name="_token" value="'.csrf_token().'">';
+			$form .= '<input type="hidden" name="lineitems" value="'.$encodedLineItems.'">';
+			$form .= '<button type="submit" class="btn btn-primary">Place Order</button>';
+			$form .= '</form>';
 
-			return view('events.checkout')->with('lineitems', $lineitems);
+			return view('events.checkout')->with('lineitems', $lineitems)->with('form', $form);
 		} else {
 			Flash::error("There are no items in your cart");
 			return redirect(route('products.displaygrid'));
@@ -256,27 +263,29 @@ class eventController extends AppBaseController
 	
 	public function placeorder(Request $request)
 	{
+		$lineitems = unserialize(urldecode($request->input('lineitems')));
 		$thisOrder = new \App\Models\event();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->customerid = Auth::user()->customer->id;
 		$thisOrder->save();
+
 		$eventID = $thisOrder->id;
-		$productids = $request->productid ?? [];
-		$customerid = $request->customerid;
-		$custommenuid = $request->custommenuid;
-		$standardmenuid = $request->standardmenuid;
-		/*$venueids = $request->venueid ?? [];*/
-		$quantities = $request->quantity ?? [];
-		for($i=0;$i<sizeof($productids);$i++) {
-			$thisOrderDetail = new \App\Models\Eventproductlog();
-			$thisOrderDetail->eventid = $eventID;
-			$thisOrderDetail->productid = $productids[$i];
-			/*$thisOrderDetail->venueid = $venueids[$i] ?? null;*/
-			$thisOrderDetail->eventproductquantity = $quantities[$i] ?? 0;
-			$thisOrderDetail->save();
+
+		
+		foreach ($lineitems as $lineitem) {
+			if (isset($lineitem['product'])) {
+				$thisOrderDetail = new \App\Models\Eventproductlog();
+				$thisOrderDetail->eventid = $eventID;
+				$thisOrderDetail->productid = $lineitem['product']->id;
+				$thisOrderDetail->eventproductquantity = $lineitem['qty'];
+				$thisOrderDetail->save();
+			}
 		}
+
 		Session::forget('cart');
+
 		Flash::success("Your Event Order has been placed");
+
 		return redirect(route('events.orderplaced'));
 	}
 	

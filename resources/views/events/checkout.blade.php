@@ -57,6 +57,7 @@
 				<div class="panel-body"><img class="img-responsive center-block" height="30%" width="30%" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}"></div>@endforeach
 			  </td>
 			  <input size="3" style="border:none" type="hidden" name="standardmenuid[]" readonly value="{{ $item->id }}"> 
+			  <input type="hidden" name="standardmenuid[]" value="{{ $lineitem['standardmenu']->id }}">
               <td>{{ $item->standardmenuname }}</td> 
               <td>{{ $item->style }}</td>
               <td>{{ $item->course }}</td>
