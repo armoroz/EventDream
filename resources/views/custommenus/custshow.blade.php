@@ -10,6 +10,17 @@
   margin: 0 auto;
   float: none;
 }
+
+.col-sm-6 .btn {
+    margin-right: 5px;
+}
+.button-group {
+  display: flex;
+  align-items: center;
+}
+.button-group .btn {
+  margin-right: 5px;
+}
  </style>
 
 
@@ -29,13 +40,13 @@
             <div class="card-body">
                 <div class="row">
                     @include('custommenus.custshow_fields')
-					<div class="col-sm-6">
-						<a href="{{ route('custommenus.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
-						<a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" class="btn btn-updateDishes" title="Update Dishes"><i class='far fa-hat-chef'></i></a>	
-						{!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete']) !!}
+					<div class="col-sm-6 button-group">
+						<a href="{{ route('custommenus.displaygrid') }}"><button class="btn btn-back d-inline-block"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
+						<a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" class="btn btn-updateDishes d-inline-block" title="Update Dishes"><i class='far fa-hat-chef'></i></a>	
+						{!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete', 'class' => 'd-inline-block']) !!}
 						<div class='btn-group'>{!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}</div>
 						{!! Form::close() !!} 
-						<button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button>
+						<button id="addItem" type="button" class="btn btn-addtoCart addItem d-inline-block" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button>
 					</div>	
                 </div>
             </div>
