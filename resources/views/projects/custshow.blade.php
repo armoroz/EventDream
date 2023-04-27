@@ -20,8 +20,8 @@
                 <div class="row">
                     @include('projects.custshow_fields')
 					<div class="col-sm-6 button-group">
-						<a href="{{ route('projects.custindex') }}"><button class="btn btn-back d-inline-block"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
-						<a href="{{ route('products.displaygrid') }}" class='btn btn-primary'>Add-ons</a></div>
+						<a href="{{ route('projects.custindex', [$project->id]) }}"><button class="btn btn-back d-inline-block"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
+						<a href="{{ route('products.displaygrid') }}" class='btn btn-primary'>Add-ons</a>
 						{!! Form::open(['route' => ['projects.destroy', $project->id], 'method' => 'delete', 'class' => 'd-inline-block']) !!}
 						<div class='btn-group'>{!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}</div>
 						{!! Form::close() !!} 
