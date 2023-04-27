@@ -312,8 +312,8 @@ class eventController extends AppBaseController
 			$thisOrderDetail->save();
 		}
 		Session::forget('cart');
-		Flash::success("Your Event Order has been placed");
-		return redirect(route('events.orderplaced'));
+		Flash::success("Your Project has been created");
+		return redirect(route('projects.projectcreated'));
 	}
 	
 	public function eventcheckout($eventid)
