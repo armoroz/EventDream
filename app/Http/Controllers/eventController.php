@@ -118,6 +118,7 @@ class eventController extends AppBaseController
     public function custshow($id)
     {
         $event = $this->eventRepository->find($id);
+		$eventProductLogs = \App\Models\eventproductlog::where('eventid', $id)->get();
 
         if (empty($event)) {
             Flash::error('Event not found');
@@ -125,9 +126,9 @@ class eventController extends AppBaseController
             return redirect(route('events.index'));
         }
 
-        return view('events.custshow')->with('event', $event);
+        return view('events.custshow', compact('event', 'eventProductLogs'));
     }
-
+	
     /**
      * Show the form for editing the specified event.
      *
@@ -274,7 +275,7 @@ class eventController extends AppBaseController
 		
 		foreach ($lineitems as $lineitem) {
 			if (isset($lineitem['product'])) {
-				$thisOrderDetail = new \App\Models\Eventproductlog();
+				$thisOrderDetail = new \App\Models\eventproductlog();
 				$thisOrderDetail->eventid = $eventID;
 				$thisOrderDetail->productid = $lineitem['product']->id;
 				$thisOrderDetail->eventproductquantity = $lineitem['qty'];

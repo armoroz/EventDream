@@ -52,3 +52,15 @@
     {!! Form::label('custommenuid', 'Custom Menu') !!}
     <p>{{ $event->custommenuid }}</p>
 </div>
+
+<!-- Event products field -->
+<div class="col-sm-12">
+    {!! Form::label('eventproducts', 'Event Products:') !!}
+    <ul>
+		@foreach($event->eventproductlogs as $eventProductLog)
+			<li>{{ optional($eventProductLog->product)->productname }}</li>
+			<li>{{ optional($eventProductLog->product)->productcost }}</li>
+			<li>{{ optional($eventProductLog->product)->producttype }}</li>
+		@endforeach
+    </ul>
+</div>

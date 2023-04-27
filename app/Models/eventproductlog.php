@@ -73,8 +73,9 @@ class eventproductlog extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function productid()
+    public function product()
     {
         return $this->belongsTo(\App\Models\product::class, 'productid');
     }
+	
 }
