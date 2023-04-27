@@ -38,6 +38,10 @@
 		<option value="Standard">Standard</option>
 	</select>
 </div>
+
+<div><a href="{{ route('standardmenus.eventdisplaygrid', [$event->id]) }}" class='btn btn-primary'>Go to Standard Menu</a></div>
+<div><a href="{{ route('custommenus.eventdisplaygrid', [$event->id]) }}" class='btn btn-primary'>Go to Custom Menus</a></div>
+
 @endsection('side')
 
 <div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 

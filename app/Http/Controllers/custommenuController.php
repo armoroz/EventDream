@@ -220,7 +220,35 @@ class custommenuController extends AppBaseController
 		}
 		return view('custommenus.displaygrid')->with('custommenus',$custommenus)->with('totalItems',$totalItems);
 		
+	}
+	
+	public function eventdisplayGrid($eventid,Request $request)
+	{
+		$custommenus=\App\Models\custommenu::all();
+		$event=\App\Models\event::find($eventid);
+		
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			$totalQty=0;
+			foreach ($cart as $custommenu => $qty) {
+				$totalQty = $totalQty + $qty;
+			}
+			$totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+
+		}
+	
+		if (!Session::has('eventid')) {
+			
+			Session::put('eventid', $eventid);
+		}
+
+		return view('custommenus.eventdisplaygrid')->with('custommenus',$custommenus)->with('totalItems',$totalItems)->with('event',$event);
+		
 	}	
+	
 
 public function additem($custommenuid)
 {

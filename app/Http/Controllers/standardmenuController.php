@@ -163,7 +163,7 @@ class standardmenuController extends AppBaseController
     
 	public function displayGrid(Request $request)
 	{
-		$standardmenus=\App\Models\Standardmenu::all();
+		$standardmenus=\App\Models\standardmenu::all();
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');
@@ -178,6 +178,33 @@ class standardmenuController extends AppBaseController
 
 		}
 		return view('standardmenus.displaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems);
+		
+	}
+	
+	public function eventdisplayGrid($eventid,Request $request)
+	{
+		$standardmenus=\App\Models\standardmenu::all();
+		$event=\App\Models\event::find($eventid);
+		
+		if ($request->session()->has('cart')) {
+			$cart = $request->session()->get('cart');
+			$totalQty=0;
+			foreach ($cart as $standardmenu => $qty) {
+				$totalQty = $totalQty + $qty;
+			}
+			$totalItems=$totalQty;
+		}
+		else {
+			$totalItems=0;
+
+		}
+	
+		if (!Session::has('eventid')) {
+			
+			Session::put('eventid', $eventid);
+		}
+
+		return view('standardmenus.eventdisplaygrid')->with('standardmenus',$standardmenus)->with('totalItems',$totalItems)->with('event',$event);
 		
 	}
 	
@@ -227,23 +254,25 @@ class standardmenuController extends AppBaseController
 		return redirect(route('standardmenus.index'));
 	}
 	
-public function additem($standardmenuid)
-{
-    if (Session::has('cart')) {
-        $cart = Session::get('cart');
-        $itemId = 'standardmenu-' . $standardmenuid;
-        if (isset($cart[$itemId])) {
-            $cart[$itemId] = $cart[$itemId] + 1;
-        } else {
-            $cart[$itemId] = 1;
-        }
-    } else {
-        $itemId = 'standardmenu-' . $standardmenuid;
-        $cart[$itemId] = 1;
-    }
-    Session::put('cart', $cart);
-    return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
-}
+	
+	public function additem($standardmenuid)
+	{
+		if (Session::has('cart')) {
+			$cart = Session::get('cart');
+			$itemId = 'standardmenu-' . $standardmenuid;
+			if (isset($cart[$itemId])) {
+				$cart[$itemId] = $cart[$itemId] + 1;
+			} else {
+				$cart[$itemId] = 1;
+			}
+		} else {
+			$itemId = 'standardmenu-' . $standardmenuid;
+			$cart[$itemId] = 1;
+		}
+		Session::put('cart', $cart);
+		return Response::json(['success' => true, 'total' => array_sum($cart)], 200);
+	}
+
 	
      public function emptycart()
     {

@@ -26,6 +26,7 @@ Route::get('/logout','\App\Http\Controllers\Auth\AuthenticatedSessionController@
 Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@store');
 Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
 Route::post('stripe/checkout','App\Http\Controllers\stripeController@checkout')->name('stripe.checkout');
+Route::post('stripe/eventcheckout/{event}','App\Http\Controllers\stripeController@eventcheckout')->name('stripe.eventcheckout');
 
 Route::resource('users', App\Http\Controllers\usersController::class);
 Route::resource('roles', App\Http\Controllers\rolesController::class);
@@ -137,6 +138,7 @@ Route::post('menuitems/all/newstandardmenu','App\Http\Controllers\menuitemContro
 /* Standard Menus/Logs/Ratings/Images */
 Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::get('standardmenus/all/shop', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
+Route::get('standardmenus/eventdisplaygrid/{event}', 'App\Http\Controllers\standardmenuController@eventdisplaygrid')->name('standardmenus.eventdisplaygrid');
 Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
 Route::get('standardmenus/all/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
 Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
@@ -155,6 +157,7 @@ Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\stan
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
 Route::get('custommenus/all/shop', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
+Route::get('custommenus/eventdisplaygrid/{event}', 'App\Http\Controllers\custommenuController@eventdisplaygrid')->name('custommenus.eventdisplaygrid');
 Route::get('custommenus/additem/{id}', 'App\Http\Controllers\custommenuController@additem')->name('custommenus.additem');
 Route::get('custommenus/all/emptycart', 'App\Http\Controllers\custommenuController@emptycart')->name('custommenus.emptycart');
 Route::get('/custommenus/assignmenuitems/{id}', 'App\Http\Controllers\custommenuController@assignMenuitems')->name('custommenus.assignmenuitems');

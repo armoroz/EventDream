@@ -4,7 +4,8 @@
 <H2>Place Order</h2> 
 {{ Form::open(array('url' => 'events/all/placeorder', 'method' => 'post')) }} 
 @csrf
-<input type="hidden" name="customerid" value="{{ Auth::user()->customer->id }}">
+<input type="hidden" class="form-control" value="{{Auth::user()->customer->id}}" id="custid" name="customerid"/> 
+
  <table class="table table-condensed table-bordered"> 
     <thead> 
         <tr><th>Image</th><th>Name</th><th>Type</th><th>Description</th><th>Price</th><th>Quantity</th><th></th>
@@ -100,10 +101,16 @@
     <button type="submit" class="btn btn-primary">Continue to Payment <span class="fab fa-stripe"/></button>
 </form>
 
+<form action="{{route('events.placeorder')}}" method="POST">
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <input type="hidden" name="lineitems" value="{{ urlencode(serialize($lineitems)) }}">
+    <button type="submit" class="btn btn-primary">Create Event</button>
+</form>
+
 <form action="{{route('projects.createproject')}}" method="POST">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <input type="hidden" name="lineitems" value="{{ urlencode(serialize($lineitems)) }}">
-    <button type="submit" class="btn btn-primary">Create Project <span class="fab fa-stripe"/></button>
+    <button type="submit" class="btn btn-primary">Create Project</button>
 </form>
 
 @endsection 

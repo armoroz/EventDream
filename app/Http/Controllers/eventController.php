@@ -217,6 +217,8 @@ class eventController extends AppBaseController
 		}
 	}*/
 	
+
+	
 	public function checkout()
 	{
 		if (Session::has('cart')) {
@@ -243,19 +245,20 @@ class eventController extends AppBaseController
 				$lineitems[] = $lineitem;
 			}
 
-			// Pass venue and line items to the view
 			return view('events.checkout')->with('lineitems', $lineitems);
 		} else {
 			Flash::error("There are no items in your cart");
 			return redirect(route('products.displaygrid'));
 		}
 	}
+
+
 	
 	public function placeorder(Request $request)
 	{
 		$thisOrder = new \App\Models\event();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
-		$thisOrder->customerid = $request->customerid;
+		$thisOrder->customerid = Auth::user()->customer->id;
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid ?? [];
@@ -281,7 +284,7 @@ class eventController extends AppBaseController
 	{
 		$thisOrder = new \App\Models\project();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
-		$thisOrder->customerid = $request->customerid;
+		$thisOrder->customerid = Auth::user()->customer->id;
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid ?? [];
@@ -291,7 +294,7 @@ class eventController extends AppBaseController
 		/*$venueids = $request->venueid ?? [];*/
 		$quantities = $request->quantity ?? [];
 		for($i=0;$i<sizeof($productids);$i++) {
-			$thisOrderDetail = new \App\Models\Eventproductlog();
+			$thisOrderDetail = new \App\Models\eventproductlog();
 			$thisOrderDetail->eventid = $eventID;
 			$thisOrderDetail->productid = $productids[$i];
 			/*$thisOrderDetail->venueid = $venueids[$i] ?? null;*/

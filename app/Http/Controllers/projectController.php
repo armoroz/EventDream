@@ -9,6 +9,8 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Illuminate\Support\Facades\Auth;
+use \App\Models\customer as customer;
 
 class projectController extends AppBaseController
 {
@@ -35,13 +37,13 @@ class projectController extends AppBaseController
             ->with('projects', $projects);
     }
 	
-    public function custindex(Request $request)
-    {
-        $projects = $this->projectRepository->all();
-
-        return view('projects.custindex')
-            ->with('projects', $projects);
-    }
+	public function custindex(Request $request)
+	{
+		$customerId = Auth::user()->customer->id;
+		$projects = $this->projectRepository->findByCustomerId($customerId);
+		
+		return view('projects.custindex', compact('projects'));
+	}
 
     /**
      * Show the form for creating a new project.

@@ -97,15 +97,15 @@ class project extends Model
      **/
     public function venueid()
     {
-        return $this->belongsTo(\App\Models\Venue::class, 'venueid');
+        return $this->belongsTo(\App\Models\venue::class, 'venueid');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function customerid()
+    public function customer()
     {
-        return $this->belongsTo(\App\Models\Customer::class, 'customerid');
+        return $this->belongsTo(\App\Models\customer::class, 'customerid');
     }
 
     /**
@@ -121,7 +121,7 @@ class project extends Model
      **/
     public function standardmenuid()
     {
-        return $this->belongsTo(\App\Models\Standardmenu::class, 'standardmenuid');
+        return $this->belongsTo(\App\Models\standardmenu::class, 'standardmenuid');
     }
 
     /**
@@ -129,6 +129,6 @@ class project extends Model
      **/
     public function custommenuid()
     {
-        return $this->belongsTo(\App\Models\Custommenu::class, 'custommenuid');
+        return $this->belongsTo(\App\Models\custommenu::class, 'custommenuid');
     }
 }

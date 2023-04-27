@@ -20,12 +20,12 @@
             <tr>
 			<td>{{ $event->id }}</td>
             <td>{{ $event->eventdate }}</td>
-			<td>{{ Auth::user()->customer->firstname }}</td>
+			<td>{{ Auth::user()->customer->firstname ?? 'N/A' }}</td>
             <td>{{ $event->eventtime }}</td>
             <td>{{ $event->orderplacedon }}</td>
             <td>{{ $event->eventordertotal }}</td>
 			<td>{{ $event->numOfGuests }}</td>
-            <td>{{ $event->venue->venuename }}</td>
+            <td>{{ $event->venue->venuename ?? 'N/A' }}</td>
             <td>{{ $event->standardmenuid }}</td>
             <td>{{ $event->custommenuid}}</td>
                 <td width="120">

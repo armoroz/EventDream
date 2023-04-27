@@ -47,4 +47,10 @@ class projectRepository extends BaseRepository
     {
         return project::class;
     }
+	
+	public function findByCustomerId($customerId)
+	{
+		return $this->model->where('customerid', $customerId)->get();
+	}	
+	
 }
