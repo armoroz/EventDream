@@ -90,6 +90,7 @@ Route::resource('projects', App\Http\Controllers\projectController::class);
 Route::post('projects/all/createproject', 'App\Http\Controllers\eventController@createproject')->name('projects.createproject');
 Route::get('projects/custshow/{id}', 'App\Http\Controllers\projectController@custshow')->name('projects.custshow');
 Route::get('projects/custindex/{id}', 'App\Http\Controllers\projectController@custindex')->name('projects.custindex');
+Route::get('projects/all/projectcreated', 'App\Http\Controllers\projectController@projectcreated')->name('projects.projectcreated');
 
 /* Calendar */
 Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 

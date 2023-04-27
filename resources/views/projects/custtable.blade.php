@@ -1,52 +1,42 @@
-<div class="table-responsive">
-    <table class="table" id="projects-table">
-        <thead>
-        <tr>
-        <th>Eventdate</th>
-        <th>Eventtime</th>
-        <th>Orderplacedon</th>
-        <th>Eventordertotal</th>
-        <th>Eventdiscount</th>
-        <th>Numofguests</th>
-        <th>Venueid</th>
-        <th>Customerid</th>
-        <th>Userid</th>
-        <th>Standardmenuid</th>
-        <th>Custommenuid</th>
-            <th colspan="3">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($projects as $project)
-            <tr>
-                <td>{{ $project->eventdate }}</td>
-            <td>{{ $project->eventtime }}</td>
-            <td>{{ $project->orderplacedon }}</td>
-            <td>{{ $project->eventordertotal }}</td>
-            <td>{{ $project->eventdiscount }}</td>
-            <td>{{ $project->numOfGuests }}</td>
-            <td>{{ $project->venueid }}</td>
-            <td>{{ $project->customerid }}</td>
-            <td>{{ $project->userid }}</td>
-            <td>{{ $project->standardmenuid }}</td>
-            <td>{{ $project->custommenuid }}</td>
-                <td width="120">
-                    {!! Form::open(['route' => ['projects.destroy', $project->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('projects.custshow', [$project->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a href="{{ route('projects.edit', [$project->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="far fa-edit"></i>
-                        </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+@extends('layouts.app')
+@section('content')
+@include('flash::message') 
+@php $j=0 @endphp 
+ 
+<section class="content-header">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6" style="padding-bottom: 80px;">
+				 <h1 class="mb-4">My Projects</h1>
+			</div> 
+		</div>
+		
+	</div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+<div class='d-flex flex-wrap align-content-start' style="margin:-100px"> 
+@if(Auth::check())
+@foreach($projects as $project)
+@if($project->customerid == Auth::user()->customer->id)
+  <div class="p-0 col-3 g-3">
+	<div class= "bodyoptions-ctm">
+	  <div class= "container-ctm">
+		<div class="card-ctm">
+			<div class="content-ctm" style="margin:-10px">
+			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $project->eventdate }}</h5></div>	
+			<div class="card-footer"><a href="{{ route('projects.edit', [$project->id]) }}"> <button class="btn btn-default btn-xs" title="Add on">Add on <i class="far fa-edit"></i></a></div>		
+            <div class="card-footer"><a  href="{{ route('projects.custshow', [$project->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>				 
+			</div> 
+		</div>
+	  </div> 
+	</div>
+  </div>
+  @endif
+    @endforeach
+	@endif
 </div>
+
+@endsection('content')
