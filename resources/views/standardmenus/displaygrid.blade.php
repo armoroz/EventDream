@@ -17,6 +17,7 @@
 <meta name= "viewport" content= "width=device-width, initial-scale=1.0">
 <meta charset="utf-8">
 
+<input type="text" class="form-control" value="{{$event->id}}" id="eventid" name="eventid"/>
 
 <div class='d-flex flex-wrap align-content-start' style="margin:-100px; padding-bottom: 50px;"> 
 	@foreach($standardmenus as $standardmenu) 

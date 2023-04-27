@@ -9,11 +9,12 @@ use Stripe\Checkout\Session;
 class stripeController extends Controller
 {
 
-	public function checkout(Request $request)
+	public function checkout($eventid,Request $request)
 	{
 		\Stripe\Stripe::setApiKey(config('stripe.sk'));
 		$encodedLineItems = $request->input('lineitems');
 		$lineItems = unserialize(urldecode($encodedLineItems));
+		$event=\App\Models\event::find($eventid);
 
 		$stripeLineItems = [];
 		foreach ($lineItems as $item) {
@@ -57,7 +58,7 @@ class stripeController extends Controller
 						'product_data' => [
 							'name' => $standardmenu->standardmenuname,
 						],
-						'unit_amount' => 2000,
+						'unit_amount' => 2000 * $event->numOfGuests,
 					],
 					'quantity' => $quantity,
 				];
@@ -72,7 +73,7 @@ class stripeController extends Controller
 						'product_data' => [
 							'name' => $custommenu->custommenuname,
 						],
-						'unit_amount' => 2000,
+						'unit_amount' => 2000 * $event->numOfGuests,
 					],
 					'quantity' => $quantity,
 				];
@@ -83,7 +84,7 @@ class stripeController extends Controller
 		$session = \Stripe\Checkout\Session::create([
 			'line_items' => $stripeLineItems,
 			'mode' => 'payment',
-			'success_url' => route('events.orderplaced'),
+			'success_url' => route('events.orderplaced')->with('event',$event),
 			'cancel_url' => route('events.checkout'),
 		]);
 

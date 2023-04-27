@@ -84,6 +84,12 @@ Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow
 Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 
+/* Projects */
+Route::resource('projects', App\Http\Controllers\projectController::class);
+Route::post('projects/all/createproject', 'App\Http\Controllers\eventController@createproject')->name('projects.createproject');
+Route::get('projects/custshow/{id}', 'App\Http\Controllers\projectController@custshow')->name('projects.custshow');
+Route::get('projects/custindex/{id}', 'App\Http\Controllers\projectController@custindex')->name('projects.custindex');
+
 /* Calendar */
 Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
 Route::get('/calendar/vendisplay/{venueid}','App\Http\Controllers\calendarController@vendisplay')->name('calendar.vendisplay');
@@ -119,6 +125,9 @@ Route::get('/venueratings/venue/{venue}','App\Http\Controllers\venueratingContro
 Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
 Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
 
+/* Menu Options */
+Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
+
 /* Menu Items */
 Route::resource('menuitems', App\Http\Controllers\menuitemController::class);
 Route::get('menuitems/all/shop', 'App\Http\Controllers\menuitemController@displaygrid')->name('menuitems.displaygrid');
@@ -150,15 +159,4 @@ Route::get('custommenus/additem/{id}', 'App\Http\Controllers\custommenuControlle
 Route::get('custommenus/all/emptycart', 'App\Http\Controllers\custommenuController@emptycart')->name('custommenus.emptycart');
 Route::get('/custommenus/assignmenuitems/{id}', 'App\Http\Controllers\custommenuController@assignMenuitems')->name('custommenus.assignmenuitems');
 Route::patch('/custommenus/updatemenuitems/{id}', 'App\Http\Controllers\custommenuController@updateMenuitems')->name("custommenus.updatemenuitems");
-
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
-
-/* Menu Options */
-Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
-
-
-
-Route::resource('projects', App\Http\Controllers\projectController::class);
-Route::post('projects/all/createproject', 'App\Http\Controllers\eventController@createproject')->name('projects.createproject');
-Route::get('projects/custshow/{id}', 'App\Http\Controllers\projectController@custshow')->name('projects.custshow');
-Route::get('projects/custindex/{id}', 'App\Http\Controllers\projectController@custindex')->name('projects.custindex');
