@@ -100,4 +100,10 @@
     <button type="submit" class="btn btn-primary">Continue to Payment <span class="fab fa-stripe"/></button>
 </form>
 
+<form action="{{route('projects.createproject')}}" method="POST">
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <input type="hidden" name="lineitems" value="{{ urlencode(serialize($lineitems)) }}">
+    <button type="submit" class="btn btn-primary">Create Project <span class="fab fa-stripe"/></button>
+</form>
+
 @endsection 
