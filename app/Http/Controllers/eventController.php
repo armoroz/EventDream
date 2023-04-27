@@ -277,6 +277,32 @@ class eventController extends AppBaseController
 		return redirect(route('events.orderplaced'));
 	}
 	
+	public function createproject(Request $request)
+	{
+		$thisOrder = new \App\Models\project();
+		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
+		$thisOrder->customerid = $request->customerid;
+		$thisOrder->save();
+		$eventID = $thisOrder->id;
+		$productids = $request->productid ?? [];
+		$customerid = $request->customerid;
+		$custommenuid = $request->custommenuid;
+		$standardmenuid = $request->standardmenuid;
+		/*$venueids = $request->venueid ?? [];*/
+		$quantities = $request->quantity ?? [];
+		for($i=0;$i<sizeof($productids);$i++) {
+			$thisOrderDetail = new \App\Models\Eventproductlog();
+			$thisOrderDetail->eventid = $eventID;
+			$thisOrderDetail->productid = $productids[$i];
+			/*$thisOrderDetail->venueid = $venueids[$i] ?? null;*/
+			$thisOrderDetail->eventproductquantity = $quantities[$i] ?? 0;
+			$thisOrderDetail->save();
+		}
+		Session::forget('cart');
+		Flash::success("Your Event Order has been placed");
+		return redirect(route('events.orderplaced'));
+	}
+	
 	public function eventcheckout($eventid)
 	{
 		$event=\App\Models\event::find($eventid);

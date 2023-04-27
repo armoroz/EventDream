@@ -155,3 +155,7 @@ Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::
 
 /* Menu Options */
 Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
+
+
+
+Route::resource('projects', App\Http\Controllers\projectController::class);
