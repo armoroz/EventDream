@@ -82,6 +82,19 @@ class projectController extends AppBaseController
 
         return view('projects.show')->with('project', $project);
     }
+	
+    public function custshow($id)
+    {
+        $project = $this->projectRepository->find($id);
+
+        if (empty($project)) {
+            Flash::error('Project not found');
+
+            return redirect(route('projects.index'));
+        }
+
+        return view('projects.custshow')->with('project', $project);
+    }
 
     /**
      * Show the form for editing the specified project.
