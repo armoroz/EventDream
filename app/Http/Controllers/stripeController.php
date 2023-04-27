@@ -55,9 +55,9 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency' => 'eur',
 						'product_data' => [
-							'name' => $standardmenu->standardmenuname,
+							'name' => $standardmenu->standardmenuname . ' €20 per person',
 						],
-						'unit_amount' => 2000 * $event->numOfGuests,
+						'unit_amount' => 2000,
 					],
 					'quantity' => $quantity,
 				];
@@ -70,7 +70,7 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency' => 'eur',
 						'product_data' => [
-							'name' => $custommenu->custommenuname,
+							'name' => $custommenu->custommenuname . ' €20 per person',
 						],
 						'unit_amount' => 2000,
 					],
@@ -137,7 +137,7 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency' => 'eur',
 						'product_data' => [
-							'name' => $standardmenu->standardmenuname,
+							'name' => $standardmenu->standardmenuname . ' €20 per person',
 						],
 						'unit_amount' => 2000 * $event->numOfGuests,
 					],
@@ -152,7 +152,7 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency' => 'eur',
 						'product_data' => [
-							'name' => $custommenu->custommenuname,
+							'name' => $custommenu->custommenuname . ' €20 per person',
 						],
 						'unit_amount' => 2000 * $event->numOfGuests,
 					],

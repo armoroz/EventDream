@@ -6,6 +6,7 @@
 <p style="text-align: center; font-weight: bold; font-size: 14pt;">We Look Forward To Making Your Event Come To Life</p>
 <p style="text-align: center;">
 <a href="{{ route('events.custindex', Auth::user()->customer->id) }}" class="btn btn-primary">View Events</a>
+<a href="{{ route('projects.custindex', Auth::user()->customer->id) }}" class="btn btn-primary">View Projects</a>
 </p>
 
 

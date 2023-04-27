@@ -27,7 +27,7 @@
 		<div class="card-ctm">
 			<div class="content-ctm" style="margin:-10px">
 			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $project->eventdate }}</h5></div>	
-			<div class="card-footer"><a href="{{ route('projects.edit', [$project->id]) }}"> <button class="btn btn-default btn-xs" title="Add on">Add on <i class="far fa-edit"></i></a></div>		
+			<div class="card-footer"><a href="{{ route('products.displaygrid') }}" class='btn btn-primary'>Add-ons</a></div>
             <div class="card-footer"><a  href="{{ route('projects.custshow', [$project->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>				 
 			</div> 
 		</div>
