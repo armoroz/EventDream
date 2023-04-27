@@ -32,7 +32,7 @@
     </section>
 
     <div class="content px-3">
-        <div class="card" style="max-width: 400px">
+        <div class="card" style="max-width: 600px">
             <div class="card-body">
                 <div class="row">
                     @include('projects.custshow_fields')
