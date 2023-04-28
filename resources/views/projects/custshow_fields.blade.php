@@ -1,9 +1,8 @@
 <!-- Eventdate Field -->
 <div class="col-sm-12">
-    {!! Form::label('eventdate', 'Event Date:') !!}
+    {!! Form::label('eventdate', 'Project Date:') !!}
     <p>{{ $project->eventdate }}</p>
 </div>
-
 
 <!-- Customerid Field -->
 <div class="col-sm-12">
