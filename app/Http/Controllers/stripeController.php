@@ -40,7 +40,7 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency' => 'eur',
 						'product_data' => [
-							'name' => $product->productname,
+							'name' => $product->productname . ' ' . $product->producttype,
 						],
 						'unit_amount' => $product->productcost * 100,
 					],
@@ -122,7 +122,7 @@ class stripeController extends Controller
 					'price_data' => [
 						'currency' => 'eur',
 						'product_data' => [
-							'name' => $product->productname,
+							'name' => $product->productname . ' ' . $product->producttype,
 						],
 						'unit_amount' => $product->productcost * 100,
 					],

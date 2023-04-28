@@ -57,10 +57,15 @@
 <div class="col-sm-12">
     {!! Form::label('eventproducts', 'Event Products:') !!}
     <ul>
-		@foreach($event->eventproductlogs as $eventProductLog)
-			<li>{{ optional($eventProductLog->product)->productname }}</li>
-			<li>{{ optional($eventProductLog->product)->productcost }}</li>
-			<li>{{ optional($eventProductLog->product)->producttype }}</li>
-		@endforeach
+        @foreach($event->eventproductlogs as $eventProductLog)
+            <li>
+                {{ optional($eventProductLog->product)->productname }}
+                {{ optional($eventProductLog->product)->productcost }}
+                {{ optional($eventProductLog->product)->producttype }}
+                {!! Form::open(['route' => ['eventproductlogs.custdestroy', $eventProductLog->id], $event->id, 'method' => 'delete', 'style' => 'display:inline']) !!}
+                    {!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure you want to delete this product from the event?')"]) !!}
+                {!! Form::close() !!}
+            </li>
+        @endforeach
     </ul>
 </div>

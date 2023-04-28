@@ -84,6 +84,7 @@ Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custin
 Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow')->name('events.custshow');
 Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
+Route::delete('eventproductlogs/custdestroy/{id}', 'App\Http\Controllers\eventproductlogController@custdestroy')->name("eventproductlogs.custdestroy");
 
 /* Projects */
 Route::resource('projects', App\Http\Controllers\projectController::class);

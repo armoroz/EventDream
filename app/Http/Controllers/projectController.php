@@ -176,4 +176,11 @@ class projectController extends AppBaseController
 
         return redirect(route('projects.index'));
     }
+	
+    public function projectcreated(Request $request)
+    {
+
+        return view('projects.projectcreated');
+    }
+	
 }

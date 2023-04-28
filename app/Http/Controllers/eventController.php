@@ -313,7 +313,7 @@ class eventController extends AppBaseController
 		}
 		Session::forget('cart');
 		Flash::success("Your Event Order has been placed");
-		return redirect(route('events.orderplaced'));
+		return redirect(route('projects.projectcreated'));
 	}
 	
 	public function eventcheckout($eventid)
@@ -343,47 +343,42 @@ class eventController extends AppBaseController
 				$lineitems[] = $lineitem;
 			}
 
-			// Pass venue and line items to the view
 			return view('events.eventcheckout')->with('lineitems', $lineitems)->with('event',$event);
 		} else {
 			Flash::error("There are no items in your cart");
 			return redirect(route('products.eventdisplaygrid'));
 		}
 	}
-
-
 	
 	public function eventplaceorder($eventid,Request $request)
 	{
 		$thisEvent = \App\Models\event::find($eventid);
 		
 		if ($thisEvent) {
-			$thisEvent->orderplacedon = (new \DateTime())->format("Y-m-d H:i:s");		
+			$lineitems = unserialize(urldecode($request->input('lineitems')));
+			$thisEvent->orderplacedon = (new \DateTime())->format("Y-m-d H:i:s");
+			$thisEvent->customerid = Auth::user()->customer->id;
 			$thisEvent->save();
-			$thisEvent->customerid = $request->customerid;
+
 			$eventID = $thisEvent->id;
-			$productids = $request->productid ?? [];
-			$customerid = $request->customerid;
-			$custommenuid = $request->custommenuid;
-			$standardmenuid = $request->standardmenuid;
-			$quantities = $request->quantity ?? [];
-			for($i=0;$i<sizeof($productids);$i++) {
-				$thisEventProductLog = new \App\Models\eventproductlog();
-				$thisEventProductLog->eventid = $eventID;
-				$thisEventProductLog->productid = $productids[$i];
-				$thisEventProductLog->eventproductquantity = $quantities[$i] ?? 0;
-				$thisEventProductLog->save();
+
+			
+			foreach ($lineitems as $lineitem) {
+				if (isset($lineitem['product'])) {
+					$thisEventProductLog = new \App\Models\eventproductlog();
+					$thisEventProductLog->eventid = $eventID;
+					$thisEventProductLog->productid = $lineitem['product']->id;
+					$thisEventProductLog->eventproductquantity = $lineitem['qty'];
+					$thisEventProductLog->save();
+				}
 			}
-			Session::forget('cart');
-			Flash::success("Your Event Order has been placed");
-			return redirect(route('events.orderplaced'));
-			}
-		else {
-			Flash::error("Event not found");
-			return redirect(route('products.eventdisplaygrid'));
-		}	
-		
-	}
+		}
+		Session::forget('cart');
+
+		Flash::success("Your Event Order has been placed");
+
+		return redirect(route('events.orderplaced'));
+	}	
 
 
 }
