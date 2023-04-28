@@ -174,13 +174,7 @@ class projectController extends AppBaseController
 
         Flash::success('Project deleted successfully.');
 
-        return redirect(route('projects.custindex'));
-    }
-	
-    public function projectcreated(Request $request)
-    {
-
-        return view('projects.projectcreated');
+        return redirect(route('projects.index'));
     }
 	
     public function projectcreated(Request $request)

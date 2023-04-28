@@ -5,7 +5,7 @@
  
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-<input type="text" class="form-control" value="{{$event->id}}" id="eventid" name="eventid"/>
+<input type="hidden" class="form-control" value="{{$event->id}}" id="eventid" name="eventid"/>
 
 <section class="content-header">
 	<div class="container-fluid">
