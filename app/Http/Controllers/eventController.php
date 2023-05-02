@@ -47,9 +47,17 @@ class eventController extends AppBaseController
 	public function custindex(Request $request)
 	{
 		$customerId = Auth::user()->customer->id;
-		$events = $this->eventRepository->findByCustomerId($customerId);
+		$events = $this->eventRepository->findByCustomerId($customerId)->where('eventstatus', 'Event');
 		
 		return view('events.custindex', compact('events'));
+	}
+	
+	public function projectindex(Request $request)
+	{
+		$customerId = Auth::user()->customer->id;
+		$events = $this->eventRepository->findByCustomerId($customerId)->where('eventstatus', 'Project');
+		
+		return view('events.projectindex', compact('events'));
 	}
 
     /**
@@ -60,6 +68,12 @@ class eventController extends AppBaseController
     public function create()
     {
         return view('events.create');
+    }
+	
+    public function projectcreated(Request $request)
+    {
+
+        return view('events.projectcreated');
     }
 
     /**
@@ -290,11 +304,12 @@ class eventController extends AppBaseController
 		return redirect(route('events.orderplaced'));
 	}
 	
-	public function createproject(Request $request)
+	public function createprojectOLD(Request $request)
 	{
 		$thisOrder = new \App\Models\project();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->customerid = Auth::user()->customer->id;
+		$thisEvent->eventstatus = 'Project';
 		$thisOrder->save();
 		$eventID = $thisOrder->id;
 		$productids = $request->productid ?? [];
@@ -314,8 +329,39 @@ class eventController extends AppBaseController
 		Session::forget('cart');
 
 		Flash::success("Your Project has been created");
-		return redirect(route('projects.projectcreated'));
+		return redirect(route('events.projectcreated'));
 	}
+	
+	public function createproject($eventid,Request $request)
+	{
+		$thisEvent = \App\Models\event::find($eventid);
+		
+		if ($thisEvent) {
+			$lineitems = unserialize(urldecode($request->input('lineitems')));
+			$thisEvent->orderplacedon = (new \DateTime())->format("Y-m-d H:i:s");
+			$thisEvent->customerid = Auth::user()->customer->id;
+			$thisEvent->eventstatus = 'Project';
+			$thisEvent->save();
+
+			$eventID = $thisEvent->id;
+
+			
+			foreach ($lineitems as $lineitem) {
+				if (isset($lineitem['product'])) {
+					$thisEventProductLog = new \App\Models\eventproductlog();
+					$thisEventProductLog->eventid = $eventID;
+					$thisEventProductLog->productid = $lineitem['product']->id;
+					$thisEventProductLog->eventproductquantity = $lineitem['qty'];
+					$thisEventProductLog->save();
+				}
+			}
+		}
+		Session::forget('cart');
+
+		Flash::success("Your Event Order has been placed");
+
+		return redirect(route('events.projectcreated'));
+	}	
 	
 	public function eventcheckout($eventid)
 	{
@@ -359,10 +405,12 @@ class eventController extends AppBaseController
 			$lineitems = unserialize(urldecode($request->input('lineitems')));
 			$thisEvent->orderplacedon = (new \DateTime())->format("Y-m-d H:i:s");
 			$thisEvent->customerid = Auth::user()->customer->id;
+			$thisEvent->eventstatus = 'Event';
 			$thisEvent->save();
 
 			$eventID = $thisEvent->id;
 
+			$ttlCost = 0;
 			
 			foreach ($lineitems as $lineitem) {
 				if (isset($lineitem['product'])) {
@@ -371,8 +419,13 @@ class eventController extends AppBaseController
 					$thisEventProductLog->productid = $lineitem['product']->id;
 					$thisEventProductLog->eventproductquantity = $lineitem['qty'];
 					$thisEventProductLog->save();
+					
+					$ttlCost += ($lineitem['product']->productcost + $lineitem['product']->costtorent) * $lineitem['qty'];
 				}
 			}
+			        $thisEvent->eventordertotal = $ttlCost;
+
+					$thisEvent->save();
 		}
 		Session::forget('cart');
 

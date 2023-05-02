@@ -102,4 +102,10 @@
     <button type="submit" class="btn btn-primary">Add Event</button>
 </form>
 
+<form action="{{route('events.createproject', [$event->id])}}" method="POST">
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <input type="hidden" name="lineitems" value="{{ urlencode(serialize($lineitems)) }}">
+    <button type="submit" class="btn btn-primary">Create Project</button>
+</form>
+
 @endsection 

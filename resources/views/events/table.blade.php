@@ -8,6 +8,7 @@
         <th>Eventordertotal</th>
         <th>Eventdiscount</th>
 		<th>numOfGuests</th>
+		<th>eventstatus</th>
         <th>Venueid</th>
         <th>Customerid</th>
         <th>Userid</th>
@@ -26,6 +27,7 @@
             <td>{{ $event->eventordertotal }}</td>
             <td>{{ $event->eventdiscount }}</td>
 			<td>{{ $event->numOfGuests }}</td>
+			<td>{{ $event->eventstatus }}</td>
             <td>{{ $event->venue->venuename ?? 'N/A' }}</td>
             <td>{{ $event->customer->firstname ?? 'N/A' }}</td>
             <td>{{ $event->userid }}</td>

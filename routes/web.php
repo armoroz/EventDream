@@ -81,6 +81,9 @@ Route::get('events/eventcheckout/{event}', 'App\Http\Controllers\eventController
 Route::post('events/all/placeorder', 'App\Http\Controllers\eventController@placeorder')->name('events.placeorder');
 Route::post('events/eventplaceorder/{event}', 'App\Http\Controllers\eventController@eventplaceorder')->name('events.eventplaceorder');
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
+Route::get('events/projectindex/{id}', 'App\Http\Controllers\eventController@projectindex')->name('events.projectindex');
+Route::post('events/createproject/{event}', 'App\Http\Controllers\eventController@createproject')->name('events.createproject');
+Route::get('events/all/projectcreated', 'App\Http\Controllers\eventController@projectcreated')->name('events.projectcreated');
 Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow')->name('events.custshow');
 Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);

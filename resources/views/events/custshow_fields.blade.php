@@ -22,6 +22,18 @@
     <p>{{ $event->eventordertotal }}</p>
 </div>
 
+<!-- Numofguests Field -->
+<div class="col-sm-12">
+    {!! Form::label('numOfGuests', 'No. of Guests:') !!}
+    <p>{{ $event->numOfGuests }}</p>
+</div>
+
+<!-- Event status Field -->
+<div class="col-sm-12">
+    {!! Form::label('eventstatus', 'Event Status:') !!}
+    <p>{{ $event->eventstatus }}</p>
+</div>
+
 <!-- Eventdiscount Field -->
 <div class="col-sm-12">
     {!! Form::label('eventdiscount', 'Event Discount:') !!}

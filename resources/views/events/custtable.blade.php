@@ -9,6 +9,7 @@
         <th>Order Date</th>
         <th>Order Total</th>
 		<th>No. of Guests</th>
+		<th>Event Status</th>
         <th>Venue</th>
         <th>Standard Menu</th>
         <th>Custom Menu</th>
@@ -25,6 +26,7 @@
             <td>{{ $event->orderplacedon }}</td>
             <td>{{ $event->eventordertotal }}</td>
 			<td>{{ $event->numOfGuests }}</td>
+			<td>{{ $event->eventstatus }}</td>
             <td>{{ $event->venue->venuename ?? 'N/A' }}</td>
             <td>{{ $event->standardmenuid }}</td>
             <td>{{ $event->custommenuid}}</td>

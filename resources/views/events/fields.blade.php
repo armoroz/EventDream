@@ -36,6 +36,18 @@
     </script>
 @endpush
 
+<!-- No. of Guests Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('numOfGuests', 'No. of Guests:') !!}
+    {!! Form::number('numOfGuests', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Event Status Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('eventstatus', 'Event Status:') !!}
+    {!! Form::text('eventstatus', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Eventordertotal Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('eventordertotal', 'Eventordertotal:') !!}

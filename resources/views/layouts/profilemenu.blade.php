@@ -13,7 +13,7 @@
             <a class="dropdown-item" href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">View Events</a>
         </li>
         <li>
-            <a class="dropdown-item" href="{!! route('projects.custindex', [Auth::user()->customer->id]) !!}">View Projects</a>
+            <a class="dropdown-item" href="{!! route('events.projectindex', [Auth::user()->customer->id]) !!}">View Projects</a>
         </li>
         <li>
             <hr class="dropdown-divider">
