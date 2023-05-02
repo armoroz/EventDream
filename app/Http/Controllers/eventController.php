@@ -422,10 +422,16 @@ class eventController extends AppBaseController
 					
 					$ttlCost += ($lineitem['product']->productcost + $lineitem['product']->costtorent) * $lineitem['qty'];
 				}
-			}
-			        $thisEvent->eventordertotal = $ttlCost;
+					elseif (isset($lineitem['custommenu'])) {
+						$thisEvent->custommenuid = $lineitem['custommenu']->id;
+					}
+					elseif (isset($lineitem['standardmenu'])) {
+						$thisEvent->standardmenuid = $lineitem['standardmenu']->id;
+					}
+				}
+			$thisEvent->eventordertotal = $ttlCost;
 
-					$thisEvent->save();
+			$thisEvent->save();
 		}
 		Session::forget('cart');
 

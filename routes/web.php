@@ -27,6 +27,9 @@ Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@st
 Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
 Route::post('stripe/checkout','App\Http\Controllers\stripeController@checkout')->name('stripe.checkout');
 Route::post('stripe/eventcheckout/{event}','App\Http\Controllers\stripeController@eventcheckout')->name('stripe.eventcheckout');
+Route::post('stripe/webhook','App\Http\Controllers\stripeController@handleWebhook');
+
+
 
 Route::resource('users', App\Http\Controllers\usersController::class);
 Route::resource('roles', App\Http\Controllers\rolesController::class);

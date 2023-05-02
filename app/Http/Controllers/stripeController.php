@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
+use \App\Models\customer as customer;
+use Illuminate\Support\Facades\Auth;
+use Flash;
+use Response;
 
 class stripeController extends Controller
 {
@@ -168,9 +172,56 @@ class stripeController extends Controller
 			'success_url' => route('events.orderplaced'),
 			'cancel_url' => route('events.checkout'),
 		]);
+		
+		$this->eventplaceorder($eventid, $request);
 
 		return redirect()->away($session->url);
 	}	
+	
+	
+	public function eventplaceorder($eventid,Request $request)
+	{
+		$thisEvent = \App\Models\event::find($eventid);
+		
+		if ($thisEvent) {
+			$lineitems = unserialize(urldecode($request->input('lineitems')));
+			$thisEvent->orderplacedon = (new \DateTime())->format("Y-m-d H:i:s");
+			$thisEvent->customerid = Auth::user()->customer->id;
+			$thisEvent->eventstatus = 'Event';
+			$thisEvent->save();
+
+			$eventID = $thisEvent->id;
+
+			$ttlCost = 0;
+			
+			foreach ($lineitems as $lineitem) {
+				if (isset($lineitem['product'])) {
+					$thisEventProductLog = new \App\Models\eventproductlog();
+					$thisEventProductLog->eventid = $eventID;
+					$thisEventProductLog->productid = $lineitem['product']->id;
+					$thisEventProductLog->eventproductquantity = $lineitem['qty'];
+					$thisEventProductLog->save();
+					
+					$ttlCost += ($lineitem['product']->productcost + $lineitem['product']->costtorent) * $lineitem['qty'];
+				}
+					elseif (isset($lineitem['custommenu'])) {
+						$thisEvent->custommenuid = $lineitem['custommenu']->id;
+					}
+					elseif (isset($lineitem['standardmenu'])) {
+						$thisEvent->standardmenuid = $lineitem['standardmenu']->id;
+					}
+				}
+			$thisEvent->eventordertotal = $ttlCost;
+
+			$thisEvent->save();
+		}
+
+		Flash::success("Your Event Order has been placed");
+
+		return redirect(route('events.orderplaced'));
+	}
+
+
 	
 
 }
