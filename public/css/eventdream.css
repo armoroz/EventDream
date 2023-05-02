@@ -2,6 +2,10 @@ Body{
 background-color: #616b75;
 }
 
+.navbar-collapse.show {
+	background:rgba(97, 107, 117,.8); 
+}
+
 .tableimg {
 	max-height: 100px; 
 	min-height: 100px; 
