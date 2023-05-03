@@ -78,7 +78,7 @@
 }
 .container {
   display: flex;
-  height: 320px;
+  height: 300px;
   margin: 0 auto;
   width: 640px;
 }
@@ -168,7 +168,7 @@ input::-moz-focus-inner {
 }
 #submit {
   color: #707075;
-  margin-top: 40px;
+  margin-top: 10px;
   transition: color 300ms;
 }
 #submit:focus {

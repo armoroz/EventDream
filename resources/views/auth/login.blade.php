@@ -41,11 +41,11 @@
 		
         <input class="input1" type="submit" id="submit" value="Submit">
 		
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" style="color: grey;" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+		@if (Route::has('password.request'))
+			<a style="color: grey; margin-left: 25px;" href="{{ route('password.request') }}">
+				{{ __('Forgot your password?') }}
+			</a>
+		@endif
 		
     </form>
 </div>
