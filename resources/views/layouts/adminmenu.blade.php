@@ -28,9 +28,6 @@
 		<li>
              <a class="dropdown-item" href="{!! route('eventproductlogs.index') !!}">Event Product Log</a>
         </li>
-		<li>
-             <a class="dropdown-item" href="{!! route('projects.index') !!}">Projects</a>
-        </li>
         <li>   
 			 <a class="dropdown-item" href="{!! route('products.index') !!}">Products</a>
         </li>

@@ -2,26 +2,24 @@
 @section('content')
 @include('flash::message') 
 @php $j=0 @endphp 
-<h1> Welcome to EventDream</h1>
+<h1 style="text-align: center; margin-top: 20px; font-family: Garamond, serif;"> Welcome to EventDream</h1>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <style>
 h2 {
 	margin-left:0px;
 	padding-top: 30px;
+	font-family: Garamond, serif;
   }
-p {
-	float: left;
-	border-color: black;
- }
 
 .col-lg-8 {
-    width: 75%;
+
 	float: right;
+	min-width: 1300px;
   }
 
 .col-lg-2 {
-    width: 24.8%;
+	max-width: 100px;
   }
 
 .img-home {
@@ -36,14 +34,14 @@ div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   margin: -15px;
-  height: 448px;
+  height: 594px;
 }
 
 div.scrollmenu div.home {
   display: inline-block;
   color: white;
   text-align: center;
-  padding: 6px;
+  padding: 0px;
   text-decoration: none;
   height:30px;
   width:260px;
@@ -57,93 +55,100 @@ div.scrollmenu a:hover {
 	color: grey;
 }
 
+.container-stdm .card-stdm {
+	box-shadow: none;
+	transition: 0.4s ease-in-out;
+	position: relative;
+	margin: 30px 10px;
+	padding: 20px 15px;
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	min-width: 300px;
+	height: 600px;
+}
+
 </style>
-<h2>Venues</h2>
+
+<h2 style="text-align: center; font-size: 20pt; margin: -25px;">Book a Venue or Browse Products</h2>
+<h2 style="text-align: center;">Venues</h2>
 <div class="scrollmenu">
 @foreach($venues as $venue)
-	@if ($j==0) @endif
-          <div class="home">
-				<div class="card text-center"> 
-					<div class="card-header d-block">{{ $venue->venuename }} {{ $venue->city }}</div> 
-					@foreach($venue->venueimages->take(1) as $venueimage)		
-					<div class="card-body"><a href="{{ route('venues.custshow', [$venue->id]) }}"><img class="img-home center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"></a></div>
-					@endforeach
-					€{{$venue->costtorent}}
-					<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
-					<div class="card-footer"><a  href="{{ url('calendar/vendisplay', [$venue->id]) }}"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay">View Availibility</button></a></div>
-					<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
-						<input id="fieldRating" name="rating" 
-						value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
-						type="text" data-theme="krajee-fas" class="rating" data-min=0 
-						data-max=5 data-step=1 data-size="sm" data-display-only="true">
-					 </a> </div>
+          <div class="home" style="margin-right: 53px;">
+			<div class= "container-stdm">
+				<div class="card-stdm" style="height: 100%;">
+					<div class="box-image-stdm">
+						<div class="image-wrapper">
+					    @foreach($venue->venueimages->take(1) as $venueimage)<img src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/>@endforeach
+						</div>
+					</div>
+					<div class="content-stdm">
+						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
+						<div class="card-footer" style="text-align: center; color: black;">€{{$venue->costtorent}}</div>
+						<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button></div>
+						<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
+							<input id="fieldRating" name="rating" 
+							value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
+							type="hidden" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+							data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
+						</div>
+					</div>
 				</div>
+			</div>
 			</div>	
-      @php $j++ @endphp 
-    @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
-<div class="home"><div><a href="{!! route('venues.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
+<div class="home"><a style="text-decoration: none; color: lightgrey;" href="{!! route('venues.displaygrid') !!}"><span style="font-size:60px;margin-left:30px; margin-bottom:10px;">View All <i class="fas fa-angle-right"></i></span></a></div>
 </div>
 
-<h2>Products</h2>
+<h2 style="text-align: center;">Products</h2>
 <div class="scrollmenu">
 @foreach($products as $product)
-	@if ($j==0) @endif
-	<div class="home">
-            <div class="card text-center"> 
-            <div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
-            <div class="card-body"><a href="{{ route('products.custshow', [$product->id]) }}"><img class="img-home center-block" src="{{ $product->productimg }}"></a></div>
-			<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>
-            <div class="card-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$product->id}}">Add To Cart</button></div>
-            <div class="card-footer" style="text-align:center">
-			<button type="button" class="btn btn-default add"><span class="fas fa-plus" value="{{$product->id}}"/></button> 
-            <button type="button" class="btn btn-default subtract"><span class="fas fa-minus"/></button> 
-            <button type="button" class="btn btn-default" value="remove" onClick="$(this).closest('tr').remove();"><span class="fas fa-times"/></button>
-			</div>			
-			<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>	
-        </div>
+	<div class="home" style="margin-right: 53px;">
+		<div class= "container-stdm">
+			<div class="card-stdm" style="height: 100%;">
+				<div class="box-image-stdm">
+					<div class="image-wrapper">
+						<img src="{{ $product->productimg }}"/>
+					</div>
+				</div>
+				
+				<div class="content-stdm"> 
+					<div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
+					<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>			
+					<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+				</div>
+			</div>
+		</div>
 	</div>
-      @php $j++ @endphp 
-    @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
-<div class="home"><div><a href="{!! route('products.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
+<div class="home"><a style="text-decoration: none; color: lightgrey;" href="{!! route('products.displaygrid') !!}"><span style="font-size:60px;margin-left:30px; margin-bottom:10px;">View All <i class="fas fa-angle-right"></i></span></a></div>
 </div>
 
-<h2>Menus</h2>
+<h2 style="text-align: center;">Menus</h2>
 <div class="scrollmenu">
 @foreach($standardmenus as $standardmenu)
-	@if ($j==0) @endif
-	<div class="home">
-            <div class="card text-center"> 
-            <div class="card-header d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</div> 
-            @foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)		
-			<div class="card-body"><img class="img-home center-block" src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}">
-			</div>@endforeach
-			<div class="card-footer" style="text-align: center; color:black;">
-			€{{$standardmenu->standardmenucost}}
-            <div class="card-footer"><button id="addItem" type="button" class="btn btn-default center-block addItem" value="{{$standardmenu->id}}">Add To Cart</button></div>
-            <a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a>
-            <div><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
-					<input id="fieldRating" name="rating" 
+	<div class="home" style="margin-right: 53px;">
+        <div class= "container-stdm">
+			<div class="card-stdm" style="height: 100%;">
+				<div class="box-image-stdm">
+					<div class="image-wrapper">
+						@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}"/>@endforeach
+					</div>
+				</div>
+				
+				<div class="content-stdm"> 
+					<div class="card-header d-block">{{ $standardmenu->standardmenuname }}</div> 
+					<div class="card-footer" style="text-align: center; color:black;">€ 20 Per Person</div>
+					<div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+					<div class="card-footer"><input id="fieldRating" name="rating" 
 					value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
-					type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
-					data-max=5 data-step=1 data-size="sm" data-display-only="true">
-			     </a> </div>
+					type="hidden" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+					data-max=5 data-step=1 data-size="sm" data-display-only="true"></div>
+				</div>
 			</div>			
         </div>
 	</div>
-      @php $j++ @endphp 
-    @if ($j==3) @php $j=0 @endphp  @endif 
 @endforeach
-<div class="home"><div><a href="{!! route('standardmenus.displaygrid') !!}"><span style="font-size:70px;margin-left:10px; margin-bottom:10px;" class="glyphicon glyphicon-arrow-right"title="View All">ViewAll</span></a></div></div>
+<div class="home"><a style="text-decoration: none; color: lightgrey;" href="{!! route('standardmenus.displaygrid') !!}"><span style="font-size:60px;margin-left:30px; margin-bottom:10px;">View All <i class="fas fa-angle-right"></i></span></a></div>
 </div>
 @endsection('content')
-@section('side')
-	<div><span style="font-size:70px;margin-left:10px; margin-top:300px;" class="fas fa-shopping-cart"title="Cart"></span></div>
-	
-	@if(Auth::check())
-	<div><a href="{!! route('customers.custshow', [Auth::user()->customer->id]) !!}" style="color: inherit;"><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-user" title="View Profile"></span></a></div>
-	
-	<div><a href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}" style="color: inherit;"><span style="font-size:70px;margin-left:10px; margin-top:30px;" class="fas fa-folder-open" title="View Projects"></span></a></div>
-	@endif
-@endsection('side')

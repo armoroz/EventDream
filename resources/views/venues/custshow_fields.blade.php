@@ -49,7 +49,7 @@
 <!-- Rating Field -->
 <div class="col-sm-12">
     {!! Form::label('venueratings', 'Venue Ratings:') !!}
-    @foreach($venueratings->slice(-3) as $venuerating)
+    @foreach($venueratings->where('venueid', $venue->id)->slice(-3) as $venuerating)
         <div style="border-style: groove; border-color: lightgrey;">
             <td>
               {{ $venuerating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
@@ -59,6 +59,7 @@
         </div>
     @endforeach
 </div>
+
 
 <!-- Imagefile Field -->
 <div class="container-fluid" style="max-width: 400px; min-width: 400px; min-height: 300px; max-height: 300px;">

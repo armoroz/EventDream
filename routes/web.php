@@ -24,12 +24,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/logout','\App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
 Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@store');
-Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
 Route::post('stripe/checkout','App\Http\Controllers\stripeController@checkout')->name('stripe.checkout');
 Route::post('stripe/eventcheckout/{event}','App\Http\Controllers\stripeController@eventcheckout')->name('stripe.eventcheckout');
-Route::post('stripe/webhook','App\Http\Controllers\stripeController@handleWebhook');
-
-
 
 Route::resource('users', App\Http\Controllers\usersController::class);
 Route::resource('roles', App\Http\Controllers\rolesController::class);
@@ -70,10 +66,10 @@ Route::patch('products/{product}/update','App\Http\Controllers\productController
 
 /* Customers */
 Route::resource('customers', App\Http\Controllers\customerController::class);
+Route::get('/loggedInCustomer','App\Http\Controllers\customerController@getLoggedInCustomerDetails');
 Route::get('customer/custedit/{id}', 'App\Http\Controllers\customerController@custedit')->name('customers.custedit');
 Route::patch('customer/custupdate/{customer}', 'App\Http\Controllers\customerController@custupdate')->name('customers.custupdate');
 Route::get('customer/custshow/{id}', 'App\Http\Controllers\customerController@custshow')->name('customers.custshow');
-
 
 /* Events/Logs */
 Route::resource('events', App\Http\Controllers\eventController::class);
@@ -91,13 +87,6 @@ Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow
 Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 Route::delete('eventproductlogs/custdestroy/{id}', 'App\Http\Controllers\eventproductlogController@custdestroy')->name("eventproductlogs.custdestroy");
-
-/* Projects */
-Route::resource('projects', App\Http\Controllers\projectController::class);
-Route::post('projects/all/createproject', 'App\Http\Controllers\eventController@createproject')->name('projects.createproject');
-Route::get('projects/custshow/{id}', 'App\Http\Controllers\projectController@custshow')->name('projects.custshow');
-Route::get('projects/custindex/{id}', 'App\Http\Controllers\projectController@custindex')->name('projects.custindex');
-Route::get('projects/all/projectcreated', 'App\Http\Controllers\projectController@projectcreated')->name('projects.projectcreated');
 
 /* Calendar */
 Route::get('/calendar/venuejson/{venueid}','App\Http\Controllers\calendarController@venuejson')->name('calendar.venuejson'); 
@@ -136,6 +125,7 @@ Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesControl
 
 /* Menu Options */
 Route::resource('menuoptions', App\Http\Controllers\menuoptionController::class);
+Route::get('menuoptions/eventindex/{event}', 'App\Http\Controllers\menuoptionController@eventindex')->name('menuoptions.eventindex');
 
 /* Menu Items */
 Route::resource('menuitems', App\Http\Controllers\menuitemController::class);

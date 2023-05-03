@@ -31,38 +31,40 @@
 </style>
 
 <form action="{{route('menuitems.newstandardmenu')}}" id="newmenuform" method="post">
-@csrf
-<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin:-100px"> 
-@foreach($menuitems as $menuitem) 
-  <div class="p-0 col-4 g-4">
-	<div class= "bodyoptions-meni">
-	  <div class= "container-meni">
-		<div class="card-meni" style="height: 100%;">
-			<div class="box-image-meni">
-				<img src="{{ $menuitem->menuitemimglink }}">
+	@csrf
+	<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin:-100px"> 
+	@foreach($menuitems as $menuitem) 
+	  <div class="p-0 col-4 g-4">
+		<div class= "bodyoptions-meni">
+		  <div class= "container-meni">
+			<div class="card-meni" style="height: 100%;">
+				<div class="box-image-meni">
+					<img src="{{ $menuitem->menuitemimglink }}">
+				</div>
+				<div class="content-meni">
+				<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $menuitem->menuitemname }}</h5></div>
+				<div class="card-footer">
+					<div class="btn-checkbox">
+						<div class="text-center">
+							<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a>
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" id="cbox-selectMenuItems-{{ $menuitem->id }}" name="menuitems[]" value="{{ $menuitem->id }}">
+							<label for="cbox-selectMenuItems-{{ $menuitem->id }}"></label>
+						</div>
+					</div>
+				</div>
+				</div> 
 			</div>
-			<div class="content-meni">
-			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $menuitem->menuitemname }}</h5></div>
-            <div class="card-footer">
-                <div class="btn-checkbox">
-                    <div class="text-center">
-						<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" id="cbox-selectMenuItems-{{ $menuitem->id }}" name="menuitems[]" value="{{ $menuitem->id }}">
-                        <label for="cbox-selectMenuItems-{{ $menuitem->id }}"></label>
-                    </div>
-                </div>
-            </div>
-			</div> 
+		  </div> 
 		</div>
-	  </div> 
+	 </div> 
+	 @endforeach
 	</div>
- </div> 
- @endforeach
-</div>
-
-<button type="button" id="newmenubtn" class="btn btn-primary" style="margin:100px">Add Menu Items to Custom Menu</button>
+	
+	<div>
+	<button type="button" id="newmenubtn" class="btn btn-primary" style="margin-top: 200px;">Save to Custom Menu</button>
+	</div>
 </form>
 
 <script>

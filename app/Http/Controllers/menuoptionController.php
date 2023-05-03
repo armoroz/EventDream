@@ -11,4 +11,12 @@ class menuoptionController extends Controller
 		$customers=\App\Models\customer::all();
         return view('menuoptions.index')->with('customers', $customers);
     }
+	
+    public function eventindex($eventid)
+    {
+		$event=\App\Models\event::find($eventid);
+		$customers=\App\Models\customer::all();
+        return view('menuoptions.eventindex')->with('customers', $customers)->with('event',$event);
+    }
+	
 }

@@ -8,35 +8,37 @@
 <section class="content-header">
 	<div class="container-fluid">
 		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 50px;">
-
+			<div class="col-sm-6" style="padding-bottom: 20px;">
 			</div>
 		</div>
 	</div>
 </section>
 
-@section('side')
-<form action="{{ route('products.filterproducts') }}" method="POST">
-	@csrf
-	<i class="fas fa-spinner fa-spin"></i>
-	<button class="btn btn-primary" onclick="filterProducts()">Filter</button>
-	<label for="minPrice">Min Price:</label>
-	<input type="number" id="minPrice" name="minPrice">
-	<label for="maxPrice">Max Price:</label>
-	<input type="number" id="maxPrice" name="maxPrice">
-	<div id="filteredProducts"></div>
-</form>
+<div class="row mb-2" style="margin-left: -75px;">
+	<div class="col-sm-6" style="width: 138px;">
+		<select id="productnameselect" class="form-select" size="1" style="background-color: #2d3033; color: white; border-color: #2d3033;">
+			<option value="All" selected>Category</option>
+			<option value="All">All</option>
+			<option value="Flower">Flower</option>
+			<option value="Elegance">Elegance</option>
+			<option value="Standard">Standard</option>
+		</select>
+	</div>
 
-<div style="align: right; width: 110px; margin: 5px 0px 5px 0px;">
-	<select id="productnameselect" class="form-select" size="1">
-		<option value="All" selected>Filter By</option>
-		<option value="All">All</option>
-		<option value="Flower">Flower</option>
-		<option value="Elegance">Elegance</option>
-		<option value="Standard">Standard</option>
-	</select>
+	<div class="col-sm-6">
+		<form action="{{ route('products.filterproducts') }}" method="POST">
+			@csrf
+			<output id="minPriceOutput">0</output>
+			<input class="slider" type="range" min="0" max="50" value="0" id="minPrice" name="minPrice" oninput="minPriceOutput.value = minPrice.value" style="width:90px;">
+			
+			
+			<input class="slider" type="range" min="0" max="50" value="50" id="maxPrice" name="maxPrice" oninput="maxPriceOutput.value = maxPrice.value" style="width:90px;">
+			<output id="maxPriceOutput">50</output>
+			<button class="btn btn-primary" onclick="filterProducts()">Filter Price</button>
+			<div id="filteredProducts"></div>
+		</form>
+	</div>
 </div>
-@endsection('side')
 
 <div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 
     @foreach($products as $product) 

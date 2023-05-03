@@ -27,7 +27,7 @@
 <!-- Rating Field -->
 <div class="col-sm-12">
     {!! Form::label('standardmenuratings', 'Standard Menu Ratings:') !!}
-    @foreach($standardmenuratings->slice(-3) as $standardmenurating)
+    @foreach($standardmenuratings->where('standardmenuid', $standardmenu->id)->slice(-3) as $standardmenurating)
         <div style="border-style: groove; border-color: lightgrey;">
             <td>
               {{ $standardmenurating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 

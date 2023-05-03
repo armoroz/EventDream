@@ -37,7 +37,7 @@
 						<div class="card-footer"><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 							<input id="fieldRating" name="rating" 
 							value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
-							type="text" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
+							type="hidden" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 							data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
 						</div>
 					</div> 

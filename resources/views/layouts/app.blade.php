@@ -42,7 +42,7 @@
 					
 						@if(Request::url() == route('venues.displaygrid'))
 						<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt;">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt; color: #333333;">Venues</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
@@ -105,7 +105,7 @@
 						@endif
 						</li>
 						
-						@if(Request::url() == route('products.displaygrid') || Request::url() == route('venues.displaygrid') || Request::url() == route('standardmenus.displaygrid') || Request::url() == route('custommenus.displaygrid') || isset($venue) && Request::url() == route('venues.custshow', [$venue->id]) || isset($product) && Request::url() == route('products.custshow', [$product->id]) || isset($standardmenu) && Request::url() == route('standardmenus.custshow', [$standardmenu->id]) || Request::url() == route('venues.searchquery') || Request::url() == route('products.searchquery') || Request::url() == route('standardmenus.searchquery') || Request::url() == route('venues.filtervenues') || Request::url() == route('products.filterproducts') || isset($custommenu) && Request::url() == route('custommenus.custshow', [$custommenu->id]))
+						@if(Request::url() == route('products.displaygrid') || Request::url() == route('standardmenus.displaygrid') || Request::url() == route('custommenus.displaygrid') || isset($product) && Request::url() == route('products.custshow', [$product->id]) || isset($standardmenu) && Request::url() == route('standardmenus.custshow', [$standardmenu->id]) || Request::url() == route('venues.searchquery') || Request::url() == route('products.searchquery') || Request::url() == route('standardmenus.searchquery') || Request::url() == route('venues.filtervenues') || Request::url() == route('products.filterproducts') || isset($custommenu) && Request::url() == route('custommenus.custshow', [$custommenu->id]))
 						<li class="nav-item"><button id="checkOut" onclick="handleCheckLogin('{{ url('events/all/checkout') }}')" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
 						<li class="nav-item"><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
 						<li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
@@ -132,7 +132,7 @@
 					<div class="row"> 
 						<div class="col-lg-2" style="padding-top: 60px;">@yield('side')</div> 
 						<div class="col-lg-8" style="padding-top: 60px;"> @yield('content') </div> 
-						<div class="col-lg-2">@yield('side2')</div> 
+						<div class="col-lg-2" style="padding-top: 60px;">@yield('side2')</div> 
 					</div> 
 				</div> 
 			 </div> 
