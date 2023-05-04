@@ -85,7 +85,7 @@
 								</tr>
 							</thead> 
 							<tbody> 
-								@foreach($menuitems->where('course', 'dessert') as $menuitem)
+								@foreach($menuitems->where('course', 'desert') as $menuitem)
 								<tr>
 									<td><img style="max-height:100px; width:100px;" src="{{ $menuitem->menuitemimglink }}"></td>
 									<td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
@@ -98,7 +98,10 @@
 					</div>
 						<!-- Submit Fieldd -->
 						<div class="form-group col-sm-12">
-							{!! Form::submit('Update My Menu', ['class' => 'btn btn-primary']) !!}
+							
+							{!! Form::submit('Update My Menu', ['class' => 'btn btn-primary']) !!} 
+
+
 							<a href="{!! route('custommenus.displaygrid') !!}" class="btn btn-default">Cancel</a>
 							{!! Form::close() !!}
 						</div>
@@ -124,6 +127,11 @@ section {
 
 .card {
 	border: none;
+}
+
+table.table-bordered {
+  border: 1px solid grey;
+
 }
 
 </style>
