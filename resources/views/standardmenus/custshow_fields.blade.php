@@ -21,6 +21,14 @@
                         </li>
                     @endforeach
                 </ul>
+                <ul class="carousel__thumbnails">
+                    @foreach($standardmenu->menuitems as $key => $menuitem)
+                        <li>
+                            <label for="slide-{{ $key+1 }}"><img src="{{ $menuitem->menuitemimglink }}" alt=""></label>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 
 <!-- Standardmenuname Field -->
 <div class="col-sm-12">
