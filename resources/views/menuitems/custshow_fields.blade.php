@@ -5,6 +5,21 @@
                 @foreach($menuitems as $key => $menuitem)
                     <input type="radio" name="slides" id="slide-{{ $key+1 }}" {{ $key === 0 ? 'checked="checked"' : '' }}>
                 @endforeach
+
+                <ul class="carousel__slides">
+                    @foreach($menuitems as $key => $menuitem)
+                        <li class="carousel__slide">
+                            <figure>
+                                <div style="height: 300px;">
+                                    <img style="box-shadow: 0 6px 21px rgba(0,0,0,1); height: 450px; width: 400px;" src="{{ $menuitem->menuitemimglink }}" alt="">
+                                </div>
+                                <figcaption>
+                                    
+                                </figcaption>
+                            </figure>
+                        </li>
+                    @endforeach
+                </ul>
 				
 <!-- Menuitemname Field -->
 <div class="col-sm-12">
