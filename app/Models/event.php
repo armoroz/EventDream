@@ -126,7 +126,7 @@ class event extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function standardmenuid()
+    public function standardmenu()
     {
         return $this->belongsTo(\App\Models\standardmenu::class, 'standardmenuid');
     }
@@ -134,7 +134,7 @@ class event extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function custommenuid()
+    public function custommenu()
     {
         return $this->belongsTo(\App\Models\custommenu::class, 'custommenuid');
     }

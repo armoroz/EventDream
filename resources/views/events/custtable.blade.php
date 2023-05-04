@@ -1,53 +1,34 @@
-<div class="table-responsive">
-    <table class="table" id="events-table">
-        <thead>
-        <tr>
-		<th>Event ID</th>
-		<th>Event Name</th>
-        <th>Event Date</th>
-		<th>Customer</th>
-        <th>Event Time</th>
-        <th>Order Date</th>
-        <th>Order Total</th>
-		<th>No. of Guests</th>
-		<th>Event Status</th>
-        <th>Venue</th>
-        <th>Standard Menu</th>
-        <th>Custom Menu</th>
-        <th colspan="3">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($events as $event)
-            <tr>
-			<td>{{ $event->id }}</td>
-			<td>{{ $event->eventname }}</td>
-            <td>{{ $event->eventdate }}</td>
-			<td>{{ Auth::user()->customer->firstname ?? 'N/A' }}</td>
-            <td>{{ $event->eventtime }}</td>
-            <td>{{ $event->orderplacedon }}</td>
-            <td>{{ $event->eventordertotal }}</td>
-			<td>{{ $event->numOfGuests }}</td>
-			<td>{{ $event->eventstatus }}</td>
-            <td>{{ $event->venue->venuename ?? 'N/A' }}</td>
-            <td>{{ $event->standardmenuid }}</td>
-            <td>{{ $event->custommenuid}}</td>
-                <td width="120">
-                    {!! Form::open(['route' => ['events.destroy', $event->id], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a href="{{ route('events.custshow', [$event->id]) }}"
-                           class='btn btn-default btn-xs'>
-                            <i class="fas fa-eye"></i>
-                        </a>
-                        <a href="{{ route('products.eventdisplaygrid', [$event->id]) }}"
-                           class='btn btn-primary'>
-                            Add-ons
-                        </a>
-                    </div>
-                    {!! Form::close() !!}
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+<div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 
+    @foreach($events as $event) 
+	<div class="p-0 col-4 g-4">
+		<div class= "bodyoptions-stdm">
+			<div class= "container-stdm">
+				<div class="card-stdm" style="height: 100%;">
+					<div class="box-image-stdm">
+						<div class="image-wrapper">
+							@foreach($event->venue->venueimages->take(1) as $venueimage)
+							<img  class="mx-auto d-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/>
+							@endforeach
+						</div>
+					</div>
+						<div class="content-stdm">
+							<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $event->eventname }}</h5></div>
+							<div class="card-footer" style="text-align: center">{{ $event->venue->venuename ?? 'N/A' }}</div>
+							<div class="card-footer" style="text-align: center">€{{ $event->eventordertotal }}</div>
+							<div class="card-footer" style="text-align: center">{{ $event->eventdate->format('Y-m-d') }}</div>
+							<div class="card-footer"><a  href="{{ route('events.custshow', [$event->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-moreInfo custshow">Details <i class="fas fa-info-circle"></i></button></a></div>
+							<div class="card-footer" style="text-align: center"><a href="{{ route('products.eventdisplaygrid', [$event->id]) }}" class='btn btn-primary'>Add-ons</a></div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+    @endforeach
 </div>
+
+<style>
+.card {
+	background-color: transparent;
+	border-color: transparent;
+}
+</style>
