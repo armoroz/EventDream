@@ -9,11 +9,11 @@
 <section>
 	<div class="container">
 		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px;">
-			<section class="content-header">
+			
 				<h1>
-					Menu Items for Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
+					Menu Items for my Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
 				</h1>
-			</section>
+			
 			<div class="content">
 				{!! Form::open(['route' => ['custommenus.updatemenuitems', $custommenu->id], 'method' => 'patch']) !!}
 				<div class="row">
