@@ -45,6 +45,11 @@
         <label for="password_confirmation" :value="__('Confirm Password')">Confirm Password</label>
         <input class="input1" type="password" id="password_confirmation" name="password_confirmation" required>
         <input class="input1" type="submit" id="submit" value="Submit">
+		
+		<a style="color: grey; margin-left: 38px;" href="{{ route('login') }}">
+			{{ __('Already registered?') }}
+		</a>
+		
     </form>
 </div>
 
@@ -69,41 +74,14 @@
   background: #2D2F36;
 }
 
-@media (max-width: 767px) {
-  .page {
-    height: auto;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-  }
-}
 .container {
   display: flex;
   height: 300px;
-  margin: 0 auto;
   width: 640px;
+  margin: 0 auto;
 }
-@media (max-width: 767px) {
-  .container {
-    flex-direction: column;
-    height: 630px;
-    width: 320px;
-  }
-}
-.left {
-  background: white;
-  height: calc(100% - 40px);
-  top: 20px;
-  position: relative;
-  width: 50%;
-}
-@media (max-width: 767px) {
-  .left {
-    height: 100%;
-    left: 20px;
-    width: calc(100% - 40px);
-    max-height: 270px;
-  }
-}
+
+
 .login {
   font-size: 50px;
   font-weight: 900;
@@ -117,12 +95,21 @@
 }
 .right {
   background: #474A59;
-  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
   color: #F1F1F2;
+  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
   position: relative;
   width: 50%;
   height: 130%;
 }
+
+.left {
+  background: white;
+  height: calc(100% - 40px);
+  top: 20px;
+  position: relative;
+  width: 50%;
+}
+
 @media (max-width: 767px) {
   .right {
     flex-shrink: 0;
@@ -131,6 +118,32 @@
     max-height: 350px;
   }
 }
+
+@media (max-width: 767px) {
+  .left {
+    height: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-height: 270px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    height: 630px;
+    width: 320px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    height: auto;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+}
+
 svg {
   position: absolute;
   width: 320px;
@@ -159,16 +172,16 @@ label {
   color: #f2f2f2;
   font-size: 20px;
   height: 30px;
+  width: 100%;
   line-height: 30px;
   outline: none !important;
-  width: 100%;
 }
 input::-moz-focus-inner { 
   border: 0; 
 }
 #submit {
   color: #707075;
-  margin-top: 10px;
+  margin-top: -5px;
   transition: color 300ms;
 }
 #submit:focus {
