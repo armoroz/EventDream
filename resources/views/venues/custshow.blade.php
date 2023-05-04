@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    @include('venues.custshow_fields')					
+                    @include('venues.custshow_fields')
                 </div>
             </div>
         </div>
