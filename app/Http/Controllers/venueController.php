@@ -275,7 +275,7 @@ class venueController extends Controller
     {
 		
         $venue = $this->venueRepository->find($id);
-		$venueimages = \App\Models\venueimages::all();
+		$venueimages = $venue->venueimages;
 		$venueratings = \App\Models\venuerating::all();
 		$customers=\App\Models\customer::all();
 

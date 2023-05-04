@@ -605,3 +605,21 @@ height: 245px;
   margin-left: auto;
   margin-right: auto;
 }
+
+.content-header {
+    background: transparent;
+    padding: 0px 0;
+}
+
+figcaption {
+	align-self: flex-end;
+	padding: 10px 10px 0 10px;
+	flex: 0 0 auto;
+	width: 15%;
+	min-width: 100px;
+}
+
+figure {
+	display: flex;
+	margin: 0;
+}

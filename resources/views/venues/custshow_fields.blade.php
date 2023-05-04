@@ -1,101 +1,120 @@
-<!-- Venuename Field -->
-<div class="col-sm-12">
-    {!! Form::label('venuename', 'Venuename:') !!}
-    <p>{{ $venue->venuename }}</p>
-</div>
+<section>
+    <div class="container">
+        <div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap;">
+            <div class="carousel">
+                @foreach($venueimages as $key => $venueimage)
+                    <input type="radio" name="slides" id="slide-{{ $key+1 }}" {{ $key === 0 ? 'checked="checked"' : '' }}>
+                @endforeach
 
-<!-- Addressline1 Field -->
-<div class="col-sm-12">
-    {!! Form::label('addressline1', 'Addressline1:') !!}
-    <p>{{ $venue->addressline1 }}</p>
-</div>
-
-<!-- Addressline2 Field -->
-<div class="col-sm-12">
-    {!! Form::label('addressline2', 'Addressline2:') !!}
-    <p>{{ $venue->addressline2 }}</p>
-</div>
-
-<!-- City Field -->
-<div class="col-sm-12">
-    {!! Form::label('city', 'City:') !!}
-    <p>{{ $venue->city }}</p>
-</div>
-
-<!-- Eircode Field -->
-<div class="col-sm-12">
-    {!! Form::label('eircode', 'Eircode:') !!}
-    <p>{{ $venue->eircode }}</p>
-</div>
-
-<!-- Indoor Field -->
-<div class="col-sm-12">
-    {!! Form::label('indoor', 'Indoor:') !!}
-    <p>{{ $venue->indoor }}</p>
-</div>
-
-<!-- Humancapacity Field -->
-<div class="col-sm-12">
-    {!! Form::label('humancapacity', 'Humancapacity:') !!}
-    <p>{{ $venue->humancapacity }}</p>
-</div>
-
-<!-- Costtorent Field -->
-<div class="col-sm-12">
-    {!! Form::label('costtorent', 'Costtorent:') !!}
-    <p>{{ $venue->costtorent }}</p>
-</div>
-
-<!-- Rating Field -->
-<div class="col-sm-12">
-    {!! Form::label('venueratings', 'Venue Ratings:') !!}
-    @foreach($venueratings->where('venueid', $venue->id)->slice(-3) as $venuerating)
-        <div style="border-style: groove; border-color: lightgrey;">
-            <td>
-              {{ $venuerating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="text" class="rating rating-loading" 
-                data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
-            {!! $venuerating->comment !!}
-			</td>    
-        </div>
-    @endforeach
-</div>
+                <ul class="carousel__slides">
+                    @foreach($venueimages as $key => $venueimage)
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img style="box-shadow: 0 6px 21px rgba(0,0,0,1);" src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" alt="">
+                                </div>
+                                <figcaption>
+								
+								
+                                </figcaption>
+                            </figure>
+                        </li>
+                    @endforeach
+                </ul>
 
 
-<!-- Imagefile Field -->
-<div class="container-fluid" style="max-width: 400px; min-width: 400px; min-height: 300px; max-height: 300px;">
-    <div id="thisCarousel" class="carousel slide" data-bs-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators" style="background-color: lightgrey;">
-            @foreach($venueimages as $index => $venueimage)
-                <li data-bs-target="#thisCarousel" data-bs-slide-to="{{ $index }}" class="@if($loop->first) active @endif"></li>
-            @endforeach
-        </ol>
-
-        <!-- Images -->
-        <div class="carousel-inner" style="height: 200px;">
-            @foreach($venueimages as $venueimage)
-                <div class="carousel-item @if($loop->first) active @endif" style="height: 200px;">
-                    <img src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" class="d-block w-100" style="object-fit: cover; height: 100%;" alt="Venue Image">
+				
+                <ul class="carousel__thumbnails">
+                    @foreach($venueimages as $key => $venueimage)
+                        <li>
+                            <label for="slide-{{ $key+1 }}"><img src="data:image/jpeg;base64,{{ $venueimage->imagefile }}" alt=""></label>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="venue-details" style="margin-left: -80px;">
+                <!-- Venuename Field -->
+                <div class="col-sm-12">
+                    <p style="font-size: 14pt;">Details for {{ $venue->venuename }}</p>
                 </div>
-            @endforeach
+
+                <!-- Addressline1 Field -->
+                <div class="col-sm-12">
+                    {!! Form::label('addressline1', 'Address:') !!}
+                    <p>{{ $venue->addressline1 }} {{ $venue->addressline2 }} {{ $venue->city }} {{ $venue->eircode }}</p>
+                </div>
+				<!-- Indoor Field 
+				<div class="col-sm-12">
+					{!! Form::label('indoor', 'Indoor:') !!}
+					<p>{{ $venue->indoor }}</p>
+				</div> -->
+
+				<!-- Humancapacity Field -->
+				<div class="col-sm-12">
+					{!! Form::label('humancapacity', 'Capacity:') !!}
+					<p>{{ $venue->humancapacity }} people</p>
+				</div>
+
+				<!-- Costtorent Field -->
+				<div class="col-sm-12">
+					{!! Form::label('costtorent', 'Cost to rent:') !!}
+					<p>€{{ $venue->costtorent }}</p>
+				</div>
+
+				<!-- Rating Field -->
+				<div class="col-sm-12">
+					{!! Form::label('venueratings', 'Venue Ratings:') !!}
+					@foreach($venueratings->where('venueid', $venue->id)->slice(-3) as $venuerating)
+						<div style="border-style: groove; border-radius: 10px; border-color: lightgrey; margin: 10px 0px 30px 0px;">
+							<td>
+							  {{ $venuerating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="hidden" class="rating rating-loading" 
+								data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+							{!! $venuerating->comment !!}
+							</td>    
+						</div>
+					@endforeach
+				</div>
+				
+				<!-- Map Field -->
+				<div id="mapid" class="center-block" style="width: 350px; height: 200px; margin: 20px 0px 30px 0px; box-shadow: 0 6px 21px rgba(0,0,0,1);"></div>
+				
+				<!-- Button Field -->
+				<div>
+					<a onclick="handleRateVenue('{{ url('venueratings/ratevenue', [$venue->id]) }}')"
+					   class='btn btn-primary'>
+					   Rate Venue <i class="fas fa-star" title="Rate"></i>
+					</a>
+					
+					<button id="vendisplay" type="button" class="btn btn-primary center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button>
+					
+					<a class="btn btn-primary" href="{{ route('venues.displaygrid') }}">Back</a>
+				</div>
+            </div>
         </div>
-
-        <!-- Controls -->
-        <button class="carousel-control-prev" style="background-color: lightgrey;" type="button" data-bs-target="#thisCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" style="background-color: lightgrey;" type="button" data-bs-target="#thisCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-</div>
+</section>
+
+<style>
+
+.col-lg-8 {
+	min-width: 1000px;
+}
+
+.card {
+	background-color: transparent;
+}
+
+section {
+	box-shadow: 0 6px 21px rgba(0,0,0,1);
+}
+
+.card {
+	border: none;
+}
+
+</style>
 
 
-@csrf
-
-<div id="mapid" class="center-block" style="width: 40%; height: 200px;"></div>
 <script>
     var mymap = L.map('mapid');
     var icon = new L.Icon();
@@ -143,5 +162,3 @@ var group = new L.featureGroup([redIcon, icon]);
 mymap.fitBounds(group.getBounds());
 
  </script>
- @include('venues.createvenuemodal')
-
