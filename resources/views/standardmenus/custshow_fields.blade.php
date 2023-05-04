@@ -73,43 +73,7 @@
     </div>
 </section>
 
-<!-- Standardmenuname Field -->
-<div class="col-sm-12">
-    {!! Form::label('standardmenuname', 'Standard Menu Name:') !!}
-    <p>{{ $standardmenu->standardmenuname }}</p>
-</div>
 
-<!-- Style Field -->
-<div class="col-sm-12">
-    {!! Form::label('style', 'Style:') !!}
-    <p>{{ $standardmenu->style }}</p>
-</div>
-
-<!-- Course Field -->
-<div class="col-sm-12">
-    {!! Form::label('course', 'Course:') !!}
-    <p>{{ $standardmenu->course }}</p>
-</div>
-
-<!-- Description Field -->
-<div class="col-sm-12">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{{ $standardmenu->description }}</p>
-</div>
-
-<!-- Rating Field -->
-<div class="col-sm-12">
-    {!! Form::label('standardmenuratings', 'Standard Menu Ratings:') !!}
-    @foreach($standardmenuratings->where('standardmenuid', $standardmenu->id)->slice(-3) as $standardmenurating)
-        <div style="border-style: groove; border-color: lightgrey;">
-            <td>
-              {{ $standardmenurating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="text" class="rating rating-loading" 
-                data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
-            {!! $standardmenurating->comment !!}
-			</td>    
-        </div>
-    @endforeach
-</div>
 
 
 
