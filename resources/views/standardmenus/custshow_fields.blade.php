@@ -71,7 +71,9 @@
 				
 				<!-- Button Field -->
 				<div>
+					<a class="btn btn-primary" href="{{ route('standardmenus.displaygrid') }}">Back<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.1em; margin-left: 5px;'></i></a>
 					
+
 				</div>
             </div>
         </div>
