@@ -1,3 +1,11 @@
+<section>
+    <div class="container">
+        <div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap;">
+            <div class="carousel">
+                @foreach($menuitems as $key => $menuitem)
+                    <input type="radio" name="slides" id="slide-{{ $key+1 }}" {{ $key === 0 ? 'checked="checked"' : '' }}>
+                @endforeach
+				
 <!-- Menuitemname Field -->
 <div class="col-sm-12">
     {!! Form::label('menuitemname', 'Menu Item Name:') !!}
