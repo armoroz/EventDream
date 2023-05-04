@@ -33,7 +33,6 @@
 				
 				<!-- Standardmenuname Field -->
 				<div class="col-sm-12">
-					{!! Form::label('standardmenuname', 'Standard Menu Name:') !!}
 					<p style="font-size: 14pt;">Details for {{ $standardmenu->standardmenuname }}</p>
 				</div>
 
@@ -97,6 +96,7 @@ section {
 .card {
 	border: none;
 }
+
 
 </style>
 
