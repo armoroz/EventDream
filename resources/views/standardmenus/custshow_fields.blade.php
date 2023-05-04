@@ -6,6 +6,22 @@
                     <input type="radio" name="slides" id="slide-{{ $key+1 }}" {{ $key === 0 ? 'checked="checked"' : '' }}>
                 @endforeach
 
+                <ul class="carousel__slides">
+                    @foreach($standardmenu->menuitems as $key => $menuitem)
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img style="box-shadow: 0 6px 21px rgba(0,0,0,1);" src="{{ $menuitem->menuitemimglink }}" alt="">
+                                </div>
+                                <figcaption>
+                                    {{ $menuitem->menuitemname }}
+									€{{ $menuitem->menuitemcost }}
+                                </figcaption>
+                            </figure>
+                        </li>
+                    @endforeach
+                </ul>
+
 <!-- Standardmenuname Field -->
 <div class="col-sm-12">
     {!! Form::label('standardmenuname', 'Standard Menu Name:') !!}
