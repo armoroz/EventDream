@@ -11,7 +11,7 @@
 		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px;">
 			
 				<h1>
-					Menu Items for my Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
+					Menu Items for Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
 				</h1>
 			
 			<div class="content">
