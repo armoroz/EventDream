@@ -14,8 +14,8 @@
                                     <img style="box-shadow: 0 6px 21px rgba(0,0,0,1);" src="{{ $menuitem->menuitemimglink }}" alt="">
                                 </div>
                                 <figcaption>
-                                    {{ $menuitem->menuitemname }}
-									€{{ $menuitem->menuitemcost }}
+                                    <p>{{ $menuitem->menuitemname }}</p>
+									<p>€{{ $menuitem->menuitemcost }}</p>
                                 </figcaption>
                             </figure>
                         </li>
@@ -29,7 +29,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="standardmenu-details" style="margin-left: -80px;">
+            <div class="standardmenu-details" style="margin-left: -50px;">
 				
 				<!-- Standardmenuname Field -->
 				<div class="col-sm-12">
@@ -67,6 +67,11 @@
 							</td>    
 						</div>
 					@endforeach
+				</div>
+				
+				<!-- Button Field -->
+				<div>
+					
 				</div>
             </div>
         </div>
