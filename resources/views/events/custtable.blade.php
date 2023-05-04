@@ -3,6 +3,7 @@
         <thead>
         <tr>
 		<th>Event ID</th>
+		<th>Event Name</th>
         <th>Event Date</th>
 		<th>Customer</th>
         <th>Event Time</th>
@@ -20,6 +21,7 @@
         @foreach($events as $event)
             <tr>
 			<td>{{ $event->id }}</td>
+			<td>{{ $event->eventname }}</td>
             <td>{{ $event->eventdate }}</td>
 			<td>{{ Auth::user()->customer->firstname ?? 'N/A' }}</td>
             <td>{{ $event->eventtime }}</td>

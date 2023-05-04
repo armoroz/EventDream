@@ -1,3 +1,9 @@
+<!-- Eventname Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('eventname', 'Event name:') !!}
+    {!! Form::text('eventname', null, ['class' => 'form-control','id'=>'eventname']) !!}
+</div>
+
 <!-- Eventdate Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('eventdate', 'Eventdate:') !!}

@@ -15,9 +15,13 @@
 				<input type="hidden" class="form-control" value="Event" id="eventstatus" name="eventstatus"/> 
 			  </div>
 			  <div class="form-group"> 
+				<label for="eventname">Event Name</label> 
+				<input type="text" class="form-control" id="eventname" name="eventname" placeholder="e.g. Mia's 21st"/> 
+			  </div> 
+			  <div class="form-group"> 
 				<label for="eventdate">Event Date</label> 
 				<input type="text" class="form-control" id="eventDate" name="eventdate" readonly/> 
-			</div> 
+			  </div> 
 			  <div class="form-group"> 
 				<label for="eventtime">Event Time</label> 
 				<input type="text" class="form-control" id="eventtime" name="eventtime" placeholder="HH:MM" />

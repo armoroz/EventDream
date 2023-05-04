@@ -12,6 +12,10 @@
 				<input type="hidden" class="form-control" value="{{Auth::user()->customer->id}}" id="custid" name="customerid"/> 
 			  </div>
 			  <div class="form-group"> 
+				<label for="eventname">Event Name</label> 
+				<input type="text" class="form-control" id="eventname" name="eventname" placeholder="e.g. Mia's 21st"/> 
+			  </div> 
+			  <div class="form-group"> 
 				<label for="eventdate">Event Date</label> 
 				<input type="text" class="form-control" id="eventDate" name="eventdate"/> 
 			</div> 

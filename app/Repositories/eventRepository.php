@@ -17,7 +17,8 @@ class eventRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'eventdate',
+        'eventname',
+		'eventdate',
         'eventtime',
         'orderplacedon',
         'eventordertotal',

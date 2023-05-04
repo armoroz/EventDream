@@ -3,6 +3,7 @@
         <thead>
         <tr>
             <th>Eventdate</th>
+		<th>Event Name</th>
         <th>Eventtime</th>
         <th>Orderplacedon</th>
         <th>Eventordertotal</th>
@@ -22,6 +23,7 @@
         @foreach($events as $event)
             <tr>
                 <td>{{ $event->eventdate }}</td>
+			<td>{{ $event->eventname }}</td>
             <td>{{ $event->eventtime }}</td>
             <td>{{ $event->orderplacedon }}</td>
             <td>{{ $event->eventordertotal }}</td>

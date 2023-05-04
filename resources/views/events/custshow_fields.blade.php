@@ -4,6 +4,12 @@
     <p>{{ $event->eventdate }}</p>
 </div>
 
+<!-- Eventname Field -->
+<div class="col-sm-12">
+    {!! Form::label('eventname', 'Event name:') !!}
+    <p>{{ $event->eventname }}</p>
+</div>
+
 <!-- Eventtime Field -->
 <div class="col-sm-12">
     {!! Form::label('eventtime', 'Event Time:') !!}

@@ -42,7 +42,8 @@ class event extends Model
 
 
     public $fillable = [
-        'eventdate',
+        'eventname',
+		'eventdate',
         'eventtime',
         'orderplacedon',
         'eventordertotal',
@@ -63,6 +64,7 @@ class event extends Model
      */
     protected $casts = [
         'id' => 'integer',
+		'eventname' => 'string',
         'eventdate' => 'date',
         'orderplacedon' => 'datetime',
         'eventordertotal' => 'decimal:2',
@@ -82,7 +84,8 @@ class event extends Model
      * @var array
      */
     public static $rules = [
-        'eventdate' => 'nullable',
+        'eventname' => 'nullable|string|max:20',
+		'eventdate' => 'nullable',
         'eventtime' => 'nullable',
         'orderplacedon' => 'nullable',
         'eventordertotal' => 'nullable|numeric',
