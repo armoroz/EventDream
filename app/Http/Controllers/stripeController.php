@@ -103,23 +103,8 @@ class stripeController extends Controller
 
 		$stripeLineItems = [];
 		foreach ($lineItems as $item) {
-			
-			if (isset($item['venue'])) {
-				$venue = $item['venue'];
-				$quantity = $item['qty'];
-				$stripeLineItems[] = [
-					'price_data' => [
-						'currency' => 'eur',
-						'product_data' => [
-							'name' => $venue->venuename,
-						],
-						'unit_amount' => $venue->costtorent * 100,
-					],
-					'quantity' => $quantity,
-				];
-			}		
-			
-			elseif (isset($item['product'])) {
+
+			if (isset($item['product'])) {
 				$product = $item['product'];
 				$quantity = $item['qty'];
 				$stripeLineItems[] = [
@@ -145,7 +130,7 @@ class stripeController extends Controller
 						],
 						'unit_amount' => 2000 * $event->numOfGuests,
 					],
-					'quantity' => $quantity,
+					'quantity' => 1,
 				];
 			}
 			
@@ -160,16 +145,27 @@ class stripeController extends Controller
 						],
 						'unit_amount' => 2000 * $event->numOfGuests,
 					],
-					'quantity' => $quantity,
+					'quantity' => 1,
 				];
 			}
 
 		}
+		
+		$stripeLineItems[] = [
+			'price_data' => [
+				'currency' => 'eur',
+				'product_data' => [
+					'name' => $event->venue->venuename,
+				],
+				'unit_amount' => $event->venue->costtorent * 100,
+			],
+			'quantity' => 1,
+		];
 
 		$session = \Stripe\Checkout\Session::create([
 			'line_items' => $stripeLineItems,
 			'mode' => 'payment',
-			'success_url' => route('events.orderplaced'),
+			'success_url' => route('homepage'),
 			'cancel_url' => route('events.checkout'),
 		]);
 		
@@ -202,23 +198,25 @@ class stripeController extends Controller
 					$thisEventProductLog->eventproductquantity = $lineitem['qty'];
 					$thisEventProductLog->save();
 					
-					$ttlCost += ($lineitem['product']->productcost + $lineitem['product']->costtorent) * $lineitem['qty'];
+					$ttlCost += ($lineitem['product']->productcost) * $lineitem['qty'];
 				}
 					elseif (isset($lineitem['custommenu'])) {
 						$thisEvent->custommenuid = $lineitem['custommenu']->id;
+						$ttlCost += 20 * $thisEvent->numOfGuests;
 					}
 					elseif (isset($lineitem['standardmenu'])) {
 						$thisEvent->standardmenuid = $lineitem['standardmenu']->id;
+						$ttlCost += 20 * $thisEvent->numOfGuests;
 					}
 				}
-			$thisEvent->eventordertotal = $ttlCost;
+			$thisEvent->eventordertotal = $ttlCost + $thisEvent->venue->costtorent;
 
 			$thisEvent->save();
 		}
 
-		Flash::success("Your Event Order has been placed");
+		Flash::success("Your Event Order has been placed - Tap on your profile to view");
 
-		return redirect(route('events.orderplaced'));
+		return redirect(route('homepage'));
 	}
 
 

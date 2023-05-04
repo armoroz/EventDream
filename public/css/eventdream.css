@@ -136,6 +136,8 @@ background-color: #616b75;
   color: white;
   background-color: #95a9cf;
   border-color: #5c739e;
+  border-radius: 15px;
+  border-width: 5px;
 }
 
 .dropdown-toggle {

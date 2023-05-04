@@ -10,12 +10,12 @@
                     @foreach($standardmenu->menuitems as $key => $menuitem)
                         <li class="carousel__slide">
                             <figure>
-                                <div>
-                                    <img style="box-shadow: 0 6px 21px rgba(0,0,0,1);" src="{{ $menuitem->menuitemimglink }}" alt="">
+                                <div style="height: 300px;">
+                                    <img style="box-shadow: 0 6px 21px rgba(0,0,0,1); height: 450px; width: 400px;" src="{{ $menuitem->menuitemimglink }}" alt="">
                                 </div>
-                                <figcaption>
-                                    <p>{{ $menuitem->menuitemname }}</p>
-									<p>€{{ $menuitem->menuitemcost }}</p>
+                                <figcaption style="margin-left: 35px;">
+                                    {{ $menuitem->menuitemname }}
+									<span class="credit">€{{ $menuitem->menuitemcost }}</span>
                                 </figcaption>
                             </figure>
                         </li>
@@ -29,7 +29,7 @@
                     @endforeach
                 </ul>
             </div>
-            <div class="standardmenu-details" style="margin-left: -50px;">
+            <div class="standardmenu-details" style="margin-left: -30px;">
 				
 				<!-- Standardmenuname Field -->
 				<div class="col-sm-12">
