@@ -48,7 +48,3 @@
         </div>
     </div>
 </section>
-				<!-- MenuItemimg Field -->
-				<div><td><img class="img-responsive left-block" 
-					height="200px" width="200px" src="{{ $menuitem->menuitemimglink }}">
-				</td></div>

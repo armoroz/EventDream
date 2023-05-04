@@ -13,8 +13,7 @@
 			<div style="margin-left: 50px;">
 				<!-- Productname Field -->
 				<div class="col-sm-12">
-					{!! Form::label('productname', 'Name:') !!}
-					<p>{{ $product->productname }}</p>
+					<p style="font-size: 14pt;">Details for {{ $product->productname }}</p>
 				</div>			
 				<!-- Producttype Field -->
 				<div class="col-sm-12">
