@@ -80,14 +80,14 @@
 				
 				<!-- Button Field -->
 				<div>
+					<a class="btn btn-primary" href="{{ route('venues.displaygrid') }}">Back</a>
+					
 					<a onclick="handleRateVenue('{{ url('venueratings/ratevenue', [$venue->id]) }}')"
 					   class='btn btn-primary'>
 					   Rate Venue <i class="fas fa-star" title="Rate"></i>
 					</a>
 					
 					<button id="vendisplay" type="button" class="btn btn-primary center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button>
-					
-					<a class="btn btn-primary" href="{{ route('venues.displaygrid') }}">Back</a>
 				</div>
             </div>
         </div>

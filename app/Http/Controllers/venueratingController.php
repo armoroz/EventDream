@@ -22,9 +22,10 @@ class venueratingController extends AppBaseController
 	
 	public function ratevenue($venueid)
 	{
+		$venue = \App\Models\venue::find($venueid);
 		$customerid = auth()->user()->customer->id;
 		
-		return view('venueratings.ratevenue')->with(['venueid' => $venueid, 'customerid' => $customerid]);
+		return view('venueratings.ratevenue')->with(['venueid' => $venueid, 'venue' => $venue, 'customerid' => $customerid]);
 	}
 
     /**

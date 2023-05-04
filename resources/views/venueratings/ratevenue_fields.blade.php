@@ -2,10 +2,12 @@
 {!! Form::hidden('customerid', $customerid, ['class' => 'form-control', 'readonly' => 'true']) !!}
 
 <!-- Venueid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('venueid', 'Venueid:') !!}
-    {!! Form::number('venueid', $venueid, ['class' => 'form-control', 'readonly' => 'true']) !!}
-</div>
+{!! Form::hidden('venueid', $venueid, ['class' => 'form-control', 'readonly' => 'true']) !!}
+
+<!-- Venue name Field -->
+<div class="form-group col-sm-6"> 
+<input type="text" class="form-control" value="{{$venue->venuename}}" readonly/>
+</div>	
 
 <!-- Rating Field -->
 <div class="form-group col-sm-6">
