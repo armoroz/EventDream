@@ -1,7 +1,15 @@
 <section>
     <div class="container">
-        <div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap;">
-            <div class="carousel">
+		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px;">
+            <div>
+			
+				<!-- MenuItemimg Field -->
+				<div>
+					<img  style="box-shadow: 0 6px 21px rgba(0,0,0,1);" class="img-responsive" src="{{ $menuitem->menuitemimglink }}">
+				</div>
+
+			</div>
+			
                 @foreach($menuitems as $key => $menuitem)
                     <input type="radio" name="slides" id="slide-{{ $key+1 }}" {{ $key === 0 ? 'checked="checked"' : '' }}>
                 @endforeach
