@@ -21,6 +21,14 @@
                     @endforeach
                 </ul>
 				
+                <ul class="carousel__thumbnails">
+                    @foreach($menuitems as $key => $menuitem)
+                        <li>
+                            <label for="slide-{{ $key+1 }}"><img src="{{ $menuitem->menuitemimglink }}" alt=""></label>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
 <!-- Menuitemname Field -->
 <div class="col-sm-12">
     {!! Form::label('menuitemname', 'Menu Item Name:') !!}
