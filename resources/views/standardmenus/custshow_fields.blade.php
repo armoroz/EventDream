@@ -68,6 +68,10 @@
 						</div>
 					@endforeach
 				</div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Standardmenuname Field -->
 <div class="col-sm-12">
