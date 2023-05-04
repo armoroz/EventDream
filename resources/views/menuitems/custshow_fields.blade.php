@@ -34,8 +34,7 @@
 			
 				<!-- Menuitemname Field -->
 				<div class="col-sm-12">
-					{!! Form::label('menuitemname', 'Menu Item Name:') !!}
-					<p>{{ $menuitem->menuitemname }}</p>
+					<p style="font-size: 14pt;">Details for {{ $menuitem->menuitemname }}</p>
 				</div>
 
 				<!-- Description Field -->
