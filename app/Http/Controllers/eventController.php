@@ -304,9 +304,9 @@ class eventController extends AppBaseController
 		return redirect(route('events.orderplaced'));
 	}
 	
-	public function createprojectOLD(Request $request)
+	public function createprojectother(Request $request)
 	{
-		$thisOrder = new \App\Models\project();
+		$thisOrder = new \App\Models\event();
 		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
 		$thisOrder->customerid = Auth::user()->customer->id;
 		$thisEvent->eventstatus = 'Project';

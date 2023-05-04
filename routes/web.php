@@ -82,6 +82,7 @@ Route::post('events/eventplaceorder/{event}', 'App\Http\Controllers\eventControl
 Route::get('events/custindex/{id}', 'App\Http\Controllers\eventController@custindex')->name('events.custindex');
 Route::get('events/projectindex/{id}', 'App\Http\Controllers\eventController@projectindex')->name('events.projectindex');
 Route::post('events/createproject/{event}', 'App\Http\Controllers\eventController@createproject')->name('events.createproject');
+Route::post('events/createprojectother', 'App\Http\Controllers\eventController@createprojectother')->name('events.createprojectother');
 Route::get('events/all/projectcreated', 'App\Http\Controllers\eventController@projectcreated')->name('events.projectcreated');
 Route::get('event/custshow/{id}', 'App\Http\Controllers\eventController@custshow')->name('events.custshow');
 Route::get('events/all/orderplaced', 'App\Http\Controllers\eventController@orderplaced')->name('events.orderplaced');
