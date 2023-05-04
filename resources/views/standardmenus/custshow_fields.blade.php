@@ -73,7 +73,25 @@
     </div>
 </section>
 
+<style>
 
+.col-lg-8 {
+	min-width: 1000px;
+}
+
+.card {
+	background-color: transparent;
+}
+
+section {
+	box-shadow: 0 6px 21px rgba(0,0,0,1);
+}
+
+.card {
+	border: none;
+}
+
+</style>
 
 
 
