@@ -18,9 +18,6 @@
             <div class="card-body">
                 <div class="row">
                     @include('menuitems.custshow_fields')
-					<div class="col-sm-6" style="margin:10px">
-						<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-back"><i class='far fa-arrow-alt-up fa-9x fa-rotate-270'></i></button></a>
-					</div>
                 </div>
             </div>
         </div>
