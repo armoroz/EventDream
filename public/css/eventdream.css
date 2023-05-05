@@ -9,7 +9,10 @@ background: linear-gradient(80deg, #F2A65A 0%,#772F1A 100%); */
 background-color: #f8ceec;
 background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); */
 
- background: linear-gradient(180deg, rgba(109,89,158,1) 0%, rgba(59,45,75,1) 100%);
+/*background: linear-gradient(180deg, rgba(109,89,158,1) 0%, rgba(59,45,75,1) 100%);*/
+
+
+background: linear-gradient(180deg, #6e59a3 0%, #635093 100%);
 
 /* Maroon Red 
 background-color: #3f0d12;
