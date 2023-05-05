@@ -223,12 +223,12 @@
 						<ul class="d-inline-block">
 							<li class="list-inline-item mr-3">
 								<a href="">
-									<img src="{{asset('images/vendor/leaflet/dist/redarrow.png')}}" alt="" class="appstore">
+									<img src="{{asset('images/vendor/leaflet/dist/appstore.png')}}" alt="" class="appstore" width="17%">
 								</a>
 							</li>
 							<li class="list-inline-item mr-3">
 								<a href="">
-									<img src="{{asset('images/vendor/leaflet/dist/redarrow.png')}}" alt="" class="googleplaystore">
+									<img src="{{asset('images/vendor/leaflet/dist/googleplay.png')}}" alt="" class="googleplay" width="17%">
 								</a>
 							</li>
 							
