@@ -176,23 +176,29 @@
 							<ul class="socialnetwork">
 								<li class="list-inline-item">
 									<a href="">
-										<i class="fa fa-twitter"></i>
+										<i class="fab fa-twitter"></i>
 									</a>
 								</li>
 
 								<li class="list-inline-item">
 									<a href="">
-										<i class="fa fa-instagram"></i>
+										<i class="fab fa-instagram"></i>
 									</a>
 								</li>
 								
 								<li class="list-inline-item">
 									<a href="">
-										<i class="fa fa-facebook"></i>
+										<i class="fab fa-facebook"></i>
+									</a>
+								</li>
+								
+								<li class="list-inline-item">
+									<a href="">
+										<i class="fab fa-linkedin"></i>
 									</a>
 								</li>
 							</ul>
-							<div class="mb-2">
+							<div class="locationadd">
 								© 2023 EventDream™ <br>
 								Dublin <br>
 								Ireland
@@ -202,8 +208,38 @@
 								<a href="">eventdream.store</a>
 							</div>
 						</div>
-						
 					</div>
+				</div>
+				
+				<div class="container">
+					<hr>
+				</div>
+				<div>
+					<div class="container text-center">
+						<h3 class="mb-3">Get the App</h3>
+						<div class="section-intro mb-4 mx-auto">
+							Download our apps!
+						</div>
+						<ul class="d-inline-block">
+							<li class="list-inline-item mr-3">
+								<a href="">
+									<img src="{{asset('images/vendor/leaflet/dist/appstore.png')}}" alt="" class="appstore" width="17%">
+								</a>
+							</li>
+							<li class="list-inline-item mr-3">
+								<a href="">
+									<img src="{{asset('images/vendor/leaflet/dist/googleplay.png')}}" alt="" class="googleplay" width="17%">
+								</a>
+							</li>
+				
+						</ul>
+					</div>
+				</div>
+				<div class="footer-bottom text-center pb-5">
+					<small class="copyright">
+						Made with <i class="fas fa-heart" style="color: #8b0000;"></i>
+					    for Eventdream customers
+					</small>
 				</div>
 			</footer>
 
