@@ -220,7 +220,14 @@
 						<div class="section-intro mb-4 mx-auto">
 							Download our apps!
 						</div>
-						
+						<ul class="d-inline-block">
+							<li class="list-inline-item mr-3">
+								<a href="">
+									<img src="" alt="" class="appstore">
+								</a>
+							</li>
+							
+						</ul>
 					</div>
 				</div>
 			</footer>
