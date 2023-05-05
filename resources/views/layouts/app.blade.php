@@ -212,9 +212,6 @@
 				</div>
 				
 				<div class="container">
-					<hr>
-				</div>
-				<div>
 					<div class="container text-center">
 						<h3 class="mb-3">Get the App</h3>
 						<div class="section-intro mb-4 mx-auto">
@@ -231,12 +228,12 @@
 									<img src="{{asset('images/vendor/leaflet/dist/googleplay.png')}}" alt="" class="googleplay" width="17%">
 								</a>
 							</li>
-				
 						</ul>
 					</div>
 				</div>
+				
 				<div class="footer-bottom text-center pb-5">
-					<small class="copyright">
+					<small class="madewithlove">
 						Made with <i class="fas fa-heart" style="color: #8b0000;"></i>
 					    for Eventdream customers
 					</small>
