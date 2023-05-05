@@ -143,31 +143,31 @@
 						<div class="col-lg-3">
 							<h4 class="col-heading">Highlights</h4>
 							<ul>
-								<li><a href="">Home</a></li>
-								<li><a href="">Venues</a></li>
-								<li><a href="">Products</a></li>
-								<li><a href="">Menus</a></li>
-								<li><a href="">Map</a></li>
-								<li><a href="">About Us</a></li>
+								<li><a href="{{route('homepage')}}">Home</a></li>
+								<li><a href="{{route('venues.displaygrid')}}">Venues</a></li>
+								<li><a href="{{route('products.displaygrid')}}">Products</a></li>
+								<li><a href="{{route('menuoptions.index')}}">Menus</a></li>
+								<li><a href="{{route('venues.showmap')}}">Map</a></li>
+								<li><a href="{{route('aboutus.index')}}">About Us</a></li>
 							</ul>
 						</div>
 
 						<div class="col-lg-3">
 							<h4 class="col-heading">Resources</h4>
 							<ul>
-								<li><a href="">FAQs</a></li>
-								<li><a href="">Support</a></li>
-								<li><a href="">News</a></li>
-								<li><a href="">Blog</a></li>
+								<li><a href="{{route('aboutus.index')}}">FAQs</a></li>
+								<li>Support</li>
+								<li>News</li>
+								<li>Blog</li>
 							</ul>
 						</div>
 
 						<div class="col-lg-3">
 							<h4 class="col-heading">Legal</h4>
 							<ul>
-								<li><a href="">Security</a></li>
-								<li><a href="">Privacy</a></li>
-								<li><a href="">Terms of Service</a></li>
+								<li>Security</li>
+								<li>Privacy</li>
+								<li>Terms of Service</li>
 							</ul>
 						</div>
 
