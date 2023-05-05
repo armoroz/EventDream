@@ -1,12 +1,33 @@
 Body{
-background: linear-gradient(80deg, #F2A65A
 
+/*background-color: #2e2e30; */
 
+/* Tea Gold 
+background: linear-gradient(80deg, #F2A65A 0%,#772F1A 100%); */
 
+/* Average-- 
+background-color: #f8ceec;
+background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); */
 
+ background: linear-gradient(180deg, rgba(109,89,158,1) 0%, rgba(59,45,75,1) 100%);
 
+/* Maroon Red 
+background-color: #3f0d12;
+background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); */
 
- 0%,#772F1A 100%);
+/* Light Grey 
+background-color: #5b6467;
+background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%); */
+
+/* Purple 
+background: linear-gradient(180deg, rgba(30,13,54,1) 0%, rgba(54,37,79,1) 100%); */
+
+/* Light Purple 
+background: linear-gradient(180deg, rgba(109,89,158,1) 0%, rgba(59,45,75,1) 100%); */
+
+/* Faded Purple 
+background: linear-gradient(180deg, rgba(99,87,114,1) 0%, rgba(142,127,163,1) 100%); */
+
 }
 
 
