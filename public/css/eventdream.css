@@ -1,6 +1,12 @@
 Body{
+
 	
+<<<<<<< HEAD
 background: linear-gradient(80deg, #35093c 0%, #9f2fa5 100%);
+=======
+background: linear-gradient(80deg, rgb(5,124,172) 0%, rgb(199,10,114) 100%);
+
+>>>>>>> d1cb2dc4a14e2b5844d392040ffd9f3124c275d7
 }
 
 
