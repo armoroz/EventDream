@@ -665,10 +665,11 @@ figure {
 .contact-list a {
 	color: white;
 	text-decoration: none;
+	
 }
 
 .locationadd ul {
-  display: inline-block;
-  margin-right: 10px;
+	display: inline-block;
+	margin-right: 10px;
 }
 
