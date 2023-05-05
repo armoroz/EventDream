@@ -208,6 +208,18 @@
 								<a href="">eventdream.store</a>
 							</div>
 						</div>
+					</div>
+				</div>
+				
+				<div class="container">
+					<hr>
+				</div>
+				<div>
+					<div class="container text-center">
+						<h3 class="mb-3">Get the App</h3>
+						<div class="section-intro mb-4 mx-auto">
+							Download our apps!
+						</div>
 						
 					</div>
 				</div>
