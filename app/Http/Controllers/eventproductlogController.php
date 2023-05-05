@@ -154,21 +154,24 @@ class eventproductlogController extends AppBaseController
         return redirect(route('eventproductlogs.index'));
     }
 	
-    public function custdestroy($id)
-    {
-        $eventproductlog = $this->eventproductlogRepository->find($id);
+	public function custdestroy($id)
+	{
+		$eventproductlog = $this->eventproductlogRepository->find($id);
 
-        if (empty($eventproductlog)) {
-            Flash::error('Eventproductlog not found');
+		if (empty($eventproductlog)) {
+			Flash::error('Eventproductlog not found');
 
-            return redirect(route('eventproductlogs.index'));
-        }
+			return redirect(route('eventproductlogs.index'));
+		}
 
-        $this->eventproductlogRepository->delete($id);
+		$eventid = $eventproductlog->event->id;
 
-        Flash::success('Eventproductlog deleted successfully.');
+		$this->eventproductlogRepository->delete($id);
 
-        return redirect(route('events.index'));
-    }
+		Flash::success('Eventproductlog deleted successfully.');
+
+		return redirect(route('events.custshow', $eventid));
+	}
+
 
 }

@@ -306,31 +306,49 @@ class eventController extends AppBaseController
 	
 	public function createprojectother(Request $request)
 	{
-		$thisOrder = new \App\Models\event();
-		$thisOrder->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
-		$thisOrder->customerid = Auth::user()->customer->id;
-		$thisEvent->eventstatus = 'Project';
-		$thisOrder->save();
-		$eventID = $thisOrder->id;
-		$productids = $request->productid ?? [];
-		$customerid = $request->customerid;
-		$custommenuid = $request->custommenuid;
-		$standardmenuid = $request->standardmenuid;
-		/*$venueids = $request->venueid ?? [];*/
-		$quantities = $request->quantity ?? [];
-		for($i=0;$i<sizeof($productids);$i++) {
-			$thisOrderDetail = new \App\Models\eventproductlog();
-			$thisOrderDetail->eventid = $eventID;
-			$thisOrderDetail->productid = $productids[$i];
-			/*$thisOrderDetail->venueid = $venueids[$i] ?? null;*/
-			$thisOrderDetail->eventproductquantity = $quantities[$i] ?? 0;
-			$thisOrderDetail->save();
-		}
+		$lineitems = unserialize(urldecode($request->input('lineitems')));
+		$thisProject = new \App\Models\event();
+		$thisProject->eventdate = (new \DateTime())->format("Y-m-d H:i:s");
+		$thisProject->customerid = Auth::user()->customer->id;
+		$thisProject->eventstatus = 'Project';
+		$thisProject->save();
+		$eventID = $thisProject->id;
+		
+		$ttlCost = 0;
+		
+		foreach ($lineitems as $lineitem) {
+			if (isset($lineitem['product'])) {
+				$thisEventProductLog = new \App\Models\eventproductlog();
+				$thisEventProductLog->eventid = $eventID;
+				$thisEventProductLog->productid = $lineitem['product']->id;
+				$thisEventProductLog->eventproductquantity = $lineitem['qty'];
+				$thisEventProductLog->save();
+				
+				$ttlCost += ($lineitem['product']->productcost) * $lineitem['qty'];
+			}
+				elseif (isset($lineitem['custommenu'])) {
+					$thisProject->custommenuid = $lineitem['custommenu']->id;
+					$ttlCost = $ttlCost + 20 ;
+				}
+				elseif (isset($lineitem['standardmenu'])) {
+					$thisProject->standardmenuid = $lineitem['standardmenu']->id;
+					$ttlCost = $ttlCost + 20;
+				}
+			}
+			
+		$thisProject->eventordertotal = $ttlCost;
+		$thisProject->save();
+		
 		Session::forget('cart');
 
 		Flash::success("Your Project has been created");
 		return redirect(route('events.projectcreated'));
 	}
+
+	
+	
+	
+	
 	
 	public function createproject($eventid,Request $request)
 	{

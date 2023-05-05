@@ -79,8 +79,12 @@
 				</div>
 			</div>
 			
-			<div style="margin-left: 50px;">
+			
 				<!-- Event products field -->
+				
+			@if($event->eventstatus == 'Event')
+				
+			<div style="margin-left: 50px;">
 				<div class="col-sm-12">
 					{!! Form::label('eventproducts', 'Event Decor:') !!}
 					<ul>
@@ -89,9 +93,7 @@
 								{{ optional($eventProductLog->product)->productname }}
 								{{ optional($eventProductLog->product)->producttype }}
 								€{{ optional($eventProductLog->product)->productcost }}
-								<!--{!! Form::open(['route' => ['eventproductlogs.custdestroy', $eventProductLog->id], $event->id, 'method' => 'delete', 'style' => 'display:inline']) !!}
-									{!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure you want to delete this product from the event?')"]) !!}
-								{!! Form::close() !!} -->
+								x{{ $eventProductLog->eventproductquantity }}
 							</li>
 						@endforeach
 					</ul>
@@ -100,9 +102,38 @@
                 <div class="col-sm-6" style="margin-left: 0px;">
                     <a class="btn btn-primary float-right"
                        href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">
-                        Back
+                        Back to events
                     </a>
                 </div>	
+				
+			@elseif($event->eventstatus == 'Project')
+			<div style="margin-left: 50px;">
+				<div class="col-sm-12">
+					{!! Form::label('eventproducts', 'Event Decor:') !!}
+					<ul>
+						@foreach($event->eventproductlogs as $eventProductLog)
+							<li>
+								{{ optional($eventProductLog->product)->productname }}
+								{{ optional($eventProductLog->product)->producttype }}
+								€{{ optional($eventProductLog->product)->productcost }}
+								x{{ $eventProductLog->eventproductquantity }}
+								{!! Form::open(['route' => ['eventproductlogs.custdestroy', $eventProductLog->id], $event->id, 'method' => 'delete', 'style' => 'display:inline']) !!}
+									{!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure you want to delete this product from the event?')"]) !!}
+								{!! Form::close() !!}
+							</li>
+						@endforeach
+					</ul>
+				</div>
+			</div>
+			
+                <div class="col-sm-6" style="margin-left: 0px;">
+                    <a class="btn btn-primary float-right"
+                       href="{!! route('events.projectindex', [Auth::user()->customer->id]) !!}">
+                        Back to projects
+                    </a>
+                </div>	
+				
+			@endif
 		</div>
 	</div>
 </section>
