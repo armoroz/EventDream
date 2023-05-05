@@ -176,23 +176,29 @@
 							<ul class="socialnetwork">
 								<li class="list-inline-item">
 									<a href="">
-										<i class="fa fa-twitter"></i>
+										<i class="fab fa-twitter"></i>
 									</a>
 								</li>
 
 								<li class="list-inline-item">
 									<a href="">
-										<i class="fa fa-instagram"></i>
+										<i class="fab fa-instagram"></i>
 									</a>
 								</li>
 								
 								<li class="list-inline-item">
 									<a href="">
-										<i class="fa fa-facebook"></i>
+										<i class="fab fa-facebook"></i>
+									</a>
+								</li>
+								
+								<li class="list-inline-item">
+									<a href="">
+										<i class="fab fa-linkedin"></i>
 									</a>
 								</li>
 							</ul>
-							<div class="mb-2">
+							<div class="locationadd">
 								© 2023 EventDream™ <br>
 								Dublin <br>
 								Ireland
