@@ -10,7 +10,7 @@
 
 table.table-bordered {
   border: 1px #999999;
-
+  
 }
 
 ul {
