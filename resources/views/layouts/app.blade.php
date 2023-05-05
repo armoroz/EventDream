@@ -187,13 +187,13 @@
 								</li>
 								
 								<li class="list-inline-item">
-									<a href="https://en-gb.facebook.com/">
+									<a href="https://www.facebook.com/">
 										<i class="fab fa-facebook"></i>
 									</a>
 								</li>
 								
 								<li class="list-inline-item">
-									<a href="">
+									<a href="https://www.linkedin.com/login/">
 										<i class="fab fa-linkedin"></i>
 									</a>
 								</li>
