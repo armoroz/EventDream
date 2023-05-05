@@ -1,23 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <!DOCTYPE html>
-<html>
-<head>
-  <title>About Us</title>
-  <style>
-<style>
- 
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-      }
-    
-  </style>
-</head>
-<body>
+<link href="eventdream.css">
   <header>
     <h1>About Us</h1>
   </header>
+  <link rel="stylesheet" href="eventdream.css">
 
   <section>
     <h2> Mission statement</h2>
@@ -46,9 +34,6 @@
       <li>Arina - CEO</li>
     </ul>
   </section>
-
- 
-
 
 
 </p>

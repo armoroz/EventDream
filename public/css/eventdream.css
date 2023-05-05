@@ -728,7 +728,7 @@ main {
 }
 /* Footer */
 footer {
-  background-color: #333;
+  background-color:#fff; 
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -738,3 +738,5 @@ footer {
 footer a {
   color: #fff;
 }
+
+/
