@@ -172,14 +172,6 @@
 						</div>
 
 						<div class="col-lg-3">
-							<h4 class="col-heading">Contact</h4>
-							<ul>
-								<li><i class="fas fa-envelope"></i><a href="info@eventdream.ie">info@eventdream.ie</a></li>
-								<li><i class="fas fa-phone"></i><a href="(01) 567 8923">(01) 567 8923</a></li>
-							</ul>
-						</div>
-
-						<div class="col-lg-3">
 							<h4 class="col-heading">Stay Connected</h4>
 							<ul class="socialnetwork">
 								<li class="list-inline-item">
@@ -207,15 +199,20 @@
 								</li>
 							</ul>
 							<div class="locationadd">
+								<i class="fas fa-map-marker-alt"></i>
+								<ul>
 								EventDream Limited<br>
 								154 Rathmines <br>
 								Dublin 14 <br>
 								Ireland
+								</ul>
 							</div>
 							
-							<div class="websiteurl">
-								<a href="eventdream.store">eventdream.store</a>
-							</div>
+							<div class="contact-list">
+							<i class="fas fa-search"></i><a href="eventdream.store">eventdream.store</a><br>
+							<i class="fas fa-envelope"></i><a href="info@eventdream.ie">info@eventdream.ie</a><br>
+							<i class="fas fa-phone"></i><a href="(01) 567 8923">(01) 567 8923</a>
+						    </div>
 						</div>
 					</div>
 				</div>

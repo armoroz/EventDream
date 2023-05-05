@@ -663,8 +663,13 @@ figure {
 	font-size: 23px;
 }
 
-.websiteurl a {
+.contact-list a {
 	color: white;
 	text-decoration: none;
+}
+
+.locationadd ul {
+  display: inline-block;
+  margin-right: 10px;
 }
 
