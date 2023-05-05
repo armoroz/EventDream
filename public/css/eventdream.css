@@ -709,3 +709,7 @@ figure {
 	margin-right: 10px;
 }
 
+body {
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
