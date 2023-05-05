@@ -137,7 +137,12 @@
 				</div> 
 			 </div> 
 			 
-			<footer class="text-white text-center py-3 mt-auto">
+			<footer class="footer theme-bg-primary">
+				<div class="container py-5">
+					<div class="row" style="margin-left:50px;">
+						<div class="col-lg-3">
+							<h4 class="col-heading">Highlights</h4>
+							
 				<p>Policy | Legal | About Us | Socials | © 2023 EventDream™</p>
 			</footer>
 
