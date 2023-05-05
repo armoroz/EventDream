@@ -1,22 +1,5 @@
-<!-- Custommenuname Field -->
-<!--<div class="col-sm-12">
-    {!! Form::label('custommenuname', 'Custom Menu Name:') !!}
-    <p>{{ $custommenu->custommenuname }}</p>
-</div>-->
 
-<!-- Description Field -->
-<!--<div class="col-sm-12">
-    {!! Form::label('description', 'Description:') !!}
-    <p>{{ $custommenu->description }}</p>
-</div>-->
 <style>
-.custom-menu-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  text-align: center;
-}
 
 .custom-menu-list {
   display: block;
@@ -25,22 +8,9 @@
   padding-left: 0;
 }
 
-.custom-menu-name {
-  display: block;
-  margin-bottom: 1rem;
-  text-align: center;
+table.table-bordered {
+  border: 1px #999999;
 
-}
-
-.custom-menu-container {
-	margin: 0 auto;
-	padding: 1rem;
-	border: 1px solid #ccc;
-	border-radius: 0.25rem;
-	background-color: #f8f8f8;
-	text-align: center;
-	max-width: 500px; 
-	width: auto;
 }
 
 ul {
@@ -48,15 +18,24 @@ list-style: none;
 padding: 0;
 margin: 0;
 }
+
+section {
+	box-shadow: 0 6px 21px rgba(0,0,0,1);
+}
 </style>
 
-<div class="custom-menu-container">
-  <div class="col-sm-12">
-    <span class="custom-menu-label">Custom Menu Name</span>
-    <span class="custom-menu-name">{{ $custommenu->custommenuname }}</span>
-  </div>
 
-</div>
+<section>
+	
+
+<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px;">				
+
+			
+  
+   <p style="font-size: 14pt;">Details for Custom Menu: {{ $custommenu->custommenuname }}</p>
+    
+  
+
 
 <table class="table table-condensed table-bordered">
     <thead> 
@@ -74,5 +53,6 @@ margin: 0;
 	</tbody>
     @endforeach
 </table>
+</div>
 
  
