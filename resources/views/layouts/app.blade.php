@@ -142,9 +142,21 @@
 					<div class="row" style="margin-left:50px;">
 						<div class="col-lg-3">
 							<h4 class="col-heading">Highlights</h4>
-							
-				<p>Policy | Legal | About Us | Socials | © 2023 EventDream™</p>
+							<ul>
+								<li><a href="">Home</a></li>
+								<li><a href="">Venues</a></li>
+								<li><a href="">Products</a></li>
+								<li><a href="">Menus</a></li>
+								<li><a href="">Map</a></li>
+								<li><a href="">About Us</a></li>
+							</ul>
+						</div>
+
+
+					</div>
+				</div>
 			</footer>
+
 
 			<script>
 			let isAuthenticated = @json(auth()->check());
