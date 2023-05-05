@@ -156,9 +156,27 @@
 							<h4 class="col-heading">Resources</h4>
 							<ul>
 								<li><a href="">FAQs</a></li>
+								<li><a href="">Support</a></li>
 								<li><a href="">News</a></li>
 								<li><a href="">Blog</a></li>
-								<li><a href="">Support</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-3">
+							<h4 class="col-heading">Legal</h4>
+							<ul>
+								<li><a href="">Security</a></li>
+								<li><a href="">Privacy</a></li>
+								<li><a href="">Terms of Service</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-3">
+							<h4 class="col-heading">Stay Connected</h4>
+							<ul>
+								<li><a href="">Security</a></li>
+								<li><a href="">Privacy</a></li>
+								<li><a href="">Terms of Service</a></li>
 							</ul>
 						</div>
 						
