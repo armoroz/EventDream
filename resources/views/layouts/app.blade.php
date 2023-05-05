@@ -207,7 +207,7 @@
 								</li>
 							</ul>
 							<div class="locationadd">
-								© 2023 EventDream™ <br>
+								EventDream Limited<br>
 								154 Rathmines <br>
 								Dublin 14 <br>
 								Ireland
@@ -244,7 +244,8 @@
 				<div class="footer-bottom text-center pb-5">
 					<small class="madewithlove">
 						Made with <i class="fas fa-heart" style="color: #8b0000;"></i>
-					    for Eventdream customers
+					    for Eventdream customers <br>
+						© 2023 EventDream™
 					</small>
 				</div>
 			</footer>
