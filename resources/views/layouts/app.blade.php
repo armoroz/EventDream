@@ -172,6 +172,14 @@
 						</div>
 
 						<div class="col-lg-3">
+							<h4 class="col-heading">Contact</h4>
+							<ul>
+								<li><i class="fas fa-envelope"></i><a href="">eventdream@gmail.com</a></li>
+								<li><i class="fas fa-phone"></i><a href="">083 737 9383</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-3">
 							<h4 class="col-heading">Stay Connected</h4>
 							<ul class="socialnetwork">
 								<li class="list-inline-item">

@@ -652,3 +652,6 @@ figure {
 	text-decoration: none;
 }
 	
+.footer ul li i {
+  margin-right: 10px;
+}
