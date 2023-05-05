@@ -1,5 +1,5 @@
 Body{
-background-color: #616b75;
+background: linear-gradient(180deg, rgba(30,13,54,1) 0%, rgba(54,37,79,1) 100%);
 }
 
 
@@ -633,7 +633,6 @@ figure {
 
 .bg-theme{
 	box-shadow: 0 8px 32px 0 rgba(19,19,20,0.37);
-	border: 3px solid rgba(255,255,255,0.18);
 	background: rgba(255,255,255,0.24);
 	backdrop-filter:blur(4px);
 }
