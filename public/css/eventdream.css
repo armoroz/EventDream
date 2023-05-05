@@ -638,11 +638,16 @@ figure {
 	backdrop-filter:blur(4px);
 }
 
+.footer ul{	
+    margin-left: -39px;
+}
+
 .footer ul li{	
     list-style: none;
 }
 
-.footer ul{	
-    margin-left: -39px;
+.footer ul li a{	
+    font-size: 17px;
+	color: white;
 }
 	
