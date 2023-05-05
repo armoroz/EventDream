@@ -152,7 +152,16 @@
 							</ul>
 						</div>
 
-
+						<div class="col-lg-3">
+							<h4 class="col-heading">Resources</h4>
+							<ul>
+								<li><a href="">FAQs</a></li>
+								<li><a href="">News</a></li>
+								<li><a href="">Blog</a></li>
+								<li><a href="">Support</a></li>
+							</ul>
+						</div>
+						
 					</div>
 				</div>
 			</footer>
