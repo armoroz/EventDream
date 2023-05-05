@@ -172,10 +172,18 @@
 						</div>
 
 						<div class="col-lg-3">
+							<h4 class="col-heading">Contact</h4>
+							<ul>
+								<li><i class="fas fa-envelope"></i><a href="info@eventdream.ie">info@eventdream.ie</a></li>
+								<li><i class="fas fa-phone"></i><a href="(01) 567 8923">(01) 567 8923</a></li>
+							</ul>
+						</div>
+
+						<div class="col-lg-3">
 							<h4 class="col-heading">Stay Connected</h4>
 							<ul class="socialnetwork">
 								<li class="list-inline-item">
-									<a href="">
+									<a href="https://twitter.com/">
 										<i class="fab fa-twitter"></i>
 									</a>
 								</li>
@@ -187,25 +195,26 @@
 								</li>
 								
 								<li class="list-inline-item">
-									<a href="https://en-gb.facebook.com/">
+									<a href="https://www.facebook.com/">
 										<i class="fab fa-facebook"></i>
 									</a>
 								</li>
 								
 								<li class="list-inline-item">
-									<a href="">
+									<a href="https://www.linkedin.com/login/">
 										<i class="fab fa-linkedin"></i>
 									</a>
 								</li>
 							</ul>
 							<div class="locationadd">
-								© 2023 EventDream™ <br>
-								Dublin <br>
+								EventDream Limited<br>
+								154 Rathmines <br>
+								Dublin 14 <br>
 								Ireland
 							</div>
 							
 							<div class="websiteurl">
-								<a href="">eventdream.store</a>
+								<a href="eventdream.store">eventdream.store</a>
 							</div>
 						</div>
 					</div>
@@ -235,7 +244,8 @@
 				<div class="footer-bottom text-center pb-5">
 					<small class="madewithlove">
 						Made with <i class="fas fa-heart" style="color: #8b0000;"></i>
-					    for Eventdream customers
+					    for Eventdream customers <br>
+						© 2023 EventDream™
 					</small>
 				</div>
 			</footer>
