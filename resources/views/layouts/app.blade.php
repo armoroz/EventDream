@@ -199,9 +199,16 @@
 								</li>
 							</ul>
 
+							<div class="contact-list">
+							  <ul>
+							  <i class="fas fa-envelope" style="font-size: 19px;"></i>
+							  <a href="info@eventdream.ie" style="margin-left: 2px;">info@eventdream.ie</a><br>
+							  <i class="fas fa-phone" style="font-size: 19px;"></i>
+							  <a href="(01) 567 8923" style="margin-left: 2px;">(01) 567 8923</a>
+							  </ul>
+							</div>								
 							
 							<div class="locationadd">
-							  <i class="fas fa-map-marker-alt" style="vertical-align: top; font-size: 24px;"></i>
 							  <ul>
 								<li>EventDream Limited</li>
 								<li>154 Rathmines</li>
@@ -209,34 +216,17 @@
 								<li>Ireland</li>
 							  </ul>
 							</div>
-
-							<div class="contact-list">
-							  <i class="fas fa-search" style="font-size: 19px;"></i>
-							  <a href="eventdream.store" style="margin-left: 2px;">eventdream.store</a><br>
-							  <i class="fas fa-envelope" style="font-size: 19px;"></i>
-							  <a href="info@eventdream.ie" style="margin-left: 2px;">info@eventdream.ie</a><br>
-							  <i class="fas fa-phone" style="font-size: 19px;"></i>
-							  <a href="(01) 567 8923" style="margin-left: 2px;">(01) 567 8923</a>
-							</div>						
 						</div>
 					</div>
 				</div>
 				
 				<div class="container">
 					<div class="container text-center">
-						<h3 class="mb-3">Get the App</h3>
-						<div class="section-intro mb-4 mx-auto">
-							Download our apps!
-						</div>
+						<h3 class="mb-3" style="font-size: 16pt;">Get our App!</h3>
 						<ul class="d-inline-block">
 							<li class="list-inline-item mr-3">
 								<a href="">
-									<img src="{{asset('images/vendor/leaflet/dist/appstore.png')}}" alt="" class="appstore" width="17%">
-								</a>
-							</li>
-							<li class="list-inline-item mr-3">
-								<a href="">
-									<img src="{{asset('images/vendor/leaflet/dist/googleplay.png')}}" alt="" class="googleplay" width="17%">
+									<img src="{{asset('img/applegoogle.png')}}" alt="" class="appstore" width="40%">
 								</a>
 							</li>
 						</ul>
