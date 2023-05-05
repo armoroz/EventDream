@@ -653,5 +653,9 @@ figure {
 }
 	
 .footer ul li i {
-  margin-right: 10px;
+	margin-right: 10px;
+}
+
+.socialnetwork li a i {
+	font-size: 23px;
 }
