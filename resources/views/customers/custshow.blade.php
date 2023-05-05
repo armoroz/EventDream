@@ -30,4 +30,10 @@
             </div>
         </div>
     </div>
+	
+	<style>
+	.footer {
+		display: none;
+	}
+	</style>
 @endsection

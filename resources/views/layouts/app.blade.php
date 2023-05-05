@@ -77,30 +77,23 @@
 						@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
 							<form action="{{route('venues.searchquery')}}" method="POST">
 								@csrf
-								<input type="text" name="searchquery">
-								<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
-							</form>
-						</li>
-						<li class="nav-item">
-						@elseif(Request::url() == route('products.displaygrid') || Request::url() == route('products.searchquery'))
-							<form action="{{route('products.searchquery')}}" method="POST">
-								@csrf
-								<input type="text" name="searchquery">
-								<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
+								<input type="text" name="searchquery" style="border-radius: 6px; border-color: transparent; margin-top: 5px; width: 120px;">
+								<button class="btn btn-primary" style="background-color:transparent; border-color:transparent; margin-right: -15px;" ><i class="fa fa-search" type="submit"></i>
 							</form>
 						</li>
 						<li class="nav-item">
 						@elseif(Request::url() == route('standardmenus.displaygrid') || Request::url() == route('standardmenus.searchquery'))
 							<form action="{{route('standardmenus.searchquery')}}" method="POST">
 								@csrf
-								<input type="text" name="searchquery">
-								<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
+								<input type="text" name="searchquery" style="border-radius: 6px; border-color: transparent; margin-top: 5px; width: 120px;">
+								<button class="btn btn-primary" style="background-color:transparent; border-color:transparent; margin-right: -15px;" ><i class="fa fa-search" type="submit"></i>
 							</form>
+						@elseif(Request::url() == route('homepage'))
 						@else
 							<form action="{{route('products.searchquery')}}" method="POST">
 								@csrf
-								<input type="text" name="searchquery">
-								<button class="btn btn-primary" style="background-color:lightskyblue; border-color:lightskyblue" type="submit">Search</button>
+								<input type="text" name="searchquery" style="border-radius: 6px; border-color: transparent; margin-top: 5px; width: 120px;">
+								<button class="btn btn-primary" style="background-color:transparent; border-color:transparent; margin-right: -15px;" ><i class="fa fa-search" type="submit"></i>
 							</form>
 						@endif
 						</li>
