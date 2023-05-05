@@ -175,7 +175,7 @@
 							<h4 class="col-heading">Stay Connected</h4>
 							<ul class="socialnetwork">
 								<li class="list-inline-item">
-									<a href="">
+									<a href="https://twitter.com/">
 										<i class="fab fa-twitter"></i>
 									</a>
 								</li>
