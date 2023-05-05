@@ -6,7 +6,7 @@
 
     <div class="content px-3">
         <div class="card">
-            <div class="card-body" style="max-width: 400px">
+            <div class="card-body" style="max-width: 600px">
                 <div class="row">
                     @include('custommenus.custshow_fields')
                 </div>

@@ -54,9 +54,14 @@ section {
 				<!-- Button Field -->
 				<div>
 					<a class="btn btn-primary" href="{{ route('custommenus.displaygrid') }}">Back<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.2em; margin-left: 5px;'></i></a>
-					<a class="btn btn-primary" href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}">Update Dishes<i class='far fa-hat-chef' style='font-size: 1.2em; margin-left: 5px;'></i></a>	
-
+					<a class="btn btn-primary" href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}">Update Dishes<i class='far fa-hat-chef' style='font-size: 1.1em; margin-left: 5px;'></i></a>	
+					<a class='btn btn-primary'>Delete
+						{!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete']) !!}
+						{!! Form::button('<i class="far fa-trash-alt" style="font-size: 1.1em; margin-left: 5px;"></i>', ['type' => 'submit', 'class' => 'btn btn-primary', 'onclick' => "return confirm('Are you sure?')"]) !!}
+						{!! Form::close() !!}
+					</a>
 				</div>
+				
 				
 			</div>
 		</div>
