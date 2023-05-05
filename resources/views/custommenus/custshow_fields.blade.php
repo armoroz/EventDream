@@ -60,6 +60,7 @@ section {
 						{!! Form::button('<i class="far fa-trash-alt" style="font-size: 1.1em; margin-left: 5px;"></i>', ['type' => 'submit', 'class' => 'btn btn-primary', 'onclick' => "return confirm('Are you sure?')"]) !!}
 						{!! Form::close() !!}
 					</a>
+					<button id="addItem" type="button" class="btn btn-primary addItem" value="{{$custommenu->id}}">Add to Cart<i class='far fa-shopping-cart' style='font-size: 1.em; margin-left: 3px;'></i></button>
 				</div>
 				
 				
