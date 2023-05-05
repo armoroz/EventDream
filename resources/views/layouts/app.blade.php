@@ -192,7 +192,15 @@
 									</a>
 								</li>
 							</ul>
+							<div class="mb-2">
+								© 2023 EventDream™ <br>
+								Dublin <br>
+								Ireland
+							</div>
 							
+							<div class="websiteurl">
+								<a href="">eventdream.store</a>
+							</div>
 						</div>
 						
 					</div>
