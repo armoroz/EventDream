@@ -654,8 +654,17 @@ figure {
 	
 .footer ul li i {
 	margin-right: 10px;
+    font-size: 17px;
+	color: white;
+	text-decoration: none;
 }
 
 .socialnetwork li a i {
 	font-size: 23px;
 }
+
+.websiteurl a {
+	color: white;
+	text-decoration: none;
+}
+

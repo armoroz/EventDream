@@ -174,8 +174,8 @@
 						<div class="col-lg-3">
 							<h4 class="col-heading">Contact</h4>
 							<ul>
-								<li><i class="fas fa-envelope"></i><a href="">eventdream@gmail.com</a></li>
-								<li><i class="fas fa-phone"></i><a href="">083 737 9383</a></li>
+								<li><i class="fas fa-envelope"></i><a href="info@eventdream.ie">info@eventdream.ie</a></li>
+								<li><i class="fas fa-phone"></i><a href="(01) 567 8923">(01) 567 8923</a></li>
 							</ul>
 						</div>
 
@@ -208,12 +208,13 @@
 							</ul>
 							<div class="locationadd">
 								© 2023 EventDream™ <br>
-								Dublin <br>
+								154 Rathmines <br>
+								Dublin 14 <br>
 								Ireland
 							</div>
 							
 							<div class="websiteurl">
-								<a href="">eventdream.store</a>
+								<a href="eventdream.store">eventdream.store</a>
 							</div>
 						</div>
 					</div>
