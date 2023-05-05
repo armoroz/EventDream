@@ -137,7 +137,7 @@
 				</div> 
 			 </div> 
 			 
-			<footer class="footer theme-bg-primary">
+			<footer class="footer bg-theme">
 				<div class="container py-5">
 					<div class="row" style="margin-left:50px;">
 						<div class="col-lg-3">
