@@ -709,10 +709,6 @@ figure {
 	margin-right: 10px;
 }
 
-body {
-  background-color: #f7f7f7;
-  font-family: Arial, sans-serif;
-}
 header {
   background-color: #333;
   color: #fff;
@@ -728,7 +724,7 @@ main {
 }
 /* Footer */
 footer {
-  background-color:#fff; 
+  background-color: #333;
   color: #fff;
   padding: 20px;
   text-align: center;
@@ -739,4 +735,9 @@ footer a {
   color: #fff;
 }
 
-/
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
