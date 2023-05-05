@@ -713,3 +713,8 @@ body {
   background-color: #f7f7f7;
   font-family: Arial, sans-serif;
 }
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
