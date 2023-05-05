@@ -173,11 +173,26 @@
 
 						<div class="col-lg-3">
 							<h4 class="col-heading">Stay Connected</h4>
-							<ul>
-								<li><a href="">Security</a></li>
-								<li><a href="">Privacy</a></li>
-								<li><a href="">Terms of Service</a></li>
+							<ul class="socialnetwork">
+								<li class="list-inline-item">
+									<a href="">
+										<i class="fa fa-twitter"></i>
+									</a>
+								</li>
+
+								<li class="list-inline-item">
+									<a href="">
+										<i class="fa fa-instagram"></i>
+									</a>
+								</li>
+								
+								<li class="list-inline-item">
+									<a href="">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</li>
 							</ul>
+							
 						</div>
 						
 					</div>
