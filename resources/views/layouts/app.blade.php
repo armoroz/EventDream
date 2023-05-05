@@ -32,7 +32,7 @@
 		<div class="site-wrapper d-flex flex-column min-vh-100">
 			<nav class="navbar navbar-expand-sm navbar-dark" style="position: fixed; top: 0; width: 100%; height: 50px; z-index: 9999; background:rgba(255,255,255,.4); backdrop-filter: blur(8px);">		
 				<div class="container-fluid">
-					<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo2.png')}}" alt="Logo" style="margin-top: 10px;" width="130" height="60"></a>
+					<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo4.png')}}" alt="Logo" style="margin-top: 10px;" width="130" height="60"></a>
 
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -198,6 +198,7 @@
 									</a>
 								</li>
 							</ul>
+<<<<<<< HEAD
 							
 							<div class="locationadd">
 							  <i class="fas fa-map-marker-alt" style="vertical-align: top; font-size: 24px;"></i>
@@ -217,6 +218,25 @@
 							  <i class="fas fa-phone" style="font-size: 19px;"></i>
 							  <a href="(01) 567 8923" style="margin-left: 2px;">(01) 567 8923</a>
 							</div>
+=======
+							<div class="contact-list">
+							<ul>
+							<i class="fas fa-envelope"></i><a href="info@eventdream.ie"> info@eventdream.ie</a><br>
+							<i class="fas fa-phone"></i><a href="(01) 567 8923"> (01) 567 8923</a>
+							</ul>
+						    </div>							
+							
+							<div class="locationadd">
+								<ul>
+								EventDream Limited<br>
+								154 Rathmines <br>
+								Dublin 14 <br>
+								Ireland
+								</ul>
+							</div>
+							
+
+>>>>>>> 238c9a179e27249f04bea274c14c8e3fcd679c3a
 						</div>
 					</div>
 				</div>
