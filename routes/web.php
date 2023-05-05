@@ -101,7 +101,7 @@ Route::resource('bookings', App\Http\Controllers\bookingController::class);
 /* Products */
 Route::resource('products', App\Http\Controllers\productController::class);
 Route::get('products/all/shop', 'App\Http\Controllers\productController@displaygrid')->name('products.displaygrid');
-Route::get('products/eventdisplaygrid/{event}', 'App\Http\Controllers\productController@eventdisplaygrid')->name('products.eventdisplaygrid');
+Route::get('products/shop/{event}', 'App\Http\Controllers\productController@eventdisplaygrid')->name('products.eventdisplaygrid');
 Route::get('products/additem/{id}', 'App\Http\Controllers\productController@additem')->name('products.additem');
 Route::get('products/all/emptycart', 'App\Http\Controllers\productController@emptycart')->name('products.emptycart');
 Route::get('products/custshow/{product}', 'App\Http\Controllers\productController@custshow')->name('products.custshow');
@@ -137,7 +137,7 @@ Route::post('menuitems/all/newstandardmenu','App\Http\Controllers\menuitemContro
 /* Standard Menus/Logs/Ratings/Images */
 Route::resource('standardmenus', App\Http\Controllers\standardmenuController::class);
 Route::get('standardmenus/all/shop', 'App\Http\Controllers\standardmenuController@displaygrid')->name('standardmenus.displaygrid');
-Route::get('standardmenus/eventdisplaygrid/{event}', 'App\Http\Controllers\standardmenuController@eventdisplaygrid')->name('standardmenus.eventdisplaygrid');
+Route::get('standardmenus/shop/{event}', 'App\Http\Controllers\standardmenuController@eventdisplaygrid')->name('standardmenus.eventdisplaygrid');
 Route::get('standardmenus/additem/{id}', 'App\Http\Controllers\standardmenuController@additem')->name('standardmenus.additem');
 Route::get('standardmenus/all/emptycart', 'App\Http\Controllers\standardmenuController@emptycart')->name('standardmenus.emptycart');
 Route::get('standardmenus/custshow/{standardmenu}', 'App\Http\Controllers\standardmenuController@custshow')->name('standardmenus.custshow');
@@ -156,7 +156,7 @@ Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\stan
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::get('custommenus/custshow/{custommenu}', 'App\Http\Controllers\custommenuController@custshow')->name('custommenus.custshow');
 Route::get('custommenus/all/shop', 'App\Http\Controllers\custommenuController@displaygrid')->name('custommenus.displaygrid');
-Route::get('custommenus/eventdisplaygrid/{event}', 'App\Http\Controllers\custommenuController@eventdisplaygrid')->name('custommenus.eventdisplaygrid');
+Route::get('custommenus/shop/{event}', 'App\Http\Controllers\custommenuController@eventdisplaygrid')->name('custommenus.eventdisplaygrid');
 Route::get('custommenus/additem/{id}', 'App\Http\Controllers\custommenuController@additem')->name('custommenus.additem');
 Route::get('custommenus/all/emptycart', 'App\Http\Controllers\custommenuController@emptycart')->name('custommenus.emptycart');
 Route::get('/custommenus/assignmenuitems/{id}', 'App\Http\Controllers\custommenuController@assignMenuitems')->name('custommenus.assignmenuitems');
