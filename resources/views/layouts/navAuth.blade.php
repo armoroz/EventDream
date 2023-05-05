@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+<ul class="navbar-nav ms-auto">
 	@if(Auth::check())
 		@if(Auth::user()->hasRole('System Admin'))
 			 @include('layouts.adminmenu')
@@ -7,7 +7,20 @@
 		@endif
 		@include('layouts.profilemenu')
 	@else
-		<li class="nav-item"><a class="nav-link" href="{!! route('login') !!}"><span class="glyphicon glyphicon-log-in" style="font-size: 12pt"></span> Login</a></li>
-		<li class="nav-item"><a class="nav-link" href="{!! route('register') !!}"><span class="glyphicon glyphicon-user" style="font-size: 12pt"></span> Register</a></li>
+	<li class="nav-item dropdown">
+		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			Sign Up
+		</a>
+		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+			<li>
+				 <a class="dropdown-item" href="{!! route('register') !!}">Register</a>
+			</li>
+			<li>
+				 <a class="dropdown-item" href="{!! route('login') !!}">Login</a>
+			</li>
+		</ul>
+	</li>		
 	@endif
 </ul>
+
+

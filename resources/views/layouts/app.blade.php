@@ -73,23 +73,27 @@
 						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
 						@endif
-						<li class="nav-item">
+						
 						@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
+						<li class="nav-item">
 							<form action="{{route('venues.searchquery')}}" method="POST">
 								@csrf
 								<input type="text" name="searchquery" style="border-radius: 6px; border-color: transparent; margin-top: 5px; width: 120px;">
 								<button class="btn btn-primary" style="background-color:transparent; border-color:transparent; margin-right: -15px;" ><i class="fa fa-search" type="submit"></i>
 							</form>
 						</li>
-						<li class="nav-item">
+						
 						@elseif(Request::url() == route('standardmenus.displaygrid') || Request::url() == route('standardmenus.searchquery'))
+						<li class="nav-item">
 							<form action="{{route('standardmenus.searchquery')}}" method="POST">
 								@csrf
 								<input type="text" name="searchquery" style="border-radius: 6px; border-color: transparent; margin-top: 5px; width: 120px;">
 								<button class="btn btn-primary" style="background-color:transparent; border-color:transparent; margin-right: -15px;" ><i class="fa fa-search" type="submit"></i>
 							</form>
+						</li>
 						@elseif(Request::url() == route('homepage'))
 						@else
+						<li class="nav-item">
 							<form action="{{route('products.searchquery')}}" method="POST">
 								@csrf
 								<input type="text" name="searchquery" style="border-radius: 6px; border-color: transparent; margin-top: 5px; width: 120px;">
