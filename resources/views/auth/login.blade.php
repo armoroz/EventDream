@@ -60,8 +60,13 @@
 
 <style>
 
+footer {
+  display: none;
+}
+
 .col-lg-8 {
-	margin-top: 100px;
+	margin-top: 150px;
+	margin-left: -10px;
 }
 
 @import url('https://rsms.me/inter/inter-ui.css');
