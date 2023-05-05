@@ -172,7 +172,7 @@
 						</div>
 
 						<div class="col-lg-3">
-							<h4 class="col-heading">Stay Connected</h4><br>
+							<h4 class="col-heading" style="margin-bottom: -6px;">Stay Connected</h4><br>
 							<ul class="socialnetwork">
 								<li class="list-inline-item">
 									<a href="https://twitter.com/">
@@ -198,7 +198,7 @@
 									</a>
 								</li>
 							</ul>
-<<<<<<< HEAD
+
 							
 							<div class="locationadd">
 							  <i class="fas fa-map-marker-alt" style="vertical-align: top; font-size: 24px;"></i>
@@ -217,26 +217,7 @@
 							  <a href="info@eventdream.ie" style="margin-left: 2px;">info@eventdream.ie</a><br>
 							  <i class="fas fa-phone" style="font-size: 19px;"></i>
 							  <a href="(01) 567 8923" style="margin-left: 2px;">(01) 567 8923</a>
-							</div>
-=======
-							<div class="contact-list">
-							<ul>
-							<i class="fas fa-envelope"></i><a href="info@eventdream.ie"> info@eventdream.ie</a><br>
-							<i class="fas fa-phone"></i><a href="(01) 567 8923"> (01) 567 8923</a>
-							</ul>
-						    </div>							
-							
-							<div class="locationadd">
-								<ul>
-								EventDream Limited<br>
-								154 Rathmines <br>
-								Dublin 14 <br>
-								Ireland
-								</ul>
-							</div>
-							
-
->>>>>>> 238c9a179e27249f04bea274c14c8e3fcd679c3a
+							</div>						
 						</div>
 					</div>
 				</div>
