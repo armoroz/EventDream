@@ -72,4 +72,10 @@ $("#emptycart").click(function() { $.ajax({
   }); 
 });
 </script>
+
+<style>
+footer {
+  display: none;
+}
+</style>
 @endsection('content')

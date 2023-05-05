@@ -36,7 +36,6 @@ section {
     margin-right: 10px; /* Optional: Add some spacing between the buttons */
 }
 
-
 </style>
 
 
