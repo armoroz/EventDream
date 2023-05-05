@@ -231,9 +231,15 @@
 									<img src="{{asset('images/vendor/leaflet/dist/googleplay.png')}}" alt="" class="googleplay" width="17%">
 								</a>
 							</li>
-							
+				
 						</ul>
 					</div>
+				</div>
+				<div class="footer-bottom text-center pb-5">
+					<small class="copyright">
+						Made with <i class="fas fa-heart" style="color: #8b0000;"></i>
+					    for Eventdream customers
+					</small>
 				</div>
 			</footer>
 
