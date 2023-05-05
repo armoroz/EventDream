@@ -220,22 +220,13 @@
 					</div>
 				</div>
 				
-				<div class="container">
+				<div class="container" style="margin-top: -100px">
 					<div class="container text-center">
 						<h3 class="mb-3" style="font-size: 16pt;">Get our App!</h3>
 						<ul class="d-inline-block">
 							<li class="list-inline-item mr-3">
 								<a href="">
-<<<<<<< HEAD
-									<img src="public/img/appstore.png" alt="" class="appstore" width="17%">
-								</a>
-							</li>
-							<li class="list-inline-item mr-3">
-								<a href="">
-									<img src="public/img/googleplay.png" alt="" class="googleplay" width="17%">
-=======
 									<img src="{{asset('img/applegoogle.png')}}" alt="" class="appstore" width="40%">
->>>>>>> d1cb2dc4a14e2b5844d392040ffd9f3124c275d7
 								</a>
 							</li>
 						</ul>
