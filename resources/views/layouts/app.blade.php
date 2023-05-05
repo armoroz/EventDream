@@ -32,7 +32,7 @@
 		<div class="site-wrapper d-flex flex-column min-vh-100">
 			<nav class="navbar navbar-expand-sm navbar-dark" style="position: fixed; top: 0; width: 100%; height: 50px; z-index: 9999; background:rgba(255,255,255,.4); backdrop-filter: blur(8px);">		
 				<div class="container-fluid">
-					<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo2.png')}}" alt="Logo" style="margin-top: 10px;" width="130" height="60"></a>
+					<a class="navbar-brand" href="{{route('homepage') }}"><img src="{{asset('img\logo4.png')}}" alt="Logo" style="margin-top: 10px;" width="130" height="60"></a>
 
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
