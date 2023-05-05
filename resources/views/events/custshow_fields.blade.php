@@ -117,8 +117,9 @@
 								{{ optional($eventProductLog->product)->producttype }}
 								€{{ optional($eventProductLog->product)->productcost }}
 								x{{ $eventProductLog->eventproductquantity }}
+
 								{!! Form::open(['route' => ['eventproductlogs.custdestroy', $eventProductLog->id], $event->id, 'method' => 'delete', 'style' => 'display:inline']) !!}
-									{!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure you want to delete this product from the event?')"]) !!}
+									{!! Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'style' => 'background-color: #660000; border-color: #660000; margin-left: 30px;', 'onclick' => "return confirm('Are you sure you want to delete this product from the event?')"]) !!}
 								{!! Form::close() !!}
 							</li>
 						@endforeach
