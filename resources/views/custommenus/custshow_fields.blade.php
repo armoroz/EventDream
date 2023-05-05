@@ -21,6 +21,7 @@ margin: 0;
 
 section {
 	box-shadow: 0 6px 21px rgba(0,0,0,1);
+
 }
 
 
