@@ -65,7 +65,7 @@
 	</div>
 	
 	<div>
-	<button type="button" onclick="handleCheckLogin1('{{route('menuitems.newstandardmenu')}}')" id="newmenubtn" class="btn btn-primary1" style="margin-top: 200px;">Save to Custom Menu<i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></button>
+	<button type="button" onclick="handleCheckLogin1('{{route('menuitems.newstandardmenu')}}')" id="newmenubtn" class="btn btn-primary1" style=" margin-left: 150px; margin-top: 200px;">Save to Custom Menu<i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></button>
 
 	</div>
 </form>
