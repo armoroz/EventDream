@@ -134,7 +134,7 @@
 				</div> 
 			 </div> 
 			 
-			<footer class="footer bg-theme" style="margin-top: 80px; font-family: Garamond, serif; font-weight: bold;">
+			<footer class="footer bg-theme" style="margin-top: 80px; font-family: Garamond, serif;">
 				<div class="container py-5">
 					<div class="row" style="margin-left:50px;">
 						<div class="col-lg-3">
