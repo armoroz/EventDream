@@ -13,11 +13,12 @@ background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); */
 
 
 /* Purple gradient*/
-background: linear-gradient(180deg, #6e59a3 0%, #635093 100%);
+background: linear-gradient(90deg, #4b0082 0%, #ee82ee 100%);
 
 
 /* Pollock red
-background: linear-gradient(180deg, #b21e5a 0%, #91163f 100%)*/
+background: linear-gradient(180deg, #b21e5a 0%, #91163f 100%)
+background: linear-gradient(90deg, #b10d50 0%, #82163a 100%);*/
 
 /* Maroon Red 
 background-color: #3f0d12;
