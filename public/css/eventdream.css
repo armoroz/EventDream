@@ -123,7 +123,7 @@ background: linear-gradient(-225deg, #884D80 0%, #A8BFFF 100%); */
 }
 
 
-.btn-primary {
+.btn-primary1 {
   align-items: center;
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   border: 0;
@@ -147,12 +147,12 @@ background: linear-gradient(-225deg, #884D80 0%, #A8BFFF 100%); */
   cursor: pointer;
 }
 
-.btn-primary:active,
-.btn-primary:hover {
+.btn-primary1:active,
+.btn-primary1:hover {
   outline: 0;
 }
 
-.btn-primary span {
+.btn-primary1 span {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px;
   border-radius: 6px;
@@ -161,12 +161,12 @@ background: linear-gradient(-225deg, #884D80 0%, #A8BFFF 100%); */
   transition: 300ms;
 }
 
-.btn-primary:hover span {
+.btn-primary1:hover span {
   background: none;
 }
 
 @media (min-width: 768px) {
-  .btn-primary {
+  .btn-primary1 {
     font-size: 24px;
     min-width: 196px;
   }
