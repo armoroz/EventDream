@@ -80,14 +80,14 @@
 				
 				<!-- Button Field -->
 				<div>
-					<a class="btn btn-primary" href="{{ route('venues.displaygrid') }}">Back</a>
+					<a class="btn btn-primary1" href="{{ route('venues.displaygrid') }}">Back<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.2em; margin-left: 5px;'></i></a>
 					
 					<a onclick="handleRateVenue('{{ url('venueratings/ratevenue', [$venue->id]) }}')"
-					   class='btn btn-primary'>
-					   Rate Venue <i class="fas fa-star" title="Rate"></i>
+					   class='btn btn-primary1'>
+					   Rate Venue <i class="far fa-stars" title="Rate"></i>
 					</a>
 					
-					<button id="vendisplay" type="button" class="btn btn-primary center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button>
+					<button id="vendisplay" type="button" class="btn btn-primary1 center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button>
 				</div>
             </div>
         </div>
