@@ -8,7 +8,7 @@
 		<div class="row mb-2">
 			<div class="col-sm-6" style="padding-bottom: 80px;">
 				 <h1 class="mb-4">Custom Menus</h1>
-				<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-createCustomMenu">Create Custom Menu</button></a>
+				<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-primary1">Create Custom Menu<i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></button></a>
 			</div>
 		</div>
 		
