@@ -138,8 +138,12 @@ div.scrollmenu a:hover {
 				
 				<div class="content-stdm"> 
 					<div class="card-header d-block">{{ $standardmenu->standardmenuname }}</div> 
-					<div class="card-footer" style="text-align: center; color:black;">€ 20 Per Person</div>
-					<div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+					<div class="card-footer" style="text-align: center; color:black;">€20 Per Person</div>
+					<div class="card-footer d-flex justify-content-center">
+						<button id="custshow" type="button" class="btn btn-primary1 custshow">
+							<a href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}" style="text-decoration: none; color: white;">Details <i class="fas fa-info-circle"></i></a>
+						</button>
+					</div>
 					<div class="card-footer"><input id="fieldRating" name="rating" 
 					value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
 					type="hidden" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
