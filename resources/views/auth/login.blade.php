@@ -131,7 +131,8 @@ footer {
 
 .login {
   font-size: 50px;
-  font-weight: 900;
+  font-weight: 600;
+  font-family: Garamond, serif;
   margin: 50px 40px 40px;
 }
 .eula {
