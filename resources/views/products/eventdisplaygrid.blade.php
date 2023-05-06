@@ -19,7 +19,7 @@
 
 @section('side2')
 <div class="button-container">
-    <a href="{{ route('menuoptions.eventindex', [$event->id]) }}" class="btn btn-primary fixed-button">Go to Menus</a>
+    <a href="{{ route('menuoptions.eventindex', [$event->id]) }}" class="btn btn-primary1 fixed-button">Go to Menus</a>
 </div>
 @endsection('side2')
 
@@ -62,8 +62,8 @@
 						<div class="content-stdm">
 							<div class="card-header d-block"><h5 class="mx-auto d-block">{{$product->productname}}</h5></div>
 							<div class="card-footer" style="text-align: center">€{{$product->productcost}}</div>
-							<div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" style="background-color: pink;" value="{{$product->id}}"><i class='far fa-shopping-cart'></i></button></div>
-							<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>
+							<div class="card-footer"><button id="addItem" type="button" class="btn btn-primary2 addItem" style="background-color: pink;" value="{{$product->id}}"><i class='far fa-shopping-cart'></i></button></div>
+							<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-primary1 custshow">Details <i class="fas fa-info-circle"></i></button></a></div>
 						</div>
 				</div>
 			</div>
