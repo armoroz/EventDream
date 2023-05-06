@@ -32,8 +32,8 @@
 					<div class="content-stdm">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
 						<div class="card-footer" style="text-align: center">€20 Per Person</div>
-						<div class="card-footer"><button id="additem" type="button" class="btn btn-addtoCart additem" value="{{$standardmenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
-						<div class="card-footer"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>	
+						<div class="card-footer"><button id="additem" type="button" class="btn btn-primary2 addItem" value="{{$standardmenu->id}}"><span class="text"><i class='far fa-shopping-cart'></i></span></button></div>	
+						<div class="card-footer"><button id="custshow" type="button" class="btn btn-primary2 custshow"><span class="text"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}">Details <i class="fas fa-info-circle"></i></a></span></button></div>	
 						<div class="card-footer"><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 							<input id="fieldRating" name="rating" 
 							value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
