@@ -1,8 +1,8 @@
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" style="margin-right: -10px;" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Profile
     </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-left: -40px;">
         <li>
             <a class="dropdown-item" style="font-weight: bold; font-size: 9pt;">Welcome  {{ Auth::user()->customer->firstname }}</a>
         </li>
