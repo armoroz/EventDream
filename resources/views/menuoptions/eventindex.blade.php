@@ -2,15 +2,8 @@
 @section('content')
 @include('flash::message')
 
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Menu Options</h1>
-                </div>
-            </div>
-        </div>
-    </section>
+<h1 style="text-align: center; margin-top: 20px; margin-left: 90px; font-family: Garamond, serif;">Menu Options</h1>
+
 <style>
 footer {
   display: none;
