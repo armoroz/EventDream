@@ -31,7 +31,7 @@ footer {
 		<h2>Standard Menus</h2>
 		<p>Explore our menus ranging from traditional Irish cuisine 
 		to exotic African delights!</p>
-		 <a class="btn btn-primary mx-2" href="{{ route('standardmenus.eventdisplaygrid', [$event->id]) }}">Open</a>
+		 <a class="btn btn-primary1 mx-2" href="{{ route('standardmenus.eventdisplaygrid', [$event->id]) }}">Open</a>
 	</div>
    </div>
 	<div class="card-mopt">
@@ -42,7 +42,7 @@ footer {
 		<h2>Our Dishes</h2>
 		<p>Browse menu items to view ingredients, allergens, and so on.
 		Or even better! Make your own customised menu just how you like it!</p>
-		<a class="btn btn-primary mx-2" href="{{ route('menuitems.displaygrid') }}">Open</a>
+		<a class="btn btn-primary1 mx-2" href="{{ route('menuitems.displaygrid') }}">Open</a>
 	</div>
    </div>
 	<div class="card-mopt">
@@ -53,7 +53,7 @@ footer {
 		<h2>Custom Menus</h2>
 		<p>Review your previously made customised menus 
 		to simply order them again for your upcoming event. Time-saving, right!</p>
-		<a class="btn btn-primary mx-2" href="{{ route('custommenus.eventdisplaygrid', [$event->id]) }}">Open</a>
+		<a class="btn btn-primary1 mx-2" href="{{ route('custommenus.eventdisplaygrid', [$event->id]) }}">Open</a>
 	</div>
    </div>
   </div>
