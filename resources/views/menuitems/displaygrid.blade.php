@@ -46,7 +46,7 @@
 				<div class="card-footer">
 					<div class="btn-checkbox">
 						<div class="text-center">
-							<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a>
+							<a  href="{{ route('menuitems.custshow', [$menuitem->id]) }}"><button id="custshow" type="button" class="btn btn-primary1 custshow">Details <i class="fas fa-info-circle"></i></button></a>
 						</div>
 						<div class="checkbox">
 							<input type="checkbox" id="cbox-selectMenuItems-{{ $menuitem->id }}" name="menuitems[]" value="{{ $menuitem->id }}">
@@ -63,7 +63,7 @@
 	</div>
 	
 	<div>
-	<button type="button" onclick="handleCheckLogin1('{{route('menuitems.newstandardmenu')}}')" id="newmenubtn" class="btn btn-primary" style="margin-top: 200px;">Save to Custom Menu</button>
+	<button type="button" onclick="handleCheckLogin1('{{route('menuitems.newstandardmenu')}}')" id="newmenubtn" class="btn btn-primary1" style="margin-top: 200px;">Save to Custom Menu<i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></button>
 
 	</div>
 </form>
