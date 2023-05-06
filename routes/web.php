@@ -61,6 +61,7 @@ Route::resource('products', App\Http\Controllers\productController::class);
 
 /* Venues/Ratings/Images */
 Route::resource('venues', App\Http\Controllers\venueController::class);
+Route::get('/venues/show/map1', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
 Route::resource('venueratings', App\Http\Controllers\venueratingController::class);
 Route::resource('venueimages', App\Http\Controllers\venueimagesController::class);
 Route::get('venue/newimages/{venueid}', 'App\Http\Controllers\venueimagesController@create')->name('venue.newimages');
@@ -146,7 +147,7 @@ Route::post('products/all/filter', 'App\Http\Controllers\productController@filte
 
 /* Venues/Ratings/Images */
 Route::get('/venues/all/json', 'App\Http\Controllers\venueController@json')->name('venues.map.json');
-Route::get('/venues/show/map', 'App\Http\Controllers\venueController@showmap')->name('venues.showmap');
+Route::get('/venues/show/map', 'App\Http\Controllers\venueController@custshowmap')->name('venues.custshowmap');
 Route::get('venues/all/shop', 'App\Http\Controllers\venueController@displaygrid')->name('venues.displaygrid');
 Route::get('venues/custshow/{venue}', 'App\Http\Controllers\venueController@custshow')->name('venues.custshow');
 Route::post('venues/all/search', 'App\Http\Controllers\venueController@searchquery')->name('venues.searchquery');

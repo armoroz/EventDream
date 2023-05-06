@@ -2,7 +2,7 @@
   <div class="modal-dialog"> 
     <div class="modal-content"> 
       <div class="modal-header"> 
-        <button type="button" class="close" data-dismiss="modal">×</button> <h4 class="modal-title" style="margin-right: 150px;">Book an Event</h4>    
+        <button type="button" class="close" data-dismiss="modal">×</button> <h4 class="modal-title" style="margin-right: 170px;">Book an Event</h4>    
     </div> 
       <div class="modal-body"> 
         <div class="container-fluid"> 

@@ -36,13 +36,6 @@
         alert("There is a problem with your route to your json data: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
 });
 
-	mymap.on('click', onMapClick);
-
-	function onMapClick(e) { 
-		$('#lat').val(e.latlng.lat);
-		$('#lng').val(e.latlng.lng);        
-		$('#createVenueModal').modal('show');
-	}
 	
 	var redIcon = new L.Icon({
 		iconSize: [40, 40],

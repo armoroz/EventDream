@@ -46,7 +46,7 @@
 						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="color: #333333;">Venues</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}">Products</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}">Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.custshowmap')}}">Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@elseif(Request::url() == route('products.displaygrid'))
 						<ul class="navbar-nav ms-auto">
@@ -54,7 +54,7 @@
 						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}">Venues</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="color: #333333;">Products</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}">Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.custshowmap')}}">Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@elseif(Request::url() == route('menuoptions.index'))
 						<ul class="navbar-nav ms-auto">
@@ -62,7 +62,7 @@
 						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}">Venues</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}">Products</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="color: #333333;">Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.custshowmap')}}">Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@else
 						<ul class="navbar-nav ms-auto">
@@ -70,7 +70,7 @@
 						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}">Venues</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}">Products</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}">Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.custshowmap')}}">Map</a></li>
 						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@endif
 						

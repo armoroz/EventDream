@@ -271,6 +271,11 @@ class venueController extends Controller
 		return view('venues.showmap');
 	}
 	
+	public function custshowMap()
+	{
+		return view('venues.custshowmap');
+	}
+	
     public function custshow($id, Request $request)
     {
 		
