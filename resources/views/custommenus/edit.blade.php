@@ -25,6 +25,8 @@ margin: 0;
 section {
 	box-shadow: 0 6px 21px rgba(0,0,0,1);
 	max-width: 375px;
+	margin-top: 50px;
+	margin-left: 300px;
 }
 
 
@@ -58,7 +60,7 @@ section {
         {!! Form::hidden('customerid', Auth::user()->customer->id) !!}
 		
            <div class="content">		
-			   <p style="font-size: 14pt;">Create Custom Menu:</p>
+			   <p style="font-size: 14pt; margin-top: -25px;">Create Custom Menu:</p>
 				<div class="form-group col-sm-12 col-lg-12">
 					<span class="custom-menu-name">{!! Form::text('custommenuname', null, ['class' => 'form-control','maxlength' => 20,'maxlength' => 20]) !!}</span>
 				</div>

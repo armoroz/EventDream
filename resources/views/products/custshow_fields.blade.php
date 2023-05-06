@@ -50,7 +50,7 @@
 <style>
 
 .col-lg-8 {
-	min-width: 1000px;
+	max-width: 900px;
 }
 
 .card {

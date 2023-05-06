@@ -6,7 +6,7 @@
     <div class="content px-3">
         <div class="card">
             <div class="card-body">
-				<div class="row">
+				<div class="row" style="margin-top: 80px; margin-left: 100px;">
                     @include('products.custshow_fields')
 				</div>
             </div>

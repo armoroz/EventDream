@@ -10,9 +10,9 @@
 	<div class="container">
 		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px;">
 			
-				<h1>
+				<h2 style="margin-bottom: 20px;">
 					Menu Items for Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
-				</h1>
+				</h2>
 			
 			<div class="content">
 				{!! Form::open(['route' => ['custommenus.updatemenuitems', $custommenu->id], 'method' => 'patch']) !!}
@@ -85,7 +85,7 @@
 								</tr>
 							</thead> 
 							<tbody> 
-								@foreach($menuitems->where('course', 'desert') as $menuitem)
+								@foreach($menuitems->where('course', 'dessert') as $menuitem)
 								<tr>
 									<td><img style="max-height:100px; width:100px;" src="{{ $menuitem->menuitemimglink }}"></td>
 									<td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
@@ -97,7 +97,7 @@
 						</table> 
 					</div>
 						<!-- Submit Fieldd -->
-						<div class="form-group col-sm-12">
+						<div class="form-group col-sm-12" style="text-align: right;">
 							{!! Form::button('Update Menu <i class="far fa-hat-chef" style="font-size: 1.2em; margin-right: 5px;"></i>', ['type' => 'submit', 'class' => 'btn btn-primary1']) !!}
 
 							<a href="{!! route('custommenus.displaygrid') !!}" class="btn btn-default">Cancel</a>
