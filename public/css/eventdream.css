@@ -1,6 +1,48 @@
 
 body {
 
+.btn-primary {
+  color: #fff;
+  background-color: #2d3033;
+  border-color: #2d3033;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #2D3033;
+  border-color: #2D3033;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #2D3033;
+  background-image: none;
+  border-color: #2D3033;
+}
+
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #fff;
+  background-color: grey;
+  border-color: #122b40;
+}
+
 /* CONFIRMED: Purple gradient*/
 background: linear-gradient(90deg, #4b0082 0%, #ee82ee 100%);
 
