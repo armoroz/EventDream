@@ -19,7 +19,6 @@ background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); */
 background: linear-gradient(180deg, #6e59a3 0%, #635093 100%); */
 
 	font-family: Garamond, serif;
-	font-weight: bold;
 }
 
 .btn-primary {
@@ -151,6 +150,7 @@ background: rgba(132, 98, 168, 0.8);
   cursor: pointer;
   display: inline-block;
   /*font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;*/
+  font-family: Garamond, serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
@@ -182,6 +182,7 @@ background: rgba(132, 98, 168, 0.8);
   cursor: pointer;
   display: inline-block;
   /*font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;*/
+  font-family: Garamond, serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
