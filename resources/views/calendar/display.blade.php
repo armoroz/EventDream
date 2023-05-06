@@ -16,6 +16,7 @@
 <div class="button-container">
 <a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back to Venues</a>
 </div>
+<button onclick="bookmarkPage()">Bookmark This Page</button>
 
 <div id="calendar"></div> 
 <script> 
