@@ -209,8 +209,8 @@ background: linear-gradient(-225deg, #884D80 0%, #A8BFFF 100%); */
 
 @media (min-width: 768px) {
   .btn-primary1 {
-    font-size: 24px;
-    min-width: 196px;
+    font-size: 15px;
+    max-width: 50px;
   }
 }
 
