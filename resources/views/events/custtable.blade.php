@@ -16,8 +16,8 @@
 							<div class="card-footer" style="text-align: center">{{ $event->venue->venuename ?? 'N/A' }}</div>
 							<div class="card-footer" style="text-align: center">€{{ $event->eventordertotal }}</div>
 							<div class="card-footer" style="text-align: center">{{ $event->eventdate->format('Y-m-d') }}</div>
-							<div class="card-footer"><a  href="{{ route('events.custshow', [$event->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-moreInfo custshow">Details <i class="fas fa-info-circle"></i></button></a></div>
-							<div class="card-footer" style="text-align: center"><a href="{{ route('products.eventdisplaygrid', [$event->id]) }}" class='btn btn-primary'>Add-ons</a></div>
+							<div class="card-footer"><a  href="{{ route('events.custshow', [$event->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-primary1 custshow">Details <i class="fas fa-info-circle"></i></button></a></div>
+							<div class="card-footer" style="text-align: center"><a href="{{ route('products.eventdisplaygrid', [$event->id]) }}" class='btn btn-primary1'>Add-ons<i class="fas fa-plus" style='font-size: 1.1em; margin-left: 5px;'></i></a></div>
 						</div>
 				</div>
 			</div>
