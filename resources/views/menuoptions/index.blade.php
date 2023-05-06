@@ -2,8 +2,6 @@
 @section('content')
 @include('flash::message')
 
-
-
 <h1 style="text-align: center; margin-top: 20px; margin-left: 90px; font-family: Garamond, serif;">Menu Options</h1>
 
 <style>
@@ -18,7 +16,7 @@ footer {
 
 <div class= "bodyoptions-mopt">
   <div class= "container-mopt">
-	<div class="card-mopt">
+	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
         <img src="{{asset('img\img1.jpg')}}">
       </div>
@@ -29,7 +27,7 @@ footer {
 		 <a class="btn btn-primary1 mx-2" href="{{ route('standardmenus.displaygrid') }}">Open</a>
 	</div>
    </div>
-	<div class="card-mopt">
+	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
         <img src="{{asset('img\img2.jpg')}}">
       </div>
@@ -40,7 +38,7 @@ footer {
 		<a class="btn btn-primary1 mx-2" href="{{ route('menuitems.displaygrid') }}">Open</a>
 	</div>
    </div>
-	<div class="card-mopt">
+	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
         <img src="{{asset('img\img3.jpg')}}">
       </div>

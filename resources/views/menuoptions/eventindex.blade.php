@@ -16,7 +16,7 @@ footer {
 
 <div class= "bodyoptions-mopt">
   <div class= "container-mopt">
-	<div class="card-mopt">
+	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
         <img src="{{asset('img\img1.jpg')}}">
       </div>
@@ -27,7 +27,7 @@ footer {
 		 <a class="btn btn-primary1 mx-2" href="{{ route('standardmenus.eventdisplaygrid', [$event->id]) }}">Open</a>
 	</div>
    </div>
-	<div class="card-mopt">
+	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
         <img src="{{asset('img\img2.jpg')}}">
       </div>
@@ -38,7 +38,7 @@ footer {
 		<a class="btn btn-primary1 mx-2" href="{{ route('menuitems.displaygrid') }}">Open</a>
 	</div>
    </div>
-	<div class="card-mopt">
+	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
         <img src="{{asset('img\img3.jpg')}}">
       </div>
