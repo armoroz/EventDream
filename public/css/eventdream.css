@@ -15,10 +15,6 @@ background: linear-gradient(80deg, #F2A65A 0%,#772F1A 100%); */
 background-color: #f8ceec;
 background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); */
 
-/* Pollock red
-background: linear-gradient(180deg, #b21e5a 0%, #91163f 100%)
-background: linear-gradient(90deg, #b10d50 0%, #82163a 100%);*/
-
 /* Purple gradient
 background: linear-gradient(180deg, #6e59a3 0%, #635093 100%); */
 
@@ -144,107 +140,6 @@ background: rgba(132, 98, 168, 0.8);
   background-color: #2d3033;
   border-color: #2d3033;
 }
-
-
-/*.btn-primary1 {
-  align-items: center;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  display: flex;
-  font-family: Phantomsans, sans-serif;
-  font-size: 20px;
-  justify-content: center;
-  line-height: 1em;
-  max-width: 100%;
-  min-width: 140px;
-  padding: 3px;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.btn-primary1:active,
-.btn-primary1:hover {
-  outline: 0;
-}
-
-.btn-primary1 span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
-}
-
-.btn-primary1:hover span {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .btn-primary1 {
-    font-size: 15px;
-    max-width: 50px;
-  }
-}*/
-
-
-/*
-.btn-primary2 {
-  align-items: center;
-  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-  border: 0;
-  border-radius: 8px;
-  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  display: flex;
-  font-family: Phantomsans, sans-serif;
-  font-size: 20px;
-  justify-content: center;
-  line-height: 1em;
-  max-width: 100%;
-  min-width: 140px;
-  padding: 3px;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.btn-primary2:active,
-.btn-primary2:hover {
-  outline: 0;
-}
-
-.btn-primary2 span {
-  background-color: rgb(5, 6, 45);
-  padding: 16px 24px;
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
-  transition: 300ms;
-}
-
-.btn-primary2:hover span {
-  background: none;
-}
-
-@media (min-width: 768px) {
-  .btn-primary2 {
-    font-size: 15px;
-    min-width: 5px;
-  }
-}*/
 
 .btn-primary1 {
   background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
