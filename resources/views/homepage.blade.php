@@ -2,7 +2,7 @@
 @section('content')
 @include('flash::message') 
 @php $j=0 @endphp 
-<h1 style="text-align: center; margin-top: 20px; font-family: Garamond, serif;"> Welcome to EventDream</h1>
+<h1 style="text-align: center; margin-top: 20px; font-family: Garamond, serif;">Welcome to EventDream</h1>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <style>
