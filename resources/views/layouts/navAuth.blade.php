@@ -9,11 +9,11 @@
 	@else
 	<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			Sign Up
+			Sign In
 		</a>
 		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 			<li>
-				 <a class="dropdown-item" href="{!! route('register') !!}">Register</a>
+				 <a class="dropdown-item" href="{!! route('register') !!}">Sign Up</a>
 			</li>
 			<li>
 				 <a class="dropdown-item" href="{!! route('login') !!}">Login</a>
