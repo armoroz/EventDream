@@ -1,6 +1,6 @@
 Body{
 
-/*background-color: #2e2e30; */
+/* background-color: #616b75; */
 
 /* Tea Gold 
 background: linear-gradient(80deg, #F2A65A 0%,#772F1A 100%); */
@@ -16,16 +16,19 @@ background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); */
 background: linear-gradient(180deg, #6e59a3 0%, #635093 100%);*/
 
 
-/* Pollock red*/
-background: linear-gradient(180deg, #b21e5a 0%, #91163f 100%)
+/* Pollock red
+background: linear-gradient(180deg, #b21e5a 0%, #91163f 100%)*/
+
+/* Purple gradient
+background: linear-gradient(180deg, #6e59a3 0%, #635093 100%); */
 
 /* Maroon Red 
 background-color: #3f0d12;
 background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%); */
 
-/* Light Grey 
+/* Light Grey */
 background-color: #5b6467;
-background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%); */
+background-image: linear-gradient(315deg, #8b939a 0%, #5b6467 74%); 
 
 /* Purple 
 background: linear-gradient(180deg, rgba(30,13,54,1) 0%, rgba(54,37,79,1) 100%); */
@@ -35,6 +38,9 @@ background: linear-gradient(180deg, rgba(109,89,158,1) 0%, rgba(59,45,75,1) 100%
 
 /* Faded Purple 
 background: linear-gradient(180deg, rgba(99,87,114,1) 0%, rgba(142,127,163,1) 100%); */
+
+/* Purply 
+background: linear-gradient(-225deg, #884D80 0%, #A8BFFF 100%); */
 
 }
 
