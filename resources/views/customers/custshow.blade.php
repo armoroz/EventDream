@@ -17,11 +17,11 @@
                 <div class="row">
                     @include('customers.custshow_fields')
 					<div class="col-sm-6" style="margin-left: 750px; margin-bottom: 20px;">
-						<a class="btn btn-primary float-right"
+						<a class="btn btn-primary1 float-right"
 						   href="{{ route('homepage') }}">
 							Back
 						</a>
-						<a class="btn btn-primary float-right"
+						<a class="btn btn-primary1 float-right"
 						   href="{!! route('customers.custedit', [Auth::user()->customer->id]) !!}">
 							Edit Profile
 						</a>

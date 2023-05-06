@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
 
-                    <h1 style="text-align: center; font-family: Garamond, serif;">Your Events</h1>
+                    <h1 style="text-align: center; font-family: Garamond, serif;">My Events</h1>
 
     </section>
 

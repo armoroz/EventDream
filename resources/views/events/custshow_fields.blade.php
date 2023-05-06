@@ -102,7 +102,7 @@
                 <div class="col-sm-6" style="margin-left: 0px;">
                     <a class="btn btn-primary1 float-right"
                        href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">
-                        Back to events<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.2em; margin-left: 5px;'></i>
+                        Back to events
                     </a>
                 </div>	
 				
@@ -128,7 +128,7 @@
 			</div>
 			
                 <div class="col-sm-6" style="margin-left: 0px;">
-                    <a class="btn btn-primary float-right"
+                    <a class="btn btn-primary1 float-right"
                        href="{!! route('events.projectindex', [Auth::user()->customer->id]) !!}">
                         Back to projects
                     </a>

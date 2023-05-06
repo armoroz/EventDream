@@ -103,7 +103,7 @@
 						</li>
 						
 						@if(Request::url() == route('products.displaygrid') || Request::url() == route('standardmenus.displaygrid') || Request::url() == route('custommenus.displaygrid') || isset($product) && Request::url() == route('products.custshow', [$product->id]) || isset($standardmenu) && Request::url() == route('standardmenus.custshow', [$standardmenu->id]) || Request::url() == route('venues.searchquery') || Request::url() == route('products.searchquery') || Request::url() == route('standardmenus.searchquery') || Request::url() == route('venues.filtervenues') || Request::url() == route('products.filterproducts') || isset($custommenu) && Request::url() == route('custommenus.custshow', [$custommenu->id]))
-						<li class="nav-item" style="margin-top: 2px;"><button id="checkOut" onclick="handleCheckLogin('{{ url('events/all/checkout') }}')" type="button" style="height: 38px; width: 100px; padding: 0px; font-size: 12pt; font-family: Garamond, serif;" class="btn btn-primary1 navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
+						<li class="nav-item" style="margin-top: 2px;"><button id="checkOut" onclick="handleCheckLogin('{{ url('events/all/checkout') }}')" type="button" style="height: 38px; width: 100px; padding: 0px; font-size: 12pt; font-family: Garamond, serif; margin-left:3px; margin-right:3px;" class="btn btn-primary1 navbar-btn center-block">Check Out</button></li> 
 						<li class="nav-item" style="margin-top: 2px;"><button id="emptycart" type="button" style="height: 38px; width: 100px; padding: 0px; font-size: 12pt; font-family: Garamond, serif;" class="btn btn-primary1 navbar-btn center-block">Empty Cart</button></li> 
 						<li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
 						<li class="nav-item"><div class="navbar-text" id="shoppingcart" style="margin-left:0px; margin-right: -5px;">{{$totalItems}}</div></li>
@@ -111,8 +111,8 @@
 						
 						
 						@elseif(isset($product) && isset($event) && Request::url() == route('products.eventdisplaygrid', [$event->id]) || isset($standardmenu) && isset($event) && Request::url() == route('standardmenus.eventdisplaygrid', [$event->id]) || isset($custommenu) && isset($event) && Request::url() == route('custommenus.eventdisplaygrid', [$event->id]))
-						<li class="nav-item"><button id="checkOut" onclick="handleCheckLogin('{{ route('events.eventcheckout', [$event->id]) }}')" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
-						<li class="nav-item"><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
+						<li class="nav-item" style="margin-top: 2px;"><button id="checkOut" onclick="handleCheckLogin('{{ route('events.eventcheckout', [$event->id]) }}')" type="button" class="btn btn-primary1 navbar-btn center-block" style="height: 38px; width: 100px; padding: 0px; font-size: 12pt; font-family: Garamond, serif; margin-left:3px; margin-right:3px;">Check Out</button></li> 
+						<li class="nav-item" style="margin-top: 2px;"><button id="emptycart" type="button" style="height: 38px; width: 100px; padding: 0px; font-size: 12pt; font-family: Garamond, serif;" class="btn btn-primary1 navbar-btn center-block">Empty Cart</button></li> 
 						<li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
 						<li class="nav-item"><div class="navbar-text" id="shoppingcart" style="margin-left:0px; margin-right: -5px;">{{$totalItems}}</div></li>
 						<li class="nav-item"><div class="navbar-text" style="margin-left:0px;">Item(s)</div></li>	

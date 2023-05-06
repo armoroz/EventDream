@@ -26,7 +26,7 @@
             </div>
 
             <div class="card-footer">
-                {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+                {!! Form::submit('Save', ['class' => 'btn btn-primary1']) !!}
                 <a href="{{ route('customers.custshow', Auth::user()->customer->id) }}" class="btn btn-default">Cancel</a>
             </div>
 

@@ -13,8 +13,8 @@
 <script src="{{ asset('timegrid/main.js')}}"></script> 
 <script src="{{ asset('list/main.js')}}"></script> 
 <div class="button-container">
-<a class="btn btn-primary float-right" style="margin-bottom: 5px;" href="{{ route('venues.displaygrid') }}">Back</a>
-<a class="btn btn-primary float-right" style="margin-bottom: 5px;" href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">View My Events</a>
+<a class="btn btn-primary1 float-right" style="margin-bottom: 5px;" href="{{ route('venues.displaygrid') }}">Back</a>
+<a class="btn btn-primary1 float-right" style="margin-bottom: 5px;" href="{!! route('events.custindex', [Auth::user()->customer->id]) !!}">View My Events</a>
 </div>
 
 <div id="calendar"></div> 
