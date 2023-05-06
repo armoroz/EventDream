@@ -39,7 +39,9 @@
 		  <div class= "container-meni">
 			<div class="card-meni" style="height: 100%;">
 				<div class="box-image-meni">
-					<img src="{{ $menuitem->menuitemimglink }}">
+					<div class="image-wrapper">
+						<img src="{{ $menuitem->menuitemimglink }}">
+					</div>
 				</div>
 				<div class="content-meni">
 				<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $menuitem->menuitemname }}</h5></div>
