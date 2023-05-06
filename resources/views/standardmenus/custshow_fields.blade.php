@@ -58,12 +58,15 @@
 				<div class="col-sm-12">
 					{!! Form::label('standardmenuratings', 'Standard Menu Ratings:') !!}
 					@foreach($standardmenuratings->where('standardmenuid', $standardmenu->id)->slice(-3) as $standardmenurating)
-						<div style="border-style: groove; border-radius: 10px; border-color: lightgrey; margin: 10px 0px 30px 0px;">
-							<td>
-							  {{ $standardmenurating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="hidden" class="rating rating-loading" 
-								data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
-							{!! $standardmenurating->comment !!}
-							</td>    
+						<div style="border-style: solid; border-radius: 10px; border-color: purple; margin: 10px 0px 20px 0px; padding: 5px;">
+							<div style="display: flex; align-items: center;">
+								<span>{{ $standardmenurating->customer->username }} •</span>
+								<input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $standardmenurating->rating !!}" type="hidden" class="rating rating-loading"
+									   data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+							</div>
+							<div>
+								{!! $standardmenurating->comment !!}
+							</div>
 						</div>
 					@endforeach
 				</div>

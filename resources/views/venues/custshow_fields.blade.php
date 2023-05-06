@@ -65,12 +65,15 @@
 				<div class="col-sm-12">
 					{!! Form::label('venueratings', 'Venue Ratings:') !!}
 					@foreach($venueratings->where('venueid', $venue->id)->slice(-3) as $venuerating)
-						<div style="border-style: groove; border-radius: 10px; border-color: lightgrey; margin: 10px 0px 30px 0px;">
-							<td>
-							  {{ $venuerating->customer->username }}  <input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="hidden" class="rating rating-loading" 
-								data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
-							{!! $venuerating->comment !!}
-							</td>    
+						<div style="border-style: solid; border-radius: 10px; border-color: purple; margin: 10px 0px 20px 0px; padding: 5px;">
+							<div style="display: flex; align-items: center;">
+								<span>{{ $venuerating->customer->username }} •</span>
+								<input id="fieldRating" data-theme="krajee-fas" name="rating" value="{!! $venuerating->rating !!}" type="hidden" class="rating rating-loading"
+									   data-min=0 data-max=5 data-step=1 data-size="xs" data-display-only="true">
+							</div>
+							<div>
+								{!! $venuerating->comment !!}
+							</div>
 						</div>
 					@endforeach
 				</div>
