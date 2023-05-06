@@ -149,7 +149,7 @@ background: rgba(132, 98, 168, 0.8);
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  /*font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;*/
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
@@ -180,7 +180,7 @@ background: rgba(132, 98, 168, 0.8);
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  /*font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;*/
   font-size: 16px;
   font-weight: 500;
   line-height: 2.5;
