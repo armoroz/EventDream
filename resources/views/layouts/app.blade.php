@@ -42,36 +42,36 @@
 					
 						@if(Request::url() == route('venues.displaygrid'))
 						<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt;">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt; color: #333333;">Venues</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="color: #333333;">Venues</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}">Products</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}">Menus</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@elseif(Request::url() == route('products.displaygrid'))
 						<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt; color: #333333;">Products</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" >Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}">Venues</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="color: #333333;">Products</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}">Menus</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@elseif(Request::url() == route('menuoptions.index'))
 						<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt; color: #333333;">Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}">Venues</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}">Products</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="color: #333333;">Menus</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@else
 						<ul class="navbar-nav ms-auto">
-						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}" style="font-size: 12pt" >Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}" style="font-size: 12pt" >Venues</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}" style="font-size: 12pt" >Products</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}" style="font-size: 12pt" >Menus</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}" style="font-size: 12pt" >Map</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}" style="font-size: 12pt" >About Us</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('homepage')}}">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.displaygrid')}}">Venues</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('products.displaygrid')}}">Products</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('menuoptions.index')}}">Menus</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('venues.showmap')}}">Map</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{route('aboutus.index')}}">About Us</a></li>
 						@endif
 						
 						@if(Request::url() == route('venues.displaygrid') || Request::url() == route('venues.searchquery'))
@@ -106,7 +106,7 @@
 						<li class="nav-item"><button id="checkOut" onclick="handleCheckLogin('{{ url('events/all/checkout') }}')" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
 						<li class="nav-item"><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
 						<li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
-						<div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:5px;">{{$totalItems}}</div>
+						<li class="nav-item"><div class="navbar-text" id="shoppingcart" style="margin-left:0px; margin-right: -5px;">{{$totalItems}}</div></li>
 						<li class="nav-item"><div class="navbar-text" style="font-size:12pt;margin-left:0px;">Item(s)</div></li>
 						
 						
@@ -114,7 +114,7 @@
 						<li class="nav-item"><button id="checkOut" onclick="handleCheckLogin('{{ route('events.eventcheckout', [$event->id]) }}')" type="button" class="btn btn-primary navbar-btn center-block" style="margin-left:3px; margin-right:3px;">Check Out</button></li> 
 						<li class="nav-item"><button id="emptycart" type="button" class="btn btn-primary navbar-btn center-block">Empty Cart</button></li> 
 						<li class="nav-item"><span style="font-size:30px;margin-right:0px;" class="glyphicon glyphicon-shopping-cart navbar-btn"></span></li>
-						<div class="navbar-text" id="shoppingcart" style="font-size:12pt;margin-left:0px;margin-right:5px;">{{$totalItems}}</div>
+						<li class="nav-item"><div class="navbar-text" id="shoppingcart" style="margin-left:0px; margin-right: -5px;">{{$totalItems}}</div></li>
 						<li class="nav-item"><div class="navbar-text" style="font-size:12pt;margin-left:0px;">Item(s)</div></li>	
 						@endif
 						

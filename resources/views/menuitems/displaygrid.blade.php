@@ -63,18 +63,32 @@
 	</div>
 	
 	<div>
-	<button type="button" id="newmenubtn" class="btn btn-primary" style="margin-top: 200px;">Save to Custom Menu</button>
+	<button type="button" onclick="handleCheckLogin1('{{route('menuitems.newstandardmenu')}}')" id="newmenubtn" class="btn btn-primary" style="margin-top: 200px;">Save to Custom Menu</button>
+
 	</div>
 </form>
 
 <script>
-$(document).ready(function(){
-	console.log("ready");
+$(document).ready(function () {
+    console.log("ready");
 });
-$('#newmenubtn').click(function() {
-    console.log('hello');
-	$('#newmenuform').submit();
-});
+
+function handleCheckLogin1() {
+    if (isAuthenticated) {
+        $('#newmenubtn').click(function () {
+            console.log('hello');
+            $('#newmenuform').submit();
+        });
+        window.location.href = url;
+    } else {
+        let result = confirm('You must login or sign up to view this page. Click OK to login or Cancel to stay on this page.');
+        if (result) {
+            window.location.href = '{{ url("login") }}';
+        }
+    }
+}
+
+let isAuthenticated = @json(auth()->check());
 </script>
 
 @endsection('content')

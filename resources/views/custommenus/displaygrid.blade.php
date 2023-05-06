@@ -26,7 +26,7 @@
 	<div class= "bodyoptions-ctm">
 	  <div class= "container-ctm">
 		<div class="card-ctm">
-			<div class="content-ctm" style="margin:-10px">
+			<div class="content-ctm" style="margin: -10px">
 			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }}</h5></div>	
 			<div class="card-footer"><a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" 
 			     class="btn btn-updateDishes" title="Update Dishes">Update Dishes <i class='far fa-hat-chef'></i></a></div>	

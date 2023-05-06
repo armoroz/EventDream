@@ -32,15 +32,23 @@
 					<div class="content-stdm">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
 						<div class="card-footer" style="text-align: center">€20 Per Person</div>
-						<div class="card-footer"><button id="additem" type="button" class="btn btn-primary2 addItem" value="{{$standardmenu->id}}"><span class="text"><i class='far fa-shopping-cart'></i></span></button></div>	
-						<div class="card-footer"><button id="custshow" type="button" class="btn btn-primary2 custshow"><span class="text"><a  href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}">Details <i class="fas fa-info-circle"></i></a></span></button></div>	
+						<div class="card-footer d-flex justify-content-center">
+							<button id="additem" type="button" class="btn btn-primary2 addItem" value="{{$standardmenu->id}}">
+								<span class="text"><i class='far fa-shopping-cart'></i></span>
+							</button>
+						</div>  
+						<div class="card-footer d-flex justify-content-center">
+							<button id="custshow" type="button" class="btn btn-primary1 custshow">
+								<span class="text"><a href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}" style="text-decoration: none; color: white;">Details <i class="fas fa-info-circle"></i></a></span>
+							</button>
+						</div>
 						<div class="card-footer"><a href="{{ route('standardmenuratings.showstandardmenuratings', [$standardmenu->id] )}}">
 							<input id="fieldRating" name="rating" 
 							value="{!! round($standardmenu->standardmenuratings->avg('rating'),2); !!}" 
 							type="hidden" data-theme="krajee-fas" class="rating rating-loading" data-min=0 
 							data-max=5 data-step=1 data-size="sm" data-display-only="true"></a>
 						</div>
-					</div> 
+					</div>
 				</div>
 			</div> 
 		</div>
