@@ -4,14 +4,13 @@
 @php $j=0 @endphp 
  
 <section class="content-header">
-	<div class="container-fluid">
-		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 80px;">
-				 <h1 class="mb-4">Custom Menus</h1>
-			</div>
-		</div>
-		
-	</div>
+    <div class="container-fluid">
+        <div class="row mb-2 justify-content-center">
+            <div class="col-sm-6 text-center" style="padding-bottom: 60px; padding-top: 20px;">
+                <h1>Custom Menus</h1>
+            </div>
+        </div>
+    </div>
 </section>
 
 @section('side2')

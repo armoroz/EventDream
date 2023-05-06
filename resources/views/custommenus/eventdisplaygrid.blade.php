@@ -4,16 +4,20 @@
 @php $j=0 @endphp 
  
 <section class="content-header">
-	<div class="container-fluid">
-		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 80px;">
-				 <h1 class="mb-4">Custom Menus</h1>
-				<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-primary1">Create Custom Menu<i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></button></a>
-			</div>
-		</div>
-		
-	</div>
+    <div class="container-fluid">
+        <div class="row mb-2 justify-content-center">
+            <div class="col-sm-6 text-center" style="padding-bottom: 60px; padding-top: 20px;">
+                <h1>Custom Menus</h1>
+            </div>
+        </div>
+    </div>
 </section>
+
+@section('side2')
+<div class="button-container" style="margin-right: 50px; margin-bottom: 50px;">
+    <a href="{{ route('menuitems.displaygrid') }}" class="btn btn-primary1 fixed-button">Create Custom Menu <i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></a>
+</div>
+@endsection('side2')
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 

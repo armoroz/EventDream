@@ -4,13 +4,13 @@
 @php $j=0 @endphp 
 
 <section class="content-header">
-	<div class="container-fluid">
-		<div class="row mb-2">
-			<div class="col-sm-6" style="padding-bottom: 100px;">
-
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid">
+        <div class="row mb-2 justify-content-center">
+            <div class="col-sm-6 text-center" style="padding-bottom: 80px; padding-top: 20px;">
+                <h1>Standard Menus</h1>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
