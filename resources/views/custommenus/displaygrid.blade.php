@@ -8,7 +8,7 @@
 		<div class="row mb-2">
 			<div class="col-sm-6" style="padding-bottom: 80px;">
 				 <h1 class="mb-4">Custom Menus</h1>
-				<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-createCustomMenu">Create Custom Menu</button></a>
+				<a href="{{ route('menuitems.displaygrid') }}"><button class="btn btn-primary1">Create Custom Menu<i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i></button></a>
 			</div>
 		</div>
 		
@@ -29,9 +29,9 @@
 			<div class="content-ctm" style="margin: -10px">
 			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }}</h5></div>	
 			<div class="card-footer"><a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" 
-			     class="btn btn-updateDishes" title="Update Dishes">Update Dishes <i class='far fa-hat-chef'></i></a></div>	
-		    <div class="card-footer"><button id="addItem" type="button" class="btn btn-addtoCart addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
-            <div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-moreInfo custshow">More info <i class="fas fa-info-circle"></i></button></a></div>				 
+			     class="btn btn-primary1" title="Update Dishes">Update Dishes <i class='far fa-hat-chef'></i></a></div>	
+		    <div class="card-footer"><button id="addItem" type="button" class="btn btn-primary2 addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
+            <div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-primary1 custshow">Details <i class="fas fa-info-circle"></i></button></a></div>				 
 			</div> 
 		</div>
 	  </div> 
