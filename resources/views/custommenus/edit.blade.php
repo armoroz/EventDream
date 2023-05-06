@@ -82,8 +82,8 @@ section {
 				
 				<!-- Button Field -->
 				<div>
-				    <i class="far fa-utensil-fork" style='font-size: 1.2em; margin-left: 5px;'></i>
-					{!! Form::submit('Create', ['class' => 'btn btn-primary1']) !!}
+					{!! Form::button('Create <i class="far fa-utensil-fork" style="font-size: 1.2em; margin-right: 5px;"></i>', ['type' => 'submit', 'class' => 'btn btn-primary1']) !!}
+
 					<a href="{{ route('custommenus.displaygrid') }}" class="btn btn-default">Cancel</a>
 					{!! Form::close() !!}
 				</div>

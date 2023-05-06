@@ -32,11 +32,7 @@
 					<div class="content-stdm">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $standardmenu->standardmenuname }} {{ $standardmenu->standardmenudesc }} {{ $standardmenu->standardmenutype }}</h5></div>
 						<div class="card-footer" style="text-align: center">€20 Per Person</div>
-						<div class="card-footer d-flex justify-content-center">
-							<button id="additem" type="button" class="btn btn-primary2 addItem" value="{{$standardmenu->id}}">
-							    <i class='far fa-shopping-cart'></i>
-							</button>
-						</div>  
+						<div class="card-footer"><button id="additem" type="button" class="btn btn-primary2 additem" value="{{$standardmenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
 						<div class="card-footer d-flex justify-content-center">
 							<button id="custshow" type="button" class="btn btn-primary1 custshow">
 								<a href="{{ route('standardmenus.custshow', [$standardmenu->id]) }}" style="text-decoration: none; color: white;">Details <i class="fas fa-info-circle"></i></a></span>

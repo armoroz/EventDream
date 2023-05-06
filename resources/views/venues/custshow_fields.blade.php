@@ -57,7 +57,7 @@
 
 				<!-- Costtorent Field -->
 				<div class="col-sm-12">
-					{!! Form::label('costtorent', 'Cost to rent:') !!}
+					{!! Form::label('costtorent', 'Rent Price:') !!}
 					<p>€{{ $venue->costtorent }}</p>
 				</div>
 
@@ -80,9 +80,9 @@
 				
 				<!-- Button Field -->
 				<div>
-					<a class="btn btn-primary1" href="{{ route('venues.displaygrid') }}">Back<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.2em; margin-left: 5px;'></i></a>
+					<a class="btn btn-primary1" href="{{ route('venues.displaygrid') }}">Back</a>
 					
-					<a onclick="handleRateVenue('{{ url('venueratings/ratevenue', [$venue->id]) }}')"
+					<a onclick="handleCheckLogin('{{ url('venueratings/ratevenue', [$venue->id]) }}')"
 					   class='btn btn-primary1'>
 					   Rate Venue <i class="far fa-stars" title="Rate"></i>
 					</a>
@@ -160,5 +160,19 @@ mymap.on('locationfound', onLocationFound);
 
 var group = new L.featureGroup([redIcon, icon]);
 mymap.fitBounds(group.getBounds());
+ </script>
+<script> 
+let isAuthenticated = @json(auth()->check());
+
+function handleCheckLogin(url) {
+  if (isAuthenticated) {
+	window.location.href = url;
+  } else {
+	let result = confirm('You must login or sign up to view this page. Click OK to login or Cancel to stay on this page.');
+	if (result) {
+	  window.location.href = '{{ url("login") }}';
+	}
+  }
+}
 
  </script>

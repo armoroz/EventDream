@@ -70,7 +70,7 @@
 				
 				<!-- Button Field -->
 				<div>
-					<a class="btn btn-primary1" href="{{ route('standardmenus.displaygrid') }}">Back<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.2em; margin-left: 5px;'></i></a>
+					<a class="btn btn-primary1" href="{{ route('standardmenus.displaygrid') }}">Back</a>
 			        <a class="btn btn-primary1" href="{!! route('standardmenuratings.ratestandardmenu', [$standardmenu->id]) !!}">Rate Menu<i class='far fa-stars' style='font-size: 1.2em; margin-left: 3px;'></i></a> 
 				    <button id="addItem" type="button" class="btn btn-primary1 addItem" value="{{$standardmenu->id}}">Add to Cart<i class='far fa-shopping-cart' style='font-size: 1.em; margin-left: 3px;'></i></button>
 

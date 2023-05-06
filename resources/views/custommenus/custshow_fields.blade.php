@@ -68,14 +68,16 @@ section {
 			
 			<!-- Button Field -->
 			<div>
-				<a class="btn btn-primary1 inline-button" href="{{ route('custommenus.displaygrid') }}">Back<i class='far fa-arrow-alt-up fa-9x fa-rotate-270' style='font-size: 1.2em; margin-left: 5px;'></i></a>
+				<a class="btn btn-primary1 inline-button" href="{{ route('custommenus.displaygrid') }}">Back</a>
 				<a class="btn btn-primary1 inline-button" href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}">Update Dishes<i class='far fa-hat-chef' style='font-size: 1.1em; margin-left: 5px;'></i></a>
+
+				<button id="addItem" type="button" class="btn btn-primary1 inline-button addItem" value="{{$custommenu->id}}">Add to Cart<i class='far fa-shopping-cart' style='font-size: 1.2em; margin-left: 3px;'></i></button>
+				
 				<div class="inline-button">
 					{!! Form::open(['route' => ['custommenus.destroy', $custommenu->id], 'method' => 'delete']) !!}
-					{!! Form::button('Delete<i class="far fa-trash-alt" style="font-size: 1.1em; margin-left: 5px;"></i>', ['type' => 'submit', 'class' => 'btn btn-primary1', 'onclick' => "return confirm('Are you sure?')"]) !!}
+					{!! Form::button('Delete', ['type' => 'submit', 'class' => 'btn btn-primary1', 'onclick' => "return confirm('Are you sure?')"]) !!}
 					{!! Form::close() !!}
-				</div>
-				<button id="addItem" type="button" class="btn btn-primary1 inline-button addItem" value="{{$custommenu->id}}">Add to Cart<i class='far fa-shopping-cart' style='font-size: 1.2em; margin-left: 3px;'></i></button>
+				</div>				
 			</div>
 
 				
