@@ -85,7 +85,7 @@ div.scrollmenu a:hover {
 					<div class="content-stdm">
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
 						<div class="card-footer" style="text-align: center; color: black;">€{{$venue->costtorent}}</div>
-						<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-default center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button></div>
+						<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-primary1 center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button></div>
 						<div class="card-footer"><a href="{{ route('venueratings.showvenueratings', [$venue->id] )}}">
 							<input id="fieldRating" name="rating" 
 							value="{!! round($venue->venueratings->avg('rating'),2); !!}" 
@@ -115,7 +115,7 @@ div.scrollmenu a:hover {
 				<div class="content-stdm"> 
 					<div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
 					<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>			
-					<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+					<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-primary1">Details <i class="fas fa-info-circle"></i></button></a></div>
 				</div>
 			</div>
 		</div>
