@@ -317,9 +317,18 @@ background: rgba(132, 98, 168, 0.8);
 
 .alert-success {
   color: white;
-  background-color: #95a9cf;
-  border-color: #5c739e;
+  background-color: #ba7ed6;
+  border-color: #441759;
   border-radius: 15px;
+  display: inline-block;
+}
+
+.alert-danger {
+  color: white;
+  background-color: #de5f81;
+  border-color: #781005;
+  border-radius: 15px;
+  display: inline-block;
 }
 
 .dropdown-toggle {
