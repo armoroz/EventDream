@@ -13,7 +13,7 @@
 		</a>
 		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 			<li>
-				 <a class="dropdown-item" href="{!! route('register') !!}">Register</a>
+				 <a class="dropdown-item" href="{!! route('register') !!}">Sign Up</a>
 			</li>
 			<li>
 				 <a class="dropdown-item" href="{!! route('login') !!}">Login</a>

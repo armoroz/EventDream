@@ -14,9 +14,9 @@
 <script src="{{ asset('list/main.js')}}"></script> 
 
 <div class="button-container">
-<a class="btn btn-default float-right" href="{{ route('venues.displaygrid') }}">Back to Venues</a>
+<a class="btn btn-primary" href="{{ route('venues.displaygrid') }}">Back to Venues</a>
 </div>
-<button onclick="bookmarkPage()">Bookmark This Page</button>
+<button class="btn btn-primary" style="margin: 10px 0px 10px 0px;" onclick="bookmarkPage()">Bookmark This Page</button>
 
 <div id="calendar"></div> 
 <script> 
