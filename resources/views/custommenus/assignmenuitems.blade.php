@@ -98,8 +98,8 @@
 					</div>
 						<!-- Submit Fieldd -->
 						<div class="form-group col-sm-12">
-							
-							{!! Form::submit('Update My Menu', ['class' => 'btn btn-primary']) !!} 
+							<i class='far fa-hat-chef' style='font-size: 1.2em; margin-left: 5px;'></i>
+							{!! Form::submit('Update Menu', ['class' => 'btn btn-primary1']) !!} 
 
 
 							<a href="{!! route('custommenus.displaygrid') !!}" class="btn btn-default">Cancel</a>

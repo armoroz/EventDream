@@ -75,7 +75,7 @@ section {
 					{!! Form::button('Delete<i class="far fa-trash-alt" style="font-size: 1.1em; margin-left: 5px;"></i>', ['type' => 'submit', 'class' => 'btn btn-primary1', 'onclick' => "return confirm('Are you sure?')"]) !!}
 					{!! Form::close() !!}
 				</div>
-				<button id="addItem" type="button" class="btn btn-primary1 inline-button addItem" value="{{$custommenu->id}}">Add to Cart<i class='far fa-shopping-cart' style='font-size: 1.em; margin-left: 3px;'></i></button>
+				<button id="addItem" type="button" class="btn btn-primary1 inline-button addItem" value="{{$custommenu->id}}">Add to Cart<i class='far fa-shopping-cart' style='font-size: 1.2em; margin-left: 3px;'></i></button>
 			</div>
 
 				
