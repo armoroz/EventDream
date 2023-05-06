@@ -18,7 +18,7 @@
 
 <div class="row mb-2" style="margin-left: -75px;">
 <div style="width: 135px;">
-	<select id="venuelocationselect" class="form-select" size="1">
+	<select id="venuelocationselect" class="form-select" size="1" style="background-color: #2d3033; color: white; border-color: #2d3033;">
 		<option value="All" selected>Location</option>
 		<option value="All">All</option>
 		<option value="Dublin">Dublin</option>
@@ -43,7 +43,7 @@
 						<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $venue->venuename }}</h5></div>
 						<div class="card-footer" style="text-align: center">€{{$venue->costtorent}}</div>
 						<div class="card-footer" style="text-align: center"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{$venue->city}}</div>
-						<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-primary1">Details <i class="fas fa-info-circle"></i></button></a></div>
+						<div class="card-footer"><a  href="{{ route('venues.custshow', [$venue->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-primary2">Details <i class="fas fa-info-circle"></i></button></a></div>
 						<div class="card-footer"><button id="vendisplay" type="button" class="btn btn-primary1 center-block vendisplay" onclick="handleCheckLogin('{{ url('calendar/vendisplay', [$venue->id]) }}')">Book Venue <i class="far fa-calendar-alt"></i></button></div>
 						<div class="card-footer">
 							<input id="fieldRating" name="rating" 

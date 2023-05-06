@@ -34,7 +34,7 @@ div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   margin: -15px;
-  height: 594px;
+  height: 545px;
 }
 
 div.scrollmenu div.home {
@@ -76,7 +76,7 @@ div.scrollmenu a:hover {
 @foreach($venues as $venue)
           <div class="home" style="margin-right: 53px;">
 			<div class= "container-stdm">
-				<div class="card-stdm" style="height: 100%;">
+				<div class="card-stdm" style="height: 100%; margin-bottom: -20px;">
 					<div class="box-image-stdm">
 						<div class="image-wrapper">
 					    @foreach($venue->venueimages->take(1) as $venueimage)<img src="data:image/jpeg;base64,{{$venueimage->imagefile}}"/>@endforeach
@@ -105,7 +105,7 @@ div.scrollmenu a:hover {
 @foreach($products as $product)
 	<div class="home" style="margin-right: 53px;">
 		<div class= "container-stdm">
-			<div class="card-stdm" style="height: 100%;">
+			<div class="card-stdm" style="height: 100%; margin-bottom: -20px;">
 				<div class="box-image-stdm">
 					<div class="image-wrapper">
 						<img src="{{ $product->productimg }}"/>
@@ -133,7 +133,7 @@ div.scrollmenu a:hover {
 @foreach($standardmenus as $standardmenu)
 	<div class="home" style="margin-right: 53px;">
         <div class= "container-stdm">
-			<div class="card-stdm" style="height: 100%;">
+			<div class="card-stdm" style="height: 100%; margin-bottom: -20px;">
 				<div class="box-image-stdm">
 					<div class="image-wrapper">
 						@foreach($standardmenu->standardmenuimages->take(1) as $standardmenuimage)<img src="data:image/jpeg;base64,{{$standardmenuimage->imagefile}}"/>@endforeach
