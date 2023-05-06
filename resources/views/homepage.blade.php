@@ -115,7 +115,7 @@ div.scrollmenu a:hover {
 				<div class="content-stdm"> 
 					<div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
 					<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>			
-					<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" type="button" class="btn btn-default center-block custshow">Details</button></a></div>
+					<div class="card-footer"><a  href="{{ route('products.custshow', [$product->id]) }}"><button id="custshow" style="background-color: #444452;" type="button" class="btn btn-primary1">Details <i class="fas fa-info-circle"></i></button></a></div>
 				</div>
 			</div>
 		</div>
