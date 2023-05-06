@@ -145,7 +145,8 @@ background: linear-gradient(-225deg, #884D80 0%, #A8BFFF 100%); */
 }
 
 .navbar-collapse.show {
-	background:rgba(97, 107, 117,.8); 
+background: rgba(132, 98, 168, 0.8);
+
 }
 
 .tableimg {
