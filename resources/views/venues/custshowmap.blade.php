@@ -5,7 +5,7 @@
 
 <style>
 .col-lg-2{
-	max-width: 13%;
+ max-width: 13%;
 }
 </style>
 <script>
@@ -36,18 +36,26 @@
         alert("There is a problem with your route to your json data: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
 });
 
-	
-	var redIcon = new L.Icon({
-		iconSize: [40, 40],
-		iconAnchor: [12, 41],
-		popupAnchor: [1, -34]
-	});
-	redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/redarrow.png')}}";
-	mymap.locate({setView: true, maxZoom: 16});
-	function onLocationFound(e) {
-		L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("This is you!").openPopup();
-	}
-	mymap.on('locationfound', onLocationFound);
+ mymap.on('click', onMapClick);
+
+ function onMapClick(e) { 
+  $('#lat').val(e.latlng.lat);
+  $('#lng').val(e.latlng.lng);        
+  $('#createVenueModal').modal('show');
+ }
+ 
+ // Add a red coloured marker for the user's current location
+ var redIcon = new L.Icon({
+  iconSize: [55, 50],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34]
+ });
+ redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/red-icon-arrow.png')}}";
+ mymap.locate({setView: true, maxZoom: 16});
+ function onLocationFound(e) {
+  L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("This is you!").openPopup();
+ }
+ mymap.on('locationfound', onLocationFound);
 
     
 </script>
