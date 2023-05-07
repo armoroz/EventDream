@@ -2,19 +2,19 @@
     <table class="table" id="customers-table">
         <thead>
         <tr>
-            <th>Firstname</th>
+        <th>First Name</th>
         <th>Surname</th>
-        <th>Dob</th>
+        <th>Date of Birth</th>
         <th>Age</th>
         <th>Phone</th>
         <th>Email</th>
-        <th>Addressline1</th>
-        <th>Addressline2</th>
+        <th>Address Line 1</th>
+        <th>Address Line 2</th>
         <th>City</th>
         <th>Eircode</th>
-        <th>Cardno</th>
-        <th>Cardexpiry</th>
-        <th>Cvv</th>
+        <th>Card No.</th>
+        <th>Card Expiry</th>
+        <th>CVV</th>
         <th>Username</th>
         <th>Pass</th>
             <th colspan="3">Action</th>
