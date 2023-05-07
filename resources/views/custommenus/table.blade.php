@@ -2,7 +2,7 @@
     <table class="table" id="custommenus-table">
         <thead>
         <tr>
-            <th>Custommenuname</th>
+        <th>Name</th>
         <th>Description</th>
 		<th>Customer ID</th>
             <th colspan="3">Action</th>
