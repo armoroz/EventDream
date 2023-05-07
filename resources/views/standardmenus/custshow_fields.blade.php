@@ -42,12 +42,6 @@
 					<p>{{ $standardmenu->style }}</p>
 				</div>
 
-				<!-- Course Field -->
-				<div class="col-sm-12">
-					{!! Form::label('course', 'Course:') !!}
-					<p>{{ $standardmenu->course }}</p>
-				</div>
-
 				<!-- Description Field -->
 				<div class="col-sm-12">
 					{!! Form::label('description', 'Description:') !!}
