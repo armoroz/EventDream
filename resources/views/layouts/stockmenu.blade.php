@@ -6,5 +6,8 @@
         <li>
              <a class="dropdown-item" href="{!! route('products.index') !!}">Products</a>
         </li>
+        <li>
+             <a class="dropdown-item" href="{!! route('events.index') !!}">Events</a>
+        </li>
     </ul>
 </li>

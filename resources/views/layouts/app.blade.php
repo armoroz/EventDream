@@ -144,7 +144,7 @@
 								<li><a href="{{route('venues.displaygrid')}}">Venues</a></li>
 								<li><a href="{{route('products.displaygrid')}}">Products</a></li>
 								<li><a href="{{route('menuoptions.index')}}">Menus</a></li>
-								<li><a href="{{route('venues.showmap')}}">Map</a></li>
+								<li><a href="{{route('venues.custshowmap')}}">Map</a></li>
 								<li><a href="{{route('aboutus.index')}}">About Us</a></li>
 							</ul>
 						</div>
@@ -190,7 +190,7 @@
 								</li>
 								
 								<li class="list-inline-item">
-									<a href="https://www.linkedin.com/login/">
+									<a href="https://www.linkedin.com/">
 										<i class="fab fa-linkedin"></i>
 									</a>
 								</li>

@@ -17,8 +17,7 @@
                 <div class="row">
                     @include('events.show_fields')
                 <div class="col-sm-6" style="margin-left: 850px; margin-bottom: 0px;">
-                    <a class="btn btn-primary float-right">
-                       href="{{ route('events.index')}}">
+                    <a class="btn btn-primary float-right" href="{{ route('events.index')}}">
                         Back
                     </a>
                 </div>					

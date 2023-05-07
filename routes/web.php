@@ -28,6 +28,12 @@ Route::post('login','App\Http\Controllers\Auth\AuthenticatedSessionController@st
 
 /* ROLE PERMISSIONS */
 
+/* SYSTEM ADMIN AND WAREHOUSE WORKER SECURITY */
+Route::group(['middleware' => ['role:System Admin|Warehouse Worker']], function () {
+    Route::resource('products', App\Http\Controllers\productController::class);
+    Route::resource('events', App\Http\Controllers\eventController::class);
+});
+
 /* SYSTEM ADMIN SECURITY */
 
 Route::group(['middleware' => ['role:System Admin']], function () {
@@ -46,7 +52,6 @@ Route::patch('/roles/updatepermissions/{id}', 'App\Http\Controllers\rolesControl
 Route::resource('customers', App\Http\Controllers\customerController::class);
 
 /* Events/Logs */
-Route::resource('events', App\Http\Controllers\eventController::class);
 Route::resource('eventproductlogs', App\Http\Controllers\eventproductlogController::class);
 
 /* Calendar */
@@ -55,9 +60,6 @@ Route::get('/calendar/all/display','App\Http\Controllers\calendarController@disp
 
 /* Bookings */
 Route::resource('bookings', App\Http\Controllers\bookingController::class);
-
-/* Products */
-Route::resource('products', App\Http\Controllers\productController::class);
 
 /* Venues/Ratings/Images */
 Route::resource('venues', App\Http\Controllers\venueController::class);
@@ -87,21 +89,8 @@ Route::get('standardmenu/newimages/{standardmenuid}', 'App\Http\Controllers\stan
 Route::resource('custommenus', App\Http\Controllers\custommenuController::class);
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
 
-
 });
 
-
-/* Warehouse Worker Security */
-/*
-Route::group(['middleware' => ['role:Warehouse Worker']], function () {
-Route::get('/products/create', 'App\Http\Controllers\productController@create')->name('products.create')->middleware('permission:Create Product');
-Route::delete('/products/{product}', 'App\Http\Controllers\productController@destroy')->name('products.destroy')->middleware('permission:Delete Product');
-Route::get('products/{product}', 'App\Http\Controllers\productController@show')->name('products.show');
-Route::get('products/{product}/edit', 'App\Http\Controllers\productController@edit')->name('products.edit');
-Route::post('products','App\Http\Controllers\productController@store')->name('products.store');
-Route::patch('products/{product}/update','App\Http\Controllers\productController@update')->name('products.update');
-//});
-*/
 
 /* CUSTOMER ROUTES */
 
