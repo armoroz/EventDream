@@ -1,0 +1,8 @@
+
+Admin account details:
+email: eoin@gmail.com
+password: 11111111
+
+Warehouse worker account details:
+email: john@gmail.com
+password: 11111111
