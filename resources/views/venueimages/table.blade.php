@@ -2,8 +2,8 @@
     <table class="table" id="venueimages-table">
         <thead>
         <tr>
-            <th>Venueid</th>
-			<th>Image file</th>
+            <th>Venue ID</th>
+			<th>Image</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
