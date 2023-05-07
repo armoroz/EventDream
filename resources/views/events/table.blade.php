@@ -2,6 +2,7 @@
     <table class="table" id="events-table">
         <thead>
         <tr>
+		<th>Venue</th>
         <th>Date</th>
 		<th>Name</th>
         <th>Time</th>
@@ -10,7 +11,6 @@
         <th>Discount</th>
 		<th>No. of Guests</th>
 		<th>Status</th>
-        <th>Venue ID</th>
         <th>Customer ID</th>
         <th>User ID</th>
         <th>Standard Menu ID</th>

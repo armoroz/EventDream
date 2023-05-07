@@ -8,14 +8,16 @@
                     <h1>Products</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('products.create') }}">
-                        Add New
-                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+@section('side2')
+<div class="button-container">
+    <a href="{{ route('products.create') }}" class="btn btn-primary1 fixed-button">New Product <i class="far fa-plus-circle" style="font-size: 1.1em; margin-right: 5px;"></i></a>
+</div>
+@endsection('side2')
 
     <div class="content px-3">
 

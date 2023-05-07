@@ -2,14 +2,14 @@
     <table class="table" id="products-table">
         <thead>
         <tr>
-            <th>Productname</th>
-        <th>Producttype</th>
-        <th>Productdesc</th>
-        <th>Productcost</th>
-        <th>Productlocation</th>
-        <th>Productquantity</th>
-        <th>Productimg</th>
-        <th>Userid</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Cost</th>
+        <th>Location</th>
+        <th>Quantity</th>
+        <th>Image</th>
+        <th>User ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
