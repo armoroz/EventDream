@@ -1,14 +1,10 @@
 @extends('layouts.app') 
 @section('content')
-<style>
-.control-label {
-    text-align: right;
-}
-</style>
+
 
 <section>
-	<div class="container">
-		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px;">
+	<div class="container" style="min-width: 1300px;">
+		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px; justify-content: space-between;">
 			
 				<h2 style="margin-bottom: 20px;">
 					Menu Items for Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
@@ -123,7 +119,7 @@
 							</tbody>
 						</table> 
 					</div>
-				
+				</div>
 					
 						<!-- Submit Fieldd -->
 						<div class="form-group col-sm-12" style="text-align: right;">
@@ -132,7 +128,7 @@
 							<a href="{!! route('custommenus.displaygrid') !!}" class="btn btn-default">Cancel</a>
 							{!! Form::close() !!}
 						</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -141,7 +137,8 @@
 <style>
 
 .col-lg-8 {
-	min-width: 1400px;
+	min-width: 1270px;
+	margin-left: 120px;
 }
 
 .card {
@@ -159,6 +156,14 @@ section {
 table.table-bordered {
   border: 1px solid grey;
 
+}
+
+.col-sm-4 { /* Add this */
+    max-width: calc(25% - 0px); /* Adjust this value to fit the columns within the container */
+}
+
+.control-label {
+    text-align: right;
 }
 
 </style>
