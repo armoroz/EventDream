@@ -2,14 +2,14 @@
     <table class="table" id="menuitems-table">
         <thead>
         <tr>
-        <th>Menuitemname</th>
+        <th>Name</th>
 		<th>Course</th>
-        <th>Menuitemdesc</th>
-        <th>Menuitemnutrition</th>
-        <th>Menuitemallergens</th>
-        <th>Menuitemcost</th>
-        <th>Menuitemimglink</th>
-        <th>Userid</th>
+        <th>Description</th>
+        <th>Nutrition</th>
+        <th>Allergens</th>
+        <th>Cost</th>
+        <th>Image</th>
+        <th>User ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
