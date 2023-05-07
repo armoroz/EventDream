@@ -2,20 +2,20 @@
     <table class="table" id="events-table">
         <thead>
         <tr>
-            <th>Eventdate</th>
-		<th>Event Name</th>
-        <th>Eventtime</th>
-        <th>Orderplacedon</th>
-        <th>Eventordertotal</th>
-        <th>Eventdiscount</th>
-		<th>numOfGuests</th>
-		<th>eventstatus</th>
-        <th>Venueid</th>
-        <th>Customerid</th>
-        <th>Userid</th>
-        <th>Standardmenuid</th>
-        <th>Custommenuid</th>
-        <th>Deliveryid</th>
+        <th>Date</th>
+		<th>Name</th>
+        <th>Time</th>
+        <th>Order Placed On</th>
+        <th>Order Total</th>
+        <th>Discount</th>
+		<th>No. of Guests</th>
+		<th>Status</th>
+        <th>Venue ID</th>
+        <th>Customer ID</th>
+        <th>User ID</th>
+        <th>Standard Menu ID</th>
+        <th>Custom Menu ID</th>
+        <th>Delivery ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>

@@ -15,7 +15,7 @@
 
 @section('side2')
 <div class="button-container">
-    <a href="{{ route('roles.create') }}" class="btn btn-primary1 fixed-button">New Role<i class="fas fa-plus-circle" style="font-size: 1.2em; margin-right: 5px;"></i></a>
+    <a href="{{ route('roles.create') }}" class="btn btn-primary1 fixed-button">New Role <i class="far fa-plus-circle" style="font-size: 1.1em; margin-right: 5px;"></i></a>
 </div>
 @endsection('side2')
 

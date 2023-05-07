@@ -15,7 +15,7 @@
 
 @section('side2')
 <div class="button-container">
-    <a href="{{ route('users.create') }}" class="btn btn-primary1 fixed-button" style="height: 50px; line-height: 50px;">New User</a>
+    <a href="{{ route('users.create') }}" class="btn btn-primary1 fixed-button" style="height: 50px; line-height: 50px;">New User <i class="far fa-plus-circle" style="font-size: 1.1em; margin-right: 5px;"></i></a>
 </div>
 @endsection('side2')
 
