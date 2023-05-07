@@ -18,7 +18,7 @@ footer {
   <div class= "container-mopt">
 	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
-        <img src="{{asset('img\img1.jpg')}}">
+        <img src="{{asset('img\Menu_Option1.jpg')}}">
       </div>
     <div class="content-mopt">
 		<h2>Standard Menus</h2>
@@ -29,7 +29,7 @@ footer {
    </div>
 	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
-        <img src="{{asset('img\img2.jpg')}}">
+        <img src="{{asset('img\Menu_Option2.jpg')}}">
       </div>
     <div class="content-mopt">
 		<h2>Our Dishes</h2>
@@ -40,7 +40,7 @@ footer {
    </div>
 	<div class="card-mopt" style="margin-bottom: -10px;">
 	  <div class="box-image-mopt">
-        <img src="{{asset('img\img3.jpg')}}">
+        <img src="{{asset('img\Menu_Option3.jpg')}}">
       </div>
     <div class="content-mopt">
 		<h2>Custom Menus</h2>
