@@ -2,8 +2,8 @@
     <table class="table" id="standardmenulogs-table">
         <thead>
         <tr>
-            <th>Menuitemid</th>
-        <th>Standardmenuid</th>
+        <th>Menu Item ID</th>
+        <th>Standard Menu ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
