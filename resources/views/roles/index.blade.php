@@ -8,14 +8,17 @@
                     <h1>Roles</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('roles.create') }}">
-                        Add New
-                    </a>
                 </div>
             </div>
         </div>
     </section>
+
+@section('side2')
+<div class="button-container">
+    <a href="{{ route('roles.create') }}" class="btn btn-primary1 fixed-button">New Role<i class="fas fa-plus-circle" style="font-size: 1.2em; margin-right: 5px;"></i></a>
+</div>
+@endsection('side2')
+
 
     <div class="content px-3">
 
