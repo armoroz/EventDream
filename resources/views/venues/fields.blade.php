@@ -51,8 +51,7 @@
 
 <!-- Userid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('userid', 'Userid:') !!}
-    {!! Form::number('userid', null, ['class' => 'form-control']) !!}
+	<input type="hidden" class="form-control" value="{{Auth::user()->id}}" id="userid" name="userid"/> 
 </div>
 
 <!-- Lat Field -->

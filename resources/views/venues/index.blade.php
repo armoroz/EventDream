@@ -8,14 +8,16 @@
                     <h1>Venues</h1>
                 </div>
                 <div class="col-sm-6">
-                    <a class="btn btn-primary float-right"
-                       href="{{ route('venues.showmap') }}">
-                        Add New
-                    </a>
                 </div>
             </div>
         </div>
     </section>
+	
+@section('side2')
+<div class="button-container">
+    <a href="{{ route('venues.showmap') }}" class="btn btn-primary1 fixed-button">New Venue</a>
+</div>
+@endsection('side2')
 	
 
     <div class="content px-3">

@@ -50,7 +50,7 @@
   iconAnchor: [12, 41],
   popupAnchor: [1, -34]
  });
- redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/red-icon-arrow.png')}}";
+ redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/redarrow.png')}}";
  mymap.locate({setView: true, maxZoom: 16});
  function onLocationFound(e) {
   L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("This is you!").openPopup();

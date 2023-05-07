@@ -1,5 +1,16 @@
 @extends('layouts.app')
 @section('content')
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2 justify-content-center">
+            <div class="col-sm-6 text-center" style="padding-top: 10px; margin-bottom: -10px; margin-left: 80px;">
+                <h1>Venue Map</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 @csrf
 <div id="mapid" class="center-block" style="width: 110%; height: 580px; margin-top: 25px; border: 4px solid #444452;"></div>
 
@@ -50,7 +61,7 @@
   iconAnchor: [12, 41],
   popupAnchor: [1, -34]
  });
- redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/red-icon-arrow.png')}}";
+ redIcon.options.iconUrl = "{{asset('images/vendor/leaflet/dist/redarrow.png')}}";
  mymap.locate({setView: true, maxZoom: 16});
  function onLocationFound(e) {
   L.marker(e.latlng, {icon: redIcon}).addTo(mymap).bindPopup("This is you!").openPopup();

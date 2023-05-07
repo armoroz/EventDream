@@ -92,7 +92,7 @@ class venue extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function userid()
+    public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'userid');
     }

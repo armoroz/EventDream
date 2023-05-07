@@ -2,15 +2,15 @@
     <table class="table" id="venues-table">
         <thead>
         <tr>
-            <th>Venuename</th>
+            <th>Venue Name</th>
         <th>Addressline1</th>
         <th>Addressline2</th>
         <th>City</th>
         <th>Eircode</th>
 		<th>Indoor?</th>
-        <th>Humancapacity</th>
-        <th>Costtorent</th>
-        <th>Userid</th>
+        <th>Capacity</th>
+        <th>Rent Price</th>
+        <th>Client</th> 
 		<th>Image</th>		
 		<th>Average Rating</th>
 		<th>Stars</th>
@@ -28,7 +28,7 @@
 			<td>{{ $venue->indoor }}</td>
             <td>{{ $venue->humancapacity }}</td>
             <td>{{ $venue->costtorent }}</td>
-            <td>{{ $venue->userid }}</td>
+            <td>{{ $venue->user->customer->firstname ?? 'N/A'}}</td>
 			<td>@foreach($venue->venueimages->take(1) as $venueimage)		
             <img class="tableimg center-block" src="data:image/jpeg;base64,{{$venueimage->imagefile}}">@endforeach</td>
 			<td>{!! round($venue->venueratings->avg('rating'),2); !!}</td> 
