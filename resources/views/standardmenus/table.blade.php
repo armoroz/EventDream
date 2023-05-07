@@ -2,12 +2,12 @@
     <table class="table" id="standardmenus-table">
         <thead>
         <tr>
-            <th>Standardmenuname</th>
+        <th>Name</th>
         <th>Style</th>
         <th>Course</th>
         <th>Description</th>
-        <th>Userid</th>
-        <th>Image</th>		
+        <th>User ID</th>
+        <th>Images</th>		
 		<th>Average Rating</th>
 		<th>Stars</th>
             <th colspan="3">Action</th>
