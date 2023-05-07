@@ -71,7 +71,7 @@
 	</div>
 
   <footer>
-    <p style="text-align: center;">Event Dream. All rights reserved.</p>
+    <p style="text-align: center;">EventDream. All rights reserved.</p>
   </footer>
 
 </section>

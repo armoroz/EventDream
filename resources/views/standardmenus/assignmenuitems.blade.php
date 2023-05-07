@@ -93,7 +93,7 @@
         </div>
 			<!-- Submit Fieldd -->
 			<div class="form-group col-sm-12">
-				{!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+				{!! Form::submit('Save', ['class' => 'btn btn-primary1']) !!}
 				<a href="{!! route('standardmenus.index') !!}" class="btn btn-default">Cancel</a>
 				{!! Form::close() !!}
 			</div>

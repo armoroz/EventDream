@@ -233,7 +233,7 @@
 				<div class="footer-bottom text-center pb-5">
 					<small class="madewithlove">
 						Made with <i class="fas fa-heart" style="color: #8b0000;"></i>
-					    for Eventdream customers <br>
+					    for EventDream customers <br>
 						© 2023 EventDream™
 					</small>
 				</div>

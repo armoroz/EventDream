@@ -59,5 +59,4 @@
 
     
 </script>
-@include('venues.createvenuemodal')
 @endsection
