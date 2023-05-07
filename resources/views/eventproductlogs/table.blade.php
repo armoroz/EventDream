@@ -2,10 +2,10 @@
     <table class="table" id="eventproductlogs-table">
         <thead>
         <tr>
-            <th>Eventproductquantity</th>
-        <th>Eventid</th>
-        <th>Productid</th>
-        <th>Totalcost</th>
+        <th>Quantity</th>
+        <th>Event ID</th>
+        <th>Product ID</th>
+        <th>Total Cost</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
