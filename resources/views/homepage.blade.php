@@ -113,7 +113,7 @@ div.scrollmenu a:hover {
 				</div>
 				
 				<div class="content-stdm"> 
-					<div class="card-header d-block">{{ $product->productname }} {{ $product->productdesc }} {{ $product->producttype }}</div> 
+					<div class="card-header d-block">{{ $product->productname }}</div> 
 					<div class="card-footer" style="text-align: center; color:black;">€{{$product->productcost}}</div>			
 					<div class="card-footer">
 						<a href="{{ route('products.custshow', [$product->id]) }}" id="custshow" class="btn btn-primary1">
