@@ -26,7 +26,7 @@ class productController extends AppBaseController
 	public function searchquery(Request $request)
 	{
 		$searchquery=$request->searchquery;
-		$products=\App\Models\product::where('productname','LIKE','%'.$searchquery.'%')->get(); 
+		$products=\App\Models\product::where('producttype','LIKE','%'.$searchquery.'%')->get(); 
 		
 		if ($request->session()->has('cart')) {
         $cart = $request->session()->get('cart');

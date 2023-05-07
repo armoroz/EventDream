@@ -26,12 +26,16 @@
 
 <div class="row mb-2" style="margin-left: -75px;">
 	<div class="col-sm-6" style="width: 138px;">
-		<select id="productnameselect" class="form-select" size="1" style="background-color: #2d3033; color: white; border-color: #2d3033;">
+		<select id="producttypeselect" class="form-select" size="1" style="background-color: #2d3033; color: white; border-color: #2d3033;">
 			<option value="All" selected>Category</option>
 			<option value="All">All</option>
 			<option value="Flower">Flower</option>
-			<option value="Elegance">Elegance</option>
-			<option value="Standard">Standard</option>
+			<option value="Chair">Chair</option>
+			<option value="Table">Table</option>
+			<option value="Drape">Drape</option>
+			<option value="Balloon">Balloon</option>
+			<option value="Dinnerware">Dinnerware</option>
+			<option value="Lighting">Lighting</option>
 		</select>
 	</div>
 
@@ -52,7 +56,7 @@
 
 <div class='d-flex flex-wrap align-content-start bg-transparent' style="margin-right:-100px; margin-left:-100px;"> 
     @foreach($products as $product) 
-	<div class="p-0 col-4 g-4 allproductnames {{$product->productname}}">
+	<div class="p-0 col-4 g-4 allproducttypes {{$product->producttype}}">
 		<div class= "bodyoptions-stdm">
 			<div class= "container-stdm">
 				<div class="card-stdm" style="height: 100%;">
@@ -102,14 +106,14 @@ $("#emptycart").click(function() { $.ajax({
   }); 
 }); 
 
-$("#productnameselect").on('change', function() {
-    var productname = $(this).find(":selected").val();
-    if (productname=='All') {
-        $('.allproductnames').show();
+$("#producttypeselect").on('change', function() {
+    var producttype = $(this).find(":selected").val();
+    if (producttype=='All') {
+        $('.allproducttypes').show();
     }
     else {
-        $('.allproductnames').hide();
-        $('.'+productname).show();
+        $('.allproducttypes').hide();
+        $('.'+producttype).show();
     } 
 });
 </script>
