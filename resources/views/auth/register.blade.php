@@ -46,7 +46,7 @@
         <input class="input1" type="password" id="password_confirmation" name="password_confirmation" required>
         <input class="input1" type="submit" id="submit" value="Submit">
 		
-		<a style="color: grey; margin-left: 38px;" href="{{ route('login') }}">
+		<a class="link" id="link1" style="margin-left: 48px;" href="{{ route('login') }}">
 			{{ __('Already registered?') }}
 		</a>
 		
@@ -182,6 +182,18 @@ label {
   line-height: 30px;
   outline: none !important;
 }
+
+.link {
+  background: transparent;
+  color: #f2f2f2;
+  font-size: 16px;
+  border: 0;
+  height: 30px;
+  width: 100%;  
+  line-height: 30px;
+  outline: none !important;
+}
+
 input::-moz-focus-inner { 
   border: 0; 
 }
@@ -194,6 +206,22 @@ input::-moz-focus-inner {
   color: #f2f2f2;
 }
 #submit:active {
+  color: #d0d0d2;
+}
+
+link::-moz-focus-inner { 
+  border: 0; 
+}
+
+#link1 {
+  color: #707075;
+  margin-top: 40px;
+  transition: color 300ms;
+}
+#link1:focus {
+  color: #f2f2f2;
+}
+#link1:active {
   color: #d0d0d2;
 }
 

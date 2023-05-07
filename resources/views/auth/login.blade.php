@@ -42,12 +42,12 @@
         <input class="input1" type="submit" id="submit" value="Submit">
 		
 		@if (Route::has('password.request'))
-			<a class="link" style="color: grey; margin-left: 25px;" href="{{ route('password.request') }}">
+			<a class="link" id="link1" style=" margin-left: 40px;" href="{{ route('password.request') }}">
 				{{ __('Forgot your password?') }}
 			</a>
 		@endif
 		
-			<a class="link" style="color: grey; margin-left: 52px;" href="{{ route('register') }}">
+			<a class="link" id="link1" style=" margin-left: 62px;" href="{{ route('register') }}">
 				{{ __('Not registered?') }}
 			</a>
 		
@@ -174,6 +174,17 @@ path {
   outline: none !important;
 }
 
+.link {
+  background: transparent;
+  color: #f2f2f2;
+  font-size: 16px;
+  border: 0;
+  height: 30px;
+  width: 100%;  
+  line-height: 30px;
+  outline: none !important;
+}
+
 .form {
   margin: 40px;
   position: absolute;
@@ -203,6 +214,21 @@ input::-moz-focus-inner {
   border: 0; 
 }
 
+link::-moz-focus-inner { 
+  border: 0; 
+}
+
+#link1 {
+  color: #707075;
+  margin-top: 40px;
+  transition: color 300ms;
+}
+#link1:focus {
+  color: #f2f2f2;
+}
+#link1:active {
+  color: #d0d0d2;
+}
 
 
 </style>
