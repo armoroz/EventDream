@@ -2,8 +2,8 @@
     <table class="table" id="standardmenuimages-table">
         <thead>
         <tr>
-            <th>Standardmenuid</th>
-            <th>Image file</th>
+            <th>Standard Menu ID</th>
+            <th>Images</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
