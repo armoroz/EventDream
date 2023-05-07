@@ -2,10 +2,10 @@
     <table class="table" id="standardmenuratings-table">
         <thead>
         <tr>
-            <th>Rating</th>
-			<th>Star Rating</th>
+        <th>Rating</th>
+	    <th>Star Rating</th>
         <th>Comment</th>
-        <th>Standardmenuid</th>
+        <th>Standard Menu ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
