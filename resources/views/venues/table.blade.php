@@ -2,16 +2,16 @@
     <table class="table" id="venues-table">
         <thead>
         <tr>
-            <th>Venue Name</th>
-        <th>Addressline1</th>
-        <th>Addressline2</th>
+        <th>Name</th>
+        <th>Address Line 1</th>
+        <th>Address Line 2</th>
         <th>City</th>
         <th>Eircode</th>
-		<th>Indoor?</th>
+		<th>Indoor (or Outdoor)</th>
         <th>Capacity</th>
         <th>Rent Price</th>
         <th>Client</th> 
-		<th>Image</th>		
+		<th>Images</th>		
 		<th>Average Rating</th>
 		<th>Stars</th>
             <th colspan="3">Action</th>
