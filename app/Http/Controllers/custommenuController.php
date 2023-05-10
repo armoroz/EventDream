@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
-use App\Models\Custommenu as Custommenu;
-use App\Models\Menuitem as Menuitem;
+use App\Models\custommenu as custommenu;
+use App\Models\menuitem as menuitem;
 
 class custommenuController extends AppBaseController
 {

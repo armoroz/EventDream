@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Response;
 use Session;
-use App\Models\Standardmenu as Standardmenu;
-use App\Models\Menuitem as Menuitem;
+use App\Models\standardmenu as standardmenu;
+use App\Models\menuitem as menuitem;
 use App\Models\customer;
 
 class standardmenuController extends AppBaseController
@@ -310,15 +310,15 @@ class standardmenuController extends AppBaseController
 	
 	public function assignMenuItems($id)
 	{
-		$standardmenu = Standardmenu::find($id);
-		$menuitems = Menuitem::all();
+		$standardmenu = standardmenu::find($id);
+		$menuitems = menuitem::all();
 			
 		return view('standardmenus.assignmenuitems')->with('standardmenu',$standardmenu)->with('menuitems',$menuitems);
 	}
 
 	public function updateMenuItems(Request $request, $id)
 	{
-		$standardmenu = Standardmenu::find($id);
+		$standardmenu = standardmenu::find($id);
 		$menuitems = $request->input('menuitem');
 
 		$standardmenu->menuitems()->sync($menuitems);
