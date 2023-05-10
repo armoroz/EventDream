@@ -12,7 +12,7 @@
     </section>
 
     <div class="content px-3">
-        <div class="card">
+        <div class="card" style="box-shadow: 0 6px 21px rgba(0,0,0,1);">
             <div class="card-body">
                 <div class="row">
                     @include('customers.custshow_fields')

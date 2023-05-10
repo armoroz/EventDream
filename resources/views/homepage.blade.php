@@ -70,7 +70,7 @@ div.scrollmenu a:hover {
 
 </style>
 
-<h2 style="text-align: center; font-size: 20pt; margin: -25px;">Book a Venue or Browse Products</h2>
+<h2 style="text-align: center; font-size: 20pt; margin: -25px;">Book a Venue & Browse Products</h2>
 <h2 style="text-align: center;">Venues</h2>
 <div class="scrollmenu">
 @foreach($venues as $venue)

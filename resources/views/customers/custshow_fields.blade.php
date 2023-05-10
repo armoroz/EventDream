@@ -1,6 +1,5 @@
 <style>
 table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
   margin: 4%;
@@ -16,7 +15,7 @@ tr:nth-child(even) {
 </style>
 
 <!-- Username Field -->
-<div class="col-sm-12" style="font-size: 26pt; text-align: center; margin-bottom: 20px;">
+<div class="col-sm-12" style="font-size: 26pt; text-align: center; margin-bottom: 20px; margin-left: -5px;">
     <p>{{ $customer->username }}</p>
 </div>
 

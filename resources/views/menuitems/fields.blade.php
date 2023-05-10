@@ -43,5 +43,5 @@
 <!-- Course Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('course', 'Course:') !!}
-    {!! Form::select('course', ['starter' => 'Starter', 'main' => 'Main', 'dessert' => 'Dessert'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('course', ['Starter' => 'Starter', 'Main' => 'Main', 'Dessert' => 'Dessert', 'Drink' => 'Drink'], null, ['class' => 'form-control']) !!}
 </div>

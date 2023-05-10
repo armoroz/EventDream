@@ -15,9 +15,10 @@
 				<input type="hidden" class="form-control" value="Event" id="eventstatus" name="eventstatus"/> 
 			  </div>
 			  <div class="form-group"> 
-				<label for="eventname">Event Name</label> 
-				<input type="text" class="form-control" id="eventname" name="eventname" placeholder="e.g. Mia's 21st"/> 
-			  </div> 
+				<label for="venueid">Venue</label> 
+				<input type="hidden" class="form-control" value="{{$venueid}}" id="venueid" name="venueid" readonly/> 
+				<input type="text" class="form-control" value="{{$venue->venuename}}" readonly/>
+			  </div>
 			  <div class="form-group"> 
 				<label for="eventdate">Event Date</label> 
 				<input type="text" class="form-control" id="eventDate" name="eventdate" readonly/> 
@@ -27,14 +28,13 @@
 				<input type="text" class="form-control" id="eventtime" name="eventtime" placeholder="HH:MM" />
 			  </div> 
 			  <div class="form-group"> 
+				<label for="eventname">Event Name</label> 
+				<input type="text" class="form-control" id="eventname" name="eventname" placeholder="e.g. Mia's 21st"/> 
+			  </div> 
+			  <div class="form-group"> 
 				<label for="numOfGuests">No. of Guests</label> 
 				<input type="text" class="form-control" id="numOfGuests" name="numOfGuests" placeholder="No. of Guests" />
 			  </div> 
-			  <div class="form-group"> 
-				<label for="venueid">Venue</label> 
-				<input type="hidden" class="form-control" value="{{$venueid}}" id="venueid" name="venueid" readonly/> 
-				<input type="text" class="form-control" value="{{$venue->venuename}}" readonly/>
-			  </div>
 			  <div class="modal-footer"> 
 				<button type="submit" id="submitButton" class="btn btn-default" data-dismiss="modal">Book Event</button> 
 			  </div> 

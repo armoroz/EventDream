@@ -4,7 +4,7 @@
 
 <section>
 	<div class="container" style="min-width: 1300px;">
-		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 30px; justify-content: space-between;">
+		<div class="carousel-details-wrapper" style="display: flex; flex-wrap: wrap; margin-left: 5px; justify-content: space-between;">
 			
 				<h2 style="margin-bottom: 20px;">
 					Menu Items for Custom Menu: <b>{{$custommenu->custommenuname}}</b> 
@@ -27,7 +27,7 @@
 								</tr>
 							</thead> 
 							<tbody> 
-								@foreach($menuitems->where('course', 'starter') as $menuitem)
+								@foreach($menuitems->where('course', 'Starter') as $menuitem)
 								<tr>
 									<td><img height="100px" width="100px" src="{{ $menuitem->menuitemimglink }}"></td>
 									<td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
@@ -58,7 +58,7 @@
 								</tr>
 							</thead> 
 							<tbody> 
-								@foreach($menuitems->where('course', 'main') as $menuitem)
+								@foreach($menuitems->where('course', 'Main') as $menuitem)
 								<tr>
 									<td><img height="100px" width="100px" src="{{ $menuitem->menuitemimglink }}"></td>
 									<td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
@@ -83,7 +83,7 @@
 								</tr>
 							</thead> 
 							<tbody> 
-								@foreach($menuitems->where('course', 'dessert') as $menuitem)
+								@foreach($menuitems->where('course', 'Dessert') as $menuitem)
 								<tr>
 									<td><img style="max-height:100px; width:100px;" src="{{ $menuitem->menuitemimglink }}"></td>
 									<td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
@@ -108,7 +108,7 @@
 								</tr>
 							</thead> 
 							<tbody> 
-								@foreach($menuitems->where('course', 'drink') as $menuitem)
+								@foreach($menuitems->where('course', 'Drink') as $menuitem)
 								<tr>
 									<td><img style="max-height:100px; width:100px;" src="{{ $menuitem->menuitemimglink }}"></td>
 									<td><label class="control-label col-sm-10">{{$menuitem->menuitemname}}</label></td>
@@ -137,8 +137,8 @@
 <style>
 
 .col-lg-8 {
-	min-width: 1270px;
-	margin-left: 120px;
+	min-width: 1360px;
+	margin-left: 80px;
 }
 
 .card {
