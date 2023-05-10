@@ -49,4 +49,11 @@ class User extends Authenticatable
 	{
 		return $this->hasOne(\App\Models\customer::class, 'userid');
 	}
+	
+	public function venue()
+	{
+		return $this->hasMany(\App\Models\venue::class, 'userid');
+	}
+
+
 }
