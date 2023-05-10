@@ -29,11 +29,11 @@
 			 <a class="dropdown-item" href="{!! route('products.index') !!}">Products</a>
         </li>
         <li>   
-			 <a class="dropdown-item" href="{!! route('venues.index') !!}">Venues</a>
-        </li>
-        <li>   
 			 <a class="dropdown-item" href="{!! route('venues.showmap') !!}">Map</a>
         </li>
+        <li>   
+			 <a class="dropdown-item" href="{!! route('venues.index') !!}">Venues</a>
+        </li>		
 		<li>
              <a class="dropdown-item" href="{!! route('venueratings.index') !!}">Venue Ratings</a>
         </li>
