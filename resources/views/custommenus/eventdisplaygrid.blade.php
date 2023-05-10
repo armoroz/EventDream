@@ -31,11 +31,11 @@
 	  <div class= "container-ctm">
 		<div class="card-ctm">
 			<div class="content-ctm" style="margin:-10px">
-			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }}</h5></div>	
+			<div class="card-header d-block"><h5 class="mx-auto d-block">{{ $custommenu->custommenuname }}</h5></div>
+			<div class="card-footer"><button id="addItem" type="button" class="btn btn-primary2 addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button></div>
+			<div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-primary1 custshow">Details <i class="fas fa-info-circle"></i></button></a></div>		
 			<div class="card-footer"><a href="{!! route('custommenus.assignmenuitems', [$custommenu->id]) !!}" 
-			     class="btn btn-primary1" title="Update Dishes">Update Dishes<i class='far fa-hat-chef' style='font-size: 1.1em; margin-left: 5px;'></i></a></div>	
-		    <div class="card-footer"><button id="addItem" type="button" class="btn btn-primary2 addItem" value="{{$custommenu->id}}"><i class='far fa-shopping-cart'></i></button></div>	
-            <div class="card-footer"><a  href="{{ route('custommenus.custshow', [$custommenu->id]) }}"><button id="custshow" type="button" class="btn btn-primary1 custshow">Details <i class="fas fa-info-circle"></i></button></a></div>				 
+			     class="btn btn-primary1" title="Update Dishes">Update Dishes<i class='far fa-hat-chef' style='font-size: 1.1em; margin-left: 5px;'></i></a></div>
 			</div> 
 		</div>
 	  </div> 
