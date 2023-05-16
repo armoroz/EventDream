@@ -11,18 +11,17 @@
         <th>Discount</th>
 		<th>No. of Guests</th>
 		<th>Status</th>
-        <th>Customer ID</th>
-        <th>User ID</th>
+        <th>Customer</th>
         <th>Standard Menu ID</th>
         <th>Custom Menu ID</th>
-        <th>Delivery ID</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
         <tbody>
         @foreach($events as $event)
             <tr>
-                <td>{{ $event->eventdate }}</td>
+			<td>{{ $event->venue->venuename ?? 'N/A' }}</td>
+            <td>{{ $event->eventdate }}</td>
 			<td>{{ $event->eventname }}</td>
             <td>{{ $event->eventtime }}</td>
             <td>{{ $event->orderplacedon }}</td>
@@ -30,12 +29,9 @@
             <td>{{ $event->eventdiscount }}</td>
 			<td>{{ $event->numOfGuests }}</td>
 			<td>{{ $event->eventstatus }}</td>
-            <td>{{ $event->venue->venuename ?? 'N/A' }}</td>
             <td>{{ $event->customer->firstname ?? 'N/A' }}</td>
-            <td>{{ $event->userid }}</td>
             <td>{{ $event->standardmenuid }}</td>
             <td>{{ $event->custommenuid }}</td>
-            <td>{{ $event->deliveryid }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['events.destroy', $event->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
