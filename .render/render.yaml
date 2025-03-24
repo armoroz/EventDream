@@ -4,6 +4,10 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
+    buildCommand: |
+      composer install
+      php artisan migrate --force
+      php artisan config:cache
     envVars:
       - key: APP_ENV
         value: production
