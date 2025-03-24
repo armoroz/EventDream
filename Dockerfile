@@ -1,28 +1,29 @@
-FROM php:8.2-fpm
+FROM php:8.2
 
-# Install system dependencies
+# Install dependencies
 RUN apt-get update && apt-get install -y \
-    git curl zip unzip libzip-dev \
-    sqlite3 libsqlite3-dev \
-    && docker-php-ext-install pdo pdo_sqlite
+    git \
+    unzip \
+    curl \
+    libsqlite3-dev \
+    libzip-dev \
+    zip
 
 # Install Composer
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php && \
+    mv composer.phar /usr/local/bin/composer
 
 # Set working directory
 WORKDIR /var/www
 
-# Copy project files
-COPY . .
+# Copy existing application directory contents
+COPY . /var/www
 
-# Install PHP dependencies
+# Install Laravel dependencies
 RUN composer install
 
-# Permissions
-RUN chown -R www-data:www-data /var/www && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
-
-# Expose Laravel port
+# Expose port
 EXPOSE 8000
 
-# Start Laravel dev server (generates key on start if needed)
-CMD ["/bin/sh", "-c", "php artisan config:clear && php artisan key:generate && php artisan serve --host=0.0.0.0 --port=8000"]
+# Run Laravel dev server
+CMD php artisan serve --host=0.0.0.0 --port=8000
