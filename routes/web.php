@@ -185,3 +185,7 @@ Route::get('custommenus/all/emptycart', 'App\Http\Controllers\custommenuControll
 Route::get('/custommenus/assignmenuitems/{id}', 'App\Http\Controllers\custommenuController@assignMenuitems')->name('custommenus.assignmenuitems');
 Route::patch('/custommenus/updatemenuitems/{id}', 'App\Http\Controllers\custommenuController@updateMenuitems')->name("custommenus.updatemenuitems");
 Route::resource('custommenulogs', App\Http\Controllers\custommenulogController::class);
+
+Route::get('/debug-log', function () {
+    return response()->file(storage_path('logs/laravel.log'));
+});
