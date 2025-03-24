@@ -31,7 +31,7 @@ return [
     | so make sure you have the driver for your particular database of
     | choice installed on your machine before you begin development.
     |
-    */
+    
 
     'connections' => [
 
@@ -41,7 +41,14 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
-        ],
+        ],*/
+		
+	'connections' => [
+		'sqlite' => [
+			'driver' => 'sqlite',
+			'database' => database_path('database.sqlite'),
+			'prefix' => '',
+		],
 
         'mysql' => [
             'driver' => 'mysql',
