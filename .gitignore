@@ -1,6 +1,6 @@
 /vendor 
 /node_modules .env
-# *.sql
+*.sql
 node_modules/
 node_modules/
 .env
