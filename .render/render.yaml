@@ -11,7 +11,3 @@ services:
         value: false
       - key: APP_KEY
         value: base64:TqBKEQRIWGw/OhOUcVxg7x0Mhp6n4O5/KbYaYGIo5fs=
-      - key: DB_CONNECTION
-        value: sqlite
-      - key: DB_DATABASE
-        value: /opt/render/project/src/database/database.sqlite
